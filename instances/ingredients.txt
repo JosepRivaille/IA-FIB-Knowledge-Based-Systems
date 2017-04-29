@@ -1,5 +1,5 @@
 ing_name	ing_availability	calories	fat	protein	carbohydrates	cholesterol
-STRING	SYMBOL	INTEGER	INTEGER	INTEGER	INTEGER	INTEGER
+STRING	INTEGER	INTEGER	INTEGER	INTEGER	INTEGER	INTEGER
 ; Vegetables
 Artichoke	[1 2 3 4 5 10 11 12]	47	1	3	11	0
 Asparagus	[2 3 4 5 6]	20	0	2	4	0
@@ -12,15 +12,52 @@ Carrot	[7 8 9 10]	41	0	1	19	0
 Cauliflower	[8 9 10 11 12]	24	0	2	5	0
 Lettuce	[4 5 6 7 8 9]	14	0	1	3	0
 Corn	[6 7 8 9 10]	365	5	9	74	0
-Garlic	[1 2 3 4 5 6 7 8 9 10 11 12]	148	1	6	33	0
-Onion	[1 2 3 4 5 6 7 8 9 10 11 12]	39	0	1	9	0
+Garlic	[0]	148	1	6	33	0
+Onion	[0]	39	0	1	9	0
 Pepper	[6 7 8 9 10]	39	0	2	9	0
 Spinach	[1 2 11 12]	23	0	3	4	0
 Cucumber	[5 6 7 8 9]	15	0	1	4	0
-Tomato	[1 2 3 4 5 6 7 8 9 10 11 12]	17	0	1	4	0
-Potato	[1 2 3 4 5 6 7 8 9 10 11 12]	76	0	2	17	0
+Tomato	[0]	17	0	1	4	0
+Potato	[0]	76	0	2	17	0
 ; Fruits
+Apple	[0]	52	0	0	14	0
+Banana	[0]	88	0	1	23	0
+Grape	[9 10 11]	66	0	1	17	0
+Kiwi	[10 11 12]	60	1	1	15	0
+Lemon	[0]	28	0	1	9	0
+Mango	[5 6 7 8]	59	0	1	15	0
+Melon	[6 7 8]	33	0	1	8	0
+Orange	[1 2 3 10 11 12]	47	0	1	12	0
+Peach	[6 7 8]	39	0	1	10	0
+Pear	[8 9 10]	57	0	0	15	0
+Strawberry	[3 4 5 6 7]	32	0	1	8	0
 ; Meat
+Bacon	[0]	540	42	37	1	110
+Beef	[0]	250	15	26	0	90
+Chicken	[0]	239	14	27	0	88
+Duck	[0]	337	28	19	0	84
+Lamb	[0]	294	21	25	0	97
+Turkey	[0]	188	7	29	0	109
+Veal	[0]	172	8	24	0	103
 ; Fish
-; Lactic
+Abalone	[0]	189	20	11	0	94
+Anchovy	[0]	210	10	29	0	85
+Cockle	[0]	79	1	13	5	52
+Crab	[0]	97	2	19	0	53
+Crawfish	[0]	87	1	18	0	137
+Cuttlefish	[0]	158	1	32	2	224
+Halibut	[0]	185	14	14	0	46
+Prawn	[0]	99	0	24	0	189
+Salmon	[0]	208	13	20	0	55
+Tuna	[0]	184	6	30	0	49
+; Lactic+
+Cheese	[0]	402	33	25	1	105
+Chocolate	[0]	545	31	43	61	8
+Eggs	[0]	155	11	13	1	373
+Milk	[0]	43	1	3	5	5
+Yogurt	[0]	58	1	10	4	5
 ; Cereals
+Bread	[0]	264	3	9	49	0
+Cookies	[0]	140	8	2	15	25
+Rice	[0]	130	0	3	28	0
+Pasta	[0]	131	1	5	25	33

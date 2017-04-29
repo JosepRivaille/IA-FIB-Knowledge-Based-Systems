@@ -16,6 +16,7 @@ def write_attribute_type(attribute, data_type):
 
 def generate_instance(class_name):
 	instance_id = 10000
+	counter = 0
 
 	instances_file = class_name.lower() + '.txt'
 
@@ -35,7 +36,6 @@ def generate_instance(class_name):
 				line_list = line.split('\t')
 				line_list[-1] = line_list[-1].rstrip()
 
-				print(line_list)
 				for index, attribute in enumerate(line_list):
 					header = headers[index]
 					data_type = types[index]
@@ -43,6 +43,9 @@ def generate_instance(class_name):
 				f.write('\n)\n\n')
 
 				instance_id += 1
+				counter += 1
+
+	print('Successfully created ' + str(counter) + ' instances of ' + class_name)
 
 if __name__ == '__main__':
 	args = argv[1:]
