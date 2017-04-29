@@ -1,4 +1,4 @@
-; Fri Apr 28 19:55:23 CEST 2017
+; Sat Apr 29 10:08:32 CEST 2017
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -14,7 +14,7 @@
 		(create-accessor read-write))
 	(single-slot price_max
 		(type FLOAT)
-		(range 0.0 %3FVARIABLE)
+		(range 0.0 1000.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot price
@@ -33,7 +33,7 @@
 		(create-accessor read-write))
 	(single-slot price_min
 		(type FLOAT)
-		(range 0.0 %3FVARIABLE)
+		(range 0.0 1000.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot style
@@ -48,7 +48,7 @@
 		(create-accessor read-write))
 	(single-slot number_eaters
 		(type INTEGER)
-		(range 1 %3FVARIABLE)
+		(range 1 1000)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot dishes
@@ -70,8 +70,8 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot disponibility_months
-		(type INTEGER)
-		(range 1 12)
+		(type SYMBOL)
+		(allowed-values January February)
 		(cardinality 0 12)
 		(create-accessor read-write))
 	(single-slot classification
@@ -96,8 +96,8 @@
 	(is-a USER)
 	(role concrete)
 	(single-slot month
-		(type INTEGER)
-		(range 1 12)
+		(type SYMBOL)
+		(allowed-values January February March April May June July August September October November December)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot dishes
@@ -107,7 +107,7 @@
 		(create-accessor read-write))
 	(single-slot price_max
 		(type FLOAT)
-		(range 0.0 %3FVARIABLE)
+		(range 0.0 1000.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot type
@@ -122,12 +122,12 @@
 		(create-accessor read-write))
 	(single-slot price_min
 		(type FLOAT)
-		(range 0.0 %3FVARIABLE)
+		(range 0.0 1000.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot number_eaters
 		(type INTEGER)
-		(range 1 %3FVARIABLE)
+		(range 1 1000)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -179,7 +179,7 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot disponibility_months
-		(type INTEGER)
-		(range 1 12)
+		(type SYMBOL)
+		(allowed-values January February March April May June July August September October November December)
 		(cardinality 0 12)
 		(create-accessor read-write)))
