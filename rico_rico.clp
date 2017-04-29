@@ -196,3 +196,142 @@
                 (nutritional_values "3")
                 (price 15.0)) 
 )
+
+
+;%%%%%
+;%
+;% DEFINITIONS
+;%
+;%%%%%
+
+(defglobal 
+        ?*CUISINE_STYLES* = (create$ Indian Mexican Chineese none)
+        ?*MONTHS* = (create$ January February March April May June July August September October November December)
+)
+
+;%%%%%
+;%
+;% FUNCTIONS
+;%
+;%%%%%
+
+(deffunction ask-question-opt (?question $?allowed-values)
+        (printout t ?question)
+        (bind ?answer (read))
+        (while (not (member ?answer ?allowed-values)) do
+                (printout t ?question)
+                (bind ?answer (read))
+                (if (lexemep ?answer) 
+                        then (bind ?answer ?answer)))
+        ?answer
+)
+
+(deffunction ask-question-multi-opt (?question $?allowed-values)
+        (printout t ?question crlf "Allowed answers -> " $?allowed-values crlf)
+        (bind ?line (readline))
+        (bind $?answer (explode$ ?line))
+        (bind ?valid FALSE)
+        (while (not ?valid) do
+                (loop-for-count (?i 1 (length$ $?answer)) do
+                        (bind ?valid FALSE)
+                        (bind ?value-belongs FALSE)
+                        (loop-for-count (?j 1 (length$ $?allowed-values)) do
+                                (if (eq (nth$ ?i $?answer) (nth$ ?j $?allowed-values)) then
+                                        (bind ?value-belongs TRUE)
+                                        (break)
+                                )
+                        )
+                        (if (not ?value-belongs) then
+                                (printout t (nth$ ?i $?answer) " is not a valid option" crlf)
+                                (break)
+                        )
+                        (bind ?valid TRUE)
+                )
+                (if ?valid then (break))
+
+                (printout t ?question crlf)
+                (bind ?line (readline))
+                (bind $?answer (explode$ ?line))
+        )
+        $?answer
+        ; TODO: Errors
+)
+
+(deffunction is-num (?num)
+        (bind ?ret (or (eq (type ?num) INTEGER) (eq (type ?num) FLOAT))) ?ret
+)
+
+(deffunction ask-question-num (?question ?min ?max) 
+        (printout t ?question)
+        (bind ?answer (read))
+        (while (not (and (is-num ?answer) (>= ?answer ?min) (<= ?answer ?max))) do
+                (printout t ?question)
+                (bind ?answer (read)))
+        ?answer
+)
+
+;(deffunction print_menus
+;        (recommendation ?r)
+;        =>
+;        (bind ?menus (find-instance ((?ins Menu)) (eq ?ins:Name ?r)))
+;        (loop-for-count (?i 1 (length$ ?menus)) do
+;                (printout t "----------------------------------------------------" crlf)
+;                (printout t "- Main course - " (send (send (nth$ ?i ?menus) get_main_course) get_name) ". " crlf)         
+;                (printout t "- Second course - " (send (send (nth$ ?i ?menus) get_second_course) get_name) ". " crlf)
+;                (printout t "- Dessert - " (send (send (nth$ ?i ?menus) get_dessert) get_name) ". " crlf)
+;                (printout t "- Drink - " (send (send (nth$ ?i ?menus) get_drink) get_name) ". " crlf)
+;                (printout t "----------------------------------------------------" crlf)
+;        )
+;)
+
+;%%%%%
+;%
+;% RULES
+;%
+;%%%%%
+
+(defrule determine-event-date ""
+        (declare (salience -1))
+        (not (event date ?))
+        (not (event month ?))
+        (not (event hour ?))
+        =>
+        (printout t "Tell me event date" crlf)
+        (bind ?day (ask-question-num "Day? " 1 31))
+        (bind ?month (ask-question-opt "Month? " ?*MONTHS*))
+        (bind ?hour (ask-question-num "Hour? " 0 24))
+        (assert (event day ?day))
+        (assert (event month ?month))
+        (assert (event hour ?hour))
+)
+
+(defrule determine-event-guests ""
+        (declare (salience -2))
+        (not (event guests ?))
+        =>
+        (bind ?guests (ask-question-num "Number of guests? " 1 10000))
+        (assert (event guests ?guests))
+)
+
+(defrule determine-preferred-cuisine-styles ""
+        (declare (salience -3))
+        (not (event preferred-cuisine-styles $?))
+        =>
+        (bind $?styles (ask-question-multi-opt "Which cuisine styles do you prefer? " ?*CUISINE_STYLES*))
+        (assert (event preferred-cuisine-styles $?styles))
+
+)
+
+(defrule determine-price-range ""
+        (declare (salience -4))
+        (not (or (event price_min ?) (event price_max ?)))
+        =>
+        (while TRUE do
+                (bind ?price_min (ask-question-num "Minimum price to pay? " 0 10000))
+                (bind ?price_max (ask-question-num "Maximum price to pay? " 0 10000))
+                (if (>= ?price_max ?price_min) then (break))
+                (printout t "Maximum price must be greater than minimum price" crlf)
+        )
+        (assert (event price_min ?price_min))
+        (assert (event price_max ?price_max))
+)
