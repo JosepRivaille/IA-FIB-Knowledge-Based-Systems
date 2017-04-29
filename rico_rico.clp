@@ -1,5 +1,5 @@
 ; Sat Apr 29 10:08:32 CEST 2017
-; 
+;
 ;+ (version "3.5")
 ;+ (build "Build 663")
 
@@ -204,7 +204,7 @@
 ;%
 ;%%%%%
 
-(defglobal 
+(defglobal
         ?*CUISINE_STYLES* = (create$ Indian Mexican Chineese none)
         ?*MONTHS* = (create$ January February March April May June July August September October November December)
 )
@@ -221,7 +221,7 @@
         (while (not (member ?answer ?allowed-values)) do
                 (printout t ?question)
                 (bind ?answer (read))
-                (if (lexemep ?answer) 
+                (if (lexemep ?answer)
                         then (bind ?answer ?answer)))
         ?answer
 )
@@ -260,7 +260,7 @@
         (bind ?ret (or (eq (type ?num) INTEGER) (eq (type ?num) FLOAT))) ?ret
 )
 
-(deffunction ask-question-num (?question ?min ?max) 
+(deffunction ask-question-num (?question ?min ?max)
         (printout t ?question)
         (bind ?answer (read))
         (while (not (and (is-num ?answer) (>= ?answer ?min) (<= ?answer ?max))) do
@@ -274,7 +274,7 @@
         (loop-for-count (?i 1 (length$ ?menus)) do
                 (printout t "----------------------------------------------------" crlf)
                 (printout t "- Ingredient - " (send (nth$ ?i $?menus) get-ingredient_name) "." crlf)
-                ;(printout t "- Main course - " (send (send (nth$ ?i ?menus) get_main_course) get_ingredient_name) ". " crlf)         
+                ;(printout t "- Main course - " (send (send (nth$ ?i ?menus) get_main_course) get_ingredient_name) ". " crlf)
                 ;(printout t "- Second course - " (send (send (nth$ ?i ?menus) get_second_course) get_name) ". " crlf)
                 ;(printout t "- Dessert - " (send (send (nth$ ?i ?menus) get_dessert) get_name) ". " crlf)
                 ;(printout t "- Drink - " (send (send (nth$ ?i ?menus) get_drink) get_name) ". " crlf)
@@ -288,31 +288,31 @@
 ;%
 ;%%%%%
 
-(defrule print-welcome-message
+(defrule print-welcome-message "Initial program message"
         (declare (salience 0))
         =>
-        (printout t "                                           -------------------------------------------" crlf)
-        (printout t "                                           |                    ___          /|      |" crlf)
-        (printout t "                                           |       ||||     .-''   ''-.     } |      |" crlf)
-        (printout t "                                           |  |||| ||||   .'  .-'`'-.  '.   } | /  \\ |" crlf)
-        (printout t "                                           |  |||| \\  /  /  .'       '.  \\  } | |()| |" crlf)
-        (printout t "--------------------------------------------  \\  /  ||  /  :           :  \\  \\| \\  / |" crlf)
+        (printout t "--------------------------------------------------------------------------------------" crlf)
+        (printout t "|                                                               ___          /|      |" crlf)
+        (printout t "|     * Eric Dacal                                 ||||     .-''   ''-.     } |      |" crlf)
+        (printout t "|     * Josep de Cid                          |||| ||||   .'  .-'`'-.  '.   } | /  \\ |" crlf)
+        (printout t "|     * Joaquim Marset                        |||| \\  /  /  .'       '.  \\  } | |()| |" crlf)
+        (printout t "|                                             \\  /  ||  /  :           :  \\  \\| \\  / |" crlf)
         (printout t "|                Welcome to                    ||   ||  | :             : |  ||  ||  |" crlf)
-        (printout t "|     _____                _____               %%   %%  | :   IA-SBC    : |  %%  %%  |" crlf)
+        (printout t "|     _____                _____               %%   %%  | :             : |  %%  %%  |" crlf)
         (printout t "|   (, /   ) ,           (, /   ) ,            %%   %%  \\  :           :  /  %%  %%  |" crlf)
         (printout t "|     /__ /    _  _        /__ /    _  _       %%   %%   \\  '.       .'  /   %%  %%  |" crlf)
         (printout t "|  ) /   \\__(_(__(_)    ) /   \\__(_(__(_)      %%   %%    '.  `-.,.-'  .'    %%  %%  |" crlf)
         (printout t "| (_/                  (_/                     %%   %%      '-.,___,.-'      %%  %%  |" crlf)
         (printout t "--------------------------------------------------------------------------------------" crlf)
-)       
+)
 
-(defrule determine-event-date ""
+(defrule determine-event-date "Asks for dates"
         (declare (salience -1))
         (not (event date ?))
         (not (event month ?))
         (not (event hour ?))
         =>
-        (printout t "Tell me event date" crlf)
+        (printout t "Tell me event date " crlf)
         (bind ?day (ask-question-num "Day? " 1 31))
         (bind ?month (ask-question-opt "Month? " ?*MONTHS*))
         (bind ?hour (ask-question-num "Hour? " 0 24))
@@ -321,7 +321,7 @@
         (assert (event hour ?hour))
 )
 
-(defrule determine-event-guests ""
+(defrule determine-event-guests "Asks for number of assistants"
         (declare (salience -2))
         (not (event guests ?))
         =>
@@ -329,7 +329,7 @@
         (assert (event guests ?guests))
 )
 
-(defrule determine-preferred-cuisine-styles ""
+(defrule determine-preferred-cuisine-styles "Asks for preferred cuisine styles"
         (declare (salience -3))
         (not (event preferred-cuisine-styles $?))
         =>
@@ -338,7 +338,7 @@
 
 )
 
-(defrule determine-price-range ""
+(defrule determine-price-range "Asks for event menu price range"
         (declare (salience -4))
         (not (or (event price_min ?) (event price_max ?)))
         =>
