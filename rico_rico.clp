@@ -170,12 +170,12 @@
                 (type STRING)
 ;+              (cardinality 0 1)
                 (create-accessor read-write))
-        (single-slot price
-                (type FLOAT)
+        (single-slot ingredient_name
+                (type STRING)
 ;+              (cardinality 0 1)
                 (create-accessor read-write))
-        (single-slot name_
-                (type STRING)
+        (single-slot price
+                (type FLOAT)
 ;+              (cardinality 0 1)
                 (create-accessor read-write))
         (multislot disponibility_months
@@ -183,6 +183,7 @@
                 (allowed-values January February March April May June July August September October November December)
                 (cardinality 0 12)
                 (create-accessor read-write)))
+
 ;%%%%%
 ;%
 ;% INSTANCES
@@ -190,11 +191,10 @@
 ;%%%%%
 
 (definstances ingredients
-        ([rico_rico_Class10005] of Ingredient
-                (disponibility_months 12)
-                (name "Fish")
+        ([rico_rico_Class10005] of  Ingredient
+                (ingredient_name "Fish")
                 (nutritional_values "3")
-                (price 15.0)) 
+                (price 15.0))
 )
 
 
@@ -254,7 +254,6 @@
                 (bind $?answer (explode$ ?line))
         )
         $?answer
-        ; TODO: Errors
 )
 
 (deffunction is-num (?num)
@@ -270,25 +269,42 @@
         ?answer
 )
 
-;(deffunction print_menus
-;        (recommendation ?r)
-;        =>
-;        (bind ?menus (find-instance ((?ins Menu)) (eq ?ins:Name ?r)))
-;        (loop-for-count (?i 1 (length$ ?menus)) do
-;                (printout t "----------------------------------------------------" crlf)
-;                (printout t "- Main course - " (send (send (nth$ ?i ?menus) get_main_course) get_name) ". " crlf)         
-;                (printout t "- Second course - " (send (send (nth$ ?i ?menus) get_second_course) get_name) ". " crlf)
-;                (printout t "- Dessert - " (send (send (nth$ ?i ?menus) get_dessert) get_name) ". " crlf)
-;                (printout t "- Drink - " (send (send (nth$ ?i ?menus) get_drink) get_name) ". " crlf)
-;                (printout t "----------------------------------------------------" crlf)
-;        )
-;)
+(deffunction print-menus ()
+        (bind $?menus (find-all-instances ((?ins Ingredient)) TRUE))
+        (loop-for-count (?i 1 (length$ ?menus)) do
+                (printout t "----------------------------------------------------" crlf)
+                (printout t "- Ingredient - " (send (nth$ ?i $?menus) get-ingredient_name) "." crlf)
+                ;(printout t "- Main course - " (send (send (nth$ ?i ?menus) get_main_course) get_ingredient_name) ". " crlf)         
+                ;(printout t "- Second course - " (send (send (nth$ ?i ?menus) get_second_course) get_name) ". " crlf)
+                ;(printout t "- Dessert - " (send (send (nth$ ?i ?menus) get_dessert) get_name) ". " crlf)
+                ;(printout t "- Drink - " (send (send (nth$ ?i ?menus) get_drink) get_name) ". " crlf)
+                (printout t "----------------------------------------------------" crlf)
+        )
+)
 
 ;%%%%%
 ;%
 ;% RULES
 ;%
 ;%%%%%
+
+(defrule print-welcome-message
+        (declare (salience 0))
+        =>
+        (printout t "                                           -------------------------------------------" crlf)
+        (printout t "                                           |                    ___          /|      |" crlf)
+        (printout t "                                           |       ||||     .-''   ''-.     } |      |" crlf)
+        (printout t "                                           |  |||| ||||   .'  .-'`'-.  '.   } | /  \\ |" crlf)
+        (printout t "                                           |  |||| \\  /  /  .'       '.  \\  } | |()| |" crlf)
+        (printout t "--------------------------------------------  \\  /  ||  /  :           :  \\  \\| \\  / |" crlf)
+        (printout t "|                Welcome to                    ||   ||  | :             : |  ||  ||  |" crlf)
+        (printout t "|     _____                _____               %%   %%  | :   IA-SBC    : |  %%  %%  |" crlf)
+        (printout t "|   (, /   ) ,           (, /   ) ,            %%   %%  \\  :           :  /  %%  %%  |" crlf)
+        (printout t "|     /__ /    _  _        /__ /    _  _       %%   %%   \\  '.       .'  /   %%  %%  |" crlf)
+        (printout t "|  ) /   \\__(_(__(_)    ) /   \\__(_(__(_)      %%   %%    '.  `-.,.-'  .'    %%  %%  |" crlf)
+        (printout t "| (_/                  (_/                     %%   %%      '-.,___,.-'      %%  %%  |" crlf)
+        (printout t "--------------------------------------------------------------------------------------" crlf)
+)       
 
 (defrule determine-event-date ""
         (declare (salience -1))

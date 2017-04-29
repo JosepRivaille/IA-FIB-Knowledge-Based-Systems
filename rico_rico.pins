@@ -1,10 +1,10 @@
-; Sat Apr 29 10:08:32 CEST 2017
+; Sat Apr 29 14:01:55 CEST 2017
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
 
 ([rico_rico_Class10005] of  Ingredient
 
-	(name "Fish")
+	(ingredient_name "Fish")
 	(nutritional_values "3")
 	(price 15.0))

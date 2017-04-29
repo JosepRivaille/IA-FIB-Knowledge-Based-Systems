@@ -1,4 +1,4 @@
-; Sat Apr 29 10:08:32 CEST 2017
+; Sat Apr 29 14:01:55 CEST 2017
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -65,10 +65,6 @@
 		(allowed-values Familiar Congress)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot name_
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(multislot disponibility_months
 		(type SYMBOL)
 		(allowed-values January February)
@@ -80,6 +76,10 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot nutritional_values
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ingredient_name
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -170,12 +170,12 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot price
-		(type FLOAT)
+	(single-slot ingredient_name
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot name_
-		(type STRING)
+	(single-slot price
+		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot disponibility_months
