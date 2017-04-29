@@ -1,0 +1,180 @@
+([rico_rico_Class10000] of Ingredients
+	(ing_name "Artichoke")
+	(ing_availability 1 2 3 4 5 10 11 12)
+	(calories 47)
+	(fat 1)
+	(protein 3)
+	(carbohydrates 11)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10001] of Ingredients
+	(ing_name "Asparagus")
+	(ing_availability 2 3 4 5 6)
+	(calories 20)
+	(fat 0)
+	(protein 2)
+	(carbohydrates 4)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10002] of Ingredients
+	(ing_name "Eggplant")
+	(ing_availability 6 7 8 9)
+	(calories 24)
+	(fat 0)
+	(protein 1)
+	(carbohydrates 6)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10003] of Ingredients
+	(ing_name "Beans")
+	(ing_availability 6 7 8 9)
+	(calories 347)
+	(fat 1)
+	(protein 21)
+	(carbohydrates 63)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10004] of Ingredients
+	(ing_name "Peas")
+	(ing_availability 6 7 8 9)
+	(calories 81)
+	(fat 1)
+	(protein 5)
+	(carbohydrates 14)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10005] of Ingredients
+	(ing_name "Broccoli")
+	(ing_availability 4 5 6 7 8 9 10)
+	(calories 0)
+	(fat 33)
+	(protein 3)
+	(carbohydrates 7)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10006] of Ingredients
+	(ing_name "Cabbage")
+	(ing_availability 6 7 8 9)
+	(calories 24)
+	(fat 0)
+	(protein 1)
+	(carbohydrates 6)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10007] of Ingredients
+	(ing_name "Carrot")
+	(ing_availability 7 8 9 10)
+	(calories 41)
+	(fat 0)
+	(protein 1)
+	(carbohydrates 19)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10008] of Ingredients
+	(ing_name "Cauliflower")
+	(ing_availability 8 9 10 11 12)
+	(calories 24)
+	(fat 0)
+	(protein 2)
+	(carbohydrates 5)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10009] of Ingredients
+	(ing_name "Lettuce")
+	(ing_availability 4 5 6 7 8 9)
+	(calories 14)
+	(fat 0)
+	(protein 1)
+	(carbohydrates 3)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10010] of Ingredients
+	(ing_name "Corn")
+	(ing_availability 6 7 8 9 10)
+	(calories 365)
+	(fat 5)
+	(protein 9)
+	(carbohydrates 74)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10011] of Ingredients
+	(ing_name "Garlic")
+	(ing_availability 1 2 3 4 5 6 7 8 9 10 11 12)
+	(calories 148)
+	(fat 1)
+	(protein 6)
+	(carbohydrates 33)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10012] of Ingredients
+	(ing_name "Onion")
+	(ing_availability 1 2 3 4 5 6 7 8 9 10 11 12)
+	(calories 39)
+	(fat 0)
+	(protein 1)
+	(carbohydrates 9)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10013] of Ingredients
+	(ing_name "Pepper")
+	(ing_availability 6 7 8 9 10)
+	(calories 39)
+	(fat 0)
+	(protein 2)
+	(carbohydrates 9)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10014] of Ingredients
+	(ing_name "Spinach")
+	(ing_availability 1 2 11 12)
+	(calories 23)
+	(fat 0)
+	(protein 3)
+	(carbohydrates 4)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10015] of Ingredients
+	(ing_name "Cucumber")
+	(ing_availability 5 6 7 8 9)
+	(calories 15)
+	(fat 0)
+	(protein 1)
+	(carbohydrates 4)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10016] of Ingredients
+	(ing_name "Tomato")
+	(ing_availability 1 2 3 4 5 6 7 8 9 10 11 12)
+	(calories 17)
+	(fat 0)
+	(protein 1)
+	(carbohydrates 4)
+	(cholesterol 0)
+)
+
+([rico_rico_Class10017] of Ingredients
+	(ing_name "Potato")
+	(ing_availability 1 2 3 4 5 6 7 8 9 10 11 12)
+	(calories 76)
+	(fat 0)
+	(protein 2)
+	(carbohydrates 17)
+	(cholesterol 0)
+)
+

@@ -1,4 +1,4 @@
-from sys import stdin
+from sys import stdin, argv
 
 def write_attribute_type(attribute, data_type):
 	if data_type == 'STRING':
@@ -14,11 +14,10 @@ def write_attribute_type(attribute, data_type):
 		else:
 			return attribute
 
-def generate_instance():
-	class_name = input('Enter class name: ')
+def generate_instance(class_name):
 	instance_id = 10000
 
-	instances_file = './instances/' + class_name.lower() + '.txt'
+	instances_file = class_name.lower() + '.txt'
 
 	with open (instances_file, 'r') as input_file:
 		lines = input_file.readlines()
@@ -26,8 +25,11 @@ def generate_instance():
 		types = lines[1].rstrip().split('\t')
 		lines = lines[2:]
 
-		with open ('./instances/instances.txt', 'w') as f:
+		with open ('./instances-' + instances_file + '.txt', 'w+') as f:
 			for line in lines:
+				if line[0] == ';':
+					continue
+
 				f.write('([rico_rico_Class' + str(instance_id) + '] of ' + class_name)
 
 				line_list = line.split('\t')
@@ -43,4 +45,6 @@ def generate_instance():
 				instance_id += 1
 
 if __name__ == '__main__':
-	generate_instance()
+	args = argv[1:]
+	for arg in args:
+		generate_instance(arg)

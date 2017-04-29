@@ -1,4 +1,26 @@
 ing_name	ing_availability	calories	fat	protein	carbohydrates	cholesterol
 STRING	SYMBOL	INTEGER	INTEGER	INTEGER	INTEGER	INTEGER
+; Vegetables
 Artichoke	[1 2 3 4 5 10 11 12]	47	1	3	11	0
 Asparagus	[2 3 4 5 6]	20	0	2	4	0
+Eggplant	[6 7 8 9]	24	0	1	6	0
+Beans	[6 7 8 9]	347	1	21	63	0
+Peas	[6 7 8 9]	81	1	5	14	0
+Broccoli	[4 5 6 7 8 9 10]	0	33	3	7	0
+Cabbage	[6 7 8 9]	24	0	1	6	0
+Carrot	[7 8 9 10]	41	0	1	19	0
+Cauliflower	[8 9 10 11 12]	24	0	2	5	0
+Lettuce	[4 5 6 7 8 9]	14	0	1	3	0
+Corn	[6 7 8 9 10]	365	5	9	74	0
+Garlic	[1 2 3 4 5 6 7 8 9 10 11 12]	148	1	6	33	0
+Onion	[1 2 3 4 5 6 7 8 9 10 11 12]	39	0	1	9	0
+Pepper	[6 7 8 9 10]	39	0	2	9	0
+Spinach	[1 2 11 12]	23	0	3	4	0
+Cucumber	[5 6 7 8 9]	15	0	1	4	0
+Tomato	[1 2 3 4 5 6 7 8 9 10 11 12]	17	0	1	4	0
+Potato	[1 2 3 4 5 6 7 8 9 10 11 12]	76	0	2	17	0
+; Fruits
+; Meat
+; Fish
+; Lactic
+; Cereals
