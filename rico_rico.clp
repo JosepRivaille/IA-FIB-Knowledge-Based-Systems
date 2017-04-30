@@ -240,7 +240,7 @@
 	(role concrete)
 	(multislot dish-classification
 		(type SYMBOL)
-		(allowed-values Vegetarian Kosher Islamic Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet Gluten-free Vegan Lactose-free Mediterranean)
+		(allowed-values Vegetarian Kosher Islamic Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet Gluten-free Vegan Lactose-free Mediterranean Cold Hot Soup Meet Fish Pasta Vegetables Modern Classical)
 		(cardinality 1 ?VARIABLE)
 		(create-accessor read-write))
 	(single-slot dish-name
@@ -999,14 +999,30 @@
         ?answer
 )
 
-(deffunction print-dish ($?dietary-restrictions)
-	(bind $?dishes (find-all-instances ((?ins Dish)) TRUE))
+(deffunction print-dish (?dietary-restrictions)
+	(bind ?dishes (find-all-instances ((?ins Dish)) TRUE))
 	(loop-for-count (?i 1 (length$ ?dishes)) do
-		(bind $?classification (send (nth$ ?i $?dishes) get-dish-classification))
-		(if (member $?dietary-restrictions $?classification) then
-			(printout t "- Name: " (send (nth$ ?i $?dishes) get-dish-name) "." crlf)
+		(bind ?classification (send (nth$ ?i ?dishes) get-dish-classification))
+		(if (member ?dietary-restrictions ?classification) then
+			(printout t "- Name: " (send (nth$ ?i ?dishes) get-dish-name) "." crlf)
 		)
 	)
+)
+
+(deffunction collection-contains-all-elements (?all-elements ?collection)
+	(loop-for-count (?i 1 (length$ ?all-elements)) do
+		(bind ?found FALSE)
+		(loop-for-count (?j 1 (length ?collection)) do
+			(if (eq (nth$ ?i ?all-elements) (nth$ ?j ?collection)) then
+				(bind ?found TRUE)
+				(break)
+			)
+		)
+		(if (not ?found) then
+			(return FALSE)
+		)
+	)
+	TRUE
 )
 
 (deffunction print-menus ()
@@ -1129,4 +1145,17 @@
 	(event dietary-restrictions $?restrictions)
 	=>
 	(print-dish $?restrictions)
+)
+
+(defrule get-preferred-dish-styles ""
+	(event ready $?)
+	(event preferred-cuisine-styles $?preferences)
+	(event dietary-restrictions $?restrictions)
+	=>
+	(if (eq $?preferences (create$ none)) then
+		(bind $?dishes (find-all-instances ((?ins Dish)) TRUE))
+	else
+		(bind $?dishes (find-all-instances ((?ins Dish)) (collection-contains-all-elements $?preferences $?ins:dish-classification)))
+	)
+	(printout t $?dishes)
 )

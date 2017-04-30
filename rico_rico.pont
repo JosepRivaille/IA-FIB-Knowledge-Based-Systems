@@ -240,7 +240,7 @@
 	(role concrete)
 	(multislot dish-classification
 		(type SYMBOL)
-		(allowed-values Vegetarian Kosher Islamic Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet Gluten-free Vegan Lactose-free Mediterranean)
+		(allowed-values Vegetarian Kosher Islamic Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet Gluten-free Vegan Lactose-free Mediterranean Cold Hot Soup Meet Fish Pasta Vegetables Modern Classical)
 		(cardinality 1 ?VARIABLE)
 		(create-accessor read-write))
 	(single-slot dish-name
