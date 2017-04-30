@@ -1,0 +1,23 @@
+drink-name	drink-price	drink-classification
+STRING	FLOAT	SYMBOL
+Water	1.20	[Other]
+Beer	2.50	[Alcohol]
+La_Rioja_Alta_Gran_Reserva_890_1995	195.00 [Alcohol]
+Glorioso_Crianza_Magnum_2013	11.65	[Alcohol]
+La_Vicalanda_Gran_Reserva_2010	45.95	[Alcohol]
+White_Wine	10.50	[Alcohol]
+Tequila	14.59	[Alcohol]
+Sangria	10.99	[Alcohol]
+Whisky_Glengarry_12_Years	40.45	[Alcohol]
+Ron_Barcelo_Imperial	30.25	[Alcohol]
+Juice	1.30	[Juice]
+Coffee	2.10	[Caffeine]
+Coffee_milk	2.20	[Caffeine]
+Iced_cofee	2.10	[Caffeine]
+Hot_chocolate	2.00	[Other]		
+Tea	1.70	[Other]
+Iced_Tea	1.70	[Other]
+Infusion	1.70	[Other]
+Soft_drink	1.50	[Other]
+Cocktail	3.50	[Alcohol]
+
