@@ -357,558 +357,573 @@
 ;%
 ;%%%%%
 
-(definstances Ingredient
-		([rico_rico_Class10000] of  Ingredient
-
-			(calories 47)
-			(carbohydrates 11)
-			(cholesterol 0)
-			(fat 1)
-			(ing-availability 1 2 3 4 5 10 11 12)
-			(ing-name "Artichoke")
-			(protein 3))
-
-		([rico_rico_Class10001] of  Ingredient
-
-			(calories 20)
-			(carbohydrates 4)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 2 3 4 5 6)
-			(ing-name "Asparagus")
-			(protein 2))
-
-		([rico_rico_Class10002] of  Ingredient
-
-			(calories 24)
-			(carbohydrates 6)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 6 7 8 9)
-			(ing-name "Eggplant")
-			(protein 1))
-
-		([rico_rico_Class10003] of  Ingredient
-
-			(calories 347)
-			(carbohydrates 63)
-			(cholesterol 0)
-			(fat 1)
-			(ing-availability 6 7 8 9)
-			(ing-name "Beans")
-			(protein 21))
-
-		([rico_rico_Class10004] of  Ingredient
-
-			(calories 81)
-			(carbohydrates 14)
-			(cholesterol 0)
-			(fat 1)
-			(ing-availability 6 7 8 9)
-			(ing-name "Peas")
-			(protein 5))
-
-		([rico_rico_Class10005] of  Ingredient
-
-			(calories 0)
-			(carbohydrates 7)
-			(cholesterol 0)
-			(fat 33)
-			(ing-availability 4 5 6 7 8 9 10)
-			(ing-name "Broccoli")
-			(protein 3))
-
-		([rico_rico_Class10006] of  Ingredient
-
-			(calories 24)
-			(carbohydrates 6)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 6 7 8 9)
-			(ing-name "Cabbage")
-			(protein 1))
-
-		([rico_rico_Class10007] of  Ingredient
-
-			(calories 41)
-			(carbohydrates 19)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 7 8 9 10)
-			(ing-name "Carrot")
-			(protein 1))
-
-		([rico_rico_Class10008] of  Ingredient
-
-			(calories 24)
-			(carbohydrates 5)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 8 9 10 11 12)
-			(ing-name "Cauliflower")
-			(protein 2))
-
-		([rico_rico_Class10009] of  Ingredient
-
-			(calories 14)
-			(carbohydrates 3)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 4 5 6 7 8 9)
-			(ing-name "Lettuce")
-			(protein 1))
-
-		([rico_rico_Class10010] of  Ingredient
-
-			(calories 365)
-			(carbohydrates 74)
-			(cholesterol 0)
-			(fat 5)
-			(ing-availability 6 7 8 9 10)
-			(ing-name "Corn")
-			(protein 9))
-
-		([rico_rico_Class10011] of  Ingredient
-
-			(calories 148)
-			(carbohydrates 33)
-			(cholesterol 0)
-			(fat 1)
-			(ing-availability 0)
-			(ing-name "Garlic")
-			(protein 6))
-
-		([rico_rico_Class10012] of  Ingredient
-
-			(calories 39)
-			(carbohydrates 9)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 0)
-			(ing-name "Onion")
-			(protein 1))
-
-		([rico_rico_Class10013] of  Ingredient
-
-			(calories 39)
-			(carbohydrates 9)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 6 7 8 9 10)
-			(ing-name "Pepper")
-			(protein 2))
-
-		([rico_rico_Class10014] of  Ingredient
-
-			(calories 23)
-			(carbohydrates 4)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 1 2 11 12)
-			(ing-name "Spinach")
-			(protein 3))
-
-		([rico_rico_Class10015] of  Ingredient
-
-			(calories 15)
-			(carbohydrates 4)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 5 6 7 8 9)
-			(ing-name "Cucumber")
-			(protein 1))
-
-		([rico_rico_Class10016] of  Ingredient
-
-			(calories 17)
-			(carbohydrates 4)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 0)
-			(ing-name "Tomato")
-			(protein 1))
-
-		([rico_rico_Class10017] of  Ingredient
-
-			(calories 76)
-			(carbohydrates 17)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 0)
-			(ing-name "Potato")
-			(protein 2))
-
-		([rico_rico_Class10018] of  Ingredient
-
-			(calories 52)
-			(carbohydrates 14)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 0)
-			(ing-name "Apple")
-			(protein 0))
-
-		([rico_rico_Class10019] of  Ingredient
-
-			(calories 88)
-			(carbohydrates 23)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 0)
-			(ing-name "Banana")
-			(protein 1))
-
-		([rico_rico_Class10020] of  Ingredient
-
-			(calories 66)
-			(carbohydrates 17)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 9 10 11)
-			(ing-name "Grape")
-			(protein 1))
-
-		([rico_rico_Class10021] of  Ingredient
-
-			(calories 60)
-			(carbohydrates 15)
-			(cholesterol 0)
-			(fat 1)
-			(ing-availability 10 11 12)
-			(ing-name "Kiwi")
-			(protein 1))
-
-		([rico_rico_Class10022] of  Ingredient
-
-			(calories 28)
-			(carbohydrates 9)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 0)
-			(ing-name "Lemon")
-			(protein 1))
-
-		([rico_rico_Class10023] of  Ingredient
-
-			(calories 59)
-			(carbohydrates 15)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 5 6 7 8)
-			(ing-name "Mango")
-			(protein 1))
-
-		([rico_rico_Class10024] of  Ingredient
-
-			(calories 33)
-			(carbohydrates 8)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 6 7 8)
-			(ing-name "Melon")
-			(protein 1))
-
-		([rico_rico_Class10025] of  Ingredient
-
-			(calories 47)
-			(carbohydrates 12)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 1 2 3 10 11 12)
-			(ing-name "Orange")
-			(protein 1))
-
-		([rico_rico_Class10026] of  Ingredient
-
-			(calories 39)
-			(carbohydrates 10)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 6 7 8)
-			(ing-name "Peach")
-			(protein 1))
-
-		([rico_rico_Class10027] of  Ingredient
-
-			(calories 57)
-			(carbohydrates 15)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 8 9 10)
-			(ing-name "Pear")
-			(protein 0))
-
-		([rico_rico_Class10028] of  Ingredient
-
-			(calories 32)
-			(carbohydrates 8)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 3 4 5 6 7)
-			(ing-name "Strawberry")
-			(protein 1))
-
-		([rico_rico_Class10029] of  Ingredient
-
-			(calories 540)
-			(carbohydrates 1)
-			(cholesterol 110)
-			(fat 42)
-			(ing-availability 0)
-			(ing-name "Bacon")
-			(protein 37))
-
-		([rico_rico_Class10030] of  Ingredient
-
-			(calories 250)
-			(carbohydrates 0)
-			(cholesterol 90)
-			(fat 15)
-			(ing-availability 0)
-			(ing-name "Beef")
-			(protein 26))
-
-		([rico_rico_Class10031] of  Ingredient
-
-			(calories 239)
-			(carbohydrates 0)
-			(cholesterol 88)
-			(fat 14)
-			(ing-availability 0)
-			(ing-name "Chicken")
-			(protein 27))
-
-		([rico_rico_Class10032] of  Ingredient
-
-			(calories 337)
-			(carbohydrates 0)
-			(cholesterol 84)
-			(fat 28)
-			(ing-availability 0)
-			(ing-name "Duck")
-			(protein 19))
-
-		([rico_rico_Class10033] of  Ingredient
-
-			(calories 294)
-			(carbohydrates 0)
-			(cholesterol 97)
-			(fat 21)
-			(ing-availability 0)
-			(ing-name "Lamb")
-			(protein 25))
-
-		([rico_rico_Class10034] of  Ingredient
-
-			(calories 188)
-			(carbohydrates 0)
-			(cholesterol 109)
-			(fat 7)
-			(ing-availability 0)
-			(ing-name "Turkey")
-			(protein 29))
-
-		([rico_rico_Class10035] of  Ingredient
-
-			(calories 172)
-			(carbohydrates 0)
-			(cholesterol 103)
-			(fat 8)
-			(ing-availability 0)
-			(ing-name "Veal")
-			(protein 24))
-
-		([rico_rico_Class10036] of  Ingredient
-
-			(calories 189)
-			(carbohydrates 0)
-			(cholesterol 94)
-			(fat 20)
-			(ing-availability 0)
-			(ing-name "Abalone")
-			(protein 11))
-
-		([rico_rico_Class10037] of  Ingredient
-
-			(calories 210)
-			(carbohydrates 0)
-			(cholesterol 85)
-			(fat 10)
-			(ing-availability 0)
-			(ing-name "Anchovy")
-			(protein 29))
-
-		([rico_rico_Class10038] of  Ingredient
-
-			(calories 79)
-			(carbohydrates 5)
-			(cholesterol 52)
-			(fat 1)
-			(ing-availability 0)
-			(ing-name "Cockle")
-			(protein 13))
-
-		([rico_rico_Class10039] of  Ingredient
-
-			(calories 97)
-			(carbohydrates 0)
-			(cholesterol 53)
-			(fat 2)
-			(ing-availability 0)
-			(ing-name "Crab")
-			(protein 19))
-
-		([rico_rico_Class10040] of  Ingredient
-
-			(calories 87)
-			(carbohydrates 0)
-			(cholesterol 137)
-			(fat 1)
-			(ing-availability 0)
-			(ing-name "Crawfish")
-			(protein 18))
-
-		([rico_rico_Class10041] of  Ingredient
-
-			(calories 158)
-			(carbohydrates 2)
-			(cholesterol 224)
-			(fat 1)
-			(ing-availability 0)
-			(ing-name "Cuttlefish")
-			(protein 32))
-
-		([rico_rico_Class10042] of  Ingredient
-
-			(calories 185)
-			(carbohydrates 0)
-			(cholesterol 46)
-			(fat 14)
-			(ing-availability 0)
-			(ing-name "Halibut")
-			(protein 14))
-
-		([rico_rico_Class10043] of  Ingredient
-
-			(calories 99)
-			(carbohydrates 0)
-			(cholesterol 189)
-			(fat 0)
-			(ing-availability 0)
-			(ing-name "Prawn")
-			(protein 24))
-
-		([rico_rico_Class10044] of  Ingredient
-
-			(calories 208)
-			(carbohydrates 0)
-			(cholesterol 55)
-			(fat 13)
-			(ing-availability 0)
-			(ing-name "Salmon")
-			(protein 20))
-
-		([rico_rico_Class10045] of  Ingredient
-
-			(calories 184)
-			(carbohydrates 0)
-			(cholesterol 49)
-			(fat 6)
-			(ing-availability 0)
-			(ing-name "Tuna")
-			(protein 30))
-
-		([rico_rico_Class10046] of  Ingredient
-
-			(calories 402)
-			(carbohydrates 1)
-			(cholesterol 105)
-			(fat 33)
-			(ing-availability 0)
-			(ing-name "Cheese")
-			(protein 25))
-
-		([rico_rico_Class10047] of  Ingredient
-
-			(calories 545)
-			(carbohydrates 61)
-			(cholesterol 8)
-			(fat 31)
-			(ing-availability 0)
-			(ing-name "Chocolate")
-			(protein 43))
-
-		([rico_rico_Class10048] of  Ingredient
-
-			(calories 155)
-			(carbohydrates 1)
-			(cholesterol 373)
-			(fat 11)
-			(ing-availability 0)
-			(ing-name "Eggs")
-			(protein 13))
-
-		([rico_rico_Class10049] of  Ingredient
-
-			(calories 43)
-			(carbohydrates 5)
-			(cholesterol 5)
-			(fat 1)
-			(ing-availability 0)
-			(ing-name "Milk")
-			(protein 3))
-
-		([rico_rico_Class10050] of  Ingredient
-
-			(calories 58)
-			(carbohydrates 4)
-			(cholesterol 5)
-			(fat 1)
-			(ing-availability 0)
-			(ing-name "Yogurt")
-			(protein 10))
-
-		([rico_rico_Class10051] of  Ingredient
-
-			(calories 264)
-			(carbohydrates 49)
-			(cholesterol 0)
-			(fat 3)
-			(ing-availability 0)
-			(ing-name "Bread")
-			(protein 9))
-
-		([rico_rico_Class10052] of  Ingredient
-
-			(calories 140)
-			(carbohydrates 15)
-			(cholesterol 25)
-			(fat 8)
-			(ing-availability 0)
-			(ing-name "Cookies")
-			(protein 2))
-
-		([rico_rico_Class10053] of  Ingredient
-
-			(calories 130)
-			(carbohydrates 28)
-			(cholesterol 0)
-			(fat 0)
-			(ing-availability 0)
-			(ing-name "Rice")
-			(protein 3))
-
-		([rico_rico_Class10054] of  Ingredient
-
-			(calories 131)
-			(carbohydrates 25)
-			(cholesterol 33)
-			(fat 1)
-			(ing-availability 0)
-			(ing-name "Pasta")
-			(protein 5))
+(definstances dishes
+	([rico_rico_Class10000] of Dish
+		(dish-name "Spaghetti Bolognese")
+		(dish-classification Italian Mediterranean)
+		(dish-ingredients [rico_rico_Class10054] [rico_rico_Class10016] [rico_rico_Class10012] [rico_rico_Class10029])
+		(dish-price 5.50)
+	)
+
+	([rico_rico_Class10001] of Dish
+		(dish-name "Mediterranian Salad")
+		(dish-classification Vegetarian Vegan Mediterranean Gluten-free)
+		(dish-ingredients [rico_rico_Class10016] [rico_rico_Class10009])
+		(dish-price 2)
+	)
 )
 
+(definstances ingredients
+	([rico_rico_Class10002] of Ingredient
+		(ing-name "Artichoke")
+		(ing-availability 1 2 3 4 5 10 11 12)
+		(calories 47)
+		(fat 1)
+		(protein 3)
+		(carbohydrates 11)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10003] of Ingredient
+		(ing-name "Asparagus")
+		(ing-availability 2 3 4 5 6)
+		(calories 20)
+		(fat 0)
+		(protein 2)
+		(carbohydrates 4)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10004] of Ingredient
+		(ing-name "Eggplant")
+		(ing-availability 6 7 8 9)
+		(calories 24)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 6)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10005] of Ingredient
+		(ing-name "Beans")
+		(ing-availability 6 7 8 9)
+		(calories 347)
+		(fat 1)
+		(protein 21)
+		(carbohydrates 63)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10006] of Ingredient
+		(ing-name "Peas")
+		(ing-availability 6 7 8 9)
+		(calories 81)
+		(fat 1)
+		(protein 5)
+		(carbohydrates 14)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10007] of Ingredient
+		(ing-name "Broccoli")
+		(ing-availability 4 5 6 7 8 9 10)
+		(calories 0)
+		(fat 33)
+		(protein 3)
+		(carbohydrates 7)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10008] of Ingredient
+		(ing-name "Cabbage")
+		(ing-availability 6 7 8 9)
+		(calories 24)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 6)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10009] of Ingredient
+		(ing-name "Carrot")
+		(ing-availability 7 8 9 10)
+		(calories 41)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 19)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10010] of Ingredient
+		(ing-name "Cauliflower")
+		(ing-availability 8 9 10 11 12)
+		(calories 24)
+		(fat 0)
+		(protein 2)
+		(carbohydrates 5)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10011] of Ingredient
+		(ing-name "Lettuce")
+		(ing-availability 4 5 6 7 8 9)
+		(calories 14)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 3)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10012] of Ingredient
+		(ing-name "Corn")
+		(ing-availability 6 7 8 9 10)
+		(calories 365)
+		(fat 5)
+		(protein 9)
+		(carbohydrates 74)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10013] of Ingredient
+		(ing-name "Garlic")
+		(ing-availability 0)
+		(calories 148)
+		(fat 1)
+		(protein 6)
+		(carbohydrates 33)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10014] of Ingredient
+		(ing-name "Onion")
+		(ing-availability 0)
+		(calories 39)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 9)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10015] of Ingredient
+		(ing-name "Pepper")
+		(ing-availability 6 7 8 9 10)
+		(calories 39)
+		(fat 0)
+		(protein 2)
+		(carbohydrates 9)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10016] of Ingredient
+		(ing-name "Spinach")
+		(ing-availability 1 2 11 12)
+		(calories 23)
+		(fat 0)
+		(protein 3)
+		(carbohydrates 4)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10017] of Ingredient
+		(ing-name "Cucumber")
+		(ing-availability 5 6 7 8 9)
+		(calories 15)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 4)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10018] of Ingredient
+		(ing-name "Tomato")
+		(ing-availability 0)
+		(calories 17)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 4)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10019] of Ingredient
+		(ing-name "Potato")
+		(ing-availability 0)
+		(calories 76)
+		(fat 0)
+		(protein 2)
+		(carbohydrates 17)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10020] of Ingredient
+		(ing-name "Apple")
+		(ing-availability 0)
+		(calories 52)
+		(fat 0)
+		(protein 0)
+		(carbohydrates 14)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10021] of Ingredient
+		(ing-name "Banana")
+		(ing-availability 0)
+		(calories 88)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 23)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10022] of Ingredient
+		(ing-name "Grape")
+		(ing-availability 9 10 11)
+		(calories 66)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 17)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10023] of Ingredient
+		(ing-name "Kiwi")
+		(ing-availability 10 11 12)
+		(calories 60)
+		(fat 1)
+		(protein 1)
+		(carbohydrates 15)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10024] of Ingredient
+		(ing-name "Lemon")
+		(ing-availability 0)
+		(calories 28)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 9)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10025] of Ingredient
+		(ing-name "Mango")
+		(ing-availability 5 6 7 8)
+		(calories 59)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 15)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10026] of Ingredient
+		(ing-name "Melon")
+		(ing-availability 6 7 8)
+		(calories 33)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 8)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10027] of Ingredient
+		(ing-name "Orange")
+		(ing-availability 1 2 3 10 11 12)
+		(calories 47)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 12)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10028] of Ingredient
+		(ing-name "Peach")
+		(ing-availability 6 7 8)
+		(calories 39)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 10)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10029] of Ingredient
+		(ing-name "Pear")
+		(ing-availability 8 9 10)
+		(calories 57)
+		(fat 0)
+		(protein 0)
+		(carbohydrates 15)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10030] of Ingredient
+		(ing-name "Strawberry")
+		(ing-availability 3 4 5 6 7)
+		(calories 32)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 8)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10031] of Ingredient
+		(ing-name "Bacon")
+		(ing-availability 0)
+		(calories 540)
+		(fat 42)
+		(protein 37)
+		(carbohydrates 1)
+		(cholesterol 110)
+	)
+
+	([rico_rico_Class10032] of Ingredient
+		(ing-name "Beef")
+		(ing-availability 0)
+		(calories 250)
+		(fat 15)
+		(protein 26)
+		(carbohydrates 0)
+		(cholesterol 90)
+	)
+
+	([rico_rico_Class10033] of Ingredient
+		(ing-name "Chicken")
+		(ing-availability 0)
+		(calories 239)
+		(fat 14)
+		(protein 27)
+		(carbohydrates 0)
+		(cholesterol 88)
+	)
+
+	([rico_rico_Class10034] of Ingredient
+		(ing-name "Duck")
+		(ing-availability 0)
+		(calories 337)
+		(fat 28)
+		(protein 19)
+		(carbohydrates 0)
+		(cholesterol 84)
+	)
+
+	([rico_rico_Class10035] of Ingredient
+		(ing-name "Lamb")
+		(ing-availability 0)
+		(calories 294)
+		(fat 21)
+		(protein 25)
+		(carbohydrates 0)
+		(cholesterol 97)
+	)
+
+	([rico_rico_Class10036] of Ingredient
+		(ing-name "Turkey")
+		(ing-availability 0)
+		(calories 188)
+		(fat 7)
+		(protein 29)
+		(carbohydrates 0)
+		(cholesterol 109)
+	)
+
+	([rico_rico_Class10037] of Ingredient
+		(ing-name "Veal")
+		(ing-availability 0)
+		(calories 172)
+		(fat 8)
+		(protein 24)
+		(carbohydrates 0)
+		(cholesterol 103)
+	)
+
+	([rico_rico_Class10038] of Ingredient
+		(ing-name "Abalone")
+		(ing-availability 0)
+		(calories 189)
+		(fat 20)
+		(protein 11)
+		(carbohydrates 0)
+		(cholesterol 94)
+	)
+
+	([rico_rico_Class10039] of Ingredient
+		(ing-name "Anchovy")
+		(ing-availability 0)
+		(calories 210)
+		(fat 10)
+		(protein 29)
+		(carbohydrates 0)
+		(cholesterol 85)
+	)
+
+	([rico_rico_Class10040] of Ingredient
+		(ing-name "Cockle")
+		(ing-availability 0)
+		(calories 79)
+		(fat 1)
+		(protein 13)
+		(carbohydrates 5)
+		(cholesterol 52)
+	)
+
+	([rico_rico_Class10041] of Ingredient
+		(ing-name "Crab")
+		(ing-availability 0)
+		(calories 97)
+		(fat 2)
+		(protein 19)
+		(carbohydrates 0)
+		(cholesterol 53)
+	)
+
+	([rico_rico_Class10042] of Ingredient
+		(ing-name "Crawfish")
+		(ing-availability 0)
+		(calories 87)
+		(fat 1)
+		(protein 18)
+		(carbohydrates 0)
+		(cholesterol 137)
+	)
+
+	([rico_rico_Class10043] of Ingredient
+		(ing-name "Cuttlefish")
+		(ing-availability 0)
+		(calories 158)
+		(fat 1)
+		(protein 32)
+		(carbohydrates 2)
+		(cholesterol 224)
+	)
+
+	([rico_rico_Class10044] of Ingredient
+		(ing-name "Halibut")
+		(ing-availability 0)
+		(calories 185)
+		(fat 14)
+		(protein 14)
+		(carbohydrates 0)
+		(cholesterol 46)
+	)
+
+	([rico_rico_Class10045] of Ingredient
+		(ing-name "Prawn")
+		(ing-availability 0)
+		(calories 99)
+		(fat 0)
+		(protein 24)
+		(carbohydrates 0)
+		(cholesterol 189)
+	)
+
+	([rico_rico_Class10046] of Ingredient
+		(ing-name "Salmon")
+		(ing-availability 0)
+		(calories 208)
+		(fat 13)
+		(protein 20)
+		(carbohydrates 0)
+		(cholesterol 55)
+	)
+
+	([rico_rico_Class10047] of Ingredient
+		(ing-name "Tuna")
+		(ing-availability 0)
+		(calories 184)
+		(fat 6)
+		(protein 30)
+		(carbohydrates 0)
+		(cholesterol 49)
+	)
+
+	([rico_rico_Class10048] of Ingredient
+		(ing-name "Cheese")
+		(ing-availability 0)
+		(calories 402)
+		(fat 33)
+		(protein 25)
+		(carbohydrates 1)
+		(cholesterol 105)
+	)
+
+	([rico_rico_Class10049] of Ingredient
+		(ing-name "Chocolate")
+		(ing-availability 0)
+		(calories 545)
+		(fat 31)
+		(protein 43)
+		(carbohydrates 61)
+		(cholesterol 8)
+	)
+
+	([rico_rico_Class10050] of Ingredient
+		(ing-name "Eggs")
+		(ing-availability 0)
+		(calories 155)
+		(fat 11)
+		(protein 13)
+		(carbohydrates 1)
+		(cholesterol 373)
+	)
+
+	([rico_rico_Class10051] of Ingredient
+		(ing-name "Milk")
+		(ing-availability 0)
+		(calories 43)
+		(fat 1)
+		(protein 3)
+		(carbohydrates 5)
+		(cholesterol 5)
+	)
+
+	([rico_rico_Class10052] of Ingredient
+		(ing-name "Yogurt")
+		(ing-availability 0)
+		(calories 58)
+		(fat 1)
+		(protein 10)
+		(carbohydrates 4)
+		(cholesterol 5)
+	)
+
+	([rico_rico_Class10053] of Ingredient
+		(ing-name "Bread")
+		(ing-availability 0)
+		(calories 264)
+		(fat 3)
+		(protein 9)
+		(carbohydrates 49)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10054] of Ingredient
+		(ing-name "Cookies")
+		(ing-availability 0)
+		(calories 140)
+		(fat 8)
+		(protein 2)
+		(carbohydrates 15)
+		(cholesterol 25)
+	)
+
+	([rico_rico_Class10055] of Ingredient
+		(ing-name "Rice")
+		(ing-availability 0)
+		(calories 130)
+		(fat 0)
+		(protein 3)
+		(carbohydrates 28)
+		(cholesterol 0)
+	)
+
+	([rico_rico_Class10056] of Ingredient
+		(ing-name "Pasta")
+		(ing-availability 0)
+		(calories 131)
+		(fat 1)
+		(protein 5)
+		(carbohydrates 25)
+		(cholesterol 33)
+	)
+)
 
 ;%%%%%
 ;%
@@ -917,8 +932,11 @@
 ;%%%%%
 
 (defglobal
-        ?*CUISINE_STYLES* = (create$ Indian Mexican Chineese none)
-        ?*MONTHS* = (create$ January February March April May June July August September October November December)
+	?*BOOLEAN* = (create$ Yes No)
+	?*EVENT_TYPES* = (create$ Familiar Congress)
+        ?*DRINK_TYPES* = (create$ Alcohol Soft-drinks Caffeine Juice none)
+        ?*CUISINE_STYLES* = (create$ Vegetarian Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet Mediterranean none)
+        ?*DIETARY_RESTRICTIONS* = (create$ Gluten-free Vegan Vegetarian Lactose-free Kosher Islamic none)
 )
 
 ;%%%%%
@@ -928,7 +946,7 @@
 ;%%%%%
 
 (deffunction ask-question-opt (?question $?allowed-values)
-        (printout t ?question)
+        (printout t "> " ?question crlf "Allowed answers -> " $?allowed-values crlf)
         (bind ?answer (read))
         (while (not (member ?answer ?allowed-values)) do
                 (printout t ?question)
@@ -939,7 +957,7 @@
 )
 
 (deffunction ask-question-multi-opt (?question $?allowed-values)
-        (printout t ?question crlf "Allowed answers -> " $?allowed-values crlf)
+        (printout t "> " ?question crlf "Allowed answers -> " $?allowed-values crlf)
         (bind ?line (readline))
         (bind $?answer (explode$ ?line))
         (bind ?valid FALSE)
@@ -973,7 +991,7 @@
 )
 
 (deffunction ask-question-num (?question ?min ?max)
-        (printout t ?question)
+        (printout t "> " ?question)
         (bind ?answer (read))
         (while (not (and (is-num ?answer) (>= ?answer ?min) (<= ?answer ?max))) do
                 (printout t ?question)
@@ -981,11 +999,20 @@
         ?answer
 )
 
+(deffunction print-dish ($?dietary-restrictions)
+	(bind $?dishes (find-all-instances ((?ins Dish)) TRUE))
+	(loop-for-count (?i 1 (length$ ?dishes)) do
+		(bind $?classification (send (nth$ ?i $?dishes) get-dish-classification))
+		(if (member $?dietary-restrictions $?classification) then
+			(printout t "- Name: " (send (nth$ ?i $?dishes) get-dish-name) "." crlf)
+		)
+	)
+)
+
 (deffunction print-menus ()
         (bind $?menus (find-all-instances ((?ins Ingredient)) TRUE))
         (loop-for-count (?i 1 (length$ ?menus)) do
                 (printout t "----------------------------------------------------" crlf)
-                (printout t "- Ingredient - " (send (nth$ ?i $?menus) get-ingredient_name) "." crlf)
                 ;(printout t "- Main course - " (send (send (nth$ ?i ?menus) get_main_course) get_ingredient_name) ". " crlf)
                 ;(printout t "- Second course - " (send (send (nth$ ?i ?menus) get_second_course) get_name) ". " crlf)
                 ;(printout t "- Dessert - " (send (send (nth$ ?i ?menus) get_dessert) get_name) ". " crlf)
@@ -996,7 +1023,7 @@
 
 ;%%%%%
 ;%
-;% RULES
+;% DETERMINE USER RULES
 ;%
 ;%%%%%
 
@@ -1015,18 +1042,26 @@
         (printout t "|     /__ /    _  _        /__ /    _  _       %%   %%   \\  '.       .'  /   %%  %%  |" crlf)
         (printout t "|  ) /   \\__(_(__(_)    ) /   \\__(_(__(_)      %%   %%    '.  `-.,.-'  .'    %%  %%  |" crlf)
         (printout t "| (_/                  (_/                     %%   %%      '-.,___,.-'      %%  %%  |" crlf)
-        (printout t "--------------------------------------------------------------------------------------" crlf)
+        (printout t "--------------------------------------------------------------------------------------" crlf crlf)
+)
+
+(defrule determine-event-type "Asks for event type"
+	(declare (salience -1))
+	(not (event event-type ?))
+	=>
+	(bind ?type (ask-question-opt "Which type of event will it be? " ?*EVENT_TYPES*))
+	(assert (event event-type ?type))
 )
 
 (defrule determine-event-date "Asks for dates"
-        (declare (salience -1))
+        (declare (salience -2))
         (not (event date ?))
         (not (event month ?))
         (not (event hour ?))
         =>
         (printout t "Tell me event date " crlf)
         (bind ?day (ask-question-num "Day? " 1 31))
-        (bind ?month (ask-question-opt "Month? " ?*MONTHS*))
+        (bind ?month (ask-question-num "Month? " 1 12))
         (bind ?hour (ask-question-num "Hour? " 0 24))
         (assert (event day ?day))
         (assert (event month ?month))
@@ -1034,7 +1069,7 @@
 )
 
 (defrule determine-event-guests "Asks for number of assistants"
-        (declare (salience -2))
+        (declare (salience -3))
         (not (event guests ?))
         =>
         (bind ?guests (ask-question-num "Number of guests? " 1 10000))
@@ -1042,7 +1077,7 @@
 )
 
 (defrule determine-preferred-cuisine-styles "Asks for preferred cuisine styles"
-        (declare (salience -3))
+        (declare (salience -4))
         (not (event preferred-cuisine-styles $?))
         =>
         (bind $?styles (ask-question-multi-opt "Which cuisine styles do you prefer? " ?*CUISINE_STYLES*))
@@ -1050,8 +1085,26 @@
 
 )
 
+(defrule determine-dietary-restrictions "Asks for dietary restrictions"
+        (declare (salience -5))
+        (not (event dietary-restrictions $?))
+        =>
+        (bind $?restrictions (ask-question-multi-opt "Any dietary restrictions? " ?*DIETARY_RESTRICTIONS*))
+        (assert (event dietary-restrictions ?restrictions))
+)
+
+(defrule determine-drinks "Asks for banned drinks and if one drink per dish is required"
+	(declare (salience -6))
+	(not (or (event drink-per-dish $?) (event drink-types $?)))
+	=>
+	(bind ?drink-per-dish (ask-question-opt "Will you require a drink for each dish? " ?*BOOLEAN*))
+	(bind ?drink-types (ask-question-multi-opt "Would you discard any drinks? " ?*DRINK_TYPES*))
+	(assert (event drink-per-dish ?drink-per-dish))
+	(assert (event drink-types ?drink-types))
+)
+
 (defrule determine-price-range "Asks for event menu price range"
-        (declare (salience -4))
+        (declare (salience -7))
         (not (or (event price_min ?) (event price_max ?)))
         =>
         (while TRUE do
@@ -1062,4 +1115,18 @@
         )
         (assert (event price_min ?price_min))
         (assert (event price_max ?price_max))
+        (assert (event ready TRUE))
+)
+
+;%%%%%
+;%
+;% RECOMENDATION RULES
+;%
+;%%%%%
+
+(defrule recommend-dish ""
+	(event ready $?)
+	(event dietary-restrictions $?restrictions)
+	=>
+	(print-dish $?restrictions)
 )

@@ -4,9 +4,9 @@ def write_attribute_type(attribute, data_type):
 	if data_type == 'STRING':
 		if attribute[0] == '[':
 			attrs = attribute[1:-1].split(' ')
-			return ' '.join(['"' + attr + '"' for attr in attrs])
+			return ' '.join(['"' + attr.replace("_", " ") + '"' for attr in attrs])
 		else:
-			return '"' + attribute + '"'
+			return '"' + attribute.replace("_", " ") + '"'
 	else:
 		if attribute[0] == '[':
 			attrs = attribute[1:-1].split(' ')
@@ -14,8 +14,7 @@ def write_attribute_type(attribute, data_type):
 		else:
 			return attribute
 
-def generate_instance(class_name):
-	instance_id = 10000
+def generate_instance(class_name, instance_id):
 	counter = 0
 
 	instances_file = class_name.lower() + '.txt'
@@ -46,8 +45,10 @@ def generate_instance(class_name):
 				counter += 1
 
 	print('Successfully created ' + str(counter) + ' instances of ' + class_name)
+	return instance_id
 
 if __name__ == '__main__':
+	instance_id = 10000
 	args = argv[1:]
 	for arg in args:
-		generate_instance(arg)
+		instance_id = generate_instance(arg, instance_id)

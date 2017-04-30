@@ -1,0 +1,4 @@
+dish-name	dish-classification	dish-ingredients	dish-price
+STRING	SYMBOL	INSTANCE	FLOAT
+Spaghetti_Bolognese	[Italian Mediterranean]	[[rico_rico_Class10054] [rico_rico_Class10016] [rico_rico_Class10012] [rico_rico_Class10029]]	5.50
+Mediterranian_Salad	[Vegetarian Vegan Mediterranean Gluten-free]	[[rico_rico_Class10016] [rico_rico_Class10009]]	2
