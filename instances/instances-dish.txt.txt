@@ -25,5 +25,3 @@
 ([rico_rico_Class10006] of dish
 	(dish-name "Tiramisu    [Kosher Islamic Italian Gourmet]    [[rico rico Class10052] [rico rico Class10050] [rico rico Class10061] [rico rico Class10031]]   [Dessert]   4")
 )
-
-([rico_rico_Class10007] of dish
