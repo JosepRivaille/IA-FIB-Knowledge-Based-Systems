@@ -14,8 +14,9 @@
 
 ([drink2] of Drink
 	(drink-name "La Rioja Alta Gran Reserva 1995")
-	(drink-price 195.00 [Alcohol])
-	(drink-classification All)
+	(drink-price 195.00)
+	(drink-classification Alcohol)
+	(drink-combination All)
 )
 
 ([drink3] of Drink

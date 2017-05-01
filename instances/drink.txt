@@ -2,7 +2,7 @@ drink-name	drink-price	drink-classification	drink-combination
 STRING	FLOAT	SYMBOL	SYMBOL
 Water	1.20	[Other]	[All]
 Beer	2.50	[Alcohol]	[All]
-La_Rioja_Alta_Gran_Reserva_1995	195.00 [Alcohol]	[All]
+La_Rioja_Alta_Gran_Reserva_1995	195.00	[Alcohol]	[All]
 Glorioso_Crianza_Magnum_2013	11.65	[Alcohol]	[All]
 La_Vicalanda_Gran_Reserva_2010	45.95	[Alcohol]	[All]
 White_Wine	10.50	[Alcohol]	[All]

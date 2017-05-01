@@ -930,6 +930,148 @@
 	)
 )
 
+(definstances drinks
+	([drink0] of Drink
+		(drink-name "Water")
+		(drink-price 1.20)
+		(drink-classification Other)
+		(drink-combination All)
+	)
+
+	([drink1] of Drink
+		(drink-name "Beer")
+		(drink-price 2.50)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([drink2] of Drink
+		(drink-name "La Rioja Alta Gran Reserva 1995")
+		(drink-price 195.00)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([drink3] of Drink
+		(drink-name "Glorioso Crianza Magnum 2013")
+		(drink-price 11.65)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([drink4] of Drink
+		(drink-name "La Vicalanda Gran Reserva 2010")
+		(drink-price 45.95)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([drink5] of Drink
+		(drink-name "White Wine")
+		(drink-price 10.50)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([drink6] of Drink
+		(drink-name "Tequila")
+		(drink-price 14.59)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([drink7] of Drink
+		(drink-name "Sangria")
+		(drink-price 10.99)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([drink8] of Drink
+		(drink-name "Whisky Glengarry 12 Years")
+		(drink-price 40.45)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([drink9] of Drink
+		(drink-name "Ron Barcelo Imperial")
+		(drink-price 30.25)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([drink10] of Drink
+		(drink-name "Juice")
+		(drink-price 1.30)
+		(drink-classification Juice)
+		(drink-combination All)
+	)
+
+	([drink11] of Drink
+		(drink-name "Coffee")
+		(drink-price 2.10)
+		(drink-classification Caffeine)
+		(drink-combination All)
+	)
+
+	([drink12] of Drink
+		(drink-name "Coffee milk")
+		(drink-price 2.20)
+		(drink-classification Caffeine)
+		(drink-combination All)
+	)
+
+	([drink13] of Drink
+		(drink-name "Iced coffee")
+		(drink-price 2.10)
+		(drink-classification Caffeine)
+		(drink-combination All)
+	)
+
+	([drink14] of Drink
+		(drink-name "Hot chocolate")
+		(drink-price 2.00)
+		(drink-classification Other)
+		(drink-combination All)
+	)
+
+	([drink15] of Drink
+		(drink-name "Tea")
+		(drink-price 1.70)
+		(drink-classification Other)
+		(drink-combination All)
+	)
+
+	([drink16] of Drink
+		(drink-name "Iced Tea")
+		(drink-price 1.70)
+		(drink-classification Other)
+		(drink-combination All)
+	)
+
+	([drink17] of Drink
+		(drink-name "Infusion")
+		(drink-price 1.70)
+		(drink-classification Other)
+		(drink-combination All)
+	)
+
+	([drink18] of Drink
+		(drink-name "Soft drink")
+		(drink-price 1.50)
+		(drink-classification Other)
+		(drink-combination All)
+	)
+
+	([drink19] of Drink
+		(drink-name "Cocktail")
+		(drink-price 3.50)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+)
+
 ;%%%%%
 ;%
 ;% DEFINITIONS
@@ -937,7 +1079,6 @@
 ;%%%%%
 
 (defglobal
-	?*BOOLEAN* = (create$ Yes No)
 	?*EVENT_TYPES* = (create$ Familiar Congress)
 	?*DRINK_TYPES* = (create$ Alcohol Soft-drinks Caffeine Juice none)
 	?*CUISINE_STYLES* = (create$ Vegetarian Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet Mediterranean none)
@@ -950,21 +1091,33 @@
 ;%
 ;%%%%%
 
-(deffunction ask-question-opt (?question $?allowed-values)
-  (printout t "> " ?question crlf "Allowed answers -> " $?allowed-values crlf)
+(deffunction ask-question-opt (?question ?allowed-values)
+  (printout t "| > " ?question ?allowed-values crlf "| ")
   (bind ?answer (read))
   (while (not (member ?answer ?allowed-values)) do
     (printout t ?question)
     (bind ?answer (read))
-    (if (lexemep ?answer) then
-			(bind ?answer ?answer)
-		)
 	)
   ?answer
 )
 
-(deffunction ask-question-multi-opt (?question $?allowed-values)
-	(printout t "> " ?question crlf "Allowed answers -> " $?allowed-values crlf)
+(deffunction ask-question-yes-no (?question)
+	(printout t "| > " ?question crlf "| ")
+	(bind ?answer (read))
+	(bind ?allowed-values (create$ Yes No yes no Y N y n))
+	(while (not (member ?answer ?allowed-values)) do
+		(printout t "| > " ?question)
+		(bind ?answer (read))
+	)
+  (if (or (eq ?answer Yes) (eq ?answer yes) (eq ?answer Y) (eq ?answer y)) then
+		TRUE
+  else
+		FALSE
+	)
+)
+
+(deffunction ask-question-multi-opt (?question ?allowed-values)
+	(printout t "| > " ?question ?allowed-values crlf "| ")
 	(bind ?line (readline))
 	(bind $?answer (explode$ ?line))
   (bind ?valid FALSE)
@@ -979,14 +1132,14 @@
         )
       )
       (if (not ?value-belongs) then
-        (printout t (nth$ ?i $?answer) " is not a valid option" crlf)
+        (printout t "| " (nth$ ?i $?answer) " is not a valid option" crlf)
         (break)
       )
       (bind ?valid TRUE)
     )
     (if ?valid then (break))
 
-    (printout t ?question crlf)
+    (printout t "| > " ?question crlf)
     (bind ?line (readline))
     (bind $?answer (explode$ ?line))
   )
@@ -998,10 +1151,10 @@
 )
 
 (deffunction ask-question-num (?question ?min ?max)
-  (printout t "> " ?question)
+  (printout t "| > " ?question)
   (bind ?answer (read))
   (while (not (and (is-num ?answer) (>= ?answer ?min) (<= ?answer ?max))) do
-    (printout t ?question)
+    (printout t "| " ?question)
   	(bind ?answer (read)))
   ?answer
 )
@@ -1022,24 +1175,32 @@
 	TRUE
 )
 
+(deffunction calculate-price-dishes ($?elements)
+	(bind ?price 0.0)
+	(loop-for-count (?i 1 (length$ ?elements))
+		(bind ?price (+ ?price (send (nth$ ?i ?elements) get-dish-price)))
+	)
+	?price
+)
+
 (deffunction print-dishes (?dishes)
   (loop-for-count (?i 1 (length$ ?dishes)) do
-    (printout t "- Name: " (send (nth$ ?i ?dishes) get-dish-name) "." crlf)
-    (printout t "- Ingredients: " (send (nth$ ?i ?dishes) get-dish-ingredients) "." crlf)
-    (printout t "- Price: " (send (nth$ ?i ?dishes) get-dish-price) "." crlf)
+    (printout t "| - Name: " (send (nth$ ?i ?dishes) get-dish-name) "." crlf)
+    (printout t "| - Ingredients: " (send (nth$ ?i ?dishes) get-dish-ingredients) "." crlf)
+    (printout t "| - Price: " (send (nth$ ?i ?dishes) get-dish-price) "." crlf)
   )
 )
 
-(deffunction print-menus ()
-	(bind $?menus (find-all-instances ((?ins Ingredient)) TRUE))
-	(loop-for-count (?i 1 (length$ ?menus)) do
-    (printout t "----------------------------------------------------" crlf)
-    ;(printout t "- Main course - " (send (send (nth$ ?i ?menus) get_main_course) get_ingredient_name) ". " crlf)
-    ;(printout t "- Second course - " (send (send (nth$ ?i ?menus) get_second_course) get_name) ". " crlf)
-    ;(printout t "- Dessert - " (send (send (nth$ ?i ?menus) get_dessert) get_name) ". " crlf)
-    ;(printout t "- Drink - " (send (send (nth$ ?i ?menus) get_drink) get_name) ". " crlf)
-    (printout t "----------------------------------------------------" crlf)
-  )
+(deffunction print-menu (?menu ?header)
+	(printout t "*---------------------------------------------------" crlf)
+	(printout t "| " ?header crlf)
+  (printout t "|---------------------------------------------------" crlf)
+  (printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
+  (printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
+  (printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
+  (printout t "| Drink - " (send (send ?menu get-menu-drink) get-drink-name) "." crlf)
+	(printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
+  (printout t "*---------------------------------------------------" crlf)
 )
 
 ;%%%%%
@@ -1051,7 +1212,7 @@
 (defrule print-welcome-message "Initial program message"
   (declare (salience 0))
   =>
-  (printout t "--------------------------------------------------------------------------------------" crlf)
+  (printout t "*-------------------------------------------------------------------------------------" crlf)
   (printout t "|                                                               ___          /|      |" crlf)
   (printout t "|     * Eric Dacal                                 ||||     .-''   ''-.     } |      |" crlf)
   (printout t "|     * Josep de Cid                          |||| ||||   .'  .-'`'-.  '.   } | /  \\ |" crlf)
@@ -1063,7 +1224,7 @@
   (printout t "|     /__ /    _  _        /__ /    _  _       %%   %%   \\  '.       .'  /   %%  %%  |" crlf)
   (printout t "|  ) /   \\__(_(__(_)    ) /   \\__(_(__(_)      %%   %%    '.  `-.,.-'  .'    %%  %%  |" crlf)
   (printout t "| (_/                  (_/                     %%   %%      '-.,___,.-'      %%  %%  |" crlf)
-  (printout t "--------------------------------------------------------------------------------------" crlf crlf)
+  (printout t "*-------------------------------------------------------------------------------------" crlf "|" crlf)
 )
 
 (defrule determine-event-type "Asks for event type"
@@ -1080,7 +1241,7 @@
   (not (event month ?))
   (not (event hour ?))
   =>
-  (printout t "Tell me event date " crlf)
+  (printout t "| Tell me event date " crlf)
   (bind ?day (ask-question-num "Day? " 1 31))
   (bind ?month (ask-question-num "Month? " 1 12))
   (bind ?hour (ask-question-num "Hour? " 0 24))
@@ -1117,7 +1278,7 @@
 	(declare (salience -6))
 	(not (or (event drink-per-dish $?) (event drink-types $?)))
 	=>
-	(bind ?drink-per-dish (ask-question-opt "Will you require a drink for each dish? " ?*BOOLEAN*))
+	(bind ?drink-per-dish (ask-question-yes-no "Will you require a drink for each dish? "))
 	(bind ?drink-types (ask-question-multi-opt "Would you discard any drinks? " ?*DRINK_TYPES*))
 	(assert (event drink-per-dish ?drink-per-dish))
 	(assert (event drink-types ?drink-types))
@@ -1131,7 +1292,7 @@
 		(bind ?price_min (ask-question-num "Minimum price to pay? " 0 10000))
     (bind ?price_max (ask-question-num "Maximum price to pay? " 0 10000))
     (if (>= ?price_max ?price_min) then (break))
-    (printout t "Maximum price must be greater than minimum price" crlf)
+    (printout t "| Maximum price must be greater than minimum price" crlf)
   )
   (assert (event price_min ?price_min))
   (assert (event price_max ?price_max))
@@ -1156,5 +1317,52 @@
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (not (collection-contains-all-elements ?restrictions ?ins:dish-classification)))
   )))
-  (print-dishes ?dishes)
+	(assert (dishes ready ?dishes))
+)
+
+(defrule generate-menu-combinations "Generates different menu combinations"
+	(dishes ready $?dishes)
+	=>
+	(bind ?drinks (find-all-instances ((?ins Drink)) TRUE))
+	(bind ?menus (create$))
+	(loop-for-count (?i 1 4) do
+		(bind ?menus (insert$ ?menus ?i
+			(make-instance (gensym) of Menu
+				(main-course (nth$ 1 ?dishes))
+				(second-course (nth$ 1 ?dishes))
+				(dessert (nth$ 1 ?dishes))
+				(menu-drink (nth$ 1 ?drinks))
+				(menu-price (calculate-price-dishes (nth$ 1 ?dishes) (nth$ 1 ?dishes) (nth$ 1 ?dishes)))
+			)
+		))
+	)
+	(assert (generated-menus ready ?menus))
+)
+
+(defrule generate-low-price-menu ""
+	(generated-menus ready $?menus)
+	=>
+	(assert (low-menu ready (nth$ 1 ?menus)))
+)
+
+(defrule generate-medium-price-menu ""
+	(generated-menus ready $?menus)
+	=>
+	(assert (medium-menu ready (nth$ 2 ?menus)))
+)
+
+(defrule generate-high-price-menu ""
+	(generated-menus ready $?menus)
+	=>
+	(assert (high-menu ready (nth$ 3 ?menus)))
+)
+
+(defrule print-recomendations ""
+	(low-menu ready ?low-menu)
+	(medium-menu ready ?medium-menu)
+	(high-menu ready ?high-menu)
+	=>
+	(print-menu ?low-menu "Cheap menu")
+	(print-menu ?medium-menu "Normal menu")
+	(print-menu ?high-menu "Expensive menu")
 )
