@@ -251,6 +251,11 @@
 		(type FLOAT)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(multislot dish-type
+		(type SYMBOL)
+		(allowed-values MAIN SECOND DESSERT)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
 	(multislot dish-ingredients
 		(type INSTANCE)
 ;+		(allowed-classes Ingredient)

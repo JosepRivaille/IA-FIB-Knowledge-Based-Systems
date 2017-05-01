@@ -251,6 +251,11 @@
 		(type FLOAT)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(multislot dish-type
+		(type SYMBOL)
+		(allowed-values MAIN SECOND DESSERT)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
 	(multislot dish-ingredients
 		(type INSTANCE)
 ;+		(allowed-classes Ingredient)
@@ -363,18 +368,60 @@
 ;%%%%%
 
 (definstances dishes
-	([rico_rico_Class10000] of Dish
+	([dish0] of Dish
 		(dish-name "Spaghetti Bolognese")
 		(dish-classification Italian Mediterranean)
-		(dish-ingredients [rico_rico_Class10054] [rico_rico_Class10016] [rico_rico_Class10012] [rico_rico_Class10029])
+		(dish-ingredients [rico_rico_Class10060] [rico_rico_Class10032] [rico_rico_Class10007] [rico_rico_Class10009 [rico_rico_Class10013] [rico_rico_Class10017] [rico_rico_Class10062] [rico_rico_Class10050] [rico_rico_Class10063])
+		(dish-type Main)
 		(dish-price 5.50)
 	)
 
-	([rico_rico_Class10001] of Dish
-		(dish-name "Mediterranian Salad")
-		(dish-classification Vegetarian Vegan Mediterranean Gluten-free)
-		(dish-ingredients [rico_rico_Class10016] [rico_rico_Class10009])
+	([dish1] of Dish
+		(dish-name "Mediterranean Salad")
+		(dish-classification Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean)
+		(dish-ingredients [rico_rico_Class10017] [rico_rico_Class10007] [rico_rico_Class10010] [rico_rico_Class10063] [rico_rico_Class10064] [rico_rico_Class10052] [rico_rico_Class10016] [rico_rico_Class10001])
+		(dish-type Main)
 		(dish-price 2)
+	)
+
+	([dish2] of Dish
+		(dish-name "Sweet and Sour Pork")
+		(dish-classification Chinese)
+		(dish-ingredients [rico_rico_Class10032] [rico_rico_Class10007] [rico_rico_Class10013] [rico_rico_Class10014] [rico_rico_Class10030] [rico_rico_Class10056])
+		(dish-type Main Second)
+		(dish-price 4.35)
+	)
+
+	([dish3] of Dish
+		(dish-name "Borek")
+		(dish-classification Turkey)
+		(dish-ingredients [rico_rico_Class10060] [rico_rico_Class10015] [rico_rico_Class10050] [rico_rico_Class10052] [rico_rico_Class10055] [rico_rico_Class10012] [rico_rico_Class10065])
+		(dish-type Main Second)
+		(dish-price 7)
+	)
+
+	([dish4] of Dish
+		(dish-name "Spanish omelette")
+		(dish-classification Spanish Mediterranean Lactose-free Gluten-free Vegetarian)
+		(dish-ingredients [rico_rico_Class10052] [rico_rico_Class10063] [rico_rico_Class10018])
+		(dish-type Main Second)
+		(dish-price 3)
+	)
+
+	([dish5] of Dish
+		(dish-name "Tarta de Santiago")
+		(dish-classification Vegetarian Kosher Spanish Classical Mediterranean)
+		(dish-ingredients [rico_rico_Class10052] [rico_rico_Class10061] [rico_rico_Class10023] [rico_rico_Class10055] [rico_rico_Class10031])
+		(dish-type Dessert)
+		(dish-price 3)
+	)
+
+	([dish6] of Dish
+		(dish-name "Tiramisu")
+		(dish-classification Kosher Islamic Italian Gourmet)
+		(dish-ingredients [rico_rico_Class10052] [rico_rico_Class10050] [rico_rico_Class10061] [rico_rico_Class10031])
+		(dish-type Dessert)
+		(dish-price 4)
 	)
 )
 
@@ -1095,7 +1142,7 @@
   (printout t "| > " ?question ?allowed-values crlf "| ")
   (bind ?answer (read))
   (while (not (member ?answer ?allowed-values)) do
-    (printout t ?question)
+    (printout t "| > "?question)
     (bind ?answer (read))
 	)
   ?answer
@@ -1326,13 +1373,21 @@
 	(bind ?drinks (find-all-instances ((?ins Drink)) TRUE))
 	(bind ?menus (create$))
 	(loop-for-count (?i 1 4) do
+		; TODO: Remove random dishes and drinks
+		(bind ?main-course-index (+ (mod (random) (length$ ?dishes)) 1))
+		(bind ?second-course-index (+ (mod (random) (length$ ?dishes)) 1))
+		(bind ?dessert-index (+ (mod (random) (length$ ?dishes)) 1))
+		(bind ?drink-index (+ (mod (random) (length$ ?drinks)) 1))
+
 		(bind ?menus (insert$ ?menus ?i
 			(make-instance (gensym) of Menu
-				(main-course (nth$ 1 ?dishes))
-				(second-course (nth$ 1 ?dishes))
-				(dessert (nth$ 1 ?dishes))
-				(menu-drink (nth$ 1 ?drinks))
-				(menu-price (calculate-price-dishes (nth$ 1 ?dishes) (nth$ 1 ?dishes) (nth$ 1 ?dishes)))
+				(main-course (nth$ ?main-course-index ?dishes))
+				(second-course (nth$ ?second-course-index ?dishes))
+				(dessert (nth$ ?dessert-index ?dishes))
+				(menu-drink (nth$ ?drink-index ?drinks))
+				(menu-price (calculate-price-dishes
+					(nth$ ?main-course-index ?dishes) (nth$ ?second-course-index ?dishes) (nth$ ?dessert-index ?dishes))
+				)
 			)
 		))
 	)
