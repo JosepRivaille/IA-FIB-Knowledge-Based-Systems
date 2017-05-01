@@ -1,0 +1,29 @@
+([rico_rico_Class10000] of dish
+	(dish-name "Spaghetti Bolognese [Italian Mediterranean] [[rico rico Class10060] [rico rico Class10032] [rico rico Class10007] [rico rico Class10009 [rico rico Class10013] [rico rico Class10017] [rico rico Class10062] [rico rico Class10050] [rico rico Class10063]] [Main]  5.50")
+)
+
+([rico_rico_Class10001] of dish
+	(dish-name "Mediterranian Salad [Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean] [[rico rico Class10017] [rico rico Class10007] [rico rico Class10010] [rico rico Class10063] [rico rico Class10064] [rico rico Class10052] [rico rico Class10016] [rico rico Class10001]]   [Main]  2")
+)
+
+([rico_rico_Class10002] of dish
+	(dish-name "Sweet and Sour Pork [Chinesse]  [[rico rico Class10032] [rico rico Class10007] [rico rico Class10013] [rico rico Class10014] [rico rico Class10030] [rico rico Class10056]] [Main Second]   4.35")
+)
+
+([rico_rico_Class10003] of dish
+	(dish-name "Borek   [Turkey]    [[rico rico Class10060] [rico rico Class10015] [rico rico Class10050] [rico rico Class10052] [rico rico Class10055] [rico rico Class10012] [rico rico Class10065]]  [Main Second]   7")
+)
+
+([rico_rico_Class10004] of dish
+	(dish-name "Spanish omelette    [Spanish Mediterranean Lactose-free Gluten-free Vegetarian] [[rico rico Class10052] [rico rico Class10063] [rico rico Class10018] ] [Main Second]   3")
+)
+
+([rico_rico_Class10005] of dish
+	(dish-name "Tarta de Santiago   [Vegetarian Kosher Spanish Classical Mediterranean] [[rico rico Class10052] [rico rico Class10061] [rico rico Class10023] [rico rico Class10055] [rico rico Class10031]]    [Dessert]   3")
+)
+
+([rico_rico_Class10006] of dish
+	(dish-name "Tiramisu    [Kosher Islamic Italian Gourmet]    [[rico rico Class10052] [rico rico Class10050] [rico rico Class10061] [rico rico Class10031]]   [Dessert]   4")
+)
+
+([rico_rico_Class10007] of dish
