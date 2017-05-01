@@ -1,0 +1,139 @@
+([drink0] of Drink
+	(drink-name "Water")
+	(drink-price 1.20)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([drink1] of Drink
+	(drink-name "Beer")
+	(drink-price 2.50)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([drink2] of Drink
+	(drink-name "La Rioja Alta Gran Reserva 1995")
+	(drink-price 195.00 [Alcohol])
+	(drink-classification All)
+)
+
+([drink3] of Drink
+	(drink-name "Glorioso Crianza Magnum 2013")
+	(drink-price 11.65)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([drink4] of Drink
+	(drink-name "La Vicalanda Gran Reserva 2010")
+	(drink-price 45.95)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([drink5] of Drink
+	(drink-name "White Wine")
+	(drink-price 10.50)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([drink6] of Drink
+	(drink-name "Tequila")
+	(drink-price 14.59)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([drink7] of Drink
+	(drink-name "Sangria")
+	(drink-price 10.99)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([drink8] of Drink
+	(drink-name "Whisky Glengarry 12 Years")
+	(drink-price 40.45)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([drink9] of Drink
+	(drink-name "Ron Barcelo Imperial")
+	(drink-price 30.25)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([drink10] of Drink
+	(drink-name "Juice")
+	(drink-price 1.30)
+	(drink-classification Juice)
+	(drink-combination All)
+)
+
+([drink11] of Drink
+	(drink-name "Coffee")
+	(drink-price 2.10)
+	(drink-classification Caffeine)
+	(drink-combination All)
+)
+
+([drink12] of Drink
+	(drink-name "Coffee milk")
+	(drink-price 2.20)
+	(drink-classification Caffeine)
+	(drink-combination All)
+)
+
+([drink13] of Drink
+	(drink-name "Iced coffee")
+	(drink-price 2.10)
+	(drink-classification Caffeine)
+	(drink-combination All)
+)
+
+([drink14] of Drink
+	(drink-name "Hot chocolate")
+	(drink-price 2.00)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([drink15] of Drink
+	(drink-name "Tea")
+	(drink-price 1.70)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([drink16] of Drink
+	(drink-name "Iced Tea")
+	(drink-price 1.70)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([drink17] of Drink
+	(drink-name "Infusion")
+	(drink-price 1.70)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([drink18] of Drink
+	(drink-name "Soft drink")
+	(drink-price 1.50)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([drink19] of Drink
+	(drink-name "Cocktail")
+	(drink-price 3.50)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+

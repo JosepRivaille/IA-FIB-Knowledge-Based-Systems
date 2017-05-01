@@ -1,5 +1,5 @@
 ; Sun Apr 30 11:54:13 CEST 2017
-; 
+;
 ;+ (version "3.5")
 ;+ (build "Build 663")
 
@@ -271,6 +271,11 @@
 	(multislot drink-classification
 		(type SYMBOL)
 		(allowed-values Alcohol Soft-drink Caffeine Juice Other)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(multislot drink-combination
+		(type SYMBOL)
+		(allowed-values Vegetarian Kosher Islamic Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet Gluten-free Vegan Lactose-free Mediterranean	All)
 		(cardinality 1 ?VARIABLE)
 		(create-accessor read-write)))
 

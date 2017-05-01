@@ -14,12 +14,12 @@ def write_attribute_type(attribute, data_type):
 		else:
 			return attribute
 
-def generate_instance(class_name, instance_id):
+def generate_instance(class_name):
 	counter = 0
 
-	instances_file = class_name.lower() + '.txt'
+	instances_file = class_name.lower()
 
-	with open (instances_file, 'r') as input_file:
+	with open (instances_file + '.txt', 'r') as input_file:
 		lines = input_file.readlines()
 		headers = lines[0].rstrip().split('\t')
 		types = lines[1].rstrip().split('\t')
@@ -30,7 +30,7 @@ def generate_instance(class_name, instance_id):
 				if line[0] == ';':
 					continue
 
-				f.write('([rico_rico_Class' + str(instance_id) + '] of ' + class_name)
+				f.write('([' + instances_file + str(counter) + '] of ' + class_name)
 
 				line_list = line.split('\t')
 				line_list[-1] = line_list[-1].rstrip()
@@ -41,14 +41,11 @@ def generate_instance(class_name, instance_id):
 					f.write('\n\t' + '(' + header + ' ' + write_attribute_type(attribute, data_type) + ')')
 				f.write('\n)\n\n')
 
-				instance_id += 1
 				counter += 1
 
 	print('Successfully created ' + str(counter) + ' instances of ' + class_name)
-	return instance_id
 
 if __name__ == '__main__':
-	instance_id = 10000
 	args = argv[1:]
 	for arg in args:
-		instance_id = generate_instance(arg, instance_id)
+		generate_instance(arg)

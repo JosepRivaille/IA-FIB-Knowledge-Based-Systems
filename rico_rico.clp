@@ -1,5 +1,5 @@
 ; Sun Apr 30 11:54:13 CEST 2017
-; 
+;
 ;+ (version "3.5")
 ;+ (build "Build 663")
 
@@ -271,6 +271,11 @@
 	(multislot drink-classification
 		(type SYMBOL)
 		(allowed-values Alcohol Soft-drink Caffeine Juice Other)
+		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(multislot drink-combination
+		(type INSTANCE)
+;			(allowed-classes Dish)
 		(cardinality 1 ?VARIABLE)
 		(create-accessor read-write)))
 
@@ -934,9 +939,9 @@
 (defglobal
 	?*BOOLEAN* = (create$ Yes No)
 	?*EVENT_TYPES* = (create$ Familiar Congress)
-        ?*DRINK_TYPES* = (create$ Alcohol Soft-drinks Caffeine Juice none)
-        ?*CUISINE_STYLES* = (create$ Vegetarian Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet Mediterranean none)
-        ?*DIETARY_RESTRICTIONS* = (create$ Gluten-free Vegan Vegetarian Lactose-free Kosher Islamic none)
+	?*DRINK_TYPES* = (create$ Alcohol Soft-drinks Caffeine Juice none)
+	?*CUISINE_STYLES* = (create$ Vegetarian Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet Mediterranean none)
+	?*DIETARY_RESTRICTIONS* = (create$ Gluten-free Vegan Vegetarian Lactose-free Kosher Islamic none)
 )
 
 ;%%%%%
@@ -946,67 +951,59 @@
 ;%%%%%
 
 (deffunction ask-question-opt (?question $?allowed-values)
-        (printout t "> " ?question crlf "Allowed answers -> " $?allowed-values crlf)
-        (bind ?answer (read))
-        (while (not (member ?answer ?allowed-values)) do
-                (printout t ?question)
-                (bind ?answer (read))
-                (if (lexemep ?answer)
-                        then (bind ?answer ?answer)))
-        ?answer
+  (printout t "> " ?question crlf "Allowed answers -> " $?allowed-values crlf)
+  (bind ?answer (read))
+  (while (not (member ?answer ?allowed-values)) do
+    (printout t ?question)
+    (bind ?answer (read))
+    (if (lexemep ?answer) then
+			(bind ?answer ?answer)
+		)
+	)
+  ?answer
 )
 
 (deffunction ask-question-multi-opt (?question $?allowed-values)
-        (printout t "> " ?question crlf "Allowed answers -> " $?allowed-values crlf)
-        (bind ?line (readline))
-        (bind $?answer (explode$ ?line))
-        (bind ?valid FALSE)
-        (while (not ?valid) do
-                (loop-for-count (?i 1 (length$ $?answer)) do
-                        (bind ?valid FALSE)
-                        (bind ?value-belongs FALSE)
-                        (loop-for-count (?j 1 (length$ $?allowed-values)) do
-                                (if (eq (nth$ ?i $?answer) (nth$ ?j $?allowed-values)) then
-                                        (bind ?value-belongs TRUE)
-                                        (break)
-                                )
-                        )
-                        (if (not ?value-belongs) then
-                                (printout t (nth$ ?i $?answer) " is not a valid option" crlf)
-                                (break)
-                        )
-                        (bind ?valid TRUE)
-                )
-                (if ?valid then (break))
-
-                (printout t ?question crlf)
-                (bind ?line (readline))
-                (bind $?answer (explode$ ?line))
+	(printout t "> " ?question crlf "Allowed answers -> " $?allowed-values crlf)
+	(bind ?line (readline))
+	(bind $?answer (explode$ ?line))
+  (bind ?valid FALSE)
+  (while (not ?valid) do
+    (loop-for-count (?i 1 (length$ $?answer)) do
+      (bind ?valid FALSE)
+      (bind ?value-belongs FALSE)
+      (loop-for-count (?j 1 (length$ $?allowed-values)) do
+        (if (eq (nth$ ?i $?answer) (nth$ ?j $?allowed-values)) then
+        	(bind ?value-belongs TRUE)
+          (break)
         )
-        $?answer
+      )
+      (if (not ?value-belongs) then
+        (printout t (nth$ ?i $?answer) " is not a valid option" crlf)
+        (break)
+      )
+      (bind ?valid TRUE)
+    )
+    (if ?valid then (break))
+
+    (printout t ?question crlf)
+    (bind ?line (readline))
+    (bind $?answer (explode$ ?line))
+  )
+  $?answer
 )
 
 (deffunction is-num (?num)
-        (bind ?ret (or (eq (type ?num) INTEGER) (eq (type ?num) FLOAT))) ?ret
+  (bind ?ret (or (eq (type ?num) INTEGER) (eq (type ?num) FLOAT))) ?ret
 )
 
 (deffunction ask-question-num (?question ?min ?max)
-        (printout t "> " ?question)
-        (bind ?answer (read))
-        (while (not (and (is-num ?answer) (>= ?answer ?min) (<= ?answer ?max))) do
-                (printout t ?question)
-                (bind ?answer (read)))
-        ?answer
-)
-
-(deffunction print-dish (?dietary-restrictions)
-	(bind ?dishes (find-all-instances ((?ins Dish)) TRUE))
-	(loop-for-count (?i 1 (length$ ?dishes)) do
-		(bind ?classification (send (nth$ ?i ?dishes) get-dish-classification))
-		(if (member ?dietary-restrictions ?classification) then
-			(printout t "- Name: " (send (nth$ ?i ?dishes) get-dish-name) "." crlf)
-		)
-	)
+  (printout t "> " ?question)
+  (bind ?answer (read))
+  (while (not (and (is-num ?answer) (>= ?answer ?min) (<= ?answer ?max))) do
+    (printout t ?question)
+  	(bind ?answer (read)))
+  ?answer
 )
 
 (deffunction collection-contains-all-elements (?all-elements ?collection)
@@ -1025,16 +1022,24 @@
 	TRUE
 )
 
+(deffunction print-dishes (?dishes)
+  (loop-for-count (?i 1 (length$ ?dishes)) do
+    (printout t "- Name: " (send (nth$ ?i ?dishes) get-dish-name) "." crlf)
+    (printout t "- Ingredients: " (send (nth$ ?i ?dishes) get-dish-ingredients) "." crlf)
+    (printout t "- Price: " (send (nth$ ?i ?dishes) get-dish-price) "." crlf)
+  )
+)
+
 (deffunction print-menus ()
-        (bind $?menus (find-all-instances ((?ins Ingredient)) TRUE))
-        (loop-for-count (?i 1 (length$ ?menus)) do
-                (printout t "----------------------------------------------------" crlf)
-                ;(printout t "- Main course - " (send (send (nth$ ?i ?menus) get_main_course) get_ingredient_name) ". " crlf)
-                ;(printout t "- Second course - " (send (send (nth$ ?i ?menus) get_second_course) get_name) ". " crlf)
-                ;(printout t "- Dessert - " (send (send (nth$ ?i ?menus) get_dessert) get_name) ". " crlf)
-                ;(printout t "- Drink - " (send (send (nth$ ?i ?menus) get_drink) get_name) ". " crlf)
-                (printout t "----------------------------------------------------" crlf)
-        )
+	(bind $?menus (find-all-instances ((?ins Ingredient)) TRUE))
+	(loop-for-count (?i 1 (length$ ?menus)) do
+    (printout t "----------------------------------------------------" crlf)
+    ;(printout t "- Main course - " (send (send (nth$ ?i ?menus) get_main_course) get_ingredient_name) ". " crlf)
+    ;(printout t "- Second course - " (send (send (nth$ ?i ?menus) get_second_course) get_name) ". " crlf)
+    ;(printout t "- Dessert - " (send (send (nth$ ?i ?menus) get_dessert) get_name) ". " crlf)
+    ;(printout t "- Drink - " (send (send (nth$ ?i ?menus) get_drink) get_name) ". " crlf)
+    (printout t "----------------------------------------------------" crlf)
+  )
 )
 
 ;%%%%%
@@ -1044,21 +1049,21 @@
 ;%%%%%
 
 (defrule print-welcome-message "Initial program message"
-        (declare (salience 0))
-        =>
-        (printout t "--------------------------------------------------------------------------------------" crlf)
-        (printout t "|                                                               ___          /|      |" crlf)
-        (printout t "|     * Eric Dacal                                 ||||     .-''   ''-.     } |      |" crlf)
-        (printout t "|     * Josep de Cid                          |||| ||||   .'  .-'`'-.  '.   } | /  \\ |" crlf)
-        (printout t "|     * Joaquim Marset                        |||| \\  /  /  .'       '.  \\  } | |()| |" crlf)
-        (printout t "|                                             \\  /  ||  /  :           :  \\  \\| \\  / |" crlf)
-        (printout t "|                Welcome to                    ||   ||  | :             : |  ||  ||  |" crlf)
-        (printout t "|     _____                _____               %%   %%  | :             : |  %%  %%  |" crlf)
-        (printout t "|   (, /   ) ,           (, /   ) ,            %%   %%  \\  :           :  /  %%  %%  |" crlf)
-        (printout t "|     /__ /    _  _        /__ /    _  _       %%   %%   \\  '.       .'  /   %%  %%  |" crlf)
-        (printout t "|  ) /   \\__(_(__(_)    ) /   \\__(_(__(_)      %%   %%    '.  `-.,.-'  .'    %%  %%  |" crlf)
-        (printout t "| (_/                  (_/                     %%   %%      '-.,___,.-'      %%  %%  |" crlf)
-        (printout t "--------------------------------------------------------------------------------------" crlf crlf)
+  (declare (salience 0))
+  =>
+  (printout t "--------------------------------------------------------------------------------------" crlf)
+  (printout t "|                                                               ___          /|      |" crlf)
+  (printout t "|     * Eric Dacal                                 ||||     .-''   ''-.     } |      |" crlf)
+  (printout t "|     * Josep de Cid                          |||| ||||   .'  .-'`'-.  '.   } | /  \\ |" crlf)
+  (printout t "|     * Joaquim Marset                        |||| \\  /  /  .'       '.  \\  } | |()| |" crlf)
+  (printout t "|                                             \\  /  ||  /  :           :  \\  \\| \\  / |" crlf)
+  (printout t "|                Welcome to                    ||   ||  | :             : |  ||  ||  |" crlf)
+  (printout t "|     _____                _____               %%   %%  | :             : |  %%  %%  |" crlf)
+  (printout t "|   (, /   ) ,           (, /   ) ,            %%   %%  \\  :           :  /  %%  %%  |" crlf)
+  (printout t "|     /__ /    _  _        /__ /    _  _       %%   %%   \\  '.       .'  /   %%  %%  |" crlf)
+  (printout t "|  ) /   \\__(_(__(_)    ) /   \\__(_(__(_)      %%   %%    '.  `-.,.-'  .'    %%  %%  |" crlf)
+  (printout t "| (_/                  (_/                     %%   %%      '-.,___,.-'      %%  %%  |" crlf)
+  (printout t "--------------------------------------------------------------------------------------" crlf crlf)
 )
 
 (defrule determine-event-type "Asks for event type"
@@ -1070,43 +1075,42 @@
 )
 
 (defrule determine-event-date "Asks for dates"
-        (declare (salience -2))
-        (not (event date ?))
-        (not (event month ?))
-        (not (event hour ?))
-        =>
-        (printout t "Tell me event date " crlf)
-        (bind ?day (ask-question-num "Day? " 1 31))
-        (bind ?month (ask-question-num "Month? " 1 12))
-        (bind ?hour (ask-question-num "Hour? " 0 24))
-        (assert (event day ?day))
-        (assert (event month ?month))
-        (assert (event hour ?hour))
+  (declare (salience -2))
+  (not (event date ?))
+  (not (event month ?))
+  (not (event hour ?))
+  =>
+  (printout t "Tell me event date " crlf)
+  (bind ?day (ask-question-num "Day? " 1 31))
+  (bind ?month (ask-question-num "Month? " 1 12))
+  (bind ?hour (ask-question-num "Hour? " 0 24))
+  (assert (event day ?day))
+  (assert (event month ?month))
+  (assert (event hour ?hour))
 )
 
 (defrule determine-event-guests "Asks for number of assistants"
-        (declare (salience -3))
-        (not (event guests ?))
-        =>
-        (bind ?guests (ask-question-num "Number of guests? " 1 10000))
-        (assert (event guests ?guests))
+  (declare (salience -3))
+  (not (event guests ?))
+  =>
+  (bind ?guests (ask-question-num "Number of guests? " 1 10000))
+  (assert (event guests ?guests))
 )
 
 (defrule determine-preferred-cuisine-styles "Asks for preferred cuisine styles"
-        (declare (salience -4))
-        (not (event preferred-cuisine-styles $?))
-        =>
-        (bind $?styles (ask-question-multi-opt "Which cuisine styles do you prefer? " ?*CUISINE_STYLES*))
-        (assert (event preferred-cuisine-styles $?styles))
-
+  (declare (salience -4))
+  (not (event preferred-cuisine-styles $?))
+  =>
+  (bind $?styles (ask-question-multi-opt "Which cuisine styles do you prefer? " ?*CUISINE_STYLES*))
+  (assert (event preferred-cuisine-styles $?styles))
 )
 
 (defrule determine-dietary-restrictions "Asks for dietary restrictions"
-        (declare (salience -5))
-        (not (event dietary-restrictions $?))
-        =>
-        (bind $?restrictions (ask-question-multi-opt "Any dietary restrictions? " ?*DIETARY_RESTRICTIONS*))
-        (assert (event dietary-restrictions ?restrictions))
+  (declare (salience -5))
+  (not (event dietary-restrictions $?))
+  =>
+  (bind $?restrictions (ask-question-multi-opt "Any dietary restrictions? " ?*DIETARY_RESTRICTIONS*))
+	(assert (event dietary-restrictions ?restrictions))
 )
 
 (defrule determine-drinks "Asks for banned drinks and if one drink per dish is required"
@@ -1120,18 +1124,18 @@
 )
 
 (defrule determine-price-range "Asks for event menu price range"
-        (declare (salience -7))
-        (not (or (event price_min ?) (event price_max ?)))
-        =>
-        (while TRUE do
-                (bind ?price_min (ask-question-num "Minimum price to pay? " 0 10000))
-                (bind ?price_max (ask-question-num "Maximum price to pay? " 0 10000))
-                (if (>= ?price_max ?price_min) then (break))
-                (printout t "Maximum price must be greater than minimum price" crlf)
-        )
-        (assert (event price_min ?price_min))
-        (assert (event price_max ?price_max))
-        (assert (event ready TRUE))
+	(declare (salience -7))
+	(not (or (event price_min ?) (event price_max ?)))
+  =>
+  (while TRUE do
+		(bind ?price_min (ask-question-num "Minimum price to pay? " 0 10000))
+    (bind ?price_max (ask-question-num "Maximum price to pay? " 0 10000))
+    (if (>= ?price_max ?price_min) then (break))
+    (printout t "Maximum price must be greater than minimum price" crlf)
+  )
+  (assert (event price_min ?price_min))
+  (assert (event price_max ?price_max))
+  (assert (event ready TRUE))
 )
 
 ;%%%%%
@@ -1140,22 +1144,17 @@
 ;%
 ;%%%%%
 
-(defrule recommend-dish ""
-	(event ready $?)
-	(event dietary-restrictions $?restrictions)
-	=>
-	(print-dish $?restrictions)
-)
-
 (defrule get-preferred-dish-styles ""
-	(event ready $?)
+	(event ready ?)
 	(event preferred-cuisine-styles $?preferences)
 	(event dietary-restrictions $?restrictions)
 	=>
-	(if (eq $?preferences (create$ none)) then
-		(bind $?dishes (find-all-instances ((?ins Dish)) TRUE))
-	else
-		(bind $?dishes (find-all-instances ((?ins Dish)) (collection-contains-all-elements $?preferences $?ins:dish-classification)))
-	)
-	(printout t $?dishes)
+	(bind ?dishes (find-all-instances ((?ins Dish))
+	(and
+    ; Filter non-desired food types
+    (or (eq ?preferences (create$ none)) (collection-contains-all-elements ?preferences ?ins:dish-classification))
+    ; Filter banned options
+    (or (eq ?restrictions (create$ none)) (not (collection-contains-all-elements ?restrictions ?ins:dish-classification)))
+  )))
+  (print-dishes ?dishes)
 )
