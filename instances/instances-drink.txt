@@ -1,137 +1,137 @@
-([drink0] of Drink
+([water] of Drink
 	(drink-name "Water")
 	(drink-price 1.20)
 	(drink-classification Other)
 	(drink-combination All)
 )
 
-([drink1] of Drink
+([beer] of Drink
 	(drink-name "Beer")
 	(drink-price 2.50)
 	(drink-classification Alcohol)
 	(drink-combination All)
 )
 
-([drink2] of Drink
+([la_rioja_alta_gran_reserva_1995] of Drink
 	(drink-name "La Rioja Alta Gran Reserva 1995")
 	(drink-price 195.00)
 	(drink-classification Alcohol)
 	(drink-combination All)
 )
 
-([drink3] of Drink
+([glorioso_crianza_magnum_2013] of Drink
 	(drink-name "Glorioso Crianza Magnum 2013")
 	(drink-price 11.65)
 	(drink-classification Alcohol)
 	(drink-combination All)
 )
 
-([drink4] of Drink
+([la_vicalanda_gran_reserva_2010] of Drink
 	(drink-name "La Vicalanda Gran Reserva 2010")
 	(drink-price 45.95)
 	(drink-classification Alcohol)
 	(drink-combination All)
 )
 
-([drink5] of Drink
+([white_wine] of Drink
 	(drink-name "White Wine")
 	(drink-price 10.50)
 	(drink-classification Alcohol)
 	(drink-combination All)
 )
 
-([drink6] of Drink
+([tequila] of Drink
 	(drink-name "Tequila")
 	(drink-price 14.59)
 	(drink-classification Alcohol)
 	(drink-combination All)
 )
 
-([drink7] of Drink
+([sangria] of Drink
 	(drink-name "Sangria")
 	(drink-price 10.99)
 	(drink-classification Alcohol)
 	(drink-combination All)
 )
 
-([drink8] of Drink
+([whisky_glengarry_12_years] of Drink
 	(drink-name "Whisky Glengarry 12 Years")
 	(drink-price 40.45)
 	(drink-classification Alcohol)
 	(drink-combination All)
 )
 
-([drink9] of Drink
+([ron_barcelo_imperial] of Drink
 	(drink-name "Ron Barcelo Imperial")
 	(drink-price 30.25)
 	(drink-classification Alcohol)
 	(drink-combination All)
 )
 
-([drink10] of Drink
+([juice] of Drink
 	(drink-name "Juice")
 	(drink-price 1.30)
 	(drink-classification Juice)
 	(drink-combination All)
 )
 
-([drink11] of Drink
+([coffee] of Drink
 	(drink-name "Coffee")
 	(drink-price 2.10)
 	(drink-classification Caffeine)
 	(drink-combination All)
 )
 
-([drink12] of Drink
+([coffee_milk] of Drink
 	(drink-name "Coffee milk")
 	(drink-price 2.20)
 	(drink-classification Caffeine)
 	(drink-combination All)
 )
 
-([drink13] of Drink
+([iced_coffee] of Drink
 	(drink-name "Iced coffee")
 	(drink-price 2.10)
 	(drink-classification Caffeine)
 	(drink-combination All)
 )
 
-([drink14] of Drink
+([hot_chocolate] of Drink
 	(drink-name "Hot chocolate")
 	(drink-price 2.00)
 	(drink-classification Other)
 	(drink-combination All)
 )
 
-([drink15] of Drink
+([tea] of Drink
 	(drink-name "Tea")
 	(drink-price 1.70)
 	(drink-classification Other)
 	(drink-combination All)
 )
 
-([drink16] of Drink
+([iced_tea] of Drink
 	(drink-name "Iced Tea")
 	(drink-price 1.70)
 	(drink-classification Other)
 	(drink-combination All)
 )
 
-([drink17] of Drink
+([infusion] of Drink
 	(drink-name "Infusion")
 	(drink-price 1.70)
 	(drink-classification Other)
 	(drink-combination All)
 )
 
-([drink18] of Drink
+([soft_drink] of Drink
 	(drink-name "Soft drink")
 	(drink-price 1.50)
 	(drink-classification Other)
 	(drink-combination All)
 )
 
-([drink19] of Drink
+([cocktail] of Drink
 	(drink-name "Cocktail")
 	(drink-price 3.50)
 	(drink-classification Alcohol)

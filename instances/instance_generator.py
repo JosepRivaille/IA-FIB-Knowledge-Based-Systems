@@ -30,10 +30,10 @@ def generate_instance(class_name):
 				if line[0] == ';':
 					continue
 
-				f.write('([' + instances_file + str(counter) + '] of ' + class_name)
-
 				line_list = line.split('\t')
 				line_list[-1] = line_list[-1].rstrip()
+
+				f.write('([' + line_list[0].lower() + '] of ' + class_name)
 
 				for index, attribute in enumerate(line_list):
 					header = headers[index]
