@@ -1,9 +1,9 @@
-dish-name	dish-classification	dish-ingredients	dish-type	dish-price
+dish-name	dish-classification	dish-ingredients	dish-type	dish-combination	dish-price
 STRING	SYMBOL	INSTANCE	SYMBOL	FLOAT
-Spaghetti_Bolognese	[Italian Mediterranean]	[[rico_rico_Class10060] [rico_rico_Class10032] [rico_rico_Class10007] [rico_rico_Class10009 [rico_rico_Class10013] [rico_rico_Class10017] [rico_rico_Class10062] [rico_rico_Class10050] [rico_rico_Class10063]]	[Main]	5.50
-Mediterranean_Salad	[Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean]	[[rico_rico_Class10017] [rico_rico_Class10007] [rico_rico_Class10010] [rico_rico_Class10063] [rico_rico_Class10064] [rico_rico_Class10052] [rico_rico_Class10016] [rico_rico_Class10001]]	[Main]	2
-Sweet_and_Sour_Pork	[Chinese]	[[rico_rico_Class10032] [rico_rico_Class10007] [rico_rico_Class10013] [rico_rico_Class10014] [rico_rico_Class10030] [rico_rico_Class10056]]	[Main Second]	4.35
-Borek	[Turkey]	[[rico_rico_Class10060] [rico_rico_Class10015] [rico_rico_Class10050] [rico_rico_Class10052] [rico_rico_Class10055] [rico_rico_Class10012] [rico_rico_Class10065]]	[Main Second]	7
-Spanish_omelette	[Spanish Mediterranean Lactose-free Gluten-free Vegetarian]	[[rico_rico_Class10052] [rico_rico_Class10063] [rico_rico_Class10018]]	[Main Second]	3
-Tarta_de_Santiago	[Vegetarian Kosher Spanish Classical Mediterranean]	[[rico_rico_Class10052] [rico_rico_Class10061] [rico_rico_Class10023] [rico_rico_Class10055] [rico_rico_Class10031]]	[Dessert]	3
-Tiramisu	[Kosher Islamic Italian Gourmet]	[[rico_rico_Class10052] [rico_rico_Class10050] [rico_rico_Class10061] [rico_rico_Class10031]]	[Dessert]	4
+Spaghetti_Bolognese	[Italian Mediterranean]	[[rico_rico_Class10060] [rico_rico_Class10032] [rico_rico_Class10007] [rico_rico_Class10009 [rico_rico_Class10013] [rico_rico_Class10017] [rico_rico_Class10062] [rico_rico_Class10050] [rico_rico_Class10063]]	[Main]	[]	5.50
+Mediterranean_Salad	[Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean]	[[rico_rico_Class10017] [rico_rico_Class10007] [rico_rico_Class10010] [rico_rico_Class10063] [rico_rico_Class10064] [rico_rico_Class10052] [rico_rico_Class10016] [rico_rico_Class10001]]	[Main]	[]	2
+Sweet_and_Sour_Pork	[Chinese]	[[rico_rico_Class10032] [rico_rico_Class10007] [rico_rico_Class10013] [rico_rico_Class10014] [rico_rico_Class10030] [rico_rico_Class10056]]	[Main Second]	[]	4.35
+Borek	[Turkey]	[[rico_rico_Class10060] [rico_rico_Class10015] [rico_rico_Class10050] [rico_rico_Class10052] [rico_rico_Class10055] [rico_rico_Class10012] [rico_rico_Class10065]]	[Main Second]	[]	7
+Spanish_omelette	[Spanish Mediterranean Lactose-free Gluten-free Vegetarian]	[[rico_rico_Class10052] [rico_rico_Class10063] [rico_rico_Class10018]]	[Main Second]	[]	3
+Tarta_de_Santiago	[Vegetarian Kosher Spanish Classical Mediterranean]	[[rico_rico_Class10052] [rico_rico_Class10061] [rico_rico_Class10023] [rico_rico_Class10055] [rico_rico_Class10031]]	[Dessert]	[]	3
+Tiramisu	[Kosher Islamic Italian Gourmet]	[[rico_rico_Class10052] [rico_rico_Class10050] [rico_rico_Class10061] [rico_rico_Class10031]]	[Dessert]	[]	4

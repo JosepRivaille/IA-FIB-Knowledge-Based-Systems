@@ -260,6 +260,11 @@
 		(type INSTANCE)
 ;+		(allowed-classes Ingredient)
 		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(multislot dish-combination
+		(type SYMBOL)
+		(allowed-values Vegetarian Kosher Islamic Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet Gluten-free Vegan Lactose-free Mediterranean	All)
+		(cardinality 1 ?VARIABLE)
 		(create-accessor read-write)))
 
 (defclass Drink

@@ -260,6 +260,11 @@
 		(type INSTANCE)
 ;+		(allowed-classes Ingredient)
 		(cardinality 1 ?VARIABLE)
+		(create-accessor read-write))
+	(multislot dish-combination
+		(type SYMBOL)
+		(allowed-values Vegetarian Kosher Islamic Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet Gluten-free Vegan Lactose-free Mediterranean	All)
+		(cardinality 1 ?VARIABLE)
 		(create-accessor read-write)))
 
 (defclass Drink
@@ -1222,12 +1227,36 @@
 	TRUE
 )
 
+(deffunction combinate-possible-dishes(?price-min ?price-max ?dishes)
+	42
+)
+
 (deffunction calculate-price-dishes ($?elements)
 	(bind ?price 0.0)
 	(loop-for-count (?i 1 (length$ ?elements))
 		(bind ?price (+ ?price (send (nth$ ?i ?elements) get-dish-price)))
 	)
 	?price
+)
+
+(deffunction get-minimum-menu-price (?menus)
+	(bind ?min-index 1)
+	(loop-for-count (?i 2 (length$ ?menus)) do
+		(if (< (send (nth$ ?i ?menus) get-menu-price) (send (nth$ ?min-index ?menus) get-menu-price)) then
+			(bind ?min-index ?i)
+		)
+	)
+	(nth$ ?min-index ?menus)
+)
+
+(deffunction get-maximum-menu-price (?menus)
+	(bind ?max-index 1)
+	(loop-for-count (?i 2 (length$ ?menus)) do
+		(if (> (send (nth$ ?i ?menus) get-menu-price) (send (nth$ ?max-index ?menus) get-menu-price)) then
+			(bind ?max-index ?i)
+		)
+	)
+	(nth$ ?max-index ?menus)
 )
 
 (deffunction print-dishes (?dishes)
@@ -1363,7 +1392,6 @@
     (or (eq ?preferences (create$ none)) (collection-contains-all-elements ?preferences ?ins:dish-classification))
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (not (collection-contains-all-elements ?restrictions ?ins:dish-classification)))
-		;(and (< ?prices_min ?ins:dish-price) (> ?prices_max ?ins:dish-price))
   )))
 	(assert (dishes ready ?dishes))
 )
@@ -1408,19 +1436,19 @@
 (defrule generate-low-price-menu ""
 	(generated-menus ready $?menus)
 	=>
-	(assert (low-menu ready (nth$ 1 ?menus)))
+	(assert (low-menu ready (get-minimum-menu-price ?menus)))
 )
 
 (defrule generate-medium-price-menu ""
 	(generated-menus ready $?menus)
 	=>
-	(assert (medium-menu ready (nth$ 2 ?menus)))
+	(assert (medium-menu ready (nth (+ (mod (random) (length$ ?menus)) 1) ?menus)))
 )
 
 (defrule generate-high-price-menu ""
 	(generated-menus ready $?menus)
 	=>
-	(assert (high-menu ready (nth$ 3 ?menus)))
+	(assert (high-menu ready (get-maximum-menu-price ?menus)))
 )
 
 (defrule print-recomendations ""
