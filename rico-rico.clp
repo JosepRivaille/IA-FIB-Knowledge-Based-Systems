@@ -1356,8 +1356,6 @@
 	(event ready ?)
 	(event preferred-cuisine-styles $?preferences)
 	(event dietary-restrictions $?restrictions)
-        (event price_min ?price_min)
-        (event price_max ?price_max)
 	=>
 	(bind ?dishes (find-all-instances ((?ins Dish))
 	(and
@@ -1365,39 +1363,44 @@
     (or (eq ?preferences (create$ none)) (collection-contains-all-elements ?preferences ?ins:dish-classification))
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (not (collection-contains-all-elements ?restrictions ?ins:dish-classification)))
-    ; Filter prices under min_prices
-    (or (eq ?underprices (create$ none)) (not (collection-contains-all-elements ?prices_min ?ins:dish-price)))
-    ; Filter prices over max_prices
-    (or (eq ?overprices (create$ none)) (not (collection-contains-all-elements ?prices_max ?ins:dish-price)))
+		;(and (< ?prices_min ?ins:dish-price) (> ?prices_max ?ins:dish-price))
   )))
 	(assert (dishes ready ?dishes))
 )
 
-
-
 (defrule generate-menu-combinations "Generates different menu combinations"
+	(event price_min ?price_min)
+	(event price_max ?price_max)
 	(dishes ready $?dishes)
 	=>
 	(bind ?drinks (find-all-instances ((?ins Drink)) TRUE))
 	(bind ?menus (create$))
-	(loop-for-count (?i 1 4) do
-		; TODO: Remove random dishes and drinks
-		(bind ?main-course-index (+ (mod (random) (length$ ?dishes)) 1))
-		(bind ?second-course-index (+ (mod (random) (length$ ?dishes)) 1))
-		(bind ?dessert-index (+ (mod (random) (length$ ?dishes)) 1))
-		(bind ?drink-index (+ (mod (random) (length$ ?drinks)) 1))
-
-		(bind ?menus (insert$ ?menus ?i
-			(make-instance (gensym) of Menu
-				(main-course (nth$ ?main-course-index ?dishes))
-				(second-course (nth$ ?second-course-index ?dishes))
-				(dessert (nth$ ?dessert-index ?dishes))
-				(menu-drink (nth$ ?drink-index ?drinks))
-				(menu-price (calculate-price-dishes
-					(nth$ ?main-course-index ?dishes) (nth$ ?second-course-index ?dishes) (nth$ ?dessert-index ?dishes))
+	(loop-for-count (?i 1 (length$ ?dishes)) do	; Main course
+		(if (member$ Main (send (nth$ ?i ?dishes) get-dish-type)) then
+			(loop-for-count (?j 1 (length$ ?dishes)) do ; Second course
+				(if (and (not (eq ?i ?j)) (member$ Second (send (nth$ ?j ?dishes) get-dish-type))) then
+					(loop-for-count (?k 1 (length$ ?dishes)) do ; Desert
+						(if (and (not (eq ?j ?k)) (member$ Dessert (send (nth$ ?k ?dishes) get-dish-type))) then
+							(bind ?drink-index (+ (mod (random) (length$ ?drinks)) 1))
+							(bind ?ins
+								(make-instance (gensym) of Menu
+									(main-course (nth$ ?i ?dishes))
+									(second-course (nth$ ?j ?dishes))
+									(dessert (nth$ ?k ?dishes))
+									(menu-drink (nth$ ?drink-index ?drinks))
+									(menu-price (+ (send (nth$ ?drink-index ?drinks) get-drink-price)
+										(calculate-price-dishes (nth$ ?i ?dishes) (nth$ ?j ?dishes) (nth$ ?k ?dishes)))
+									)
+								)
+							)
+							(if (and (<= ?price_min (send ?ins get-menu-price)) (>= ?price_max (send ?ins get-menu-price))) then
+								(bind ?menus (insert$ ?menus (+ (length$ ?menus) 1) ?ins))
+							)
+						)
+					)
 				)
 			)
-		))
+		)
 	)
 	(assert (generated-menus ready ?menus))
 )
