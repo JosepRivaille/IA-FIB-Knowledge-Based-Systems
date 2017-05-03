@@ -1356,6 +1356,8 @@
 	(event ready ?)
 	(event preferred-cuisine-styles $?preferences)
 	(event dietary-restrictions $?restrictions)
+        (event price_min ?price_min)
+        (event price_max ?price_max)
 	=>
 	(bind ?dishes (find-all-instances ((?ins Dish))
 	(and
@@ -1363,9 +1365,15 @@
     (or (eq ?preferences (create$ none)) (collection-contains-all-elements ?preferences ?ins:dish-classification))
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (not (collection-contains-all-elements ?restrictions ?ins:dish-classification)))
+    ; Filter prices under min_prices
+    (or (eq ?underprices (create$ none)) (not (collection-contains-all-elements ?prices_min ?ins:dish-price)))
+    ; Filter prices over max_prices
+    (or (eq ?overprices (create$ none)) (not (collection-contains-all-elements ?prices_max ?ins:dish-price)))
   )))
 	(assert (dishes ready ?dishes))
 )
+
+
 
 (defrule generate-menu-combinations "Generates different menu combinations"
 	(dishes ready $?dishes)
