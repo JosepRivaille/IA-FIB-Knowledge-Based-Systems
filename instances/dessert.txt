@@ -1,0 +1,2 @@
+dish-name	dish-classification	dish-ingredients	dish-combination	dish-price
+STRING	SYMBOL	INSTANCE	SYMBOL	FLOAT

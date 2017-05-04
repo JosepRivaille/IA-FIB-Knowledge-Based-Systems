@@ -1,0 +1,9 @@
+dish-name	dish-classification	dish-ingredients	dish-combination	dish-price
+STRING	SYMBOL	INSTANCE	SYMBOL	FLOAT	
+Spaghetti_Bolognese	[Italian Mediterranean]	[]	[]	5.50
+Mediterranean_Salad	[Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean]	[]	[]	2
+Sweet_and_Sour_Pork	[Chinese]	[]	[]	4.35
+Borek	[Turkey]	[]	[]	7
+Spanish_omelette	[Spanish Mediterranean Lactose-free Gluten-free Vegetarian]	[]	[]	3
+Tarta_de_Santiago	[Vegetarian Kosher Spanish Classical Mediterranean]	[]	[]	3
+Tiramisu	[Kosher Islamic Italian Gourmet]	[]	[]	4

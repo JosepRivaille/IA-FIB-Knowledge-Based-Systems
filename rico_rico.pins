@@ -1,23 +1,200 @@
-; Sun Apr 30 11:54:13 CEST 2017
-; 
-;+ (version "3.5")
-;+ (build "Build 663")
-
-([rico_rico_Class10000] of Dish
+([spaghetti_bolognese] of MainCourse
 	(dish-name "Spaghetti Bolognese")
 	(dish-classification Italian Mediterranean)
-	(dish-ingredients [rico_rico_Class10054] [rico_rico_Class10016] [rico_rico_Class10012] [rico_rico_Class10029])
+	(dish-ingredients )
+	(dish-combination )
 	(dish-price 5.50)
 )
 
-([rico_rico_Class10001] of Dish
-	(dish-name "Mediterranian Salad")
-	(dish-classification Vegetarian Vegan Mediterranean Gluten-free)
-	(dish-ingredients [rico_rico_Class10016] [rico_rico_Class10009])
+([mediterranean_salad] of MainCourse
+	(dish-name "Mediterranean Salad")
+	(dish-classification Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean)
+	(dish-ingredients )
+	(dish-combination )
 	(dish-price 2)
 )
 
-([rico_rico_Class10002] of Ingredient
+([sweet_and_sour_pork] of MainCourse
+	(dish-name "Sweet and Sour Pork")
+	(dish-classification Chinese)
+	(dish-ingredients )
+	(dish-combination )
+	(dish-price 4.35)
+)
+
+([borek] of MainCourse
+	(dish-name "Borek")
+	(dish-classification Turkey)
+	(dish-ingredients )
+	(dish-combination )
+	(dish-price 7)
+)
+
+([spanish_omelette] of MainCourse
+	(dish-name "Spanish omelette")
+	(dish-classification Spanish Mediterranean Lactose-free Gluten-free Vegetarian)
+	(dish-ingredients )
+	(dish-combination )
+	(dish-price 3)
+)
+
+([tarta_de_santiago] of MainCourse
+	(dish-name "Tarta de Santiago")
+	(dish-classification Vegetarian Kosher Spanish Classical Mediterranean)
+	(dish-ingredients )
+	(dish-combination )
+	(dish-price 3)
+)
+
+([tiramisu] of MainCourse
+	(dish-name "Tiramisu")
+	(dish-classification Kosher Islamic Italian Gourmet)
+	(dish-ingredients )
+	(dish-combination )
+	(dish-price 4)
+)
+
+([water] of Drink
+	(drink-name "Water")
+	(drink-price 1.20)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([beer] of Drink
+	(drink-name "Beer")
+	(drink-price 2.50)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([la_rioja_alta_gran_reserva_1995] of Drink
+	(drink-name "La Rioja Alta Gran Reserva 1995")
+	(drink-price 195.00)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([glorioso_crianza_magnum_2013] of Drink
+	(drink-name "Glorioso Crianza Magnum 2013")
+	(drink-price 11.65)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([la_vicalanda_gran_reserva_2010] of Drink
+	(drink-name "La Vicalanda Gran Reserva 2010")
+	(drink-price 45.95)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([white_wine] of Drink
+	(drink-name "White Wine")
+	(drink-price 10.50)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([tequila] of Drink
+	(drink-name "Tequila")
+	(drink-price 14.59)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([sangria] of Drink
+	(drink-name "Sangria")
+	(drink-price 10.99)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([whisky_glengarry_12_years] of Drink
+	(drink-name "Whisky Glengarry 12 Years")
+	(drink-price 40.45)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([ron_barcelo_imperial] of Drink
+	(drink-name "Ron Barcelo Imperial")
+	(drink-price 30.25)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([juice] of Drink
+	(drink-name "Juice")
+	(drink-price 1.30)
+	(drink-classification Juice)
+	(drink-combination All)
+)
+
+([coffee] of Drink
+	(drink-name "Coffee")
+	(drink-price 2.10)
+	(drink-classification Caffeine)
+	(drink-combination All)
+)
+
+([coffee_milk] of Drink
+	(drink-name "Coffee milk")
+	(drink-price 2.20)
+	(drink-classification Caffeine)
+	(drink-combination All)
+)
+
+([iced_coffee] of Drink
+	(drink-name "Iced coffee")
+	(drink-price 2.10)
+	(drink-classification Caffeine)
+	(drink-combination All)
+)
+
+([hot_chocolate] of Drink
+	(drink-name "Hot chocolate")
+	(drink-price 2.00)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([tea] of Drink
+	(drink-name "Tea")
+	(drink-price 1.70)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([iced_tea] of Drink
+	(drink-name "Iced Tea")
+	(drink-price 1.70)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([infusion] of Drink
+	(drink-name "Infusion")
+	(drink-price 1.70)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([soft_drink] of Drink
+	(drink-name "Soft drink")
+	(drink-price 1.50)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([cocktail] of Drink
+	(drink-name "Cocktail")
+	(drink-price 3.50)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([artichoke] of Ingredient
 	(ing-name "Artichoke")
 	(ing-availability 1 2 3 4 5 10 11 12)
 	(calories 47)
@@ -27,7 +204,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10003] of Ingredient
+([asparagus] of Ingredient
 	(ing-name "Asparagus")
 	(ing-availability 2 3 4 5 6)
 	(calories 20)
@@ -37,7 +214,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10004] of Ingredient
+([eggplant] of Ingredient
 	(ing-name "Eggplant")
 	(ing-availability 6 7 8 9)
 	(calories 24)
@@ -47,7 +224,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10005] of Ingredient
+([beans] of Ingredient
 	(ing-name "Beans")
 	(ing-availability 6 7 8 9)
 	(calories 347)
@@ -57,7 +234,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10006] of Ingredient
+([peas] of Ingredient
 	(ing-name "Peas")
 	(ing-availability 6 7 8 9)
 	(calories 81)
@@ -67,7 +244,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10007] of Ingredient
+([broccoli] of Ingredient
 	(ing-name "Broccoli")
 	(ing-availability 4 5 6 7 8 9 10)
 	(calories 0)
@@ -77,7 +254,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10008] of Ingredient
+([cabbage] of Ingredient
 	(ing-name "Cabbage")
 	(ing-availability 6 7 8 9)
 	(calories 24)
@@ -87,7 +264,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10009] of Ingredient
+([carrot] of Ingredient
 	(ing-name "Carrot")
 	(ing-availability 7 8 9 10)
 	(calories 41)
@@ -97,7 +274,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10010] of Ingredient
+([cauliflower] of Ingredient
 	(ing-name "Cauliflower")
 	(ing-availability 8 9 10 11 12)
 	(calories 24)
@@ -107,7 +284,17 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10011] of Ingredient
+([celery] of Ingredient
+	(ing-name "Celery")
+	(ing-availability 0)
+	(calories 16)
+	(fat 0)
+	(protein 0)
+	(carbohydrates 3)
+	(cholesterol 0)
+)
+
+([lettuce] of Ingredient
 	(ing-name "Lettuce")
 	(ing-availability 4 5 6 7 8 9)
 	(calories 14)
@@ -117,7 +304,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10012] of Ingredient
+([corn] of Ingredient
 	(ing-name "Corn")
 	(ing-availability 6 7 8 9 10)
 	(calories 365)
@@ -127,7 +314,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10013] of Ingredient
+([garlic] of Ingredient
 	(ing-name "Garlic")
 	(ing-availability 0)
 	(calories 148)
@@ -137,7 +324,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10014] of Ingredient
+([onion] of Ingredient
 	(ing-name "Onion")
 	(ing-availability 0)
 	(calories 39)
@@ -147,7 +334,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10015] of Ingredient
+([pepper] of Ingredient
 	(ing-name "Pepper")
 	(ing-availability 6 7 8 9 10)
 	(calories 39)
@@ -157,7 +344,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10016] of Ingredient
+([spinach] of Ingredient
 	(ing-name "Spinach")
 	(ing-availability 1 2 11 12)
 	(calories 23)
@@ -167,7 +354,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10017] of Ingredient
+([cucumber] of Ingredient
 	(ing-name "Cucumber")
 	(ing-availability 5 6 7 8 9)
 	(calories 15)
@@ -177,7 +364,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10018] of Ingredient
+([tomato] of Ingredient
 	(ing-name "Tomato")
 	(ing-availability 0)
 	(calories 17)
@@ -187,7 +374,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10019] of Ingredient
+([potato] of Ingredient
 	(ing-name "Potato")
 	(ing-availability 0)
 	(calories 76)
@@ -197,7 +384,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10020] of Ingredient
+([apple] of Ingredient
 	(ing-name "Apple")
 	(ing-availability 0)
 	(calories 52)
@@ -207,7 +394,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10021] of Ingredient
+([banana] of Ingredient
 	(ing-name "Banana")
 	(ing-availability 0)
 	(calories 88)
@@ -217,7 +404,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10022] of Ingredient
+([grape] of Ingredient
 	(ing-name "Grape")
 	(ing-availability 9 10 11)
 	(calories 66)
@@ -227,7 +414,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10023] of Ingredient
+([kiwi] of Ingredient
 	(ing-name "Kiwi")
 	(ing-availability 10 11 12)
 	(calories 60)
@@ -237,7 +424,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10024] of Ingredient
+([lemon] of Ingredient
 	(ing-name "Lemon")
 	(ing-availability 0)
 	(calories 28)
@@ -247,7 +434,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10025] of Ingredient
+([mango] of Ingredient
 	(ing-name "Mango")
 	(ing-availability 5 6 7 8)
 	(calories 59)
@@ -257,7 +444,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10026] of Ingredient
+([melon] of Ingredient
 	(ing-name "Melon")
 	(ing-availability 6 7 8)
 	(calories 33)
@@ -267,7 +454,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10027] of Ingredient
+([orange] of Ingredient
 	(ing-name "Orange")
 	(ing-availability 1 2 3 10 11 12)
 	(calories 47)
@@ -277,7 +464,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10028] of Ingredient
+([peach] of Ingredient
 	(ing-name "Peach")
 	(ing-availability 6 7 8)
 	(calories 39)
@@ -287,7 +474,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10029] of Ingredient
+([pear] of Ingredient
 	(ing-name "Pear")
 	(ing-availability 8 9 10)
 	(calories 57)
@@ -297,7 +484,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10030] of Ingredient
+([strawberry] of Ingredient
 	(ing-name "Strawberry")
 	(ing-availability 3 4 5 6 7)
 	(calories 32)
@@ -307,7 +494,37 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10031] of Ingredient
+([pineapple] of Ingredient
+	(ing-name "Pineapple")
+	(ing-availability 0)
+	(calories 50)
+	(fat 0)
+	(protein 0)
+	(carbohydrates 13)
+	(cholesterol 0)
+)
+
+([almonds] of Ingredient
+	(ing-name "Almonds")
+	(ing-availability 0)
+	(calories 580)
+	(fat 50)
+	(protein 21)
+	(carbohydrates 21)
+	(cholesterol 0)
+)
+
+([pork] of Ingredient
+	(ing-name "Pork")
+	(ing-availability 0)
+	(calories 242)
+	(fat 14)
+	(protein 27)
+	(carbohydrates 0)
+	(cholesterol 80)
+)
+
+([bacon] of Ingredient
 	(ing-name "Bacon")
 	(ing-availability 0)
 	(calories 540)
@@ -317,7 +534,7 @@
 	(cholesterol 110)
 )
 
-([rico_rico_Class10032] of Ingredient
+([beef] of Ingredient
 	(ing-name "Beef")
 	(ing-availability 0)
 	(calories 250)
@@ -327,7 +544,7 @@
 	(cholesterol 90)
 )
 
-([rico_rico_Class10033] of Ingredient
+([chicken] of Ingredient
 	(ing-name "Chicken")
 	(ing-availability 0)
 	(calories 239)
@@ -337,7 +554,7 @@
 	(cholesterol 88)
 )
 
-([rico_rico_Class10034] of Ingredient
+([duck] of Ingredient
 	(ing-name "Duck")
 	(ing-availability 0)
 	(calories 337)
@@ -347,7 +564,7 @@
 	(cholesterol 84)
 )
 
-([rico_rico_Class10035] of Ingredient
+([lamb] of Ingredient
 	(ing-name "Lamb")
 	(ing-availability 0)
 	(calories 294)
@@ -357,7 +574,7 @@
 	(cholesterol 97)
 )
 
-([rico_rico_Class10036] of Ingredient
+([turkey] of Ingredient
 	(ing-name "Turkey")
 	(ing-availability 0)
 	(calories 188)
@@ -367,7 +584,7 @@
 	(cholesterol 109)
 )
 
-([rico_rico_Class10037] of Ingredient
+([veal] of Ingredient
 	(ing-name "Veal")
 	(ing-availability 0)
 	(calories 172)
@@ -377,7 +594,7 @@
 	(cholesterol 103)
 )
 
-([rico_rico_Class10038] of Ingredient
+([abalone] of Ingredient
 	(ing-name "Abalone")
 	(ing-availability 0)
 	(calories 189)
@@ -387,7 +604,7 @@
 	(cholesterol 94)
 )
 
-([rico_rico_Class10039] of Ingredient
+([anchovy] of Ingredient
 	(ing-name "Anchovy")
 	(ing-availability 0)
 	(calories 210)
@@ -397,7 +614,7 @@
 	(cholesterol 85)
 )
 
-([rico_rico_Class10040] of Ingredient
+([cockle] of Ingredient
 	(ing-name "Cockle")
 	(ing-availability 0)
 	(calories 79)
@@ -407,7 +624,7 @@
 	(cholesterol 52)
 )
 
-([rico_rico_Class10041] of Ingredient
+([crab] of Ingredient
 	(ing-name "Crab")
 	(ing-availability 0)
 	(calories 97)
@@ -417,7 +634,7 @@
 	(cholesterol 53)
 )
 
-([rico_rico_Class10042] of Ingredient
+([crawfish] of Ingredient
 	(ing-name "Crawfish")
 	(ing-availability 0)
 	(calories 87)
@@ -427,7 +644,7 @@
 	(cholesterol 137)
 )
 
-([rico_rico_Class10043] of Ingredient
+([cuttlefish] of Ingredient
 	(ing-name "Cuttlefish")
 	(ing-availability 0)
 	(calories 158)
@@ -437,7 +654,7 @@
 	(cholesterol 224)
 )
 
-([rico_rico_Class10044] of Ingredient
+([halibut] of Ingredient
 	(ing-name "Halibut")
 	(ing-availability 0)
 	(calories 185)
@@ -447,7 +664,7 @@
 	(cholesterol 46)
 )
 
-([rico_rico_Class10045] of Ingredient
+([prawn] of Ingredient
 	(ing-name "Prawn")
 	(ing-availability 0)
 	(calories 99)
@@ -457,7 +674,7 @@
 	(cholesterol 189)
 )
 
-([rico_rico_Class10046] of Ingredient
+([salmon] of Ingredient
 	(ing-name "Salmon")
 	(ing-availability 0)
 	(calories 208)
@@ -467,7 +684,7 @@
 	(cholesterol 55)
 )
 
-([rico_rico_Class10047] of Ingredient
+([tuna] of Ingredient
 	(ing-name "Tuna")
 	(ing-availability 0)
 	(calories 184)
@@ -477,7 +694,7 @@
 	(cholesterol 49)
 )
 
-([rico_rico_Class10048] of Ingredient
+([cheese] of Ingredient
 	(ing-name "Cheese")
 	(ing-availability 0)
 	(calories 402)
@@ -487,7 +704,7 @@
 	(cholesterol 105)
 )
 
-([rico_rico_Class10049] of Ingredient
+([chocolate] of Ingredient
 	(ing-name "Chocolate")
 	(ing-availability 0)
 	(calories 545)
@@ -497,7 +714,7 @@
 	(cholesterol 8)
 )
 
-([rico_rico_Class10050] of Ingredient
+([eggs] of Ingredient
 	(ing-name "Eggs")
 	(ing-availability 0)
 	(calories 155)
@@ -507,7 +724,7 @@
 	(cholesterol 373)
 )
 
-([rico_rico_Class10051] of Ingredient
+([milk] of Ingredient
 	(ing-name "Milk")
 	(ing-availability 0)
 	(calories 43)
@@ -517,7 +734,7 @@
 	(cholesterol 5)
 )
 
-([rico_rico_Class10052] of Ingredient
+([yogurt] of Ingredient
 	(ing-name "Yogurt")
 	(ing-availability 0)
 	(calories 58)
@@ -527,7 +744,27 @@
 	(cholesterol 5)
 )
 
-([rico_rico_Class10053] of Ingredient
+([butter] of Ingredient
+	(ing-name "Butter")
+	(ing-availability 0)
+	(calories 71)
+	(fat 81)
+	(protein 0)
+	(carbohydrates 0)
+	(cholesterol 215)
+)
+
+([wheat_flour] of Ingredient
+	(ing-name "Wheat flour")
+	(ing-availability 0)
+	(calories 364)
+	(fat 1)
+	(protein 10)
+	(carbohydrates 76)
+	(cholesterol 0)
+)
+
+([bread] of Ingredient
 	(ing-name "Bread")
 	(ing-availability 0)
 	(calories 264)
@@ -537,7 +774,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10054] of Ingredient
+([cookies] of Ingredient
 	(ing-name "Cookies")
 	(ing-availability 0)
 	(calories 140)
@@ -547,7 +784,7 @@
 	(cholesterol 25)
 )
 
-([rico_rico_Class10055] of Ingredient
+([rice] of Ingredient
 	(ing-name "Rice")
 	(ing-availability 0)
 	(calories 130)
@@ -557,7 +794,7 @@
 	(cholesterol 0)
 )
 
-([rico_rico_Class10056] of Ingredient
+([pasta] of Ingredient
 	(ing-name "Pasta")
 	(ing-availability 0)
 	(calories 131)
@@ -565,5 +802,55 @@
 	(protein 5)
 	(carbohydrates 25)
 	(cholesterol 33)
+)
+
+([sugar] of Ingredient
+	(ing-name "Sugar")
+	(ing-availability 0)
+	(calories 387)
+	(fat 0)
+	(protein 100)
+	(carbohydrates 0)
+	(cholesterol 0)
+)
+
+([piper] of Ingredient
+	(ing-name "Piper")
+	(ing-availability 0)
+	(calories 251)
+	(fat 3)
+	(protein 64)
+	(carbohydrates 10)
+	(cholesterol 0)
+)
+
+([oil] of Ingredient
+	(ing-name "Oil")
+	(ing-availability 0)
+	(calories 884)
+	(fat 100)
+	(protein 0)
+	(carbohydrates 0)
+	(cholesterol 0)
+)
+
+([vinegar] of Ingredient
+	(ing-name "Vinegar")
+	(ing-availability 0)
+	(calories 18)
+	(fat 0)
+	(protein 0)
+	(carbohydrates 0)
+	(cholesterol 0)
+)
+
+([sesame] of Ingredient
+	(ing-name "Sesame")
+	(ing-availability 0)
+	(calories 573)
+	(fat 50)
+	(protein 18)
+	(carbohydrates 23)
+	(cholesterol 0)
 )
 
