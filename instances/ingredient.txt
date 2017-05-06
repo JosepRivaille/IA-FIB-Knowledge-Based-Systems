@@ -45,6 +45,7 @@ Walnut	[0]	607	54	20	21	0
 Berry	[0]	46	0	0	12	0
 Raisin	[0]	299	0	3	79	0
 Date	[0]	289	0	2	74	0
+Prune	[0]	240	0	2	63	0
 ; Meat
 Pork	[0]	242	14	27	0	80
 Bacon	[0]	540	42	37	1	110
@@ -58,11 +59,13 @@ Foie	[0]	462	44	11	4	150
 ; Fish
 Abalone	[0]	189	20	11	0	94
 Anchovy	[0]	210	10	29	0	85
+Clam	[0]	147	2	26	5	67
 Cockle	[0]	79	1	13	5	52
 Crab	[0]	97	2	19	0	53
 Crawfish	[0]	87	1	18	0	137
 Cuttlefish	[0]	158	1	32	2	224
 Halibut	[0]	185	14	14	0	46
+Mussel	[0]	172	5	24	7	56
 Prawn	[0]	99	0	24	0	189
 Salmon	[0]	208	13	20	0	55
 Tuna	[0]	184	6	30	0	49
@@ -87,6 +90,7 @@ Rice	[0]	130	0	3	28	0
 Pasta	[0]	131	1	5	25	33
 Tortilla	[0]	237	1	7	50	4
 Filo	[0]	299	6	7	53	0
+Bread_crumbs	[0]	395	5	13	72	0
 ;Spices
 Curry	[0]	324	0	14	56	0
 Sugar	[0]	387	0	100	0	0
@@ -107,12 +111,21 @@ Honey	[0]	304	0	0	82	0
 Matcha_powder	[0]	250	0	50	50	0
 Cocoa_powder	[0]	228	14	20	58	0
 Vanilla_extract	[0]	228	0	0	13
+Saffron	[0]	352	6	1	61	0
+Cilantro	[0]	22	0	2	4	0
+Paprika	[0]	282	13	14	54	0
+Chili_pepper	[0]	39	0	2	9	0
+Tomasto_paste	[0]	82	0	4	19	0
+Taco_sauce 	[0]	36	0	1	7	0
 ;Others
 Savoiardi	[0]	365	9	11	60	221
 Baking_powder	[0]	53	0	0	28	0
 Coffee	[0]	0	0	0	0	0	
 Orange_juice	[0]	45	0	0	10	0
+Lemon_juice	[0]	28	0	1	9	0
 Whisky	[0]	250	0	0	0	0
+Red_wine	[0]	83	0	0	3	0
+Chicken_broth	[0]	267	14	17	18	13
 
 
 
