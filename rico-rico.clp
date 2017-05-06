@@ -9,15 +9,11 @@
 ;%
 ;%%%%%
 
-(load rico_rico.pont)
-
 ;%%%%%
 ;%
 ;% INSTANCES
 ;%
 ;%%%%%
-
-(load rico_rico.pins)
 
 ;%%%%%
 ;%
@@ -307,7 +303,7 @@
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (not (collection-contains-all-elements ?restrictions ?ins:dish-classification)))
   )))
-	(assert (second-courses ready ?second-courses)
+	(assert (second-courses ready ?second-courses))
 )
 
 (defrule get-possible-desserts ""
@@ -322,7 +318,7 @@
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (not (collection-contains-all-elements ?restrictions ?ins:dish-classification)))
   )))
-	(assert (desserts ready ?desserts)
+	(assert (desserts ready ?desserts))
 )
 
 (defrule generate-menu-combinations "Generates different menu combinations"
@@ -351,7 +347,7 @@
 								))
 							)
 						)
-						(if (and (<= ?price_min (send ?ins get-menu-price)) (>= ?price_max (send ?ins get-menu-price))) then
+						(if (and (<= ?price-min (send ?ins get-menu-price)) (>= ?price-max (send ?ins get-menu-price))) then
 							(bind ?menus (insert$ ?menus (+ (length$ ?menus) 1) ?ins))
 						)
 					)
