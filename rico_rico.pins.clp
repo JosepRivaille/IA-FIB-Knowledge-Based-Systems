@@ -1,209 +1,5 @@
-(definstances maincourse
-	([spaghetti_bolognese] of MainCourse
-		(dish-name "Spaghetti Bolognese")
-		(dish-classification Italian Mediterranean)
-		(dish-ingredients )
-		(dish-combination )
-		(dish-price 5.50)
-	)
-
-	([mediterranean_salad] of MainCourse
-		(dish-name "Mediterranean Salad")
-		(dish-classification Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean)
-		(dish-ingredients )
-		(dish-combination )
-		(dish-price 2)
-	)
-
-	([sweet_and_sour_pork] of MainCourse
-		(dish-name "Sweet and Sour Pork")
-		(dish-classification Chinese)
-		(dish-ingredients )
-		(dish-combination )
-		(dish-price 4.35)
-	)
-
-	([borek] of MainCourse
-		(dish-name "Borek")
-		(dish-classification Turkey)
-		(dish-ingredients )
-		(dish-combination )
-		(dish-price 7)
-	)
-
-	([spanish_omelette] of MainCourse
-		(dish-name "Spanish omelette")
-		(dish-classification Spanish Mediterranean Lactose-free Gluten-free Vegetarian)
-		(dish-ingredients )
-		(dish-combination )
-		(dish-price 3)
-	)
-
-	([tarta_de_santiago] of MainCourse
-		(dish-name "Tarta de Santiago")
-		(dish-classification Vegetarian Kosher Spanish Classical Mediterranean)
-		(dish-ingredients )
-		(dish-combination )
-		(dish-price 3)
-	)
-
-	([tiramisu] of MainCourse
-		(dish-name "Tiramisu")
-		(dish-classification Kosher Islamic Italian Gourmet)
-		(dish-ingredients )
-		(dish-combination )
-		(dish-price 4)
-	)
-
-)
-(definstances secondcourse
-)
-(definstances dessert
-)
-(definstances drink
-	([water] of Drink
-		(drink-name "Water")
-		(drink-price 1.20)
-		(drink-classification Other)
-		(drink-combination All)
-	)
-
-	([beer] of Drink
-		(drink-name "Beer")
-		(drink-price 2.50)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([la_rioja_alta_gran_reserva_1995] of Drink
-		(drink-name "La Rioja Alta Gran Reserva 1995")
-		(drink-price 195.00)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([glorioso_crianza_magnum_2013] of Drink
-		(drink-name "Glorioso Crianza Magnum 2013")
-		(drink-price 11.65)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([la_vicalanda_gran_reserva_2010] of Drink
-		(drink-name "La Vicalanda Gran Reserva 2010")
-		(drink-price 45.95)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([white_wine] of Drink
-		(drink-name "White Wine")
-		(drink-price 10.50)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([tequila] of Drink
-		(drink-name "Tequila")
-		(drink-price 14.59)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([sangria] of Drink
-		(drink-name "Sangria")
-		(drink-price 10.99)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([whisky_glengarry_12_years] of Drink
-		(drink-name "Whisky Glengarry 12 Years")
-		(drink-price 40.45)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([ron_barcelo_imperial] of Drink
-		(drink-name "Ron Barcelo Imperial")
-		(drink-price 30.25)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([juice] of Drink
-		(drink-name "Juice")
-		(drink-price 1.30)
-		(drink-classification Juice)
-		(drink-combination All)
-	)
-
-	([coffee] of Drink
-		(drink-name "Coffee")
-		(drink-price 2.10)
-		(drink-classification Caffeine)
-		(drink-combination All)
-	)
-
-	([coffee_milk] of Drink
-		(drink-name "Coffee milk")
-		(drink-price 2.20)
-		(drink-classification Caffeine)
-		(drink-combination All)
-	)
-
-	([iced_coffee] of Drink
-		(drink-name "Iced coffee")
-		(drink-price 2.10)
-		(drink-classification Caffeine)
-		(drink-combination All)
-	)
-
-	([hot_chocolate] of Drink
-		(drink-name "Hot chocolate")
-		(drink-price 2.00)
-		(drink-classification Other)
-		(drink-combination All)
-	)
-
-	([tea] of Drink
-		(drink-name "Tea")
-		(drink-price 1.70)
-		(drink-classification Other)
-		(drink-combination All)
-	)
-
-	([iced_tea] of Drink
-		(drink-name "Iced Tea")
-		(drink-price 1.70)
-		(drink-classification Other)
-		(drink-combination All)
-	)
-
-	([infusion] of Drink
-		(drink-name "Infusion")
-		(drink-price 1.70)
-		(drink-classification Other)
-		(drink-combination All)
-	)
-
-	([soft_drink] of Drink
-		(drink-name "Soft drink")
-		(drink-price 1.50)
-		(drink-classification Other)
-		(drink-combination All)
-	)
-
-	([cocktail] of Drink
-		(drink-name "Cocktail")
-		(drink-price 3.50)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-)
 (definstances ingredient
-	([artichoke] of Ingredient
+	([artichoke] of ingredient
 		(ing-name "Artichoke")
 		(ing-availability 1 2 3 4 5 10 11 12)
 		(calories 47)
@@ -213,7 +9,7 @@
 		(cholesterol 0)
 	)
 
-	([asparagus] of Ingredient
+	([asparagus] of ingredient
 		(ing-name "Asparagus")
 		(ing-availability 2 3 4 5 6)
 		(calories 20)
@@ -223,7 +19,7 @@
 		(cholesterol 0)
 	)
 
-	([eggplant] of Ingredient
+	([eggplant] of ingredient
 		(ing-name "Eggplant")
 		(ing-availability 6 7 8 9)
 		(calories 24)
@@ -233,7 +29,7 @@
 		(cholesterol 0)
 	)
 
-	([beans] of Ingredient
+	([beans] of ingredient
 		(ing-name "Beans")
 		(ing-availability 6 7 8 9)
 		(calories 347)
@@ -243,7 +39,7 @@
 		(cholesterol 0)
 	)
 
-	([peas] of Ingredient
+	([peas] of ingredient
 		(ing-name "Peas")
 		(ing-availability 6 7 8 9)
 		(calories 81)
@@ -253,7 +49,7 @@
 		(cholesterol 0)
 	)
 
-	([broccoli] of Ingredient
+	([broccoli] of ingredient
 		(ing-name "Broccoli")
 		(ing-availability 4 5 6 7 8 9 10)
 		(calories 0)
@@ -263,7 +59,7 @@
 		(cholesterol 0)
 	)
 
-	([cabbage] of Ingredient
+	([cabbage] of ingredient
 		(ing-name "Cabbage")
 		(ing-availability 6 7 8 9)
 		(calories 24)
@@ -273,7 +69,7 @@
 		(cholesterol 0)
 	)
 
-	([carrot] of Ingredient
+	([carrot] of ingredient
 		(ing-name "Carrot")
 		(ing-availability 7 8 9 10)
 		(calories 41)
@@ -283,7 +79,7 @@
 		(cholesterol 0)
 	)
 
-	([cauliflower] of Ingredient
+	([cauliflower] of ingredient
 		(ing-name "Cauliflower")
 		(ing-availability 8 9 10 11 12)
 		(calories 24)
@@ -293,7 +89,7 @@
 		(cholesterol 0)
 	)
 
-	([celery] of Ingredient
+	([celery] of ingredient
 		(ing-name "Celery")
 		(ing-availability 0)
 		(calories 16)
@@ -303,7 +99,7 @@
 		(cholesterol 0)
 	)
 
-	([lettuce] of Ingredient
+	([lettuce] of ingredient
 		(ing-name "Lettuce")
 		(ing-availability 4 5 6 7 8 9)
 		(calories 14)
@@ -313,7 +109,7 @@
 		(cholesterol 0)
 	)
 
-	([corn] of Ingredient
+	([corn] of ingredient
 		(ing-name "Corn")
 		(ing-availability 6 7 8 9 10)
 		(calories 365)
@@ -323,7 +119,7 @@
 		(cholesterol 0)
 	)
 
-	([garlic] of Ingredient
+	([garlic] of ingredient
 		(ing-name "Garlic")
 		(ing-availability 0)
 		(calories 148)
@@ -333,7 +129,7 @@
 		(cholesterol 0)
 	)
 
-	([onion] of Ingredient
+	([onion] of ingredient
 		(ing-name "Onion")
 		(ing-availability 0)
 		(calories 39)
@@ -343,7 +139,7 @@
 		(cholesterol 0)
 	)
 
-	([pepper] of Ingredient
+	([pepper] of ingredient
 		(ing-name "Pepper")
 		(ing-availability 6 7 8 9 10)
 		(calories 39)
@@ -353,7 +149,7 @@
 		(cholesterol 0)
 	)
 
-	([spinach] of Ingredient
+	([spinach] of ingredient
 		(ing-name "Spinach")
 		(ing-availability 1 2 11 12)
 		(calories 23)
@@ -363,7 +159,7 @@
 		(cholesterol 0)
 	)
 
-	([cucumber] of Ingredient
+	([cucumber] of ingredient
 		(ing-name "Cucumber")
 		(ing-availability 5 6 7 8 9)
 		(calories 15)
@@ -373,7 +169,7 @@
 		(cholesterol 0)
 	)
 
-	([tomato] of Ingredient
+	([tomato] of ingredient
 		(ing-name "Tomato")
 		(ing-availability 0)
 		(calories 17)
@@ -383,7 +179,7 @@
 		(cholesterol 0)
 	)
 
-	([potato] of Ingredient
+	([potato] of ingredient
 		(ing-name "Potato")
 		(ing-availability 0)
 		(calories 76)
@@ -393,7 +189,7 @@
 		(cholesterol 0)
 	)
 
-	([apple] of Ingredient
+	([apple] of ingredient
 		(ing-name "Apple")
 		(ing-availability 0)
 		(calories 52)
@@ -403,7 +199,7 @@
 		(cholesterol 0)
 	)
 
-	([banana] of Ingredient
+	([banana] of ingredient
 		(ing-name "Banana")
 		(ing-availability 0)
 		(calories 88)
@@ -413,7 +209,7 @@
 		(cholesterol 0)
 	)
 
-	([grape] of Ingredient
+	([grape] of ingredient
 		(ing-name "Grape")
 		(ing-availability 9 10 11)
 		(calories 66)
@@ -423,7 +219,7 @@
 		(cholesterol 0)
 	)
 
-	([kiwi] of Ingredient
+	([kiwi] of ingredient
 		(ing-name "Kiwi")
 		(ing-availability 10 11 12)
 		(calories 60)
@@ -433,7 +229,7 @@
 		(cholesterol 0)
 	)
 
-	([lemon] of Ingredient
+	([lemon] of ingredient
 		(ing-name "Lemon")
 		(ing-availability 0)
 		(calories 28)
@@ -443,7 +239,7 @@
 		(cholesterol 0)
 	)
 
-	([mango] of Ingredient
+	([mango] of ingredient
 		(ing-name "Mango")
 		(ing-availability 5 6 7 8)
 		(calories 59)
@@ -453,7 +249,7 @@
 		(cholesterol 0)
 	)
 
-	([melon] of Ingredient
+	([melon] of ingredient
 		(ing-name "Melon")
 		(ing-availability 6 7 8)
 		(calories 33)
@@ -463,7 +259,7 @@
 		(cholesterol 0)
 	)
 
-	([orange] of Ingredient
+	([orange] of ingredient
 		(ing-name "Orange")
 		(ing-availability 1 2 3 10 11 12)
 		(calories 47)
@@ -473,7 +269,7 @@
 		(cholesterol 0)
 	)
 
-	([peach] of Ingredient
+	([peach] of ingredient
 		(ing-name "Peach")
 		(ing-availability 6 7 8)
 		(calories 39)
@@ -483,7 +279,7 @@
 		(cholesterol 0)
 	)
 
-	([pear] of Ingredient
+	([pear] of ingredient
 		(ing-name "Pear")
 		(ing-availability 8 9 10)
 		(calories 57)
@@ -493,7 +289,7 @@
 		(cholesterol 0)
 	)
 
-	([strawberry] of Ingredient
+	([strawberry] of ingredient
 		(ing-name "Strawberry")
 		(ing-availability 3 4 5 6 7)
 		(calories 32)
@@ -503,7 +299,7 @@
 		(cholesterol 0)
 	)
 
-	([pineapple] of Ingredient
+	([pineapple] of ingredient
 		(ing-name "Pineapple")
 		(ing-availability 0)
 		(calories 50)
@@ -513,7 +309,7 @@
 		(cholesterol 0)
 	)
 
-	([almonds] of Ingredient
+	([almonds] of ingredient
 		(ing-name "Almonds")
 		(ing-availability 0)
 		(calories 580)
@@ -523,7 +319,7 @@
 		(cholesterol 0)
 	)
 
-	([pork] of Ingredient
+	([pork] of ingredient
 		(ing-name "Pork")
 		(ing-availability 0)
 		(calories 242)
@@ -533,7 +329,7 @@
 		(cholesterol 80)
 	)
 
-	([bacon] of Ingredient
+	([bacon] of ingredient
 		(ing-name "Bacon")
 		(ing-availability 0)
 		(calories 540)
@@ -543,7 +339,7 @@
 		(cholesterol 110)
 	)
 
-	([beef] of Ingredient
+	([beef] of ingredient
 		(ing-name "Beef")
 		(ing-availability 0)
 		(calories 250)
@@ -553,7 +349,7 @@
 		(cholesterol 90)
 	)
 
-	([chicken] of Ingredient
+	([chicken] of ingredient
 		(ing-name "Chicken")
 		(ing-availability 0)
 		(calories 239)
@@ -563,7 +359,7 @@
 		(cholesterol 88)
 	)
 
-	([duck] of Ingredient
+	([duck] of ingredient
 		(ing-name "Duck")
 		(ing-availability 0)
 		(calories 337)
@@ -573,7 +369,7 @@
 		(cholesterol 84)
 	)
 
-	([lamb] of Ingredient
+	([lamb] of ingredient
 		(ing-name "Lamb")
 		(ing-availability 0)
 		(calories 294)
@@ -583,7 +379,7 @@
 		(cholesterol 97)
 	)
 
-	([turkey] of Ingredient
+	([turkey] of ingredient
 		(ing-name "Turkey")
 		(ing-availability 0)
 		(calories 188)
@@ -593,7 +389,7 @@
 		(cholesterol 109)
 	)
 
-	([veal] of Ingredient
+	([veal] of ingredient
 		(ing-name "Veal")
 		(ing-availability 0)
 		(calories 172)
@@ -603,7 +399,7 @@
 		(cholesterol 103)
 	)
 
-	([abalone] of Ingredient
+	([abalone] of ingredient
 		(ing-name "Abalone")
 		(ing-availability 0)
 		(calories 189)
@@ -613,7 +409,7 @@
 		(cholesterol 94)
 	)
 
-	([anchovy] of Ingredient
+	([anchovy] of ingredient
 		(ing-name "Anchovy")
 		(ing-availability 0)
 		(calories 210)
@@ -623,7 +419,7 @@
 		(cholesterol 85)
 	)
 
-	([cockle] of Ingredient
+	([cockle] of ingredient
 		(ing-name "Cockle")
 		(ing-availability 0)
 		(calories 79)
@@ -633,7 +429,7 @@
 		(cholesterol 52)
 	)
 
-	([crab] of Ingredient
+	([crab] of ingredient
 		(ing-name "Crab")
 		(ing-availability 0)
 		(calories 97)
@@ -643,7 +439,7 @@
 		(cholesterol 53)
 	)
 
-	([crawfish] of Ingredient
+	([crawfish] of ingredient
 		(ing-name "Crawfish")
 		(ing-availability 0)
 		(calories 87)
@@ -653,7 +449,7 @@
 		(cholesterol 137)
 	)
 
-	([cuttlefish] of Ingredient
+	([cuttlefish] of ingredient
 		(ing-name "Cuttlefish")
 		(ing-availability 0)
 		(calories 158)
@@ -663,7 +459,7 @@
 		(cholesterol 224)
 	)
 
-	([halibut] of Ingredient
+	([halibut] of ingredient
 		(ing-name "Halibut")
 		(ing-availability 0)
 		(calories 185)
@@ -673,7 +469,7 @@
 		(cholesterol 46)
 	)
 
-	([prawn] of Ingredient
+	([prawn] of ingredient
 		(ing-name "Prawn")
 		(ing-availability 0)
 		(calories 99)
@@ -683,7 +479,7 @@
 		(cholesterol 189)
 	)
 
-	([salmon] of Ingredient
+	([salmon] of ingredient
 		(ing-name "Salmon")
 		(ing-availability 0)
 		(calories 208)
@@ -693,7 +489,7 @@
 		(cholesterol 55)
 	)
 
-	([tuna] of Ingredient
+	([tuna] of ingredient
 		(ing-name "Tuna")
 		(ing-availability 0)
 		(calories 184)
@@ -703,7 +499,7 @@
 		(cholesterol 49)
 	)
 
-	([cheese] of Ingredient
+	([cheese] of ingredient
 		(ing-name "Cheese")
 		(ing-availability 0)
 		(calories 402)
@@ -713,7 +509,7 @@
 		(cholesterol 105)
 	)
 
-	([chocolate] of Ingredient
+	([chocolate] of ingredient
 		(ing-name "Chocolate")
 		(ing-availability 0)
 		(calories 545)
@@ -723,7 +519,7 @@
 		(cholesterol 8)
 	)
 
-	([eggs] of Ingredient
+	([eggs] of ingredient
 		(ing-name "Eggs")
 		(ing-availability 0)
 		(calories 155)
@@ -733,7 +529,7 @@
 		(cholesterol 373)
 	)
 
-	([milk] of Ingredient
+	([milk] of ingredient
 		(ing-name "Milk")
 		(ing-availability 0)
 		(calories 43)
@@ -743,7 +539,7 @@
 		(cholesterol 5)
 	)
 
-	([yogurt] of Ingredient
+	([yogurt] of ingredient
 		(ing-name "Yogurt")
 		(ing-availability 0)
 		(calories 58)
@@ -753,7 +549,7 @@
 		(cholesterol 5)
 	)
 
-	([butter] of Ingredient
+	([butter] of ingredient
 		(ing-name "Butter")
 		(ing-availability 0)
 		(calories 71)
@@ -763,7 +559,7 @@
 		(cholesterol 215)
 	)
 
-	([wheat_flour] of Ingredient
+	([wheat_flour] of ingredient
 		(ing-name "Wheat flour")
 		(ing-availability 0)
 		(calories 364)
@@ -773,7 +569,7 @@
 		(cholesterol 0)
 	)
 
-	([bread] of Ingredient
+	([bread] of ingredient
 		(ing-name "Bread")
 		(ing-availability 0)
 		(calories 264)
@@ -783,7 +579,7 @@
 		(cholesterol 0)
 	)
 
-	([cookies] of Ingredient
+	([cookies] of ingredient
 		(ing-name "Cookies")
 		(ing-availability 0)
 		(calories 140)
@@ -793,7 +589,7 @@
 		(cholesterol 25)
 	)
 
-	([rice] of Ingredient
+	([rice] of ingredient
 		(ing-name "Rice")
 		(ing-availability 0)
 		(calories 130)
@@ -803,7 +599,7 @@
 		(cholesterol 0)
 	)
 
-	([pasta] of Ingredient
+	([pasta] of ingredient
 		(ing-name "Pasta")
 		(ing-availability 0)
 		(calories 131)
@@ -813,7 +609,7 @@
 		(cholesterol 33)
 	)
 
-	([sugar] of Ingredient
+	([sugar] of ingredient
 		(ing-name "Sugar")
 		(ing-availability 0)
 		(calories 387)
@@ -823,7 +619,7 @@
 		(cholesterol 0)
 	)
 
-	([piper] of Ingredient
+	([piper] of ingredient
 		(ing-name "Piper")
 		(ing-availability 0)
 		(calories 251)
@@ -833,7 +629,7 @@
 		(cholesterol 0)
 	)
 
-	([oil] of Ingredient
+	([oil] of ingredient
 		(ing-name "Oil")
 		(ing-availability 0)
 		(calories 884)
@@ -843,7 +639,7 @@
 		(cholesterol 0)
 	)
 
-	([vinegar] of Ingredient
+	([vinegar] of ingredient
 		(ing-name "Vinegar")
 		(ing-availability 0)
 		(calories 18)
@@ -853,7 +649,7 @@
 		(cholesterol 0)
 	)
 
-	([sesame] of Ingredient
+	([sesame] of ingredient
 		(ing-name "Sesame")
 		(ing-availability 0)
 		(calories 573)
