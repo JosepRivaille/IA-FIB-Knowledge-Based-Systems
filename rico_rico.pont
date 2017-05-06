@@ -1,5 +1,5 @@
 ; Thu May 04 17:12:47 CEST 2017
-; 
+;
 ;+ (version "3.5")
 ;+ (build "Build 663")
 
@@ -364,7 +364,7 @@
 		(create-accessor read-write))
 	(single-slot main-course
 		(type INSTANCE)
-;+		(allowed-classes Dish)
+;+		(allowed-classes MainCourse)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot second-course-drink
@@ -379,11 +379,11 @@
 		(create-accessor read-write))
 	(single-slot second-course
 		(type INSTANCE)
-;+		(allowed-classes Dish)
+;+		(allowed-classes SecondCourse)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(single-slot dessert
 		(type INSTANCE)
-;+		(allowed-classes Dish)
+;+		(allowed-classes Dessert)
 ;+		(cardinality 1 1)
 		(create-accessor read-write)))

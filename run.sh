@@ -1,3 +1,4 @@
+clips
 (clear)
 (reset)
 
@@ -6,4 +7,3 @@
 (load rico-rico.clp)
 
 ;(run)
-

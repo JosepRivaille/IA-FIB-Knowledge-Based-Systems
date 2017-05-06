@@ -1,5 +1,5 @@
 ; Thu May 04 17:12:47 CEST 2017
-; 
+;
 ;+ (version "3.5")
 ;+ (build "Build 663")
 
@@ -154,6 +154,10 @@
 	(nth$ ?max-index ?menus)
 )
 
+(deffunction are-different-and-combine (?first-dish ?second-dish)
+	TRUE
+)
+
 (deffunction print-dishes (?dishes)
   (loop-for-count (?i 1 (length$ ?dishes)) do
     (printout t "| - Name: " (send (nth$ ?i ?dishes) get-dish-name) "." crlf)
@@ -288,7 +292,7 @@
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (not (collection-contains-all-elements ?restrictions ?ins:dish-classification)))
   )))
-	(assert (main-courses ready ?main-courses)
+	(assert (main-courses ready ?main-courses))
 )
 
 (defrule get-possible-second-courses ""
@@ -332,19 +336,19 @@
 	(bind ?menus (create$))
 	(loop-for-count (?i 1 (length$ ?main-courses)) do ; Main course
 		(loop-for-count (?j 1 (length$ ?second-courses)) do ; Second course
-			(if (are-different-combine (nth$ ?i ?main-courses) (nth$ ?j ?second-courses)) then
-				(loop-for-count (?k 1 (length$ ?dishes)) do ; Desert
-					(if (and (not (eq ?j ?k)) (member$ Dessert (send (nth$ ?k ?dishes) get-dish-type))) then
+			(if (are-different-and-combine (nth$ ?i ?main-courses) (nth$ ?j ?second-courses)) then
+				(loop-for-count (?k 1 (length$ ?desserts)) do ; Desert
+					(if (are-different-and-combine (nth$ ?j ?second-courses) (nth$ ?k ?desserts)) then
 						(bind ?drink-index (+ (mod (random) (length$ ?drinks)) 1))
 						(bind ?ins
 							(make-instance (gensym) of Menu
-								(main-course (nth$ ?i ?dishes))
-								(second-course (nth$ ?j ?dishes))
-								(dessert (nth$ ?k ?dishes))
+								(main-course (nth$ ?i ?main-courses))
+								(second-course (nth$ ?j ?second-courses))
+								(dessert (nth$ ?k ?desserts))
 								(menu-drink (nth$ ?drink-index ?drinks))
 								(menu-price (+ (send (nth$ ?drink-index ?drinks) get-drink-price)
-									(calculate-price-dishes (nth$ ?i ?dishes) (nth$ ?j ?dishes) (nth$ ?k ?dishes)))
-								)
+									(calculate-price-dishes (nth$ ?i ?main-courses) (nth$ ?j ?second-courses) (nth$ ?k ?desserts))
+								))
 							)
 						)
 						(if (and (<= ?price_min (send ?ins get-menu-price)) (>= ?price_max (send ?ins get-menu-price))) then
