@@ -1,7 +1,7 @@
 dish-name	dish-classification	dish-ingredients	dish-combination	dish-price
 STRING	SYMBOL	INSTANCE	SYMBOL	FLOAT	
 Spaghetti_Bolognese	[Italian Mediterranean Hot Pasta Classical]	[[pasta] [veal] [pork] [onion] [garlic] [carrot] [tomato] [cheese] [oregano] [oil] [salt]]	[Spanish Italian French American Gourmet Mediterranean]	5.50
-Mediterranean_Salad	[Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean Cold Vegetables Classical Islamic]	[[onion] [tomato] [carrot] [oregano] [oil] [lettuce] [garlic] [cheese] [vinegar] [olive]  [salt]]	[Vegetarian Spanish Italian French Gourmet Mediterranean Islamic]	2.2
+Mediterranean_Salad	[Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean Cold Vegetables Classical Islamic]	[[onion] [tomato] [carrot] [oregano] [oil] [lettuce] [garlic] [cheese] [vinegar] [olive]  [salt]]	[Vegetarian Gluten-free Vegan Spanish Italian French Gourmet Mediterranean Islamic]	2.2
 Kirmizi_Mercimek_Corbasi	[Vegetarian Turkish Gourmet Mediterranean Soup Hot Islamic]	[[oil] [garlic] [onion] [cumin] [coriander] [tomato] [rice] [salt] [pepper] [lemon] [lentils]]	[Vegetarian Turkish Gourmet Mediterranean Islamic]	4.2
 Chipotle_Spaguetti	[American Mexican Hot Pasta Islamic]	[[pasta] [salt] [garlic] [butter] [milk] [pepper] [mushroom]]	[American Mexican]	3.5
 Scallop_of_foie_gras_marinated_in_elderberry_oil	[Spanish Italian Islamic French Gourmet Mediterranean Cold Modern]	[[foie] [artichoke] [tomato] [potato] [oil] [garlic] [onion] [coriander] [sesame] [butter] [eggs] [salt]]	[Spanish Italian French Gourmet Mediterranean]	25
