@@ -340,14 +340,26 @@
 	(assert (desserts ready ?desserts))
 )
 
+(defrule get-possible-drink ""
+  (event ready ?)   
+        (event drink-types $?drink-types)
+        =>
+        (bind ?drinks (find-all-instances((?ins Drink))
+        ; Filter non-desired drink types
+        (not(or (eq ?drink-types (create$ none)) (collection-contains-all-elements ?drink-types ?ins:drink-classification))))
+        )
+                (assert (drinks ready ?drinks))
+
+)
+
 (defrule generate-menu-combinations "Generates different menu combinations"
 	(event price_min ?price-min)
 	(event price_max ?price-max)
 	(main-courses ready $?main-courses)
 	(second-courses ready $?second-courses)
 	(desserts ready $?desserts)
+        (drinks ready $?drinks)
 	=>
-	(bind ?drinks (find-all-instances ((?ins Drink)) TRUE))
 	(bind ?menus (create$))
 	(loop-for-count (?i 1 (length$ ?main-courses)) do ; Main course
 		(loop-for-count (?j 1 (length$ ?second-courses)) do ; Second course
