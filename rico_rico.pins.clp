@@ -276,7 +276,7 @@
 
 	([cabbage_roll] of SecondCourse
 		(dish-name "Cabbage roll")
-		(dish-classification Japanese Vegetables Meat Hot Classical Lactose-free)
+		(dish-classification Japanese Vegetarian Meat Hot Classical Lactose-free)
 		(dish-ingredients [cabbage] [onion] [beef] [pork] [salt] [piper] [tomato_paste] [chicken_broth] [bread_crumbs])
 		(dish-combination Japanese Lactose-free Mediterranean)
 		(dish-price 6.50)

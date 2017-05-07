@@ -41,7 +41,7 @@
   (printout t "| > " ?question ?allowed-values crlf "| ")
   (bind ?answer (read))
   (while (not (member ?answer ?allowed-values)) do
-    (printout t "| > " ?question clrf "| ")
+    (printout t "| > " ?question crlf "| ")
     (bind ?answer (read))
 	)
   ?answer
@@ -63,14 +63,14 @@
         )
       )
       (if (not ?value-belongs) then
-        (printout t "| > " (nth$ ?i $?answer) " is not a valid option" crlf "| ")
+        (printout t "| > " (nth$ ?i $?answer) " is not a valid option" crlf)
         (break)
       )
       (bind ?valid TRUE)
     )
     (if ?valid then (break))
 
-    (printout t "| > " ?question crlf)
+    (printout t "| > " ?question crlf "| ")
     (bind ?line (readline))
     (bind $?answer (explode$ ?line))
   )
@@ -311,7 +311,7 @@
     ; Filter non-desired food types
     (or (eq ?preferences (create$ none)) (collection-contains-all-elements ?preferences ?ins:dish-classification))
     ; Filter banned options
-    (or (eq ?restrictions (create$ none)) (not (collection-contains-all-elements ?restrictions ?ins:dish-classification)))
+    (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
   )))
 	(assert (main-courses ready ?main-courses))
 )
@@ -326,7 +326,7 @@
     ; Filter non-desired food types
     (or (eq ?preferences (create$ none)) (collection-contains-all-elements ?preferences ?ins:dish-classification))
     ; Filter banned options
-    (or (eq ?restrictions (create$ none)) (not (collection-contains-all-elements ?restrictions ?ins:dish-classification)))
+    (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
   )))
 	(assert (second-courses ready ?second-courses))
 )
@@ -336,13 +336,7 @@
 	(event preferred-cuisine-styles $?preferences)
   (event dietary-restrictions $?restrictions)
 	=>
-	(bind ?desserts (find-all-instances ((?ins Dessert))
-	(and
-    ; Filter non-desired food types
-    (or (eq ?preferences (create$ none)) (collection-contains-all-elements ?preferences ?ins:dish-classification))
-    ; Filter banned options
-    (or (eq ?restrictions (create$ none)) (not (collection-contains-all-elements ?restrictions ?ins:dish-classification)))
-  )))
+	(bind ?desserts (find-all-instances ((?ins Dessert)) TRUE))
 	(assert (desserts ready ?desserts))
 )
 

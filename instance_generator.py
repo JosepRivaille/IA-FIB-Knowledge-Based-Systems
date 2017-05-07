@@ -19,13 +19,13 @@ def generate_instance(class_name):
 
 	instances_file = class_name.lower()
 
-	with open (instances_file + '.txt', 'r') as input_file:
+	with open ('instances/' + instances_file + '.txt', 'r') as input_file:
 		lines = input_file.readlines()
 		headers = lines[0].rstrip().split('\t')
 		types = lines[1].rstrip().split('\t')
 		lines = lines[2:]
 
-		with open('../rico_rico.pins', 'a') as f, open('../rico_rico.pins.clp', 'a') as fc:
+		with open('rico_rico.pins', 'a') as f, open('rico_rico.pins.clp', 'a') as fc:
 			fc.write('(definstances ' + instances_file + '\n')
 
 			for line in lines:
@@ -52,8 +52,8 @@ def generate_instance(class_name):
 	print('Successfully created ' + str(counter) + ' instances of ' + class_name)
 
 if __name__ == '__main__':
-	open('../rico_rico.pins', 'w').close()
-	open('../rico_rico.pins.clp', 'w').close()
+	open('rico_rico.pins', 'w').close()
+	open('rico_rico.pins.clp', 'w').close()
 	args = argv[1:]
 	for arg in args:
 		print(arg)
