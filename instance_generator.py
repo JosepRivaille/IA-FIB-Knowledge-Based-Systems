@@ -35,6 +35,8 @@ def generate_instance(class_name):
 				line_list = line.split('\t')
 				line_list[-1] = line_list[-1].rstrip()
 
+				print(line_list[0])
+
 				f.write('([' + line_list[0].lower() + '] of ' + class_name)
 				fc.write('\t([' + line_list[0].lower() + '] of ' + class_name)
 

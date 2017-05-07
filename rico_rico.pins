@@ -718,36 +718,6 @@
 	(cholesterol 5)
 )
 
-([vanilla_ice_cream] of Ingredient
-	(ing-name "Vanilla ice cream")
-	(ing-availability 0)
-	(calories 207)
-	(fat 11)
-	(protein 3)
-	(carbohydrates 24)
-	(cholesterol 44)
-)
-
-([chocolate_chips] of Ingredient
-	(ing-name "Chocolate chips")
-	(ing-availability 0)
-	(calories 479)
-	(fat 30)
-	(protein 4)
-	(carbohydrates 63)
-	(cholesterol 0)
-)
-
-([coconut_milk] of Ingredient
-	(ing-name "Coconut milk")
-	(ing-availability 0)
-	(calories 229)
-	(fat 24)
-	(protein 2)
-	(carbohydrates 6)
-	(cholesterol 0)
-)
-
 ([yogurt] of Ingredient
 	(ing-name "Yogurt")
 	(ing-availability 0)
@@ -756,16 +726,6 @@
 	(protein 10)
 	(carbohydrates 4)
 	(cholesterol 5)
-)
-
-([soy_milk_yogurt] of Ingredient
-	(ing-name "Soy milk yogurt")
-	(ing-availability 0)
-	(calories 94)
-	(fat 2)
-	(protein 3)
-	(carbohydrates 16)
-	(cholesterol 0)
 )
 
 ([butter] of Ingredient
@@ -1118,16 +1078,6 @@
 	(cholesterol 0)
 )
 
-([coconut_oil] of Ingredient
-	(ing-name "Coconut oil")
-	(ing-availability 0)
-	(calories 884)
-	(fat 100)
-	(protein 0)
-	(carbohydrates 0)
-	(cholesterol 0)
-)
-
 ([hoisin_sauce] of Ingredient
 	(ing-name "Hoisin sauce")
 	(ing-availability 0)
@@ -1387,6 +1337,66 @@
 	(cholesterol 0)
 )
 
+([nori] of Ingredient
+	(ing-name "Nori")
+	(ing-availability 0)
+	(calories 35)
+	(fat 0)
+	(protein 6)
+	(carbohydrates 5)
+	(cholesterol 0)
+)
+
+([coconut_oil] of Ingredient
+	(ing-name "Coconut oil")
+	(ing-availability 0)
+	(calories 884)
+	(fat 100)
+	(protein 0)
+	(carbohydrates 0)
+	(cholesterol 0)
+)
+
+([soy_milk_yogurt] of Ingredient
+	(ing-name "Soy milk yogurt")
+	(ing-availability 0)
+	(calories 94)
+	(fat 2)
+	(protein 3)
+	(carbohydrates 16)
+	(cholesterol 0)
+)
+
+([vanilla_ice_cream] of Ingredient
+	(ing-name "Vanilla ice cream")
+	(ing-availability 0)
+	(calories 207)
+	(fat 11)
+	(protein 3)
+	(carbohydrates 24)
+	(cholesterol 44)
+)
+
+([chocolate_chips] of Ingredient
+	(ing-name "Chocolate chips")
+	(ing-availability 0)
+	(calories 479)
+	(fat 30)
+	(protein 4)
+	(carbohydrates 63)
+	(cholesterol 0)
+)
+
+([coconut_milk] of Ingredient
+	(ing-name "Coconut milk")
+	(ing-availability 0)
+	(calories 229)
+	(fat 24)
+	(protein 2)
+	(carbohydrates 6)
+	(cholesterol 0)
+)
+
 ([water] of Drink
 	(drink-name "Water")
 	(drink-price 1.20)
@@ -1539,7 +1549,7 @@
 	(dish-name "Mediterranean Salad")
 	(dish-classification Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean Cold Vegetables Classical Islamic)
 	(dish-ingredients [onion] [tomato] [carrot] [oregano] [oil] [lettuce] [garlic] [cheese] [vinegar] [olive]  [salt])
-	(dish-combination Vegetarian Gluten-free Vegan Spanish Italian French Gourmet Mediterranean Islamic)
+	(dish-combination Vegetarian Spanish Italian French Gourmet Mediterranean Islamic)
 	(dish-price 2.2)
 )
 
@@ -1569,7 +1579,7 @@
 
 ([vegan_sandwich] of MainCourse
 	(dish-name "Vegan Sandwich")
-	(dish-classification Kosher Vegetarian Vegan Islamic Mediterranean Cold Vegetables Lactose-free Modern)
+	(dish-classification Kosher Vegetarian American Vegan Islamic Mediterranean Cold Vegetables Lactose-free Modern)
 	(dish-ingredients [bread] [tomato] [oil] [ruccula] [avocado] [onion])
 	(dish-combination Vegetarian Vegan Mediterranean Islamic Kosher)
 	(dish-price 8.5)
@@ -1586,7 +1596,7 @@
 ([kareraisu] of MainCourse
 	(dish-name "Kareraisu")
 	(dish-classification Vegetarian Kosher Indian Japanese Islamic Hot Vegetables)
-	(dish-ingredients [rices] [carrot] [tofu] [onion] [potato] [oil] [curry] [salt])
+	(dish-ingredients [rice] [carrot] [tofu] [onion] [potato] [oil] [curry] [salt])
 	(dish-combination Vegetarian Kosher Islamic Indian Japanese)
 	(dish-price 6)
 )
@@ -1604,6 +1614,35 @@
 	(dish-ingredients [veal] [tomato] [pepper] [coriander] [lentils] [pasta])
 	(dish-combination Islamic Moroccan Lactose-Free Mediterranean)
 	(dish-price 5)
+)
+
+([braised_lentils_sausage_and_black_pudding] of MainCourse
+	(dish-name "Braised Lentils Sausage And Black Pudding")
+	(dish-classification Spanish Gluten-free Lactose-free Mediterranean Hot Soup Classical)
+	(dish-ingredients [lentils] [onion] [garlic] [salt] [oil] [pork])
+	(dish-combination Spanish Gluten-free Lactose-free Mediterranean] )
+)
+
+([sushi] of MainCourse
+	(dish-name "Sushi")
+	(dish-classification Japanese Kosher Islamic Lactose-free Cold Fish)
+	(dish-ingredients [salmon] [carrot] [rice] [avocado] [cucumber] [nori])
+	(dish-combination Japenese Kosher Islamic Lactose-free] 5.)
+)
+
+([tajin] of MainCourse
+	(dish-name "Tajin")
+	(dish-classification Kosher Islamic Turkish Moroccan Gluten-free Lactose-free Mediterranean Hot Soup Classical)
+	(dish-ingredients [chicken] [carrot] [onion] [tomato] [pepper] [oil] [salt])
+	(dish-combination 4.5)
+)
+
+([cream_of_mushrooms_and_chestnuts_with_duck_confit] of MainCourse
+	(dish-name "Cream Of Mushrooms And Chestnuts With Duck Confit")
+	(dish-classification Kosher Islamic Spanish French Gourmet Gluten-free Mediterranean Hot Meet Modern)
+	(dish-ingredients [onion] [mushroom] [duck] [milk] [oil])
+	(dish-combination Kosher Islamic Spanish French Gourmet Gluten-free Mediterranean Hot Meet Modern)
+	(dish-price 10.2)
 )
 
 ([roast_pork_with_prunes] of SecondCourse
