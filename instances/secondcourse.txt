@@ -6,6 +6,5 @@ Spanish_omelette	[Spanish Vegetarian Gluten-free Islamic Kosher Classical Hoy]	[
 Paella	[Spanish Mediterranean Fish Hot Classical]	[[rice] [onion] [tomato] [garlic] [oil] [salt] [saffron] [cuttlefish] [mussel] [clam] [prawn]]	[Spanish Mediterranean Lactose-free]	9.00
 Pan_seared_salmon	[Moroccan Hot Fish Classical Mediterranean Lactose-free Gluten-free Islamic Kosher]	[[salmon] [onion] [garlic] [oil] [cumin] [paprika] [cilantro] [lemon_juice] [chili_pepper] [salt]]	[Moroccan Mediterranean Lactose-free Gluten-free]	7.20
 Cabbage_roll	[Japanese Vegetables Meat Hot Classical Lactose-free]	[[cabbage] [onion] [beef] [pork] [salt] [piper] [tomato_paste] [chicken_broth] [bread_crumbs]]	[Japanese Lactose-free Mediterranean]	6.50
-Burrito_pie	[Mexican Modern Meat Hot Kosher Islamic]	[[beef] [onion] [garlic] [olive] [chili_pepper] [tomato] [tortilla] [cheese] [taco_sauce]]	[Mexican Indian]
-
+Burrito_pie	[Mexican Modern Meat Hot Kosher Islamic]	[[beef] [onion] [garlic] [olive] [chili_pepper] [tomato] [tortilla] [cheese] [taco_sauce]]	[Mexican Indian]	5.50
 ;Falta de Turquia, algun propi de la India i d'Amèrica
