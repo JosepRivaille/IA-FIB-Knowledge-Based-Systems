@@ -445,7 +445,7 @@
 	(generated-menus all-menus ?)
 	=>
 	(loop-for-count (?i 1 (length$ ?menus)) do
-		(print-menu (nth$ ?i ?menus) "Menu ?i	")
+		(print-menu (nth$ ?i ?menus) "Menu")
 	)
 )
 
