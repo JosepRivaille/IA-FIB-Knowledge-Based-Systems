@@ -27,7 +27,7 @@
 	(bind ?answer (read))
 	(bind ?allowed-values (create$ Yes No yes no Y N y n))
 	(while (not (member ?answer ?allowed-values)) do
-		(printout t "| > " ?question)
+		(printout t "| > " ?question crlf "| ")
 		(bind ?answer (read))
 	)
   (if (or (eq ?answer Yes) (eq ?answer yes) (eq ?answer Y) (eq ?answer y)) then
@@ -41,7 +41,7 @@
   (printout t "| > " ?question ?allowed-values crlf "| ")
   (bind ?answer (read))
   (while (not (member ?answer ?allowed-values)) do
-    (printout t "| > "?question)
+    (printout t "| > " ?question clrf "| ")
     (bind ?answer (read))
 	)
   ?answer
@@ -63,7 +63,7 @@
         )
       )
       (if (not ?value-belongs) then
-        (printout t "| " (nth$ ?i $?answer) " is not a valid option" crlf "| ")
+        (printout t "| > " (nth$ ?i $?answer) " is not a valid option" crlf "| ")
         (break)
       )
       (bind ?valid TRUE)
@@ -383,22 +383,52 @@
 	(assert (generated-menus ready ?menus))
 )
 
+(defrule check-generated-menus ""
+	(generated-menus ready $?menus)
+	=>
+	(if (>= (length$ ?menus) 3) then
+		(assert (generated-menus low-menu TRUE))
+		(assert (generated-menus medium-menu TRUE))
+		(assert (generated-menus high-menu TRUE))
+	else
+		(printout t "| Not enough matching dishes to generate 3 different menus." crlf)
+		(if (= (length$ ?menus) 0) then
+			(printout t "*-------------------------------------------------------------------------------------" crlf)
+		else
+			(printout t "| Generated menus will be listed below." crlf)
+			(assert (generated-menus all-menus TRUE))
+		)
+	)
+)
+
 (defrule generate-low-price-menu ""
 	(generated-menus ready $?menus)
+	(generated-menus low-menu ?)
 	=>
 	(assert (low-menu ready (get-minimum-menu-price ?menus)))
 )
 
 (defrule generate-medium-price-menu ""
 	(generated-menus ready $?menus)
+	(generated-menus medium-menu ?)
 	=>
 	(assert (medium-menu ready (nth (+ (mod (random) (length$ ?menus)) 1) ?menus)))
 )
 
 (defrule generate-high-price-menu ""
 	(generated-menus ready $?menus)
+	(generated-menus high-menu ?)
 	=>
 	(assert (high-menu ready (get-maximum-menu-price ?menus)))
+)
+
+(defrule generate-all-menu ""
+	(generated-menus ready $?menus)
+	(generated-menus all-menus ?)
+	=>
+	(loop-for-count (?i 1 (length$ ?menus)) do
+		(print-menu (nth$ ?i ?menus) "Menu ?i	")
+	)
 )
 
 (defrule print-recomendations ""
