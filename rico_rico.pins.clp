@@ -719,6 +719,36 @@
 		(cholesterol 5)
 	)
 
+	([vanilla_ice_cream] of Ingredient
+		(ing-name "Vanilla ice cream")
+		(ing-availability 0)
+		(calories 207)
+		(fat 11)
+		(protein 3)
+		(carbohydrates 24)
+		(cholesterol 44)
+	)
+
+	([chocolate_chips] of Ingredient
+		(ing-name "Chocolate chips")
+		(ing-availability 0)
+		(calories 479)
+		(fat 30)
+		(protein 4)
+		(carbohydrates 63)
+		(cholesterol 0)
+	)
+
+	([coconut_milk] of Ingredient
+		(ing-name "Coconut milk")
+		(ing-availability 0)
+		(calories 229)
+		(fat 24)
+		(protein 2)
+		(carbohydrates 6)
+		(cholesterol 0)
+	)
+
 	([yogurt] of Ingredient
 		(ing-name "Yogurt")
 		(ing-availability 0)
@@ -727,6 +757,16 @@
 		(protein 10)
 		(carbohydrates 4)
 		(cholesterol 5)
+	)
+
+	([soy_milk_yogurt] of Ingredient
+		(ing-name "Soy milk yogurt")
+		(ing-availability 0)
+		(calories 94)
+		(fat 2)
+		(protein 3)
+		(carbohydrates 16)
+		(cholesterol 0)
 	)
 
 	([butter] of Ingredient
@@ -1071,6 +1111,16 @@
 
 	([vegetable_oil] of Ingredient
 		(ing-name "Vegetable oil")
+		(ing-availability 0)
+		(calories 884)
+		(fat 100)
+		(protein 0)
+		(carbohydrates 0)
+		(cholesterol 0)
+	)
+
+	([coconut_oil] of Ingredient
+		(ing-name "Coconut oil")
 		(ing-availability 0)
 		(calories 884)
 		(fat 100)
@@ -1657,13 +1707,29 @@
 		(dish-price 5.00)
 	)
 
+	([tuna_steak] of SecondCourse
+		(dish-name "Tuna steak")
+		(dish-classification Mediterranean Gluten-free Lactose-free Fish Kosher Islamic Italian Spanish)
+		(dish-ingredients [tuna] [tomato] [garlic] [vegetable_oil] [onion] [black_pepper])
+		(dish-combination Spanish Italian Mediterranean Japanese American)
+		(dish-price 8.70)
+	)
+
+	([persian_pie] of SecondCourse
+		(dish-name "Persian pie")
+		(dish-classification Turkish Mediterranean Vegetarian Kosher Islamic Indian Gluten-free Lactose-free Vegetables)
+		(dish-ingredients [aubergine] [cheese] [cabbage] [onion] [garlic] [wheat_flour])
+		(dish-combination Spanish Italian Mediterranean Turkish Moroccan)
+		(dish-price 14.90)
+	)
+
 )
 (definstances dessert
 	([tiramisu] of Dessert
 		(dish-name "Tiramisu")
-		(dish-classification Italian Gourmet Kosher Islamic Glutten-free Vegetarian Gourmet Cold Classical)
+		(dish-classification Italian Gourmet Kosher Islamic Gluten-free Vegetarian Gourmet Cold Classical)
 		(dish-ingredients [eggs] [sugar] [chocolate] [cream_cheese] [cocoa_powder]     [coffee])
-		(dish-combination Italian Glutten-free Vegetarian French Kosher Islamic Gourmet)
+		(dish-combination Italian Gluten-free Vegetarian French Kosher Islamic Gourmet)
 		(dish-price 4.00)
 	)
 
@@ -1738,9 +1804,9 @@
 
 	([apple_enchiladas] of Dessert
 		(dish-name "Apple enchiladas")
-		(dish-classification Mexican Vegetarian Islamic Kosher Glutten-free Hot Classical)
+		(dish-classification Mexican Vegetarian Islamic Kosher Gluten-free Hot Classical)
 		(dish-ingredients [cinamon] [butter] [sugar] [apple] [tortilla])
-		(dish-combination Mexican Vegetarian Islamic Kosher Glutten-free)
+		(dish-combination Mexican Vegetarian Islamic Kosher Gluten-free)
 		(dish-price 3.50)
 	)
 
@@ -1750,6 +1816,46 @@
 		(dish-ingredients )
 		(dish-combination All)
 		(dish-price 2.00)
+	)
+
+	([banana_muffins] of Dessert
+		(dish-name "Banana muffins")
+		(dish-classification Vegan Vegetarian Kosher Islamic American Modern Cold)
+		(dish-ingredients [vanilla_extract] [banana] [sugar] [vegetable_oil] [baking_powder] [soy_milk_yogurt])
+		(dish-combination Vegan Vegetarian Kosher Islamic American French Italian Spanish Japanese)
+		(dish-price 3.50)
+	)
+
+	([chocolate_pots] of Dessert
+		(dish-name "Chocolate pots")
+		(dish-classification Gluten-free Vegetarian Kosher Islamic American French Italian Spanish Japanese Cold Modern Gourmet)
+		(dish-ingredients [sugar] [corn_starch] [milk] [eggs] [vanilla_extract] [chocolate] [cocoa_powder])
+		(dish-combination Gluten-free Vegetarian Kosher Islamic American French Italian Spanish Japanese Gourmet)
+		(dish-price 4.00)
+	)
+
+	([strawberry_coconut_milk_ice_cream] of Dessert
+		(dish-name "Strawberry coconut milk ice cream")
+		(dish-classification Vegan Vegetarian Lactose-free Gluten-free Cold Classical Italian Kosher Islamic)
+		(dish-ingredients [strawberry] [banana] [honey] [coconut_milk])
+		(dish-combination All)
+		(dish-price 3.00)
+	)
+
+	([yogurt_cake] of Dessert
+		(dish-name "Yogurt cake")
+		(dish-classification Moroccan Kosher Islamic Vegetarian Italian Spanish Classical Cold)
+		(dish-ingredients [eggs] [yogurt] [vegetable_oil] [sugar] [wheat_flour] [baking_powder] [salt] [vanilla_extract])
+		(dish-combination Moroccan Kosher Islamic Vegetarian Italian Spanish French)
+		(dish-price 2.70)
+	)
+
+	([chocolate_ice_cream_taco] of Dessert
+		(dish-name "Chocolate ice cream taco")
+		(dish-classification Mexican Islamic Kosher Vegetarian)
+		(dish-ingredients [tortilla] [chocolate_chips] [vanilla_ice_cream] [coconut_oil])
+		(dish-combination Mexican Islamic Kosher American)
+		(dish-price 4.20)
 	)
 
 )
