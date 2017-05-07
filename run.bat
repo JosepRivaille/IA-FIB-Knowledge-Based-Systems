@@ -1,9 +1,11 @@
 (clear)
-(reset)
 
 (load rico_rico.pont)
-(load-instances rico_rico.pins.clp)
+(load rico_rico.pins.clp)
+
+(reset)
+
 (load rico-rico.clp)
 
-;(run)
+(run)
 

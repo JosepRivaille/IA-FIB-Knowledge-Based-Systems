@@ -76,8 +76,8 @@
 		(drink-combination All)
 	)
 
-	([coffee] of Drink
-		(drink-name "Coffee")
+	([black_coffee] of Drink
+		(drink-name "Black coffee")
 		(drink-price 2.10)
 		(drink-classification Caffeine)
 		(drink-combination All)
@@ -141,8 +141,155 @@
 
 )
 (definstances dessert
+	([tiramisu] of Dessert
+		(dish-name "Tiramisu")
+		(dish-classification Italian Gourmet Kosher Islamic Glutten-free Vegetarian Gourmet Cold Classical)
+		(dish-ingredients [eggs] [sugar] [chocolate] [cream_cheese] [cocoa_powder]     [coffee])
+		(dish-combination Italian Glutten-free Vegetarian French Kosher Islamic Gourmet)
+		(dish-price 4.00)
+	)
+
+	([cheese_cake] of Dessert
+		(dish-name "Cheese cake")
+		(dish-classification Vegetarian American Italian French Spanish Islamic Kosher Cold Classical)
+		(dish-ingredients [cream_cheese] [sugar] [wheat_flour] [salt] [eggs] [butter] [cookies] [vanilla_extract] [sour_cream] [berry])
+		(dish-combination Vegetarian American Italian French Spanish Islamic Kosher)
+		(dish-price 5.50)
+	)
+
+	([catalan_cream] of Dessert
+		(dish-name "Catalan cream")
+		(dish-classification Spanish Vegetarian Islamic Kosher French Classical Hot)
+		(dish-ingredients [milk] [sugar] [eggs] [cinamon] [lemon] [maizena])
+		(dish-combination Spanish Vegetarian Islamic Kosher French)
+		(dish-price 3.50)
+	)
+
+	([orange_cake] of Dessert
+		(dish-name "Orange cake")
+		(dish-classification Vegan Lactose-free Vegetarian Mediterranean Moroccan Modern Cold Kosher Islamic)
+		(dish-ingredients [orange] [wheat_flour] [sugar] [vegetable_oil] [salt] [baking_powder])
+		(dish-combination Vegan Lactose-free Vegetarian Moroccan Kosher Islamic Mediterranean)
+		(dish-price 3.90)
+	)
+
+	([doklova] of Dessert
+		(dish-name "Doklova")
+		(dish-classification Turkish Vegetarian Cold Classical Islamic Kosher] [[filo] [walnut] [butter] [cinamon] [sugar] [vanilla_extract] [honey]] [Turkish Vegetarian Islamic Kosher] 4.3)
+	)
+
+	([egg_tart] of Dessert
+		(dish-name "Egg tart")
+		(dish-classification Chinese Cold Classical Vegetarian Islamic Kosher)
+		(dish-ingredients [wheat_flour] [eggs] [butter] [salt] [milk] [sugar])
+		(dish-combination Chinese Vegetarian Islamic Kosher)
+		(dish-price 3.10)
+	)
+
+	([matcha_pudding] of Dessert
+		(dish-name "Matcha pudding")
+		(dish-classification Japanese Cold Modern Islamic Kosher Vegetarian)
+		(dish-ingredients [milk] [sugar] [salt] [eggs] [butter] [whip_cream] [maizena] [matcha_powder])
+		(dish-combination Japanese Vegetarian Islamic Kosher)
+		(dish-price 3.40)
+	)
+
+	([stuffed_dates] of Dessert
+		(dish-name "Stuffed dates")
+		(dish-classification Moroccan Vegetarian Cold Classical Islamic Kosher)
+		(dish-ingredients [date] [honey] [cinamon] [sugar] [walnut] [cream_cheese] [almond])
+		(dish-combination  [Moroccan Vegetarian Islamic Kosher])
+		(dish-price 2.50)
+	)
+
+	([paal_payasam] of Dessert
+		(dish-name "Paal payasam")
+		(dish-classification Indian Vegetarian Cold Classical Islamic Kosher)
+		(dish-ingredients [rice] [milk] [cardamon_powder] [sugar] [butter] [walnuts] [raisin])
+		(dish-combination Indian Vegetarian Cold Islamic Kosher Turkish)
+		(dish-price 3.80)
+	)
+
+	([lemon_parfait] of Dessert
+		(dish-name "Lemon parfait")
+		(dish-classification Gourmet Modern French American Vegetarian Cold)
+		(dish-ingredients [eggs] [sugar] [lemon] [butter] [wheat_flour] [vanilla_extract] [chocolate] [honey] [orange_juice] [plum] [double_cream])
+		(dish-combination Gourmet Spanish Japanese Italian French American Vegetarian )
+		(dish-price 6.50)
+	)
+
+	([apple_enchiladas] of Dessert
+		(dish-name "Apple enchiladas")
+		(dish-classification Mexican Vegetarian Islamic Kosher Glutten-free Hot Classical)
+		(dish-ingredients [cinamon] [butter] [sugar] [apple] [tortilla])
+		(dish-combination Mexican Vegetarian Islamic Kosher Glutten-free)
+		(dish-price 3.50)
+	)
+
+	([fruit] of Dessert
+		(dish-name "Fruit")
+		(dish-classification Vegetarian Kosher Islamic Spanish Italian French Gluten-free Vegan Lactose-free Mediterranean Cold Classical)
+		(dish-ingredients )
+		(dish-combination All)
+		(dish-price 2.00)
+	)
+
 )
 (definstances secondcourse
+	([roast_pork_with_prunes] of SecondCourse
+		(dish-name "Roast pork with prunes")
+		(dish-classification Italian Meat Hot Classical Gluten-free Lactose-free] [[oil] [garlic] [salt] [piper] [pork] [red_wine] [prunes])
+		(dish-ingredients Italian French Spanish Lactose-free Gluten-free)
+		(dish-combination 7.50)
+	)
+
+	([coq_au_vin] of SecondCourse
+		(dish-name "Coq au vin")
+		(dish-classification French Islamic Classical Hot Meat Kosher)
+		(dish-ingredients [red_wine] [onion] [oil] [mushroom] [bacon] [butter] [chicken] [salt] [piper] [wheat_flour] [carrots])
+		(dish-combination French Italian Spanish Mediterranean Kosher Islamic)
+		(dish-price 8.30)
+	)
+
+	([spanish_omelette] of SecondCourse
+		(dish-name "Spanish omelette")
+		(dish-classification Spanish Vegetarian Gluten-free Islamic Kosher Classical Hoy)
+		(dish-ingredients [potato] [onion] [eggs] [piper] [salt] [oil]] [Spanish Vegetarian Gluten-free Islamic Kosher Mediterranean)
+		(dish-combination 6.00)
+	)
+
+	([paella] of SecondCourse
+		(dish-name "Paella")
+		(dish-classification Spanish Mediterranean Fish Hot Classical)
+		(dish-ingredients [rice] [onion] [tomato] [garlic] [oil] [salt] [saffron] [cuttlefish] [mussel] [clam] [prawn])
+		(dish-combination Spanish Mediterranean Lactose-free)
+		(dish-price 9.00)
+	)
+
+	([pan_seared_salmon] of SecondCourse
+		(dish-name "Pan seared salmon")
+		(dish-classification Moroccan Hot Fish Classical Mediterranean Lactose-free Gluten-free Islamic Kosher)
+		(dish-ingredients [salmon] [onion] [garlic] [oil] [cumin] [paprika] [cilantro] [lemon_juice] [chili_pepper] [salt])
+		(dish-combination Moroccan Mediterranean Lactose-free Gluten-free)
+		(dish-price 7.20)
+	)
+
+	([cabbage_roll] of SecondCourse
+		(dish-name "Cabbage roll")
+		(dish-classification Japanese Vegetables Meat Hot Classical Lactose-free)
+		(dish-ingredients [cabbage] [onion] [beef] [pork] [salt] [piper] [tomato_paste] [chicken_broth] [bread_crumbs])
+		(dish-combination Japanese Lactose-free Mediterranean)
+		(dish-price 6.50)
+	)
+
+	([burrito_pie] of SecondCourse
+		(dish-name "Burrito pie")
+		(dish-classification Mexican Modern Meat Hot Kosher Islamic)
+		(dish-ingredients [beef] [onion] [garlic] [olive] [chili_pepper] [tomato] [tortilla] [cheese] [taco_sauce])
+		(dish-combination Mexican Indian)
+		(dish-price 5.50)
+	)
+
 )
 (definstances maincourse
 	([spaghetti_bolognese] of MainCourse
@@ -586,6 +733,16 @@
 		(cholesterol 0)
 	)
 
+	([plum] of Ingredient
+		(ing-name "Plum")
+		(ing-availability 5 6 7 8 9)
+		(calories 46)
+		(fat 0)
+		(protein 0)
+		(carbohydrates 12)
+		(cholesterol 0)
+	)
+
 	([almonds] of Ingredient
 		(ing-name "Almonds")
 		(ing-availability 0)
@@ -593,6 +750,56 @@
 		(fat 50)
 		(protein 21)
 		(carbohydrates 21)
+		(cholesterol 0)
+	)
+
+	([walnut] of Ingredient
+		(ing-name "Walnut")
+		(ing-availability 0)
+		(calories 607)
+		(fat 54)
+		(protein 20)
+		(carbohydrates 21)
+		(cholesterol 0)
+	)
+
+	([berry] of Ingredient
+		(ing-name "Berry")
+		(ing-availability 0)
+		(calories 46)
+		(fat 0)
+		(protein 0)
+		(carbohydrates 12)
+		(cholesterol 0)
+	)
+
+	([raisin] of Ingredient
+		(ing-name "Raisin")
+		(ing-availability 0)
+		(calories 299)
+		(fat 0)
+		(protein 3)
+		(carbohydrates 79)
+		(cholesterol 0)
+	)
+
+	([date] of Ingredient
+		(ing-name "Date")
+		(ing-availability 0)
+		(calories 289)
+		(fat 0)
+		(protein 2)
+		(carbohydrates 74)
+		(cholesterol 0)
+	)
+
+	([prune] of Ingredient
+		(ing-name "Prune")
+		(ing-availability 0)
+		(calories 240)
+		(fat 0)
+		(protein 2)
+		(carbohydrates 63)
 		(cholesterol 0)
 	)
 
@@ -706,6 +913,16 @@
 		(cholesterol 85)
 	)
 
+	([clam] of Ingredient
+		(ing-name "Clam")
+		(ing-availability 0)
+		(calories 147)
+		(fat 2)
+		(protein 26)
+		(carbohydrates 5)
+		(cholesterol 67)
+	)
+
 	([cockle] of Ingredient
 		(ing-name "Cockle")
 		(ing-availability 0)
@@ -754,6 +971,16 @@
 		(protein 14)
 		(carbohydrates 0)
 		(cholesterol 46)
+	)
+
+	([mussel] of Ingredient
+		(ing-name "Mussel")
+		(ing-availability 0)
+		(calories 172)
+		(fat 5)
+		(protein 24)
+		(carbohydrates 7)
+		(cholesterol 56)
 	)
 
 	([prawn] of Ingredient
@@ -846,6 +1073,46 @@
 		(cholesterol 215)
 	)
 
+	([sour_cream] of Ingredient
+		(ing-name "Sour cream")
+		(ing-availability 0)
+		(calories 193)
+		(fat 20)
+		(protein 2)
+		(carbohydrates 3)
+		(cholesterol 52)
+	)
+
+	([cream_cheese] of Ingredient
+		(ing-name "Cream Cheese")
+		(ing-availability 0)
+		(calories 342)
+		(fat 34)
+		(protein 6)
+		(carbohydrates 4)
+		(cholesterol 110)
+	)
+
+	([whip_cream] of Ingredient
+		(ing-name "Whip cream")
+		(ing-availability 0)
+		(calories 257)
+		(fat 22)
+		(protein 3)
+		(carbohydrates 12)
+		(cholesterol 76)
+	)
+
+	([double_cream] of Ingredient
+		(ing-name "Double cream")
+		(ing-availability 0)
+		(calories 462)
+		(fat 52)
+		(protein 2)
+		(carbohydrates 2)
+		(cholesterol 154)
+	)
+
 	([wheat_flour] of Ingredient
 		(ing-name "Wheat flour")
 		(ing-availability 0)
@@ -853,6 +1120,26 @@
 		(fat 1)
 		(protein 10)
 		(carbohydrates 76)
+		(cholesterol 0)
+	)
+
+	([maizena] of Ingredient
+		(ing-name "Maizena")
+		(ing-availability 0)
+		(calories 381)
+		(fat 0)
+		(protein 0)
+		(carbohydrates 91)
+		(cholesterol 0)
+	)
+
+	([semolina] of Ingredient
+		(ing-name "Semolina")
+		(ing-availability 0)
+		(calories 360)
+		(fat 1)
+		(protein 13)
+		(carbohydrates 73)
 		(cholesterol 0)
 	)
 
@@ -894,6 +1181,36 @@
 		(protein 5)
 		(carbohydrates 25)
 		(cholesterol 33)
+	)
+
+	([tortilla] of Ingredient
+		(ing-name "Tortilla")
+		(ing-availability 0)
+		(calories 237)
+		(fat 1)
+		(protein 7)
+		(carbohydrates 50)
+		(cholesterol 4)
+	)
+
+	([filo] of Ingredient
+		(ing-name "Filo")
+		(ing-availability 0)
+		(calories 299)
+		(fat 6)
+		(protein 7)
+		(carbohydrates 53)
+		(cholesterol 0)
+	)
+
+	([bread_crumbs] of Ingredient
+		(ing-name "Bread crumbs")
+		(ing-availability 0)
+		(calories 395)
+		(fat 5)
+		(protein 13)
+		(carbohydrates 72)
+		(cholesterol 0)
 	)
 
 	([curry] of Ingredient
@@ -1014,6 +1331,215 @@
 		(protein 36)
 		(carbohydrates 30)
 		(cholesterol 0)
+	)
+
+	([cinamon] of Ingredient
+		(ing-name "Cinamon")
+		(ing-availability 0)
+		(calories 247)
+		(fat 1)
+		(protein 4)
+		(carbohydrates 81)
+		(cholesterol 0)
+	)
+
+	([cardamon_powder] of Ingredient
+		(ing-name "Cardamon powder")
+		(ing-availability 0)
+		(calories 311)
+		(fat 7)
+		(protein 11)
+		(carbohydrates 69)
+		(cholesterol 0)
+	)
+
+	([vegetable_oil] of Ingredient
+		(ing-name "Vegetable oil")
+		(ing-availability 0)
+		(calories 884)
+		(fat 100)
+		(protein 0)
+		(carbohydrates 0)
+		(cholesterol 0)
+	)
+
+	([honey] of Ingredient
+		(ing-name "Honey")
+		(ing-availability 0)
+		(calories 304)
+		(fat 0)
+		(protein 0)
+		(carbohydrates 82)
+		(cholesterol 0)
+	)
+
+	([matcha_powder] of Ingredient
+		(ing-name "Matcha powder")
+		(ing-availability 0)
+		(calories 250)
+		(fat 0)
+		(protein 50)
+		(carbohydrates 50)
+		(cholesterol 0)
+	)
+
+	([cocoa_powder] of Ingredient
+		(ing-name "Cocoa powder")
+		(ing-availability 0)
+		(calories 228)
+		(fat 14)
+		(protein 20)
+		(carbohydrates 58)
+		(cholesterol 0)
+	)
+
+	([vanilla_extract] of Ingredient
+		(ing-name "Vanilla extract")
+		(ing-availability 0)
+		(calories 228)
+		(fat 0)
+		(protein 0)
+		(carbohydrates 13)
+	)
+
+	([saffron] of Ingredient
+		(ing-name "Saffron")
+		(ing-availability 0)
+		(calories 352)
+		(fat 6)
+		(protein 1)
+		(carbohydrates 61)
+		(cholesterol 0)
+	)
+
+	([cilantro] of Ingredient
+		(ing-name "Cilantro")
+		(ing-availability 0)
+		(calories 22)
+		(fat 0)
+		(protein 2)
+		(carbohydrates 4)
+		(cholesterol 0)
+	)
+
+	([paprika] of Ingredient
+		(ing-name "Paprika")
+		(ing-availability 0)
+		(calories 282)
+		(fat 13)
+		(protein 14)
+		(carbohydrates 54)
+		(cholesterol 0)
+	)
+
+	([chili_pepper] of Ingredient
+		(ing-name "Chili pepper")
+		(ing-availability 0)
+		(calories 39)
+		(fat 0)
+		(protein 2)
+		(carbohydrates 9)
+		(cholesterol 0)
+	)
+
+	([tomasto_paste] of Ingredient
+		(ing-name "Tomasto paste")
+		(ing-availability 0)
+		(calories 82)
+		(fat 0)
+		(protein 4)
+		(carbohydrates 19)
+		(cholesterol 0)
+	)
+
+	([taco_sauce] of Ingredient
+		(ing-name "Taco sauce")
+		(ing-availability 0)
+		(calories 36)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 7)
+		(cholesterol 0)
+	)
+
+	([savoiardi] of Ingredient
+		(ing-name "Savoiardi")
+		(ing-availability 0)
+		(calories 365)
+		(fat 9)
+		(protein 11)
+		(carbohydrates 60)
+		(cholesterol 221)
+	)
+
+	([baking_powder] of Ingredient
+		(ing-name "Baking powder")
+		(ing-availability 0)
+		(calories 53)
+		(fat 0)
+		(protein 0)
+		(carbohydrates 28)
+		(cholesterol 0)
+	)
+
+	([coffee] of Ingredient
+		(ing-name "Coffee")
+		(ing-availability 0)
+		(calories 0)
+		(fat 0)
+		(protein 0)
+		(carbohydrates 0)
+		(cholesterol 0)
+	)
+
+	([orange_juice] of Ingredient
+		(ing-name "Orange juice")
+		(ing-availability 0)
+		(calories 45)
+		(fat 0)
+		(protein 0)
+		(carbohydrates 10)
+		(cholesterol 0)
+	)
+
+	([lemon_juice] of Ingredient
+		(ing-name "Lemon juice")
+		(ing-availability 0)
+		(calories 28)
+		(fat 0)
+		(protein 1)
+		(carbohydrates 9)
+		(cholesterol 0)
+	)
+
+	([whisky] of Ingredient
+		(ing-name "Whisky")
+		(ing-availability 0)
+		(calories 250)
+		(fat 0)
+		(protein 0)
+		(carbohydrates 0)
+		(cholesterol 0)
+	)
+
+	([red_wine] of Ingredient
+		(ing-name "Red wine")
+		(ing-availability 0)
+		(calories 83)
+		(fat 0)
+		(protein 0)
+		(carbohydrates 3)
+		(cholesterol 0)
+	)
+
+	([chicken_broth] of Ingredient
+		(ing-name "Chicken broth")
+		(ing-availability 0)
+		(calories 267)
+		(fat 14)
+		(protein 17)
+		(carbohydrates 18)
+		(cholesterol 13)
 	)
 
 )

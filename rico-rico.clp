@@ -102,11 +102,11 @@
   ?answer
 )
 
-(deffunction collection-contains-all-elements (?all-elements ?collection)
-	(loop-for-count (?i 1 (length$ ?all-elements)) do
+(deffunction collection-contains-all-elements (?elements ?collection)
+	(loop-for-count (?i 1 (length$ ?elements)) do
 		(bind ?found FALSE)
-		(loop-for-count (?j 1 (length ?collection)) do
-			(if (eq (nth$ ?i ?all-elements) (nth$ ?j ?collection)) then
+		(loop-for-count (?j 1 (length$ ?collection)) do
+			(if (eq (nth$ ?i ?elements) (nth$ ?j ?collection)) then
 				(bind ?found TRUE)
 				(break)
 			)
@@ -116,6 +116,17 @@
 		)
 	)
 	TRUE
+)
+
+(deffunction collection-contains-any-element (?elements ?collection)
+	(loop-for-count (?i 1 (length$ ?elements)) do
+		(loop-for-count (?j 1 (length$ ?collection)) do
+			(if (eq (nth$ ?i ?elements) (nth$ ?j ?collection)) then
+				(return TRUE)
+			)
+		)
+	)
+	FALSE
 )
 
 (deffunction combinate-possible-dishes(?price-min ?price-max ?dishes)
@@ -151,7 +162,15 @@
 )
 
 (deffunction are-different-and-combine (?first-dish ?second-dish)
-	TRUE
+	(if (not (eq (send ?first-dish get-dish-name) (send ?second-dish get-dish-name))) then
+		(if (and
+			(collection-contains-any-element (send ?first-dish get-dish-combination) (send ?second-dish get-dish-classification))
+			(collection-contains-any-element (send ?second-dish get-dish-combination) (send ?first-dish get-dish-classification))
+		) then
+			(return TRUE)
+		)
+	)
+	FALSE
 )
 
 (deffunction print-dishes (?dishes)

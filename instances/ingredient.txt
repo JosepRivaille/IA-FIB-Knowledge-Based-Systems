@@ -115,7 +115,7 @@ Cilantro	[0]	22	0	2	4	0
 Paprika	[0]	282	13	14	54	0
 Chili_pepper	[0]	39	0	2	9	0
 Tomasto_paste	[0]	82	0	4	19	0
-Taco_sauce 	[0]	36	0	1	7	0
+Taco_sauce	[0]	36	0	1	7	0
 ;Others
 Savoiardi	[0]	365	9	11	60	221
 Baking_powder	[0]	53	0	0	28	0
