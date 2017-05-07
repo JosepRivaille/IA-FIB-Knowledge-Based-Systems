@@ -5,7 +5,6 @@
 
 (reset)
 
-(load rico-rico.clp)
+(load rico_rico.clp)
 
 (run)
-
