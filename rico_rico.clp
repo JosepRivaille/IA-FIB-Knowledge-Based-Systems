@@ -357,8 +357,9 @@
 	(event drink-types $?drink-types)
   =>
   (bind ?drinks (find-all-instances((?ins Drink))
-  ; Filter non-desired drink types
-	(or (eq ?drink-types (create$ none)) (not (collection-contains-alo-element ?drink-types ?ins:drink-classification)))
+  	; Filter non-desired drink types
+		(or (eq ?drink-types (create$ none)) (not (collection-contains-alo-element ?drink-types ?ins:drink-classification)))
+	))
 	(assert (drinks ready ?drinks))
 )
 

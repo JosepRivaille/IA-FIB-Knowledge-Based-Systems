@@ -125,7 +125,7 @@ Cilantro	[0]	22	0	2	4	0
 Paprika	[0]	282	13	14	54	0
 Black_pepper	[0]	251	3	10	64	0
 Chili_pepper	[0]	39	0	2	9	0
-Soy_sauce	[0]	53	0	8	5	
+Soy_sauce	[0]	53	0	8	5	0
 Tomasto_paste	[0]	82	0	4	19	0
 Red_curry_paste	[0]	129	0	14	14	0
 Taco_sauce	[0]	36	0	1	7	0

@@ -1,369 +1,3 @@
-([water] of Drink
-	(drink-name "Water")
-	(drink-price 1.20)
-	(drink-classification Other)
-	(drink-combination All)
-)
-
-([beer] of Drink
-	(drink-name "Beer")
-	(drink-price 2.50)
-	(drink-classification Alcohol)
-	(drink-combination All)
-)
-
-([la_rioja_alta_gran_reserva_1995] of Drink
-	(drink-name "La Rioja Alta Gran Reserva 1995")
-	(drink-price 195.00)
-	(drink-classification Alcohol)
-	(drink-combination All)
-)
-
-([glorioso_crianza_magnum_2013] of Drink
-	(drink-name "Glorioso Crianza Magnum 2013")
-	(drink-price 11.65)
-	(drink-classification Alcohol)
-	(drink-combination All)
-)
-
-([la_vicalanda_gran_reserva_2010] of Drink
-	(drink-name "La Vicalanda Gran Reserva 2010")
-	(drink-price 45.95)
-	(drink-classification Alcohol)
-	(drink-combination All)
-)
-
-([white_wine] of Drink
-	(drink-name "White Wine")
-	(drink-price 10.50)
-	(drink-classification Alcohol)
-	(drink-combination All)
-)
-
-([tequila] of Drink
-	(drink-name "Tequila")
-	(drink-price 14.59)
-	(drink-classification Alcohol)
-	(drink-combination All)
-)
-
-([sangria] of Drink
-	(drink-name "Sangria")
-	(drink-price 10.99)
-	(drink-classification Alcohol)
-	(drink-combination All)
-)
-
-([whisky_glengarry_12_years] of Drink
-	(drink-name "Whisky Glengarry 12 Years")
-	(drink-price 40.45)
-	(drink-classification Alcohol)
-	(drink-combination All)
-)
-
-([ron_barcelo_imperial] of Drink
-	(drink-name "Ron Barcelo Imperial")
-	(drink-price 30.25)
-	(drink-classification Alcohol)
-	(drink-combination All)
-)
-
-([juice] of Drink
-	(drink-name "Juice")
-	(drink-price 1.30)
-	(drink-classification Juice)
-	(drink-combination All)
-)
-
-([black_coffee] of Drink
-	(drink-name "Black coffee")
-	(drink-price 2.10)
-	(drink-classification Caffeine)
-	(drink-combination All)
-)
-
-([coffee_milk] of Drink
-	(drink-name "Coffee milk")
-	(drink-price 2.20)
-	(drink-classification Caffeine)
-	(drink-combination All)
-)
-
-([iced_coffee] of Drink
-	(drink-name "Iced coffee")
-	(drink-price 2.10)
-	(drink-classification Caffeine)
-	(drink-combination All)
-)
-
-([hot_chocolate] of Drink
-	(drink-name "Hot chocolate")
-	(drink-price 2.00)
-	(drink-classification Other)
-	(drink-combination All)
-)
-
-([tea] of Drink
-	(drink-name "Tea")
-	(drink-price 1.70)
-	(drink-classification Other)
-	(drink-combination All)
-)
-
-([iced_tea] of Drink
-	(drink-name "Iced Tea")
-	(drink-price 1.70)
-	(drink-classification Other)
-	(drink-combination All)
-)
-
-([infusion] of Drink
-	(drink-name "Infusion")
-	(drink-price 1.70)
-	(drink-classification Other)
-	(drink-combination All)
-)
-
-([soft_drink] of Drink
-	(drink-name "Soft drink")
-	(drink-price 1.50)
-	(drink-classification Other)
-	(drink-combination All)
-)
-
-([cocktail] of Drink
-	(drink-name "Cocktail")
-	(drink-price 3.50)
-	(drink-classification Alcohol)
-	(drink-combination All)
-)
-
-([tiramisu] of Dessert
-	(dish-name "Tiramisu")
-	(dish-classification Italian Gourmet Kosher Islamic Glutten-free Vegetarian Gourmet Cold Classical)
-	(dish-ingredients [eggs] [sugar] [chocolate] [cream_cheese] [cocoa_powder]     [coffee])
-	(dish-combination Italian Glutten-free Vegetarian French Kosher Islamic Gourmet)
-	(dish-price 4.00)
-)
-
-([cheese_cake] of Dessert
-	(dish-name "Cheese cake")
-	(dish-classification Vegetarian American Italian French Spanish Islamic Kosher Cold Classical)
-	(dish-ingredients [cream_cheese] [sugar] [wheat_flour] [salt] [eggs] [butter] [cookies] [vanilla_extract] [sour_cream] [berry])
-	(dish-combination Vegetarian American Italian French Spanish Islamic Kosher)
-	(dish-price 5.50)
-)
-
-([catalan_cream] of Dessert
-	(dish-name "Catalan cream")
-	(dish-classification Spanish Vegetarian Islamic Kosher French Classical Hot)
-	(dish-ingredients [milk] [sugar] [eggs] [cinamon] [lemon] [maizena])
-	(dish-combination Spanish Vegetarian Islamic Kosher French)
-	(dish-price 3.50)
-)
-
-([orange_cake] of Dessert
-	(dish-name "Orange cake")
-	(dish-classification Vegan Lactose-free Vegetarian Mediterranean Moroccan Modern Cold Kosher Islamic)
-	(dish-ingredients [orange] [wheat_flour] [sugar] [vegetable_oil] [salt] [baking_powder])
-	(dish-combination Vegan Lactose-free Vegetarian Moroccan Kosher Islamic Mediterranean)
-	(dish-price 3.90)
-)
-
-([doklova] of Dessert
-	(dish-name "Doklova")
-	(dish-classification Turkish Vegetarian Cold Classical Islamic Kosher] [[filo] [walnut] [butter] [cinamon] [sugar] [vanilla_extract] [honey]] [Turkish Vegetarian Islamic Kosher] 4.3)
-)
-
-([egg_tart] of Dessert
-	(dish-name "Egg tart")
-	(dish-classification Chinese Cold Classical Vegetarian Islamic Kosher)
-	(dish-ingredients [wheat_flour] [eggs] [butter] [salt] [milk] [sugar])
-	(dish-combination Chinese Vegetarian Islamic Kosher)
-	(dish-price 3.10)
-)
-
-([matcha_pudding] of Dessert
-	(dish-name "Matcha pudding")
-	(dish-classification Japanese Cold Modern Islamic Kosher Vegetarian)
-	(dish-ingredients [milk] [sugar] [salt] [eggs] [butter] [whip_cream] [maizena] [matcha_powder])
-	(dish-combination Japanese Vegetarian Islamic Kosher)
-	(dish-price 3.40)
-)
-
-([stuffed_dates] of Dessert
-	(dish-name "Stuffed dates")
-	(dish-classification Moroccan Vegetarian Cold Classical Islamic Kosher)
-	(dish-ingredients [date] [honey] [cinamon] [sugar] [walnut] [cream_cheese] [almond])
-	(dish-combination  [Moroccan Vegetarian Islamic Kosher])
-	(dish-price 2.50)
-)
-
-([paal_payasam] of Dessert
-	(dish-name "Paal payasam")
-	(dish-classification Indian Vegetarian Cold Classical Islamic Kosher)
-	(dish-ingredients [rice] [milk] [cardamon_powder] [sugar] [butter] [walnuts] [raisin])
-	(dish-combination Indian Vegetarian Cold Islamic Kosher Turkish)
-	(dish-price 3.80)
-)
-
-([lemon_parfait] of Dessert
-	(dish-name "Lemon parfait")
-	(dish-classification Gourmet Modern French American Vegetarian Cold)
-	(dish-ingredients [eggs] [sugar] [lemon] [butter] [wheat_flour] [vanilla_extract] [chocolate] [honey] [orange_juice] [plum] [double_cream])
-	(dish-combination Gourmet Spanish Japanese Italian French American Vegetarian )
-	(dish-price 6.50)
-)
-
-([apple_enchiladas] of Dessert
-	(dish-name "Apple enchiladas")
-	(dish-classification Mexican Vegetarian Islamic Kosher Glutten-free Hot Classical)
-	(dish-ingredients [cinamon] [butter] [sugar] [apple] [tortilla])
-	(dish-combination Mexican Vegetarian Islamic Kosher Glutten-free)
-	(dish-price 3.50)
-)
-
-([fruit] of Dessert
-	(dish-name "Fruit")
-	(dish-classification Vegetarian Kosher Islamic Spanish Italian French Gluten-free Vegan Lactose-free Mediterranean Cold Classical)
-	(dish-ingredients )
-	(dish-combination All)
-	(dish-price 2.00)
-)
-
-([roast_pork_with_prunes] of SecondCourse
-	(dish-name "Roast pork with prunes")
-	(dish-classification Italian Meat Hot Classical Gluten-free Lactose-free] [[oil] [garlic] [salt] [piper] [pork] [red_wine] [prunes])
-	(dish-ingredients Italian French Spanish Lactose-free Gluten-free)
-	(dish-combination 7.50)
-)
-
-([coq_au_vin] of SecondCourse
-	(dish-name "Coq au vin")
-	(dish-classification French Islamic Classical Hot Meat Kosher)
-	(dish-ingredients [red_wine] [onion] [oil] [mushroom] [bacon] [butter] [chicken] [salt] [piper] [wheat_flour] [carrots])
-	(dish-combination French Italian Spanish Mediterranean Kosher Islamic)
-	(dish-price 8.30)
-)
-
-([spanish_omelette] of SecondCourse
-	(dish-name "Spanish omelette")
-	(dish-classification Spanish Vegetarian Gluten-free Islamic Kosher Classical Hoy)
-	(dish-ingredients [potato] [onion] [eggs] [piper] [salt] [oil]] [Spanish Vegetarian Gluten-free Islamic Kosher Mediterranean)
-	(dish-combination 6.00)
-)
-
-([paella] of SecondCourse
-	(dish-name "Paella")
-	(dish-classification Spanish Mediterranean Fish Hot Classical)
-	(dish-ingredients [rice] [onion] [tomato] [garlic] [oil] [salt] [saffron] [cuttlefish] [mussel] [clam] [prawn])
-	(dish-combination Spanish Mediterranean Lactose-free)
-	(dish-price 9.00)
-)
-
-([pan_seared_salmon] of SecondCourse
-	(dish-name "Pan seared salmon")
-	(dish-classification Moroccan Hot Fish Classical Mediterranean Lactose-free Gluten-free Islamic Kosher)
-	(dish-ingredients [salmon] [onion] [garlic] [oil] [cumin] [paprika] [cilantro] [lemon_juice] [chili_pepper] [salt])
-	(dish-combination Moroccan Mediterranean Lactose-free Gluten-free)
-	(dish-price 7.20)
-)
-
-([cabbage_roll] of SecondCourse
-	(dish-name "Cabbage roll")
-	(dish-classification Japanese Vegetarian Meat Hot Classical Lactose-free)
-	(dish-ingredients [cabbage] [onion] [beef] [pork] [salt] [piper] [tomato_paste] [chicken_broth] [bread_crumbs])
-	(dish-combination Japanese Lactose-free Mediterranean)
-	(dish-price 6.50)
-)
-
-([burrito_pie] of SecondCourse
-	(dish-name "Burrito pie")
-	(dish-classification Mexican Modern Meat Hot Kosher Islamic)
-	(dish-ingredients [beef] [onion] [garlic] [olive] [chili_pepper] [tomato] [tortilla] [cheese] [taco_sauce])
-	(dish-combination Mexican Indian)
-	(dish-price 5.50)
-)
-
-([spaghetti_bolognese] of MainCourse
-	(dish-name "Spaghetti Bolognese")
-	(dish-classification Italian Mediterranean Hot Pasta Classical)
-	(dish-ingredients [pasta] [veal] [pork] [onion] [garlic] [carrot] [tomato] [cheese] [oregano] [oil] [salt])
-	(dish-combination Spanish Italian French American Gourmet Mediterranean)
-	(dish-price 5.50)
-)
-
-([mediterranean_salad] of MainCourse
-	(dish-name "Mediterranean Salad")
-	(dish-classification Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean Cold Vegetables Classical Islamic)
-	(dish-ingredients [onion] [tomato] [carrot] [oregano] [oil] [lettuce] [garlic] [cheese] [vinegar] [olive]  [salt])
-	(dish-combination Vegetarian Spanish Italian French Gourmet Mediterranean Islamic)
-	(dish-price 2.2)
-)
-
-([kirmizi_mercimek_corbasi] of MainCourse
-	(dish-name "Kirmizi Mercimek Corbasi")
-	(dish-classification Vegetarian Turkish Gourmet Mediterranean Soup Hot Islamic)
-	(dish-ingredients [oil] [garlic] [onion] [cumin] [coriander] [tomato] [rice] [salt] [pepper] [lemon] [lentils])
-	(dish-combination Vegetarian Turkish Gourmet Mediterranean Islamic)
-	(dish-price 4.2)
-)
-
-([chipotle_spaguetti] of MainCourse
-	(dish-name "Chipotle Spaguetti")
-	(dish-classification American Mexican Hot Pasta Islamic)
-	(dish-ingredients [pasta] [salt] [garlic] [butter] [milk] [pepper] [mushroom])
-	(dish-combination American Mexican)
-	(dish-price 3.5)
-)
-
-([scallop_of_foie_gras_marinated_in_elderberry_oil] of MainCourse
-	(dish-name "Scallop of foie gras marinated in elderberry oil")
-	(dish-classification Spanish Italian Islamic French Gourmet Mediterranean Cold Modern)
-	(dish-ingredients [foie] [artichoke] [tomato] [potato] [oil] [garlic] [onion] [coriander] [sesame] [butter] [eggs] [salt])
-	(dish-combination Spanish Italian French Gourmet Mediterranean)
-	(dish-price 25)
-)
-
-([vegan_sandwich] of MainCourse
-	(dish-name "Vegan Sandwich")
-	(dish-classification Kosher Vegetarian Vegan Islamic Mediterranean Cold Vegetables Lactose-free Modern)
-	(dish-ingredients [bread] [tomato] [oil] [ruccula] [avocado] [onion])
-	(dish-combination Vegetarian Vegan Mediterranean Islamic Kosher)
-	(dish-price 8.5)
-)
-
-([chinese_noodles_with_vegetables] of MainCourse
-	(dish-name "Chinese Noodles With Vegetables")
-	(dish-classification Vegetarian Kosher Islamic Chinese Hot Pasta Vegetables)
-	(dish-ingredients [pasta] [oil] [carrot] [onion] [pepper] [mushroom] [soy] [salt])
-	(dish-combination Vegetarian Kosher Islamic Chinese)
-	(dish-price 4.2)
-)
-
-([kareraisu] of MainCourse
-	(dish-name "Kareraisu")
-	(dish-classification Vegetarian Kosher Indian Japanese Islamic Hot Vegetables)
-	(dish-ingredients [rices] [carrot] [tofu] [onion] [potato] [oil] [curry] [salt])
-	(dish-combination Vegetarian Kosher Islamic Indian Japanese)
-	(dish-price 6)
-)
-
-([american_burguer] of MainCourse
-	(dish-name "American Burguer")
-	(dish-classification American Hot Meet Lactose-free] [[pork] [onion] [garlic] [eggs] [salt] [pepper] [bread])
-	(dish-ingredients American Hot Meet Lactose-free)
-	(dish-combination 4)
-)
-
-([harira] of MainCourse
-	(dish-name "Harira")
-	(dish-classification Islamic Morrocan Lactose-Free Mediterranean Hot Soup Classical)
-	(dish-ingredients [veal] [tomato] [pepper] [coriander] [lentils] [pasta])
-	(dish-combination Islamic Moroccan Lactose-Free Mediterranean)
-	(dish-price 5)
-)
-
 ([artichoke] of Ingredient
 	(ing-name "Artichoke")
 	(ing-availability 1 2 3 4 5 10 11 12)
@@ -381,6 +15,16 @@
 	(fat 0)
 	(protein 2)
 	(carbohydrates 4)
+	(cholesterol 0)
+)
+
+([aubergine] of Ingredient
+	(ing-name "Aubergine")
+	(ing-availability 0)
+	(calories 24)
+	(fat 0)
+	(protein 1)
+	(carbohydrates 6)
 	(cholesterol 0)
 )
 
@@ -604,6 +248,16 @@
 	(cholesterol 0)
 )
 
+([zucchini] of Ingredient
+	(ing-name "Zucchini")
+	(ing-availability 0)
+	(calories 16)
+	(fat 0)
+	(protein 1)
+	(carbohydrates 3)
+	(cholesterol 0)
+)
+
 ([apple] of Ingredient
 	(ing-name "Apple")
 	(ing-availability 0)
@@ -794,6 +448,16 @@
 	(cholesterol 0)
 )
 
+([lime] of Ingredient
+	(ing-name "Lime")
+	(ing-availability 0)
+	(calories 30)
+	(fat 0)
+	(protein 0)
+	(carbohydrates 10)
+	(cholesterol 0)
+)
+
 ([pork] of Ingredient
 	(ing-name "Pork")
 	(ing-availability 0)
@@ -882,6 +546,16 @@
 	(protein 11)
 	(carbohydrates 4)
 	(cholesterol 150)
+)
+
+([ground_turkey] of Ingredient
+	(ing-name "Ground turkey")
+	(ing-availability 0)
+	(calories 203)
+	(fat 10)
+	(protein 27)
+	(carbohydrates 0)
+	(cholesterol 93)
 )
 
 ([abalone] of Ingredient
@@ -1075,13 +749,23 @@
 )
 
 ([cream_cheese] of Ingredient
-	(ing-name "Cream Cheese")
+	(ing-name "Cream cheese")
 	(ing-availability 0)
 	(calories 342)
 	(fat 34)
 	(protein 6)
 	(carbohydrates 4)
 	(cholesterol 110)
+)
+
+([ricota_cheese] of Ingredient
+	(ing-name "Ricota cheese")
+	(ing-availability 0)
+	(calories 174)
+	(fat 13)
+	(protein 11)
+	(carbohydrates 3)
+	(cholesterol 51)
 )
 
 ([whip_cream] of Ingredient
@@ -1111,6 +795,26 @@
 	(fat 1)
 	(protein 10)
 	(carbohydrates 76)
+	(cholesterol 0)
+)
+
+([gram_flour] of Ingredient
+	(ing-name "Gram flour")
+	(ing-availability 0)
+	(calories 386)
+	(fat 7)
+	(protein 22)
+	(carbohydrates 58)
+	(cholesterol 0)
+)
+
+([corn_starch] of Ingredient
+	(ing-name "Corn starch")
+	(ing-availability 0)
+	(calories 381)
+	(fat 0)
+	(protein 0)
+	(carbohydrates 91)
 	(cholesterol 0)
 )
 
@@ -1221,6 +925,16 @@
 	(fat 0)
 	(protein 100)
 	(carbohydrates 0)
+	(cholesterol 0)
+)
+
+([brown_sugar] of Ingredient
+	(ing-name "Brown sugar")
+	(ing-availability 0)
+	(calories 377)
+	(fat 0)
+	(protein 0)
+	(carbohydrates 98)
 	(cholesterol 0)
 )
 
@@ -1344,6 +1058,16 @@
 	(cholesterol 0)
 )
 
+([sesame_oil] of Ingredient
+	(ing-name "Sesame oil")
+	(ing-availability 0)
+	(calories 884)
+	(fat 100)
+	(protein 0)
+	(carbohydrates 0)
+	(cholesterol 0)
+)
+
 ([vegetable_oil] of Ingredient
 	(ing-name "Vegetable oil")
 	(ing-availability 0)
@@ -1352,6 +1076,16 @@
 	(protein 0)
 	(carbohydrates 0)
 	(cholesterol 0)
+)
+
+([hoisin_sauce] of Ingredient
+	(ing-name "Hoisin sauce")
+	(ing-availability 0)
+	(calories 219)
+	(fat 3)
+	(protein 3)
+	(carbohydrates 44)
+	(cholesterol 3)
 )
 
 ([honey] of Ingredient
@@ -1423,6 +1157,16 @@
 	(cholesterol 0)
 )
 
+([black_pepper] of Ingredient
+	(ing-name "Black pepper")
+	(ing-availability 0)
+	(calories 251)
+	(fat 3)
+	(protein 10)
+	(carbohydrates 64)
+	(cholesterol 0)
+)
+
 ([chili_pepper] of Ingredient
 	(ing-name "Chili pepper")
 	(ing-availability 0)
@@ -1430,6 +1174,16 @@
 	(fat 0)
 	(protein 2)
 	(carbohydrates 9)
+	(cholesterol 0)
+)
+
+([soy_sauce] of Ingredient
+	(ing-name "Soy sauce")
+	(ing-availability 0)
+	(calories 53)
+	(fat 0)
+	(protein 8)
+	(carbohydrates 5)
 	(cholesterol 0)
 )
 
@@ -1443,6 +1197,16 @@
 	(cholesterol 0)
 )
 
+([red_curry_paste] of Ingredient
+	(ing-name "Red curry paste")
+	(ing-availability 0)
+	(calories 129)
+	(fat 0)
+	(protein 14)
+	(carbohydrates 14)
+	(cholesterol 0)
+)
+
 ([taco_sauce] of Ingredient
 	(ing-name "Taco sauce")
 	(ing-availability 0)
@@ -1450,6 +1214,36 @@
 	(fat 0)
 	(protein 1)
 	(carbohydrates 7)
+	(cholesterol 0)
+)
+
+([ginger] of Ingredient
+	(ing-name "Ginger")
+	(ing-availability 0)
+	(calories 79)
+	(fat 1)
+	(protein 2)
+	(carbohydrates 18)
+	(cholesterol 0)
+)
+
+([turmeric] of Ingredient
+	(ing-name "Turmeric")
+	(ing-availability 0)
+	(calories 354)
+	(fat 10)
+	(protein 8)
+	(carbohydrates 65)
+	(cholesterol 0)
+)
+
+([dijon_mustard] of Ingredient
+	(ing-name "Dijon mustard")
+	(ing-availability 0)
+	(calories 66)
+	(fat 3)
+	(protein 4)
+	(carbohydrates 8)
 	(cholesterol 0)
 )
 
@@ -1532,3 +1326,420 @@
 	(carbohydrates 18)
 	(cholesterol 13)
 )
+
+([couscous] of Ingredient
+	(ing-name "Couscous")
+	(ing-availability 0)
+	(calories 112)
+	(fat 4)
+	(protein 0)
+	(carbohydrates 23)
+	(cholesterol 0)
+)
+
+([water] of Drink
+	(drink-name "Water")
+	(drink-price 1.20)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([beer] of Drink
+	(drink-name "Beer")
+	(drink-price 2.50)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([la_rioja_alta_gran_reserva_1995] of Drink
+	(drink-name "La Rioja Alta Gran Reserva 1995")
+	(drink-price 195.00)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([glorioso_crianza_magnum_2013] of Drink
+	(drink-name "Glorioso Crianza Magnum 2013")
+	(drink-price 11.65)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([la_vicalanda_gran_reserva_2010] of Drink
+	(drink-name "La Vicalanda Gran Reserva 2010")
+	(drink-price 45.95)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([white_wine] of Drink
+	(drink-name "White Wine")
+	(drink-price 10.50)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([tequila] of Drink
+	(drink-name "Tequila")
+	(drink-price 14.59)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([sangria] of Drink
+	(drink-name "Sangria")
+	(drink-price 10.99)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([whisky_glengarry_12_years] of Drink
+	(drink-name "Whisky Glengarry 12 Years")
+	(drink-price 40.45)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([ron_barcelo_imperial] of Drink
+	(drink-name "Ron Barcelo Imperial")
+	(drink-price 30.25)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([juice] of Drink
+	(drink-name "Juice")
+	(drink-price 1.30)
+	(drink-classification Juice)
+	(drink-combination All)
+)
+
+([black_coffee] of Drink
+	(drink-name "Black coffee")
+	(drink-price 2.10)
+	(drink-classification Caffeine)
+	(drink-combination All)
+)
+
+([coffee_milk] of Drink
+	(drink-name "Coffee milk")
+	(drink-price 2.20)
+	(drink-classification Caffeine)
+	(drink-combination All)
+)
+
+([iced_coffee] of Drink
+	(drink-name "Iced coffee")
+	(drink-price 2.10)
+	(drink-classification Caffeine)
+	(drink-combination All)
+)
+
+([hot_chocolate] of Drink
+	(drink-name "Hot chocolate")
+	(drink-price 2.00)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([tea] of Drink
+	(drink-name "Tea")
+	(drink-price 1.70)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([iced_tea] of Drink
+	(drink-name "Iced Tea")
+	(drink-price 1.70)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([infusion] of Drink
+	(drink-name "Infusion")
+	(drink-price 1.70)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([soft_drink] of Drink
+	(drink-name "Soft drink")
+	(drink-price 1.50)
+	(drink-classification Other)
+	(drink-combination All)
+)
+
+([cocktail] of Drink
+	(drink-name "Cocktail")
+	(drink-price 3.50)
+	(drink-classification Alcohol)
+	(drink-combination All)
+)
+
+([spaghetti_bolognese] of MainCourse
+	(dish-name "Spaghetti Bolognese")
+	(dish-classification Italian Mediterranean Hot Pasta Classical)
+	(dish-ingredients [pasta] [veal] [pork] [onion] [garlic] [carrot] [tomato] [cheese] [oregano] [oil] [salt])
+	(dish-combination Spanish Italian French American Gourmet Mediterranean)
+	(dish-price 5.50)
+)
+
+([mediterranean_salad] of MainCourse
+	(dish-name "Mediterranean Salad")
+	(dish-classification Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean Cold Vegetables Classical Islamic)
+	(dish-ingredients [onion] [tomato] [carrot] [oregano] [oil] [lettuce] [garlic] [cheese] [vinegar] [olive]  [salt])
+	(dish-combination Vegetarian Gluten-free Vegan Spanish Italian French Gourmet Mediterranean Islamic)
+	(dish-price 2.2)
+)
+
+([kirmizi_mercimek_corbasi] of MainCourse
+	(dish-name "Kirmizi Mercimek Corbasi")
+	(dish-classification Vegetarian Turkish Gourmet Mediterranean Soup Hot Islamic)
+	(dish-ingredients [oil] [garlic] [onion] [cumin] [coriander] [tomato] [rice] [salt] [pepper] [lemon] [lentils])
+	(dish-combination Vegetarian Turkish Gourmet Mediterranean Islamic)
+	(dish-price 4.2)
+)
+
+([chipotle_spaguetti] of MainCourse
+	(dish-name "Chipotle Spaguetti")
+	(dish-classification American Mexican Hot Pasta Islamic)
+	(dish-ingredients [pasta] [salt] [garlic] [butter] [milk] [pepper] [mushroom])
+	(dish-combination American Mexican)
+	(dish-price 3.5)
+)
+
+([scallop_of_foie_gras_marinated_in_elderberry_oil] of MainCourse
+	(dish-name "Scallop of foie gras marinated in elderberry oil")
+	(dish-classification Spanish Italian Islamic French Gourmet Mediterranean Cold Modern)
+	(dish-ingredients [foie] [artichoke] [tomato] [potato] [oil] [garlic] [onion] [coriander] [sesame] [butter] [eggs] [salt])
+	(dish-combination Spanish Italian French Gourmet Mediterranean)
+	(dish-price 25)
+)
+
+([vegan_sandwich] of MainCourse
+	(dish-name "Vegan Sandwich")
+	(dish-classification Kosher Vegetarian Vegan Islamic Mediterranean Cold Vegetables Lactose-free Modern)
+	(dish-ingredients [bread] [tomato] [oil] [ruccula] [avocado] [onion])
+	(dish-combination Vegetarian Vegan Mediterranean Islamic Kosher)
+	(dish-price 8.5)
+)
+
+([chinese_noodles_with_vegetables] of MainCourse
+	(dish-name "Chinese Noodles With Vegetables")
+	(dish-classification Vegetarian Kosher Islamic Chinese Hot Pasta Vegetables)
+	(dish-ingredients [pasta] [oil] [carrot] [onion] [pepper] [mushroom] [soy] [salt])
+	(dish-combination Vegetarian Kosher Islamic Chinese)
+	(dish-price 4.2)
+)
+
+([kareraisu] of MainCourse
+	(dish-name "Kareraisu")
+	(dish-classification Vegetarian Kosher Indian Japanese Islamic Hot Vegetables)
+	(dish-ingredients [rices] [carrot] [tofu] [onion] [potato] [oil] [curry] [salt])
+	(dish-combination Vegetarian Kosher Islamic Indian Japanese)
+	(dish-price 6)
+)
+
+([american_burguer] of MainCourse
+	(dish-name "American Burguer")
+	(dish-classification American Hot Meet Lactose-free] [[pork] [onion] [garlic] [eggs] [salt] [pepper] [bread])
+	(dish-ingredients American Hot Meet Lactose-free)
+	(dish-combination 4)
+)
+
+([harira] of MainCourse
+	(dish-name "Harira")
+	(dish-classification Islamic Morrocan Lactose-Free Mediterranean Hot Soup Classical)
+	(dish-ingredients [veal] [tomato] [pepper] [coriander] [lentils] [pasta])
+	(dish-combination Islamic Moroccan Lactose-Free Mediterranean)
+	(dish-price 5)
+)
+
+([roast_pork_with_prunes] of SecondCourse
+	(dish-name "Roast pork with prunes")
+	(dish-classification Italian Meat Hot Classical Gluten-free Lactose-free] [[oil] [garlic] [salt] [black_pepper] [pork] [red_wine] [prunes])
+	(dish-ingredients Italian French Spanish Lactose-free Gluten-free)
+	(dish-combination 7.50)
+)
+
+([coq_au_vin] of SecondCourse
+	(dish-name "Coq au vin")
+	(dish-classification French Islamic Classical Hot Meat Kosher Gourmet)
+	(dish-ingredients [red_wine] [onion] [oil] [mushroom] [bacon] [butter] [chicken] [salt] [black_pepper] [wheat_flour] [carrots])
+	(dish-combination French Italian Spanish Mediterranean Kosher Islamic)
+	(dish-price 8.30)
+)
+
+([spanish_omelette] of SecondCourse
+	(dish-name "Spanish omelette")
+	(dish-classification Spanish Vegetarian Gluten-free Islamic Kosher Classical Hoy)
+	(dish-ingredients [potato] [onion] [eggs] [black_pepper] [salt] [oil]] [Spanish Vegetarian Gluten-free Islamic Kosher Mediterranean)
+	(dish-combination 6.00)
+)
+
+([paella] of SecondCourse
+	(dish-name "Paella")
+	(dish-classification Spanish Mediterranean Fish Hot Classical)
+	(dish-ingredients [rice] [onion] [tomato] [garlic] [oil] [salt] [saffron] [cuttlefish] [mussel] [clam] [prawn])
+	(dish-combination Spanish Mediterranean Lactose-free)
+	(dish-price 9.00)
+)
+
+([pan_seared_salmon] of SecondCourse
+	(dish-name "Pan seared salmon")
+	(dish-classification Moroccan Hot Fish Classical Mediterranean Lactose-free Gluten-free Islamic Kosher)
+	(dish-ingredients [salmon] [onion] [garlic] [oil] [cumin] [paprika] [cilantro] [lemon_juice] [chili_pepper] [salt])
+	(dish-combination Moroccan Mediterranean Lactose-free Gluten-free)
+	(dish-price 7.20)
+)
+
+([cabbage_roll] of SecondCourse
+	(dish-name "Cabbage roll")
+	(dish-classification Japanese Vegetarian Meat Hot Classical Lactose-free)
+	(dish-ingredients [cabbage] [onion] [beef] [pork] [salt] [black_pepper] [tomato_paste] [chicken_broth] [bread_crumbs])
+	(dish-combination Japanese Lactose-free Mediterranean)
+	(dish-price 6.50)
+)
+
+([burrito_pie] of SecondCourse
+	(dish-name "Burrito pie")
+	(dish-classification Mexican Modern Meat Hot Kosher Islamic)
+	(dish-ingredients [beef] [onion] [garlic] [olive] [chili_pepper] [tomato] [tortilla] [cheese] [taco_sauce])
+	(dish-combination Mexican)
+	(dish-price 5.50)
+)
+
+([chicken_wings_with_chili-lime_butter] of SecondCourse
+	(dish-name "Chicken wings with chili-lime butter")
+	(dish-classification American Meat Hot Mexican Kosher Islamic Classical)
+	(dish-ingredients [chicken] [oil] [black_pepper] [butter] [red_curry_paste] [honey] [soy_sauce] [lime])
+	(dish-combination American Mexican Indian)
+	(dish-price 6.40)
+)
+
+([palak_panner] of SecondCourse
+	(dish-name "Palak panner")
+	(dish-classification Indian Vegetarian Vegetables Hot Islamic Kosher Modern Gourmet)
+	(dish-ingredients [oil] [garlic] [ginger] [onion] [cumin] [coriander] [turmeric] [sour_cream] [spinach] [tomato] [cilantro] [ricotta_cheese] [salt])
+	(dish-combination Indian Vegetarian Islamic Kosher)
+	(dish-price 7.50)
+)
+
+([couscous_meatlof] of SecondCourse
+	(dish-name "Couscous meatlof")
+	(dish-classification Modern Turkey Hot Meat Modern Moroccan)
+	(dish-ingredients [onion] [salt] [bacon] [tomato_paste] [brown_sugar] [black_pepper] [eggs] [couscous] [zucchini] [ground_turkey] [dijon_mustard])
+	(dish-combination Turkey Moroccan)
+	(dish-price 5.70)
+)
+
+([sweet_and_sour_aubergines] of SecondCourse
+	(dish-name "Sweet and sour aubergines")
+	(dish-classification Vegan Vegetarian Mediterranean Lactose-free Modern Hot)
+	(dish-ingredients [brown_sugar] [aubergine] [salt] [gram_flour] [cumin] [coriander] [ginger] [garlic] [vegetable_oil] [lemon] [paprika])
+	(dish-combination Vegan Vegetarian Mediterranean Lactose-free)
+	(dish-price 4.50)
+)
+
+([dumplings_filled_with_brocolli_and_zucchini_in_garlic_sauce] of SecondCourse
+	(dish-name "Dumplings filled with brocolli and zucchini in garlic sauce")
+	(dish-classification [Chinese Vegan Vegetarian Hot Classical Lactose-free Gluten-free Vegetables Kosher Islamic)
+	(dish-ingredients [wheat-flour] [salt] [oil] [corn_starch] [broccoli] [zucchini] [garlic] [sugar] [sesame_oil] [hoisin_sauce])
+	(dish-combination Vegan Vegetarian Lactose-free Gluten-free Chinese Japanese Indian)
+	(dish-price 5.00)
+)
+
+([tiramisu] of Dessert
+	(dish-name "Tiramisu")
+	(dish-classification Italian Gourmet Kosher Islamic Glutten-free Vegetarian Gourmet Cold Classical)
+	(dish-ingredients [eggs] [sugar] [chocolate] [cream_cheese] [cocoa_powder]     [coffee])
+	(dish-combination Italian Glutten-free Vegetarian French Kosher Islamic Gourmet)
+	(dish-price 4.00)
+)
+
+([cheese_cake] of Dessert
+	(dish-name "Cheese cake")
+	(dish-classification Vegetarian American Italian French Spanish Islamic Kosher Cold Classical)
+	(dish-ingredients [cream_cheese] [sugar] [wheat_flour] [salt] [eggs] [butter] [cookies] [vanilla_extract] [sour_cream] [berry])
+	(dish-combination Vegetarian American Italian French Spanish Islamic Kosher)
+	(dish-price 5.50)
+)
+
+([catalan_cream] of Dessert
+	(dish-name "Catalan cream")
+	(dish-classification Spanish Vegetarian Islamic Kosher French Classical Hot)
+	(dish-ingredients [milk] [sugar] [eggs] [cinamon] [lemon] [maizena])
+	(dish-combination Spanish Vegetarian Islamic Kosher French)
+	(dish-price 3.50)
+)
+
+([orange_cake] of Dessert
+	(dish-name "Orange cake")
+	(dish-classification Vegan Lactose-free Vegetarian Mediterranean Moroccan Modern Cold Kosher Islamic)
+	(dish-ingredients [orange] [wheat_flour] [sugar] [vegetable_oil] [salt] [baking_powder])
+	(dish-combination Vegan Lactose-free Vegetarian Moroccan Kosher Islamic Mediterranean)
+	(dish-price 3.90)
+)
+
+([doklova] of Dessert
+	(dish-name "Doklova")
+	(dish-classification Turkish Vegetarian Cold Classical Islamic Kosher] [[filo] [walnut] [butter] [cinamon] [sugar] [vanilla_extract] [honey]] [Turkish Vegetarian Islamic Kosher] 4.3)
+)
+
+([egg_tart] of Dessert
+	(dish-name "Egg tart")
+	(dish-classification Chinese Cold Classical Vegetarian Islamic Kosher)
+	(dish-ingredients [wheat_flour] [eggs] [butter] [salt] [milk] [sugar])
+	(dish-combination Chinese Vegetarian Islamic Kosher)
+	(dish-price 3.10)
+)
+
+([matcha_pudding] of Dessert
+	(dish-name "Matcha pudding")
+	(dish-classification Japanese Cold Modern Islamic Kosher Vegetarian)
+	(dish-ingredients [milk] [sugar] [salt] [eggs] [butter] [whip_cream] [maizena] [matcha_powder])
+	(dish-combination Japanese Vegetarian Islamic Kosher)
+	(dish-price 3.40)
+)
+
+([stuffed_dates] of Dessert
+	(dish-name "Stuffed dates")
+	(dish-classification Moroccan Vegetarian Cold Classical Islamic Kosher)
+	(dish-ingredients [date] [honey] [cinamon] [sugar] [walnut] [cream_cheese] [almond])
+	(dish-combination  [Moroccan Vegetarian Islamic Kosher])
+	(dish-price 2.50)
+)
+
+([paal_payasam] of Dessert
+	(dish-name "Paal payasam")
+	(dish-classification Indian Vegetarian Cold Classical Islamic Kosher)
+	(dish-ingredients [rice] [milk] [cardamon_powder] [sugar] [butter] [walnuts] [raisin])
+	(dish-combination Indian Vegetarian Cold Islamic Kosher Turkish)
+	(dish-price 3.80)
+)
+
+([lemon_parfait] of Dessert
+	(dish-name "Lemon parfait")
+	(dish-classification Gourmet Modern French American Vegetarian Cold)
+	(dish-ingredients [eggs] [sugar] [lemon] [butter] [wheat_flour] [vanilla_extract] [chocolate] [honey] [orange_juice] [plum] [double_cream])
+	(dish-combination Gourmet Spanish Japanese Italian French American Vegetarian )
+	(dish-price 6.50)
+)
+
+([apple_enchiladas] of Dessert
+	(dish-name "Apple enchiladas")
+	(dish-classification Mexican Vegetarian Islamic Kosher Glutten-free Hot Classical)
+	(dish-ingredients [cinamon] [butter] [sugar] [apple] [tortilla])
+	(dish-combination Mexican Vegetarian Islamic Kosher Glutten-free)
+	(dish-price 3.50)
+)
+
+([fruit] of Dessert
+	(dish-name "Fruit")
+	(dish-classification Vegetarian Kosher Islamic Spanish Italian French Gluten-free Vegan Lactose-free Mediterranean Cold Classical)
+	(dish-ingredients )
+	(dish-combination All)
+	(dish-price 2.00)
+)
+
