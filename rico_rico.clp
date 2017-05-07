@@ -12,7 +12,7 @@
 (defglobal
 	?*EVENT_TYPES* = (create$ Familiar Congress)
 	?*DRINK_TYPES* = (create$ Alcohol Soft-drinks Caffeine Juice none)
-	?*CUISINE_STYLES* = (create$ Mediterranean Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet none)
+	?*CUISINE_STYLES* = (create$ Mediterranean Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet any)
 	?*DIETARY_RESTRICTIONS* = (create$ Gluten-free Vegan Vegetarian Lactose-free Kosher Islamic none)
 )
 
@@ -108,6 +108,17 @@
     (printout t "| " ?question)
   	(bind ?answer (read)))
   ?answer
+)
+
+(deffunction collection-contains-alo-element (?elements ?collection)
+	(loop-for-count (?i 1 (length$ ?elements)) do
+		(loop-for-count (?j 1 (length$ ?collection)) do
+			(if (eq (nth$ ?i ?elements) (nth$ ?j ?collection)) then
+				(return TRUE)
+			)
+		)
+	)
+	FALSE
 )
 
 (deffunction collection-contains-all-elements (?elements ?collection)
@@ -309,7 +320,7 @@
 	(bind ?main-courses (find-all-instances ((?ins MainCourse))
 	(and
     ; Filter non-desired food types
-    (or (eq ?preferences (create$ none)) (collection-contains-all-elements ?preferences ?ins:dish-classification))
+    (or (eq ?preferences (create$ any)) (collection-contains-alo-element ?preferences ?ins:dish-classification))
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
   )))
@@ -324,7 +335,7 @@
 	(bind ?second-courses (find-all-instances ((?ins SecondCourse))
 	(and
     ; Filter non-desired food types
-    (or (eq ?preferences (create$ none)) (collection-contains-all-elements ?preferences ?ins:dish-classification))
+    (or (eq ?preferences (create$ any)) (collection-contains-alo-element ?preferences ?ins:dish-classification))
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
   )))
@@ -377,7 +388,7 @@
 	(assert (generated-menus ready ?menus))
 )
 
-(defrule check-generated-menus ""
+(defrule check-generated-menus "Checks if enough menus generated"
 	(generated-menus ready $?menus)
 	=>
 	(if (>= (length$ ?menus) 3) then
@@ -395,28 +406,28 @@
 	)
 )
 
-(defrule generate-low-price-menu ""
+(defrule generate-low-price-menu "Generate low price menu"
 	(generated-menus ready $?menus)
 	(generated-menus low-menu ?)
 	=>
 	(assert (low-menu ready (get-minimum-menu-price ?menus)))
 )
 
-(defrule generate-medium-price-menu ""
+(defrule generate-medium-price-menu "Generate medium price menu"
 	(generated-menus ready $?menus)
 	(generated-menus medium-menu ?)
 	=>
 	(assert (medium-menu ready (nth (+ (mod (random) (length$ ?menus)) 1) ?menus)))
 )
 
-(defrule generate-high-price-menu ""
+(defrule generate-high-price-menu "Generates higher price menu"
 	(generated-menus ready $?menus)
 	(generated-menus high-menu ?)
 	=>
 	(assert (high-menu ready (get-maximum-menu-price ?menus)))
 )
 
-(defrule generate-all-menu ""
+(defrule print-all-menu "Prints all menus"
 	(generated-menus ready $?menus)
 	(generated-menus all-menus ?)
 	=>
@@ -425,7 +436,7 @@
 	)
 )
 
-(defrule print-recomendations ""
+(defrule print-recomendations "Prints three recommended menus"
 	(low-menu ready ?low-menu)
 	(medium-menu ready ?medium-menu)
 	(high-menu ready ?high-menu)

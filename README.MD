@@ -27,6 +27,5 @@ If you are unable to install CLIPS via CLI, load each module manually in the sam
 To re-generate instances via Python script just follow next commands:
 
 ```bash
-cd instances
 python instance_generator.py Ingredient Drink MainCourse SecondCourse Dessert
 ```
