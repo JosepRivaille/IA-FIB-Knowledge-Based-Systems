@@ -5,18 +5,6 @@
 
 ;%%%%%
 ;%
-;% Classes
-;%
-;%%%%%
-
-;%%%%%
-;%
-;% INSTANCES
-;%
-;%%%%%
-
-;%%%%%
-;%
 ;% DEFINITIONS
 ;%
 ;%%%%%
@@ -24,7 +12,7 @@
 (defglobal
 	?*EVENT_TYPES* = (create$ Familiar Congress)
 	?*DRINK_TYPES* = (create$ Alcohol Soft-drinks Caffeine Juice none)
-	?*CUISINE_STYLES* = (create$ Vegetarian Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet Mediterranean none)
+	?*CUISINE_STYLES* = (create$ Mediterranean Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet none)
 	?*DIETARY_RESTRICTIONS* = (create$ Gluten-free Vegan Vegetarian Lactose-free Kosher Islamic none)
 )
 
@@ -33,16 +21,6 @@
 ;% FUNCTIONS
 ;%
 ;%%%%%
-
-(deffunction ask-question-opt (?question ?allowed-values)
-  (printout t "| > " ?question ?allowed-values crlf "| ")
-  (bind ?answer (read))
-  (while (not (member ?answer ?allowed-values)) do
-    (printout t "| > "?question)
-    (bind ?answer (read))
-	)
-  ?answer
-)
 
 (deffunction ask-question-yes-no (?question)
 	(printout t "| > " ?question crlf "| ")
@@ -57,6 +35,16 @@
   else
 		FALSE
 	)
+)
+
+(deffunction ask-question-opt (?question ?allowed-values)
+  (printout t "| > " ?question ?allowed-values crlf "| ")
+  (bind ?answer (read))
+  (while (not (member ?answer ?allowed-values)) do
+    (printout t "| > "?question)
+    (bind ?answer (read))
+	)
+  ?answer
 )
 
 (deffunction ask-question-multi-opt (?question ?allowed-values)
@@ -75,7 +63,7 @@
         )
       )
       (if (not ?value-belongs) then
-        (printout t "| " (nth$ ?i $?answer) " is not a valid option" crlf)
+        (printout t "| " (nth$ ?i $?answer) " is not a valid option" crlf "| ")
         (break)
       )
       (bind ?valid TRUE)
@@ -87,6 +75,26 @@
     (bind $?answer (explode$ ?line))
   )
   $?answer
+)
+
+(deffunction ask-question-date-format (?question)
+	(printout t "| > " ?question crlf "| ")
+	(while TRUE do
+		(bind ?date (readline))
+		(bind $?answer (explode$ ?date))
+		(if (not (eq (length$ ?answer) 3)) then
+			(printout t "| > Incorrect format, date should have the format HH DD MM" crlf "| ")
+		else (if (and
+			(and (>= (nth$ 1 ?answer) 0) (<= (nth$ 1 ?answer) 24))
+			(and (>= (nth$ 2 ?answer) 1) (<= (nth$ 2 ?answer) 31))
+			(and (>= (nth$ 3 ?answer) 1) (<= (nth$ 3 ?answer) 12))
+		) then
+			(break)
+		else
+			(printout t "| > Check that date is valid" crlf "| ")
+		))
+	)
+	?answer
 )
 
 (deffunction is-num (?num)
@@ -182,15 +190,15 @@
 )
 
 (deffunction print-menu (?menu ?header)
-	(printout t "*---------------------------------------------------" crlf)
+	(printout t "*-------------------------------------------------------------------------------------" crlf)
 	(printout t "| " ?header crlf)
-  (printout t "|---------------------------------------------------" crlf)
+  (printout t "|-------------------------------------------------------------------------------------" crlf)
   (printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
   (printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
   (printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
   (printout t "| Drink - " (send (send ?menu get-menu-drink) get-drink-name) "." crlf)
 	(printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
-  (printout t "*---------------------------------------------------" crlf)
+  (printout t "*-------------------------------------------------------------------------------------" crlf)
 )
 
 ;%%%%%
@@ -204,7 +212,7 @@
   =>
   (printout t "*-------------------------------------------------------------------------------------" crlf)
   (printout t "|                                                               ___          /|      |" crlf)
-  (printout t "|     * Eric Dacal                                 ||||     .-''   ''-.     } |      |" crlf)
+  (printout t "|     * Eric Dacal                                 ||||     .-''   ''-.     } |  __  |" crlf)
   (printout t "|     * Josep de Cid                          |||| ||||   .'  .-'`'-.  '.   } | /  \\ |" crlf)
   (printout t "|     * Joaquim Marset                        |||| \\  /  /  .'       '.  \\  } | |()| |" crlf)
   (printout t "|                                             \\  /  ||  /  :           :  \\  \\| \\  / |" crlf)
@@ -227,24 +235,22 @@
 
 (defrule determine-event-date "Asks for dates"
   (declare (salience -2))
-  (not (event date ?))
-  (not (event month ?))
-  (not (event hour ?))
+  (not (and (event day ?) (event month ?) (event hour ?)))
   =>
-  (printout t "| Tell me event date " crlf)
-  (bind ?day (ask-question-num "Day? " 1 31))
-  (bind ?month (ask-question-num "Month? " 1 12))
-  (bind ?hour (ask-question-num "Hour? " 0 24))
+  (bind $?answer (ask-question-date-format "Tell me the event data [HH DD MM]"))
+	(bind ?hour (nth$ 1 ?answer))
+	(bind ?day (nth$ 2 ?answer))
+	(bind ?month (nth$ 3 ?answer))
+	(assert (event hour ?hour))
   (assert (event day ?day))
   (assert (event month ?month))
-  (assert (event hour ?hour))
 )
 
 (defrule determine-event-guests "Asks for number of assistants"
   (declare (salience -3))
   (not (event guests ?))
   =>
-  (bind ?guests (ask-question-num "Number of guests? " 1 10000))
+  (bind ?guests (ask-question-num "How many guests will there be? " 1 10000))
   (assert (event guests ?guests))
 )
 
@@ -266,7 +272,7 @@
 
 (defrule determine-drinks "Asks for banned drinks and if one drink per dish is required"
 	(declare (salience -6))
-	(not (or (event drink-per-dish $?) (event drink-types $?)))
+	(not (and (event drink-per-dish ?) (event drink-types ?)))
 	=>
 	(bind ?drink-per-dish (ask-question-yes-no "Will you require a drink for each dish? "))
 	(bind ?drink-types (ask-question-multi-opt "Would you discard any drinks? " ?*DRINK_TYPES*))
@@ -276,7 +282,7 @@
 
 (defrule determine-price-range "Asks for event menu price range"
 	(declare (salience -7))
-	(not (or (event price_min ?) (event price_max ?)))
+	(not (and (event price_min ?) (event price_max ?)))
   =>
   (while TRUE do
 		(bind ?price_min (ask-question-num "Minimum price to pay? " 0 10000))
