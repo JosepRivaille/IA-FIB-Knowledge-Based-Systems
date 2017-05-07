@@ -12,7 +12,7 @@
 (defglobal
 	?*EVENT_TYPES* = (create$ Familiar Congress)
 	?*DRINK_TYPES* = (create$ Alcohol Soft-drinks Caffeine Juice none)
-	?*CUISINE_STYLES* = (create$ Mediterranean Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet none)
+	?*CUISINE_STYLES* = (create$ Mediterranean Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet any)
 	?*DIETARY_RESTRICTIONS* = (create$ Gluten-free Vegan Vegetarian Lactose-free Kosher Islamic none)
 )
 
@@ -109,6 +109,18 @@
   	(bind ?answer (read)))
   ?answer
 )
+
+(deffunction collection-contains-alo-element (?elements ?collection)
+	(loop-for-count (?i 1 (length$ ?elements)) do
+		(loop-for-count (?j 1 (length$ ?collection)) do
+			(if (eq (nth$ ?i ?elements) (nth$ ?j ?collection)) then
+				(return TRUE)
+			)
+		)
+	)
+	FALSE
+)
+
 
 (deffunction collection-contains-all-elements (?elements ?collection)
 	(loop-for-count (?i 1 (length$ ?elements)) do
@@ -274,9 +286,9 @@
 	(declare (salience -6))
 	(not (and (event drink-per-dish ?) (event drink-types ?)))
 	=>
-	(bind ?drink-per-dish (ask-question-yes-no "Will you require a drink for each dish? "))
+	;(bind ?drink-per-dish (ask-question-yes-no "Will you require a drink for each dish? "))
 	(bind ?drink-types (ask-question-multi-opt "Would you discard any drinks? " ?*DRINK_TYPES*))
-	(assert (event drink-per-dish ?drink-per-dish))
+	;(assert (event drink-per-dish ?drink-per-dish))
 	(assert (event drink-types ?drink-types))
 )
 
@@ -301,7 +313,7 @@
 ;%
 ;%%%%%
 
-(defrule get-possible-main-courses ""
+(defrule get-possible-main-courses "Filters forbbiden main courses"
   (event ready ?)
 	(event preferred-cuisine-styles $?preferences)
   (event dietary-restrictions $?restrictions)
@@ -309,14 +321,14 @@
 	(bind ?main-courses (find-all-instances ((?ins MainCourse))
 	(and
     ; Filter non-desired food types
-    (or (eq ?preferences (create$ none)) (collection-contains-all-elements ?preferences ?ins:dish-classification))
+		(or (eq ?preferences (create$ any)) (collection-contains-alo-element ?preferences ?ins:dish-classification))
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
   )))
 	(assert (main-courses ready ?main-courses))
 )
 
-(defrule get-possible-second-courses ""
+(defrule get-possible-second-courses "Filters forbbiden second courses"
   (event ready ?)
 	(event preferred-cuisine-styles $?preferences)
   (event dietary-restrictions $?restrictions)
@@ -324,14 +336,14 @@
 	(bind ?second-courses (find-all-instances ((?ins SecondCourse))
 	(and
     ; Filter non-desired food types
-    (or (eq ?preferences (create$ none)) (collection-contains-all-elements ?preferences ?ins:dish-classification))
+		(or (eq ?preferences (create$ any)) (collection-contains-alo-element ?preferences ?ins:dish-classification))
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
   )))
 	(assert (second-courses ready ?second-courses))
 )
 
-(defrule get-possible-desserts ""
+(defrule get-possible-desserts "Filters forbbiden desserts"
   (event ready ?)
 	(event preferred-cuisine-styles $?preferences)
   (event dietary-restrictions $?restrictions)
@@ -340,16 +352,14 @@
 	(assert (desserts ready ?desserts))
 )
 
-(defrule get-possible-drink ""
-  (event ready ?)   
-        (event drink-types $?drink-types)
-        =>
-        (bind ?drinks (find-all-instances((?ins Drink))
-        ; Filter non-desired drink types
-        (not(or (eq ?drink-types (create$ none)) (collection-contains-all-elements ?drink-types ?ins:drink-classification))))
-        )
-                (assert (drinks ready ?drinks))
-
+(defrule get-possible-drink "Filters forbbiden drinks"
+  (event ready ?)
+	(event drink-types $?drink-types)
+  =>
+  (bind ?drinks (find-all-instances((?ins Drink))
+  ; Filter non-desired drink types
+	(or (eq ?drink-types (create$ none)) (not (collection-contains-alo-element ?drink-types ?ins:drink-classification)))
+	(assert (drinks ready ?drinks))
 )
 
 (defrule generate-menu-combinations "Generates different menu combinations"
@@ -389,7 +399,7 @@
 	(assert (generated-menus ready ?menus))
 )
 
-(defrule check-generated-menus ""
+(defrule check-generated-menus "Checks if enough menus generated"
 	(generated-menus ready $?menus)
 	=>
 	(if (>= (length$ ?menus) 3) then
@@ -407,28 +417,28 @@
 	)
 )
 
-(defrule generate-low-price-menu ""
+(defrule generate-low-price-menu "Generate low price menu"
 	(generated-menus ready $?menus)
 	(generated-menus low-menu ?)
 	=>
 	(assert (low-menu ready (get-minimum-menu-price ?menus)))
 )
 
-(defrule generate-medium-price-menu ""
+(defrule generate-medium-price-menu "Generate medium price menu"
 	(generated-menus ready $?menus)
 	(generated-menus medium-menu ?)
 	=>
 	(assert (medium-menu ready (nth (+ (mod (random) (length$ ?menus)) 1) ?menus)))
 )
 
-(defrule generate-high-price-menu ""
+(defrule generate-high-price-menu "Generates higher price menu"
 	(generated-menus ready $?menus)
 	(generated-menus high-menu ?)
 	=>
 	(assert (high-menu ready (get-maximum-menu-price ?menus)))
 )
 
-(defrule generate-all-menu ""
+(defrule print-all-menu "Prints all menus"
 	(generated-menus ready $?menus)
 	(generated-menus all-menus ?)
 	=>
@@ -437,7 +447,7 @@
 	)
 )
 
-(defrule print-recomendations ""
+(defrule print-recomendations "Prints three recommended menus"
 	(low-menu ready ?low-menu)
 	(medium-menu ready ?medium-menu)
 	(high-menu ready ?high-menu)
