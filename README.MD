@@ -1,6 +1,15 @@
 # Knowledge Based System | IA-FIB-UPC
 ## Rico-rico menu generator
 
+### What does it do?
+Having a set of Ingredient, Dish and Drink instances it generates menus from those, having in mind some restrictions:
+
+ * Preferred cuisine styles (Italian, Turkish, Chinese...)
+ * Dietary restrictions (Kosher, Vegetarian, Gluten-free...)
+ * Banned drink types (Alcohol, Caffeine...)
+ * Maximum money amount to spend.
+ * Minimum money amount to spend.
+
 #### Content
 This practice contains the following:
 

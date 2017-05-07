@@ -149,10 +149,6 @@
 	FALSE
 )
 
-(deffunction combinate-possible-dishes(?price-min ?price-max ?dishes)
-	42
-)
-
 (deffunction calculate-price-dishes ($?elements)
 	(bind ?price 0.0)
 	(loop-for-count (?i 1 (length$ ?elements))
@@ -191,6 +187,36 @@
 		)
 	)
 	FALSE
+)
+
+(deffunction combinate-possible-dishes (?main-courses ?second-courses ?desserts ?drinks ?price-min ?price-max) "Generates menus from given parameters"
+	(bind ?menus (create$))
+	(loop-for-count (?i 1 (length$ ?main-courses)) do ; Main course
+		(loop-for-count (?j 1 (length$ ?second-courses)) do ; Second course
+			(if (are-different-and-combine (nth$ ?i ?main-courses) (nth$ ?j ?second-courses)) then
+				(loop-for-count (?k 1 (length$ ?desserts)) do ; Desert
+					(if (are-different-and-combine (nth$ ?j ?second-courses) (nth$ ?k ?desserts)) then
+						(bind ?drink-index (+ (mod (random) (length$ ?drinks)) 1))
+						(bind ?ins
+							(make-instance (gensym) of Menu
+								(main-course (nth$ ?i ?main-courses))
+								(second-course (nth$ ?j ?second-courses))
+								(dessert (nth$ ?k ?desserts))
+								(menu-drink (nth$ ?drink-index ?drinks))
+								(menu-price (+ (send (nth$ ?drink-index ?drinks) get-drink-price)
+									(calculate-price-dishes (nth$ ?i ?main-courses) (nth$ ?j ?second-courses) (nth$ ?k ?desserts))
+								))
+							)
+						)
+						(if (and (<= ?price-min (send ?ins get-menu-price)) (>= ?price-max (send ?ins get-menu-price))) then
+							(bind ?menus (insert$ ?menus (+ (length$ ?menus) 1) ?ins))
+						)
+					)
+				)
+			)
+		)
+	)
+	?menus
 )
 
 (deffunction print-dishes (?dishes)
@@ -369,34 +395,9 @@
 	(main-courses ready $?main-courses)
 	(second-courses ready $?second-courses)
 	(desserts ready $?desserts)
-        (drinks ready $?drinks)
+  (drinks ready $?drinks)
 	=>
-	(bind ?menus (create$))
-	(loop-for-count (?i 1 (length$ ?main-courses)) do ; Main course
-		(loop-for-count (?j 1 (length$ ?second-courses)) do ; Second course
-			(if (are-different-and-combine (nth$ ?i ?main-courses) (nth$ ?j ?second-courses)) then
-				(loop-for-count (?k 1 (length$ ?desserts)) do ; Desert
-					(if (are-different-and-combine (nth$ ?j ?second-courses) (nth$ ?k ?desserts)) then
-						(bind ?drink-index (+ (mod (random) (length$ ?drinks)) 1))
-						(bind ?ins
-							(make-instance (gensym) of Menu
-								(main-course (nth$ ?i ?main-courses))
-								(second-course (nth$ ?j ?second-courses))
-								(dessert (nth$ ?k ?desserts))
-								(menu-drink (nth$ ?drink-index ?drinks))
-								(menu-price (+ (send (nth$ ?drink-index ?drinks) get-drink-price)
-									(calculate-price-dishes (nth$ ?i ?main-courses) (nth$ ?j ?second-courses) (nth$ ?k ?desserts))
-								))
-							)
-						)
-						(if (and (<= ?price-min (send ?ins get-menu-price)) (>= ?price-max (send ?ins get-menu-price))) then
-							(bind ?menus (insert$ ?menus (+ (length$ ?menus) 1) ?ins))
-						)
-					)
-				)
-			)
-		)
-	)
+	(bind ?menus (combinate-possible-dishes ?main-courses ?second-courses ?desserts ?drinks ?price-min ?price-max))
 	(assert (generated-menus ready ?menus))
 )
 
