@@ -36,3 +36,6 @@ To re-generate instances via Python script just follow next commands:
 ```bash
 python instance_generator.py Ingredient Drink MainCourse SecondCourse Dessert
 ```
+
+### Latex 
+https://www.sharelatex.com/project/5903304e643b9b920b8ba506
