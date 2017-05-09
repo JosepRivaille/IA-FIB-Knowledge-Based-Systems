@@ -251,6 +251,14 @@
   (printout t "*-------------------------------------------------------------------------------------" crlf)
 )
 
+(deffunction too-persons (?dish-difficult) ""
+        (events guest ?guests)
+        (if (and(>= (?guests) 100)  (< 5 ?dish_difficult))) then (TRUE)
+        FALSE
+)
+        
+
+
 ;%%%%%
 ;%
 ;% DETERMINE USER RULES
@@ -360,13 +368,20 @@
 	(bind ?main-courses (find-all-instances ((?ins MainCourse))
 	(and
     ; Filter non-desired food types
-		(or (eq ?preferences (create$ any)) (collection-contains-alo-element ?preferences ?ins:dish-classification))
+  (or (eq ?preferences (create$ any)) (collection-contains-alo-element ?preferences ?ins:dish-classification))
     ; Filter banned options
+<<<<<<< 44040a9a465060f3f6245d4d68a11375c436eedd
     (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
 		; Filter non available Ingredients
 		(all-ingredients-available ?month ?ins:dish-ingredients)
+=======
+  (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
+  (or (eq ?restrictions (create$ none)) (too-persons (?ins:dish-difficult))
+
+>>>>>>> New rule too persons
   )))
 	(assert (main-courses ready ?main-courses))
+)
 )
 
 (defrule get-possible-second-courses "Filters forbbiden second courses"
@@ -381,8 +396,12 @@
 		(or (eq ?preferences (create$ any)) (collection-contains-alo-element ?preferences ?ins:dish-classification))
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
+<<<<<<< 44040a9a465060f3f6245d4d68a11375c436eedd
 		; Filter non available Ingredients
 		(all-ingredients-available ?month ?ins:dish-ingredients)
+=======
+    (or (eq ?restrictions (create$ none)) (too-persons (?ins:dish-difficult))
+>>>>>>> New rule too persons
   )))
 	(assert (second-courses ready ?second-courses))
 )
@@ -403,6 +422,7 @@
   (bind ?drinks (find-all-instances((?ins Drink))
   	; Filter non-desired drink types
 		(or (eq ?drink-types (create$ none)) (not (collection-contains-alo-element ?drink-types ?ins:drink-classification)))
+    (or (eq ?restrictions (create$ none)) (too-persons (?ins:dish-difficult))
 	))
 	(assert (drinks ready ?drinks))
 )
@@ -497,3 +517,5 @@
 	(printout t "|/  _/\\ | :: | /" crlf)
 	(printout t "*-------------------------------------------------------------------------------------")
 )
+
+

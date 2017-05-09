@@ -1,4 +1,4 @@
-dish-name	dish-classification	dish-ingredients	dish-combination	dish-price
+dish-name	dish-classification	dish-ingredients	dish-combination	dish-price	dish_difficult
 STRING	SYMBOL	INSTANCE	SYMBOL	FLOAT	
 Spaghetti_Bolognese	[Italian Mediterranean Hot Pasta Classical]	[[pasta] [veal] [pork] [onion] [garlic] [carrot] [tomato] [cheese] [oregano] [oil] [salt]]	[Spanish Italian French American Gourmet Mediterranean]	5.50
 Mediterranean_Salad	[Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean Cold Vegetables Classical Islamic]	[[onion] [tomato] [carrot] [oregano] [oil] [lettuce] [garlic] [cheese] [vinegar] [olive]  [salt]]	[Vegetarian Spanish Italian French Gourmet Mediterranean Islamic]	2.2
