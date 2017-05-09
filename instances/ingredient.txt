@@ -81,7 +81,7 @@ Yogurt	[0]	58	1	10	4	5
 Butter	[0]	71	81	0	0	215
 Sour_cream	[0]	193	20	2	3	52
 Cream_cheese	[0]	342	34	6	4	110
-Ricota_cheese	[0]	174	13	11	3	51
+Ricotta_cheese	[0]	174	13	11	3	51
 Whip_cream	[0]	257	22	3	12	76
 Double_cream	[0]	462	52	2	2	154
 ; Cereals

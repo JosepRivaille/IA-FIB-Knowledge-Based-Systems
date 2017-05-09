@@ -193,7 +193,7 @@
 	(loop-for-count (?i 1 (length$ ?ingredients)) do
 		(bind ?availability (send (nth$ ?i ?ingredients) get-ing-availability))
 		(if (and
-			(member$ 0 ?availability)
+			(not (member$ 0 ?availability))
 			(not (member$ ?month ?availability))) then
 				(return FALSE)
 		)

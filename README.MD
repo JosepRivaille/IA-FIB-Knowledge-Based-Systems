@@ -7,6 +7,7 @@ Having a set of Ingredient, Dish and Drink instances it generates menus from tho
  * Preferred cuisine styles (Italian, Turkish, Chinese...)
  * Dietary restrictions (Kosher, Vegetarian, Gluten-free...)
  * Banned drink types (Alcohol, Caffeine...)
+ * Available ingredients in that date.
  * Maximum money amount to spend.
  * Minimum money amount to spend.
 
@@ -37,5 +38,5 @@ To re-generate instances via Python script just follow next commands:
 python instance_generator.py Ingredient Drink MainCourse SecondCourse Dessert
 ```
 
-### Latex 
+### Latex
 https://www.sharelatex.com/project/5903304e643b9b920b8ba506

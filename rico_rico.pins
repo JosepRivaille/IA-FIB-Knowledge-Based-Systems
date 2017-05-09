@@ -758,8 +758,8 @@
 	(cholesterol 110)
 )
 
-([ricota_cheese] of Ingredient
-	(ing-name "Ricota cheese")
+([ricotta_cheese] of Ingredient
+	(ing-name "Ricotta cheese")
 	(ing-availability 0)
 	(calories 174)
 	(fat 13)
@@ -1653,7 +1653,7 @@
 ([roast_pork_with_prunes] of SecondCourse
 	(dish-name "Roast pork with prunes")
 	(dish-classification Italian Meat Hot Classical Gluten-free Lactose-free)
-	(dish-ingredients [oil] [garlic] [salt] [black_pepper] [pork] [red_wine] [prunes])
+	(dish-ingredients [oil] [garlic] [salt] [black_pepper] [pork] [red_wine] [prune])
 	(dish-combination Italian French Spanish Lactose-free Gluten-free)
 	(dish-price 7.50)
 )
@@ -1661,7 +1661,7 @@
 ([coq_au_vin] of SecondCourse
 	(dish-name "Coq au vin")
 	(dish-classification French Islamic Classical Hot Meat Kosher Gourmet)
-	(dish-ingredients [red_wine] [onion] [oil] [mushroom] [bacon] [butter] [chicken] [salt] [black_pepper] [wheat_flour] [carrots])
+	(dish-ingredients [red_wine] [onion] [oil] [mushroom] [bacon] [butter] [chicken] [salt] [black_pepper] [wheat_flour] [carrot])
 	(dish-combination French Italian Spanish Mediterranean Kosher Islamic)
 	(dish-price 8.30)
 )
@@ -1693,7 +1693,7 @@
 ([cabbage_roll] of SecondCourse
 	(dish-name "Cabbage roll")
 	(dish-classification Japanese Vegetarian Meat Hot Classical Lactose-free)
-	(dish-ingredients [cabbage] [onion] [beef] [pork] [salt] [black_pepper] [tomato_paste] [chicken_broth] [bread_crumbs])
+	(dish-ingredients [cabbage] [onion] [beef] [pork] [salt] [black_pepper] [tomato] [chicken_broth] [bread_crumbs])
 	(dish-combination Japanese Lactose-free Mediterranean)
 	(dish-price 6.50)
 )
@@ -1725,7 +1725,7 @@
 ([couscous_meatlof] of SecondCourse
 	(dish-name "Couscous meatlof")
 	(dish-classification Modern Turkey Hot Meat Modern Moroccan)
-	(dish-ingredients [onion] [salt] [bacon] [tomato_paste] [brown_sugar] [black_pepper] [eggs] [couscous] [zucchini] [ground_turkey] [dijon_mustard])
+	(dish-ingredients [onion] [salt] [bacon] [tomato] [brown_sugar] [black_pepper] [eggs] [couscous] [zucchini] [ground_turkey] [dijon_mustard])
 	(dish-combination Turkey Moroccan)
 	(dish-price 5.70)
 )
