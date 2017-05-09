@@ -1603,9 +1603,10 @@
 
 ([american_burguer] of MainCourse
 	(dish-name "American Burguer")
-	(dish-classification American Hot Meet Lactose-free] [[pork] [onion] [garlic] [eggs] [salt] [pepper] [bread])
-	(dish-ingredients American Hot Meet Lactose-free)
-	(dish-combination 4)
+	(dish-classification American Hot Meet Lactose-free)
+	(dish-ingredients [pork] [onion] [garlic] [eggs] [salt] [pepper] [bread])
+	(dish-combination American Hot Meet Lactose-free)
+	(dish-price 4)
 )
 
 ([harira] of MainCourse
@@ -1620,21 +1621,24 @@
 	(dish-name "Braised Lentils Sausage And Black Pudding")
 	(dish-classification Spanish Gluten-free Lactose-free Mediterranean Hot Soup Classical)
 	(dish-ingredients [lentils] [onion] [garlic] [salt] [oil] [pork])
-	(dish-combination Spanish Gluten-free Lactose-free Mediterranean] )
+	(dish-combination Spanish Gluten-free Lactose-free Mediterranean)
+	(dish-price 4)
 )
 
 ([sushi] of MainCourse
 	(dish-name "Sushi")
 	(dish-classification Japanese Kosher Islamic Lactose-free Cold Fish)
 	(dish-ingredients [salmon] [carrot] [rice] [avocado] [cucumber] [nori])
-	(dish-combination Japenese Kosher Islamic Lactose-free] 5.)
+	(dish-combination Japenese Kosher Islamic Lactose-free)
+	(dish-price 5.2)
 )
 
 ([tajin] of MainCourse
 	(dish-name "Tajin")
 	(dish-classification Kosher Islamic Turkish Moroccan Gluten-free Lactose-free Mediterranean Hot Soup Classical)
 	(dish-ingredients [chicken] [carrot] [onion] [tomato] [pepper] [oil] [salt])
-	(dish-combination 4.5)
+	(dish-combination Kosher Islamic Turkish Moroccan Gluten-free Lactose-free Mediterranean)
+	(dish-price 4.5)
 )
 
 ([cream_of_mushrooms_and_chestnuts_with_duck_confit] of MainCourse
@@ -1647,9 +1651,10 @@
 
 ([roast_pork_with_prunes] of SecondCourse
 	(dish-name "Roast pork with prunes")
-	(dish-classification Italian Meat Hot Classical Gluten-free Lactose-free] [[oil] [garlic] [salt] [black_pepper] [pork] [red_wine] [prunes])
-	(dish-ingredients Italian French Spanish Lactose-free Gluten-free)
-	(dish-combination 7.50)
+	(dish-classification Italian Meat Hot Classical Gluten-free Lactose-free)
+	(dish-ingredients [oil] [garlic] [salt] [black_pepper] [pork] [red_wine] [prunes])
+	(dish-combination Italian French Spanish Lactose-free Gluten-free)
+	(dish-price 7.50)
 )
 
 ([coq_au_vin] of SecondCourse
@@ -1663,7 +1668,8 @@
 ([spanish_omelette] of SecondCourse
 	(dish-name "Spanish omelette")
 	(dish-classification Spanish Vegetarian Gluten-free Islamic Kosher Classical Hoy)
-	(dish-ingredients [potato] [onion] [eggs] [black_pepper] [salt] [oil]] [Spanish Vegetarian Gluten-free Islamic Kosher Mediterranean)
+	(dish-ingredients [potato] [onion] [eggs] [black_pepper] [salt] [oil])
+	(dish-combination Spanish Vegetarian Gluten-free Islamic Kosher Mediterranean)
 	(dish-combination 6.00)
 )
 
@@ -1758,7 +1764,7 @@
 ([tiramisu] of Dessert
 	(dish-name "Tiramisu")
 	(dish-classification Italian Gourmet Kosher Islamic Gluten-free Vegetarian Gourmet Cold Classical)
-	(dish-ingredients [eggs] [sugar] [chocolate] [cream_cheese] [cocoa_powder]     [coffee])
+	(dish-ingredients [eggs] [sugar] [chocolate] [cream_cheese] [cocoa_powder] [coffee])
 	(dish-combination Italian Gluten-free Vegetarian French Kosher Islamic Gourmet)
 	(dish-price 4.00)
 )
@@ -1789,7 +1795,10 @@
 
 ([doklova] of Dessert
 	(dish-name "Doklova")
-	(dish-classification Turkish Vegetarian Cold Classical Islamic Kosher] [[filo] [walnut] [butter] [cinamon] [sugar] [vanilla_extract] [honey]] [Turkish Vegetarian Islamic Kosher] 4.3)
+	(dish-classification Turkish Vegetarian Cold Classical Islamic Kosher
+	(dish-ingredients [filo] [walnut] [butter] [cinamon] [sugar] [vanilla_extract] [honey])
+	(dish-combination Turkish Vegetarian Islamic Kosher)
+	(dish-price 4.3)
 )
 
 ([egg_tart] of Dessert
