@@ -1748,7 +1748,7 @@
 	([dumplings_filled_with_brocolli_and_zucchini_in_garlic_sauce] of SecondCourse
 		(dish-name "Dumplings filled with brocolli and zucchini in garlic sauce")
 		(dish-classification [Chinese Vegan Vegetarian Hot Classical Lactose-free Gluten-free Vegetables Kosher Islamic)
-		(dish-ingredients [wheat-flour] [salt] [oil] [corn_starch] [broccoli] [zucchini] [garlic] [sugar] [sesame_oil] [hoisin_sauce])
+		(dish-ingredients [wheat_flour] [salt] [oil] [corn_starch] [broccoli] [zucchini] [garlic] [sugar] [sesame_oil] [hoisin_sauce])
 		(dish-combination Vegan Vegetarian Lactose-free Gluten-free Chinese Japanese Indian)
 		(dish-price 5.00)
 	)

@@ -279,7 +279,7 @@
 	(single-slot dish-difficulty
 		(type INTEGER)
 		(range 1 10)
-		(cardinality 1 1)
+;+		(cardinality 1 1)
 		(create-accessor read-write)))
 
 (defclass MainCourse

@@ -190,11 +190,10 @@
 )
 
 (deffunction all-ingredients-available (?month ?ingredients)
-	(printout t (nth$ 1 ?ingredients))
 	(loop-for-count (?i 1 (length$ ?ingredients)) do
 		(bind ?availability (send (nth$ ?i ?ingredients) get-ing-availability))
 		(if (and
-			(eq (nth$ 1 ?availability) 0)
+			(member$ 0 ?availability)
 			(not (member$ ?month ?availability))) then
 				(return FALSE)
 		)
