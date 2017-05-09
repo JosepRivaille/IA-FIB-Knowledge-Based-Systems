@@ -189,6 +189,15 @@
 	FALSE
 )
 
+(deffunction all-ingredients-available (?month ?ingredients)
+	(loop-for-count (?i 1 (length ?)) do
+		(if (not (member ?month ?ingredients)) then
+			(return FALSE)
+		)
+	)
+	TRUE
+)
+
 (deffunction combinate-possible-dishes (?main-courses ?second-courses ?desserts ?drinks ?price-min ?price-max) "Generates menus from given parameters"
 	(bind ?menus (create$))
 	(loop-for-count (?i 1 (length$ ?main-courses)) do ; Main course
@@ -339,8 +348,9 @@
 ;%
 ;%%%%%
 
-(defrule get-possible-main-courses "Filters forbbiden main courses"
+(defrule get-possible-main-courses "Filters forbbiden or impossible main courses"
   (event ready ?)
+	(event month ?month)
 	(event preferred-cuisine-styles $?preferences)
   (event dietary-restrictions $?restrictions)
 	=>
@@ -350,6 +360,8 @@
 		(or (eq ?preferences (create$ any)) (collection-contains-alo-element ?preferences ?ins:dish-classification))
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
+		; Filter non available Ingredients
+		(or (all-ingredients-available ?month ?ins:dish-ingredients))
   )))
 	(assert (main-courses ready ?main-courses))
 )
