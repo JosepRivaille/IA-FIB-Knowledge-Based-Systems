@@ -190,9 +190,13 @@
 )
 
 (deffunction all-ingredients-available (?month ?ingredients)
-	(loop-for-count (?i 1 (length ?)) do
-		(if (not (member ?month ?ingredients)) then
-			(return FALSE)
+	(printout t (nth$ 1 ?ingredients))
+	(loop-for-count (?i 1 (length$ ?ingredients)) do
+		(bind ?availability (send (nth$ ?i ?ingredients) get-ing-availability))
+		(if (and
+			(eq (nth$ 1 ?availability) 0)
+			(not (member$ ?month ?availability))) then
+				(return FALSE)
 		)
 	)
 	TRUE
@@ -361,13 +365,14 @@
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
 		; Filter non available Ingredients
-		(or (all-ingredients-available ?month ?ins:dish-ingredients))
+		(all-ingredients-available ?month ?ins:dish-ingredients)
   )))
 	(assert (main-courses ready ?main-courses))
 )
 
 (defrule get-possible-second-courses "Filters forbbiden second courses"
   (event ready ?)
+	(event month ?month)
 	(event preferred-cuisine-styles $?preferences)
   (event dietary-restrictions $?restrictions)
 	=>
@@ -377,6 +382,8 @@
 		(or (eq ?preferences (create$ any)) (collection-contains-alo-element ?preferences ?ins:dish-classification))
     ; Filter banned options
     (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
+		; Filter non available Ingredients
+		(all-ingredients-available ?month ?ins:dish-ingredients)
   )))
 	(assert (second-courses ready ?second-courses))
 )
