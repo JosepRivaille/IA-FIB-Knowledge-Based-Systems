@@ -1125,6 +1125,7 @@
 	(fat 0)
 	(protein 0)
 	(carbohydrates 13)
+	(cholesterol 0)
 )
 
 ([saffron] of Ingredient
@@ -1629,7 +1630,7 @@
 	(dish-name "Sushi")
 	(dish-classification Japanese Kosher Islamic Lactose-free Cold Fish)
 	(dish-ingredients [salmon] [carrot] [rice] [avocado] [cucumber] [nori])
-	(dish-combination Japenese Kosher Islamic Lactose-free)
+	(dish-combination Japanese Kosher Islamic Lactose-free)
 	(dish-price 5.2)
 )
 
@@ -1637,7 +1638,7 @@
 	(dish-name "Tajin")
 	(dish-classification Kosher Islamic Turkish Moroccan Gluten-free Lactose-free Mediterranean Hot Soup Classical)
 	(dish-ingredients [chicken] [carrot] [onion] [tomato] [pepper] [oil] [salt])
-	(dish-combination Kosher Islamic Turkish Moroccan Gluten-free Lactose-free Mediterranean)
+	(dish-combination Kosher Islamic Turkish Moroccan)
 	(dish-price 4.5)
 )
 
@@ -1670,7 +1671,7 @@
 	(dish-classification Spanish Vegetarian Gluten-free Islamic Kosher Classical Hoy)
 	(dish-ingredients [potato] [onion] [eggs] [black_pepper] [salt] [oil])
 	(dish-combination Spanish Vegetarian Gluten-free Islamic Kosher Mediterranean)
-	(dish-combination 6.00)
+	(dish-price 6.00)
 )
 
 ([paella] of SecondCourse
@@ -1764,7 +1765,7 @@
 ([tiramisu] of Dessert
 	(dish-name "Tiramisu")
 	(dish-classification Italian Gourmet Kosher Islamic Gluten-free Vegetarian Gourmet Cold Classical)
-	(dish-ingredients [eggs] [sugar] [chocolate] [cream_cheese] [cocoa_powder] [coffee])
+	(dish-ingredients [eggs] [sugar] [chocolate] [cream_cheese] [cocoa_powder]     [coffee])
 	(dish-combination Italian Gluten-free Vegetarian French Kosher Islamic Gourmet)
 	(dish-price 4.00)
 )
@@ -1795,10 +1796,10 @@
 
 ([doklova] of Dessert
 	(dish-name "Doklova")
-	(dish-classification Turkish Vegetarian Cold Classical Islamic Kosher
+	(dish-classification Turkish Vegetarian Cold Classical Islamic Kosher)
 	(dish-ingredients [filo] [walnut] [butter] [cinamon] [sugar] [vanilla_extract] [honey])
 	(dish-combination Turkish Vegetarian Islamic Kosher)
-	(dish-price 4.3)
+	(dish-price 4.30)
 )
 
 ([egg_tart] of Dessert

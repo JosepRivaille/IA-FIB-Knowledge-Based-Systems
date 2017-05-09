@@ -1,8 +1,8 @@
 dish-name	dish-classification	dish-ingredients	dish-combination	dish-price
 STRING	SYMBOL	INSTANCE	SYMBOL	FLOAT
-Roast_pork_with_prunes	[Italian Meat Hot Classical Gluten-free Lactose-free] [[oil] [garlic] [salt] [black_pepper] [pork] [red_wine] [prunes]]	[Italian French Spanish Lactose-free Gluten-free]	7.50
+Roast_pork_with_prunes	[Italian Meat Hot Classical Gluten-free Lactose-free]	[[oil] [garlic] [salt] [black_pepper] [pork] [red_wine] [prunes]]	[Italian French Spanish Lactose-free Gluten-free]	7.50
 Coq_au_vin	[French Islamic Classical Hot Meat Kosher Gourmet]	[[red_wine] [onion] [oil] [mushroom] [bacon] [butter] [chicken] [salt] [black_pepper] [wheat_flour] [carrots]]	[French Italian Spanish Mediterranean Kosher Islamic]	8.30
-Spanish_omelette	[Spanish Vegetarian Gluten-free Islamic Kosher Classical Hoy]	[[potato] [onion] [eggs] [black_pepper] [salt] [oil]] [Spanish Vegetarian Gluten-free Islamic Kosher Mediterranean]	6.00
+Spanish_omelette	[Spanish Vegetarian Gluten-free Islamic Kosher Classical Hoy]	[[potato] [onion] [eggs] [black_pepper] [salt] [oil]]	[Spanish Vegetarian Gluten-free Islamic Kosher Mediterranean]	6.00
 Paella	[Spanish Mediterranean Fish Hot Classical]	[[rice] [onion] [tomato] [garlic] [oil] [salt] [saffron] [cuttlefish] [mussel] [clam] [prawn]]	[Spanish Mediterranean Lactose-free]	9.00
 Pan_seared_salmon	[Moroccan Hot Fish Classical Mediterranean Lactose-free Gluten-free Islamic Kosher]	[[salmon] [onion] [garlic] [oil] [cumin] [paprika] [cilantro] [lemon_juice] [chili_pepper] [salt]]	[Moroccan Mediterranean Lactose-free Gluten-free]	7.20
 Cabbage_roll	[Japanese Vegetarian Meat Hot Classical Lactose-free]	[[cabbage] [onion] [beef] [pork] [salt] [black_pepper] [tomato_paste] [chicken_broth] [bread_crumbs]]	[Japanese Lactose-free Mediterranean]	6.50

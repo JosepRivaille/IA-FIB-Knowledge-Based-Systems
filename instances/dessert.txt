@@ -4,7 +4,7 @@ Tiramisu	[Italian Gourmet Kosher Islamic Gluten-free Vegetarian Gourmet Cold Cla
 Cheese_cake	[Vegetarian American Italian French Spanish Islamic Kosher Cold Classical]	[[cream_cheese] [sugar] [wheat_flour] [salt] [eggs] [butter] [cookies] [vanilla_extract] [sour_cream] [berry]]	[Vegetarian American Italian French Spanish Islamic Kosher]	5.50
 Catalan_cream	[Spanish Vegetarian Islamic Kosher French Classical Hot]	[[milk] [sugar] [eggs] [cinamon] [lemon] [maizena]]	[Spanish Vegetarian Islamic Kosher French]	3.50
 Orange_cake	[Vegan Lactose-free Vegetarian Mediterranean Moroccan Modern Cold Kosher Islamic]	[[orange] [wheat_flour] [sugar] [vegetable_oil] [salt] [baking_powder]]	[Vegan Lactose-free Vegetarian Moroccan Kosher Islamic Mediterranean]	3.90
-Doklova	[Turkish Vegetarian Cold Classical Islamic Kosher] [[filo] [walnut] [butter] [cinamon] [sugar] [vanilla_extract] [honey]] [Turkish Vegetarian Islamic Kosher] 4.30
+Doklova	[Turkish Vegetarian Cold Classical Islamic Kosher]	[[filo] [walnut] [butter] [cinamon] [sugar] [vanilla_extract] [honey]]	[Turkish Vegetarian Islamic Kosher]	4.30
 Egg_tart	[Chinese Cold Classical Vegetarian Islamic Kosher]	[[wheat_flour] [eggs] [butter] [salt] [milk] [sugar]]	[Chinese Vegetarian Islamic Kosher]	3.10
 Matcha_pudding	[Japanese Cold Modern Islamic Kosher Vegetarian]	[[milk] [sugar] [salt] [eggs] [butter] [whip_cream] [maizena] [matcha_powder]]	[Japanese Vegetarian Islamic Kosher]	3.40
 Stuffed_dates	[Moroccan Vegetarian Cold Classical Islamic Kosher]	[[date] [honey] [cinamon] [sugar] [walnut] [cream_cheese] [almond]]	 [Moroccan Vegetarian Islamic Kosher]	2.50

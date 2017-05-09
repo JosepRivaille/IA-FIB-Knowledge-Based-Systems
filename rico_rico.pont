@@ -278,7 +278,7 @@
 		(create-accessor read-write))
 	(single-slot dish-difficulty
 		(type INTEGER)
-		(range 0 10)
+		(range 1 10)
 		(cardinality 1 1)
 		(create-accessor read-write)))
 

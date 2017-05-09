@@ -8,9 +8,9 @@ Scallop_of_foie_gras_marinated_in_elderberry_oil	[Spanish Italian Islamic French
 Vegan_Sandwich	[Kosher Vegetarian American Vegan Islamic Mediterranean Cold Vegetables Lactose-free Modern]	[[bread] [tomato] [oil] [ruccula] [avocado] [onion]]	[Vegetarian Vegan Mediterranean Islamic Kosher]	8.5
 Chinese_Noodles_With_Vegetables	[Vegetarian Kosher Islamic Chinese Hot Pasta Vegetables]	[[pasta] [oil] [carrot] [onion] [pepper] [mushroom] [soy] [salt]]	[Vegetarian Kosher Islamic Chinese]	4.2
 Kareraisu	[Vegetarian Kosher Indian Japanese Islamic Hot Vegetables]	[[rice] [carrot] [tofu] [onion] [potato] [oil] [curry] [salt]]	[Vegetarian Kosher Islamic Indian Japanese]	6
-American_Burguer	[American Hot Meet Lactose-free] [[pork] [onion] [garlic] [eggs] [salt] [pepper] [bread]]	[American Hot Meet Lactose-free]	4
+American_Burguer	[American Hot Meet Lactose-free]	[[pork] [onion] [garlic] [eggs] [salt] [pepper] [bread]]	[American Hot Meet Lactose-free]	4
 Harira	[Islamic Morrocan Lactose-Free Mediterranean Hot Soup Classical]	[[veal] [tomato] [pepper] [coriander] [lentils] [pasta]]	[Islamic Moroccan Lactose-Free Mediterranean]	5
-Braised_Lentils_Sausage_And_Black_Pudding	[Spanish Gluten-free Lactose-free Mediterranean Hot Soup Classical]	[[lentils] [onion] [garlic] [salt] [oil] [pork]]	[Spanish Gluten-free Lactose-free Mediterranean] 4
-Sushi	[Japanese Kosher Islamic Lactose-free Cold Fish]	[[salmon] [carrot] [rice] [avocado] [cucumber] [nori]]	[Japenese Kosher Islamic Lactose-free] 5.2
-Tajin	[Kosher Islamic Turkish Moroccan Gluten-free Lactose-free Mediterranean Hot Soup Classical]	[[chicken] [carrot] [onion] [tomato] [pepper] [oil] [salt]]	4.5
+Braised_Lentils_Sausage_And_Black_Pudding	[Spanish Gluten-free Lactose-free Mediterranean Hot Soup Classical]	[[lentils] [onion] [garlic] [salt] [oil] [pork]]	[Spanish Gluten-free Lactose-free Mediterranean]	4
+Sushi	[Japanese Kosher Islamic Lactose-free Cold Fish]	[[salmon] [carrot] [rice] [avocado] [cucumber] [nori]]	[Japanese Kosher Islamic Lactose-free]	5.2
+Tajin	[Kosher Islamic Turkish Moroccan Gluten-free Lactose-free Mediterranean Hot Soup Classical]	[[chicken] [carrot] [onion] [tomato] [pepper] [oil] [salt]]	[Kosher Islamic Turkish Moroccan]	4.5
 Cream_Of_Mushrooms_And_Chestnuts_With_Duck_Confit	[Kosher Islamic Spanish French Gourmet Gluten-free Mediterranean Hot Meet Modern]	[[onion] [mushroom] [duck] [milk] [oil]]	[Kosher Islamic Spanish French Gourmet Gluten-free Mediterranean Hot Meet Modern]	10.2
