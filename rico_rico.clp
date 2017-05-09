@@ -433,6 +433,7 @@
 		else
 			(printout t "| Generated menus will be listed below." crlf)
 			(assert (generated-menus all-menus TRUE))
+			(assert (menus printed TRUE))
 		)
 	)
 )
@@ -475,4 +476,24 @@
 	(print-menu ?low-menu "Cheap menu")
 	(print-menu ?medium-menu "Normal menu")
 	(print-menu ?high-menu "Expensive menu")
+	(assert (menus printed TRUE))
+)
+
+(defrule print-bon-appetit "Elegant ASCII draw"
+	(menus printed ?)
+	=>
+	(printout t "|                  ___/___/" crlf)
+  (printout t "|                  \\,/ \\,/" crlf)
+	(printout t "|                   |   |" crlf)
+	(printout t "|                 __|___|__" crlf)
+	(printout t "|                [_________]" crlf)
+	(printout t "|       ,,,,,,      _|//" crlf)
+	(printout t "|       , , ::       | /" crlf)
+	(printout t "|       <    D        =o" crlf)
+	(printout t "|       |.   /       /\\|" crlf)
+	(printout t "|   _____|><|_______/o /" crlf)
+	(printout t "|  / '==| :: |=='  <  /" crlf)
+	(printout t "| /  \\  <    >  /____/" crlf)
+	(printout t "|/  _/\\ | :: | /" crlf)
+	(printout t "*-------------------------------------------------------------------------------------")
 )
