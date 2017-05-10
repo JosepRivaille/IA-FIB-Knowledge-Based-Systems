@@ -189,6 +189,13 @@
 	FALSE
 )
 
+(deffunction is-easy-enough (?guests ?dish-difficulty)
+	(if (< ?dish-difficulty 4) then
+		(return TRUE)
+	)
+	(<= ?dish-difficulty (- 10 (div ?guests 100)))
+)
+
 (deffunction all-ingredients-available (?month ?ingredients)
 	(loop-for-count (?i 1 (length$ ?ingredients)) do
 		(bind ?availability (send (nth$ ?i ?ingredients) get-ing-availability))
@@ -353,6 +360,7 @@
 
 (defrule get-possible-main-courses "Filters forbbiden or impossible main courses"
   (event ready ?)
+	(event guests ?guests)
 	(event month ?month)
 	(event preferred-cuisine-styles $?preferences)
   (event dietary-restrictions $?restrictions)
@@ -365,12 +373,15 @@
     (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
 		; Filter non available Ingredients
 		(all-ingredients-available ?month ?ins:dish-ingredients)
+		; Filter difficulty
+		(is-easy-enough ?guests ?ins:dish-difficulty)
   )))
 	(assert (main-courses ready ?main-courses))
 )
 
 (defrule get-possible-second-courses "Filters forbbiden second courses"
   (event ready ?)
+	(event guests ?guests)
 	(event month ?month)
 	(event preferred-cuisine-styles $?preferences)
   (event dietary-restrictions $?restrictions)
@@ -383,16 +394,30 @@
     (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
 		; Filter non available Ingredients
 		(all-ingredients-available ?month ?ins:dish-ingredients)
+		; Filter difficulty
+		(is-easy-enough ?guests ?ins:dish-difficulty)
   )))
 	(assert (second-courses ready ?second-courses))
 )
 
 (defrule get-possible-desserts "Filters forbbiden desserts"
   (event ready ?)
+	(event guests ?guests)
+	(event month ?month)
 	(event preferred-cuisine-styles $?preferences)
   (event dietary-restrictions $?restrictions)
 	=>
-	(bind ?desserts (find-all-instances ((?ins Dessert)) TRUE))
+	(bind ?desserts (find-all-instances ((?ins Dessert))
+		(and
+			; Filter non-desired food types
+			(or (eq ?preferences (create$ any)) (collection-contains-alo-element ?preferences ?ins:dish-classification))
+	    ; Filter banned options
+	    (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
+			; Filter non available Ingredients
+			(all-ingredients-available ?month ?ins:dish-ingredients)
+			; Filter difficulty
+			(is-easy-enough ?guests ?ins:dish-difficulty)
+	)))
 	(assert (desserts ready ?desserts))
 )
 
