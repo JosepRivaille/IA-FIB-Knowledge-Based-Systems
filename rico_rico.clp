@@ -331,9 +331,11 @@
 	(declare (salience -6))
 	(not (and (event drink-per-dish ?) (event drink-types ?)))
 	=>
-	;(bind ?drink-per-dish (ask-question-yes-no "Will you require a drink for each dish? "))
+	(bind ?drink-per-dish (ask-question-yes-no "Will you require a drink for each dish? "))
 	(bind ?drink-types (ask-question-multi-opt "Would you discard any drinks? " ?*DRINK_TYPES*))
-	;(assert (event drink-per-dish ?drink-per-dish))
+	(if ?drink-per-dish then
+		(assert (event drink-per-dish TRUE))
+	)
 	(assert (event drink-types ?drink-types))
 )
 
@@ -432,6 +434,7 @@
 	(assert (drinks ready ?drinks))
 )
 
+; TODO: Remove
 (defrule generate-menu-combinations "Generates different menu combinations"
 	(event price_min ?price-min)
 	(event price_max ?price-max)
@@ -442,6 +445,128 @@
 	=>
 	(bind ?menus (combinate-possible-dishes ?main-courses ?second-courses ?desserts ?drinks ?price-min ?price-max))
 	(assert (generated-menus ready ?menus))
+)
+
+(defrule generate-menu-with-main ""
+	(main-courses ready $?main-courses)
+	(not (generated-menu main ?main))
+	=>
+	; [...]
+	(assert generated-menu main ?)
+)
+
+(defrule generate-menu-main-drink ""
+	(event drink-per-dish ?)
+	(drinks ready $?drinks)
+	(generated-menu main ?main)
+	=>
+	; [...]
+	(assert generated-menu main-drink ?)
+)
+
+(defrule add-second-to-menu ""
+	(second-courses ready $?second-courses)
+	(not (generated-menu second ?second))
+	(generated-menu main ?main)
+	=>
+	; [...]
+	(assert generated-menu second ?)
+)
+
+(defrule generate-menu-second-drink ""
+	(event drink-per-dish ?)
+	(drinks ready $?drinks)
+	(generated-menu second ?second)
+	=>
+	; [...]
+	(assert generated-menu second-drink ?)
+)
+
+(defrule add-dessert-to-menu ""
+	(desserts ready $?desserts)
+	(not (generated-menu desserts ?dessert))
+	(generated-menu second ?second)
+	=>
+	; [...]
+	(assert generated-menu dessert ?)
+)
+
+(defrule generate-menu-dessert-drink ""
+	(event drink-per-dish ?)
+	(drinks ready $?drinks)
+	(generated-menu dessert ?dessert)
+	=>
+	; [...]
+	(assert generated-menu dessert-drink ?)
+)
+
+(defrule generate-menu-drink ""
+	(not (event drink-per-dish ?))
+	(drinks ready $?drinks)
+	=>
+	; [...]
+	(assert generated-menu drink ?)
+)
+
+(defrule validate-general-menu ""
+	(event price_min ?price-min)
+	(event price_max ?price-max)
+	(generated-menu main ?main)
+	(generated-menu second ?second)
+	(generated-menu dessert ?dessert)
+	(generated-menu drink ?drink)
+	=>
+	(+ (send (nth$ ?drink-index ?drinks) get-drink-price)
+	(bind ?total-price (+ (calculate-price-drinks ?drink) (calculate-price-dishes ?main ?second ?dessert)))
+	(if (and (>= ?total-price ?price-min) (<= ?total-price ?price-max)) then
+		(bind ?ins
+			(make-instance (gensym) of Menu
+				(main-course ?main)
+				(second-course ?second)
+				(dessert ?dessert)
+				(menu-drink ?drink)
+				(menu-price ?total-price)
+			)
+		)
+	)
+	(retract generated-menu dessert)
+	(retract generated-menu second)
+	(retract generated-menu main)
+)
+
+(defrule validate-drink-per-dish-menu ""
+	(event price_min ?price-min)
+	(event price_max ?price-max)
+	(generated-menu main ?main)
+	(generated-menu second ?second)
+	(generated-menu dessert ?dessert)
+	(generated-menu main-drink ?main-drink)
+	(generated-menu second-drink ?second-drink)
+	(generated-menu dessert-drink ?dessert-drink)
+	=>
+	(bind ?total-price (+
+		(calculate-price-drinks ?main-drink ?second-drink ?dessert-drink)
+		(calculate-price-dishes ?main ?second ?dessert)
+	))
+	(if (and (>= ?total-price ?price-min) (<= ?total-price ?price-max)) then
+		(bind ?ins
+			(make-instance (gensym) of Menu
+				(main-course ?main)
+				(main-course-drink ?main-drink)
+				(second-course ?second)
+				(second-course-drink ?second-drink)
+				(dessert ?dessert)
+				(dessert-drink ?dessert-drink)
+				(menu-price ?total-price)
+			)
+		)
+	)
+	(retract generated-menu dessert)
+	(retract generated-menu dessert-drink)
+	(retract generated-menu second)
+	(retract generated-menu second-drink)
+	(retract generated-menu main)
+	(retract generated-menu main-drink)
 )
 
 (defrule check-generated-menus "Checks if enough menus generated"
