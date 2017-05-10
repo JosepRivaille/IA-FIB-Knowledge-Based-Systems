@@ -1549,6 +1549,7 @@
 		(dish-ingredients [pasta] [veal] [pork] [onion] [garlic] [carrot] [tomato] [cheese] [oregano] [oil] [salt])
 		(dish-combination Spanish Italian French American Gourmet Mediterranean)
 		(dish-price 5.50)
+		(dish-difficulty 3)
 	)
 
 	([mediterranean_salad] of MainCourse
@@ -1557,6 +1558,7 @@
 		(dish-ingredients [onion] [tomato] [carrot] [oregano] [oil] [lettuce] [garlic] [cheese] [vinegar] [olive]  [salt])
 		(dish-combination Vegetarian Spanish Italian French Gourmet Mediterranean Islamic)
 		(dish-price 2.2)
+		(dish-difficulty 2)
 	)
 
 	([kirmizi_mercimek_corbasi] of MainCourse
@@ -1565,6 +1567,7 @@
 		(dish-ingredients [oil] [garlic] [onion] [cumin] [coriander] [tomato] [rice] [salt] [pepper] [lemon] [lentils])
 		(dish-combination Vegetarian Turkish Gourmet Mediterranean Islamic)
 		(dish-price 4.2)
+		(dish-difficulty 6)
 	)
 
 	([chipotle_spaguetti] of MainCourse
@@ -1573,6 +1576,7 @@
 		(dish-ingredients [pasta] [salt] [garlic] [butter] [milk] [pepper] [mushroom])
 		(dish-combination American Mexican)
 		(dish-price 3.5)
+		(dish-difficulty 5)
 	)
 
 	([scallop_of_foie_gras_marinated_in_elderberry_oil] of MainCourse
@@ -1581,6 +1585,7 @@
 		(dish-ingredients [foie] [artichoke] [tomato] [potato] [oil] [garlic] [onion] [coriander] [sesame] [butter] [eggs] [salt])
 		(dish-combination Spanish Italian French Gourmet Mediterranean)
 		(dish-price 25)
+		(dish-difficulty 9)
 	)
 
 	([vegan_sandwich] of MainCourse
@@ -1589,6 +1594,7 @@
 		(dish-ingredients [bread] [tomato] [oil] [ruccula] [avocado] [onion])
 		(dish-combination Vegetarian Vegan Mediterranean Islamic Kosher)
 		(dish-price 8.5)
+		(dish-difficulty 3)
 	)
 
 	([chinese_noodles_with_vegetables] of MainCourse
@@ -1597,6 +1603,7 @@
 		(dish-ingredients [pasta] [oil] [carrot] [onion] [pepper] [mushroom] [soy] [salt])
 		(dish-combination Vegetarian Kosher Islamic Chinese)
 		(dish-price 4.2)
+		(dish-difficulty 7)
 	)
 
 	([kareraisu] of MainCourse
@@ -1605,6 +1612,7 @@
 		(dish-ingredients [rice] [carrot] [tofu] [onion] [potato] [oil] [curry] [salt])
 		(dish-combination Vegetarian Kosher Islamic Indian Japanese)
 		(dish-price 6)
+		(dish-difficulty 7)
 	)
 
 	([american_burguer] of MainCourse
@@ -1613,6 +1621,7 @@
 		(dish-ingredients [pork] [onion] [garlic] [eggs] [salt] [pepper] [bread])
 		(dish-combination American Hot Meet Lactose-free)
 		(dish-price 4)
+		(dish-difficulty 2)
 	)
 
 	([harira] of MainCourse
@@ -1621,6 +1630,7 @@
 		(dish-ingredients [veal] [tomato] [pepper] [coriander] [lentils] [pasta])
 		(dish-combination Islamic Moroccan Lactose-Free Mediterranean)
 		(dish-price 5)
+		(dish-difficulty 3)
 	)
 
 	([braised_lentils_sausage_and_black_pudding] of MainCourse
@@ -1629,6 +1639,7 @@
 		(dish-ingredients [lentils] [onion] [garlic] [salt] [oil] [pork])
 		(dish-combination Spanish Gluten-free Lactose-free Mediterranean)
 		(dish-price 4)
+		(dish-difficulty 6)
 	)
 
 	([sushi] of MainCourse
@@ -1637,6 +1648,7 @@
 		(dish-ingredients [salmon] [carrot] [rice] [avocado] [cucumber] [nori])
 		(dish-combination Japanese Kosher Islamic Lactose-free)
 		(dish-price 5.2)
+		(dish-difficulty 7)
 	)
 
 	([tajin] of MainCourse
@@ -1645,6 +1657,7 @@
 		(dish-ingredients [chicken] [carrot] [onion] [tomato] [pepper] [oil] [salt])
 		(dish-combination Kosher Islamic Turkish Moroccan)
 		(dish-price 4.5)
+		(dish-difficulty 7)
 	)
 
 	([cream_of_mushrooms_and_chestnuts_with_duck_confit] of MainCourse
@@ -1653,6 +1666,7 @@
 		(dish-ingredients [onion] [mushroom] [duck] [milk] [oil])
 		(dish-combination Kosher Islamic Spanish French Gourmet Gluten-free Mediterranean Hot Meet Modern)
 		(dish-price 10.2)
+		(dish-difficulty 7)
 	)
 
 )
@@ -1663,6 +1677,7 @@
 		(dish-ingredients [oil] [garlic] [salt] [black_pepper] [pork] [red_wine] [prune])
 		(dish-combination Italian French Spanish Lactose-free Gluten-free)
 		(dish-price 7.50)
+		(dish-difficulty 6)
 	)
 
 	([coq_au_vin] of SecondCourse
@@ -1671,6 +1686,7 @@
 		(dish-ingredients [red_wine] [onion] [oil] [mushroom] [bacon] [butter] [chicken] [salt] [black_pepper] [wheat_flour] [carrot])
 		(dish-combination French Italian Spanish Mediterranean Kosher Islamic)
 		(dish-price 8.30)
+		(dish-difficulty 8)
 	)
 
 	([spanish_omelette] of SecondCourse
@@ -1679,6 +1695,7 @@
 		(dish-ingredients [potato] [onion] [eggs] [black_pepper] [salt] [oil])
 		(dish-combination Spanish Vegetarian Gluten-free Islamic Kosher Mediterranean)
 		(dish-price 6.00)
+		(dish-difficulty 2)
 	)
 
 	([paella] of SecondCourse
@@ -1687,6 +1704,7 @@
 		(dish-ingredients [rice] [onion] [tomato] [garlic] [oil] [salt] [saffron] [cuttlefish] [mussel] [clam] [prawn])
 		(dish-combination Spanish Mediterranean Lactose-free)
 		(dish-price 9.00)
+		(dish-difficulty 7)
 	)
 
 	([pan_seared_salmon] of SecondCourse
@@ -1695,6 +1713,7 @@
 		(dish-ingredients [salmon] [onion] [garlic] [oil] [cumin] [paprika] [cilantro] [lemon_juice] [chili_pepper] [salt])
 		(dish-combination Moroccan Mediterranean Lactose-free Gluten-free)
 		(dish-price 7.20)
+		(dish-difficulty 6)
 	)
 
 	([cabbage_roll] of SecondCourse
@@ -1703,6 +1722,7 @@
 		(dish-ingredients [cabbage] [onion] [beef] [pork] [salt] [black_pepper] [tomato] [chicken_broth] [bread_crumbs])
 		(dish-combination Japanese Lactose-free Mediterranean)
 		(dish-price 6.50)
+		(dish-difficulty 8)
 	)
 
 	([burrito_pie] of SecondCourse
@@ -1711,6 +1731,7 @@
 		(dish-ingredients [beef] [onion] [garlic] [olive] [chili_pepper] [tomato] [tortilla] [cheese] [taco_sauce])
 		(dish-combination Mexican)
 		(dish-price 5.50)
+		(dish-difficulty 2)
 	)
 
 	([chicken_wings_with_chili-lime_butter] of SecondCourse
@@ -1719,6 +1740,7 @@
 		(dish-ingredients [chicken] [oil] [black_pepper] [butter] [red_curry_paste] [honey] [soy_sauce] [lime])
 		(dish-combination American Mexican Indian)
 		(dish-price 6.40)
+		(dish-difficulty 7)
 	)
 
 	([palak_panner] of SecondCourse
@@ -1727,6 +1749,7 @@
 		(dish-ingredients [oil] [garlic] [ginger] [onion] [cumin] [coriander] [turmeric] [sour_cream] [spinach] [tomato] [cilantro] [ricotta_cheese] [salt])
 		(dish-combination Indian Vegetarian Islamic Kosher)
 		(dish-price 7.50)
+		(dish-difficulty 8)
 	)
 
 	([couscous_meatlof] of SecondCourse
@@ -1735,6 +1758,7 @@
 		(dish-ingredients [onion] [salt] [bacon] [tomato] [brown_sugar] [black_pepper] [eggs] [couscous] [zucchini] [ground_turkey] [dijon_mustard])
 		(dish-combination Turkey Moroccan)
 		(dish-price 5.70)
+		(dish-difficulty 7)
 	)
 
 	([sweet_and_sour_aubergines] of SecondCourse
@@ -1743,6 +1767,7 @@
 		(dish-ingredients [brown_sugar] [aubergine] [salt] [gram_flour] [cumin] [coriander] [ginger] [garlic] [vegetable_oil] [lemon] [paprika])
 		(dish-combination Vegan Vegetarian Mediterranean Lactose-free)
 		(dish-price 4.50)
+		(dish-difficulty 4)
 	)
 
 	([dumplings_filled_with_brocolli_and_zucchini_in_garlic_sauce] of SecondCourse
@@ -1751,6 +1776,7 @@
 		(dish-ingredients [wheat_flour] [salt] [oil] [corn_starch] [broccoli] [zucchini] [garlic] [sugar] [sesame_oil] [hoisin_sauce])
 		(dish-combination Vegan Vegetarian Lactose-free Gluten-free Chinese Japanese Indian)
 		(dish-price 5.00)
+		(dish-difficulty 5)
 	)
 
 	([tuna_steak] of SecondCourse
@@ -1759,6 +1785,7 @@
 		(dish-ingredients [tuna] [tomato] [garlic] [vegetable_oil] [onion] [black_pepper])
 		(dish-combination Spanish Italian Mediterranean Japanese American)
 		(dish-price 8.70)
+		(dish-difficulty 6)
 	)
 
 	([persian_pie] of SecondCourse
@@ -1767,6 +1794,7 @@
 		(dish-ingredients [aubergine] [cheese] [cabbage] [onion] [garlic] [wheat_flour])
 		(dish-combination Spanish Italian Mediterranean Turkish Moroccan)
 		(dish-price 14.90)
+		(dish-difficulty 6)
 	)
 
 )
@@ -1777,6 +1805,7 @@
 		(dish-ingredients [eggs] [sugar] [chocolate] [cream_cheese] [cocoa_powder]     [coffee])
 		(dish-combination Italian Gluten-free Vegetarian French Kosher Islamic Gourmet)
 		(dish-price 4.00)
+		(dish-difficulty 6)
 	)
 
 	([cheese_cake] of Dessert
@@ -1785,6 +1814,7 @@
 		(dish-ingredients [cream_cheese] [sugar] [wheat_flour] [salt] [eggs] [butter] [cookies] [vanilla_extract] [sour_cream] [berry])
 		(dish-combination Vegetarian American Italian French Spanish Islamic Kosher)
 		(dish-price 5.50)
+		(dish-difficulty 4)
 	)
 
 	([catalan_cream] of Dessert
@@ -1793,6 +1823,7 @@
 		(dish-ingredients [milk] [sugar] [eggs] [cinamon] [lemon] [maizena])
 		(dish-combination Spanish Vegetarian Islamic Kosher French)
 		(dish-price 3.50)
+		(dish-difficulty 6)
 	)
 
 	([orange_cake] of Dessert
@@ -1801,6 +1832,7 @@
 		(dish-ingredients [orange] [wheat_flour] [sugar] [vegetable_oil] [salt] [baking_powder])
 		(dish-combination Vegan Lactose-free Vegetarian Moroccan Kosher Islamic Mediterranean)
 		(dish-price 3.90)
+		(dish-difficulty 4)
 	)
 
 	([doklova] of Dessert
@@ -1809,6 +1841,7 @@
 		(dish-ingredients [filo] [walnut] [butter] [cinamon] [sugar] [vanilla_extract] [honey])
 		(dish-combination Turkish Vegetarian Islamic Kosher)
 		(dish-price 4.30)
+		(dish-difficulty 6)
 	)
 
 	([egg_tart] of Dessert
@@ -1817,6 +1850,7 @@
 		(dish-ingredients [wheat_flour] [eggs] [butter] [salt] [milk] [sugar])
 		(dish-combination Chinese Vegetarian Islamic Kosher)
 		(dish-price 3.10)
+		(dish-difficulty 6)
 	)
 
 	([matcha_pudding] of Dessert
@@ -1825,6 +1859,7 @@
 		(dish-ingredients [milk] [sugar] [salt] [eggs] [butter] [whip_cream] [maizena] [matcha_powder])
 		(dish-combination Japanese Vegetarian Islamic Kosher)
 		(dish-price 3.40)
+		(dish-difficulty 6)
 	)
 
 	([stuffed_dates] of Dessert
@@ -1833,6 +1868,7 @@
 		(dish-ingredients [date] [honey] [cinamon] [sugar] [walnut] [cream_cheese] [almond])
 		(dish-combination  [Moroccan Vegetarian Islamic Kosher])
 		(dish-price 2.50)
+		(dish-difficulty 7)
 	)
 
 	([paal_payasam] of Dessert
@@ -1841,6 +1877,7 @@
 		(dish-ingredients [rice] [milk] [cardamon_powder] [sugar] [butter] [walnuts] [raisin])
 		(dish-combination Indian Vegetarian Cold Islamic Kosher Turkish)
 		(dish-price 3.80)
+		(dish-difficulty 7)
 	)
 
 	([lemon_parfait] of Dessert
@@ -1849,6 +1886,7 @@
 		(dish-ingredients [eggs] [sugar] [lemon] [butter] [wheat_flour] [vanilla_extract] [chocolate] [honey] [orange_juice] [plum] [double_cream])
 		(dish-combination Gourmet Spanish Japanese Italian French American Vegetarian )
 		(dish-price 6.50)
+		(dish-difficulty 4)
 	)
 
 	([apple_enchiladas] of Dessert
@@ -1857,6 +1895,7 @@
 		(dish-ingredients [cinamon] [butter] [sugar] [apple] [tortilla])
 		(dish-combination Mexican Vegetarian Islamic Kosher Gluten-free)
 		(dish-price 3.50)
+		(dish-difficulty 2)
 	)
 
 	([fruit] of Dessert
@@ -1865,6 +1904,7 @@
 		(dish-ingredients )
 		(dish-combination All)
 		(dish-price 2.00)
+		(dish-difficulty 1)
 	)
 
 	([banana_muffins] of Dessert
@@ -1873,6 +1913,7 @@
 		(dish-ingredients [vanilla_extract] [banana] [sugar] [vegetable_oil] [baking_powder] [soy_milk_yogurt])
 		(dish-combination Vegan Vegetarian Kosher Islamic American French Italian Spanish Japanese)
 		(dish-price 3.50)
+		(dish-difficulty 5)
 	)
 
 	([chocolate_pots] of Dessert
@@ -1881,6 +1922,7 @@
 		(dish-ingredients [sugar] [corn_starch] [milk] [eggs] [vanilla_extract] [chocolate] [cocoa_powder])
 		(dish-combination Gluten-free Vegetarian Kosher Islamic American French Italian Spanish Japanese Gourmet)
 		(dish-price 4.00)
+		(dish-difficulty 4)
 	)
 
 	([strawberry_coconut_milk_ice_cream] of Dessert
@@ -1889,6 +1931,7 @@
 		(dish-ingredients [strawberry] [banana] [honey] [coconut_milk])
 		(dish-combination All)
 		(dish-price 3.00)
+		(dish-difficulty 2)
 	)
 
 	([yogurt_cake] of Dessert
@@ -1897,6 +1940,7 @@
 		(dish-ingredients [eggs] [yogurt] [vegetable_oil] [sugar] [wheat_flour] [baking_powder] [salt] [vanilla_extract])
 		(dish-combination Moroccan Kosher Islamic Vegetarian Italian Spanish French)
 		(dish-price 2.70)
+		(dish-difficulty 1)
 	)
 
 	([chocolate_ice_cream_taco] of Dessert
@@ -1905,6 +1949,7 @@
 		(dish-ingredients [tortilla] [chocolate_chips] [vanilla_ice_cream] [coconut_oil])
 		(dish-combination Mexican Islamic Kosher American)
 		(dish-price 4.20)
+		(dish-difficulty 4)
 	)
 
 )

@@ -251,13 +251,6 @@
   (printout t "*-------------------------------------------------------------------------------------" crlf)
 )
 
-(deffunction too-persons (?dish-difficult ?guests)
-        (if (and(>= 100 ?guests)  (< 5 ?dish-difficult)) then TRUE)
-        FALSE
-)
-        
-
-
 ;%%%%%
 ;%
 ;% DETERMINE USER RULES
@@ -361,30 +354,24 @@
 (defrule get-possible-main-courses "Filters forbbiden or impossible main courses"
   (event ready ?)
 	(event month ?month)
-  (event guests ?guests)
 	(event preferred-cuisine-styles $?preferences)
   (event dietary-restrictions $?restrictions)
 	=>
 	(bind ?main-courses (find-all-instances ((?ins MainCourse))
 	(and
     ; Filter non-desired food types
-  (or (eq ?preferences (create$ any)) (collection-contains-alo-element ?preferences ?ins:dish-classification))
+		(or (eq ?preferences (create$ any)) (collection-contains-alo-element ?preferences ?ins:dish-classification))
     ; Filter banned options
-  (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
-	; Filter non available Ingredients
-	(all-ingredients-available ?month ?ins:dish-ingredients)
-  (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
-  (or (eq ?restrictions (create$ none)) (too-persons ?ins:dish-difficult ?guests)
-  )
-  ))
+    (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
+		; Filter non available Ingredients
+		(all-ingredients-available ?month ?ins:dish-ingredients)
+  )))
 	(assert (main-courses ready ?main-courses))
-)
 )
 
 (defrule get-possible-second-courses "Filters forbbiden second courses"
   (event ready ?)
 	(event month ?month)
-  (event guests ?guests)
 	(event preferred-cuisine-styles $?preferences)
   (event dietary-restrictions $?restrictions)
 	=>
@@ -396,15 +383,12 @@
     (or (eq ?restrictions (create$ none)) (collection-contains-all-elements ?restrictions ?ins:dish-classification))
 		; Filter non available Ingredients
 		(all-ingredients-available ?month ?ins:dish-ingredients)
-    (or (eq ?restrictions (create$ none)) (too-persons ?ins:dish-difficult ?guests)
   )))
 	(assert (second-courses ready ?second-courses))
-  )
 )
 
 (defrule get-possible-desserts "Filters forbbiden desserts"
   (event ready ?)
-  (event guests ?guests)
 	(event preferred-cuisine-styles $?preferences)
   (event dietary-restrictions $?restrictions)
 	=>
@@ -513,5 +497,3 @@
 	(printout t "|/  _/\\ | :: | /" crlf)
 	(printout t "*-------------------------------------------------------------------------------------")
 )
-
-
