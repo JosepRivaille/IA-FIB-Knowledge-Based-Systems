@@ -149,6 +149,14 @@
 	FALSE
 )
 
+(deffunction calculate-price-drinks ($?elements)
+	(bind ?price 0.0)
+	(loop-for-count (?i 1 (length$ ?elements))
+		(bind ?price (+ ?price (send (nth$ ?i ?elements) get-drink-price)))
+	)
+	?price
+)
+
 (deffunction calculate-price-dishes ($?elements)
 	(bind ?price 0.0)
 	(loop-for-count (?i 1 (length$ ?elements))
@@ -206,36 +214,6 @@
 		)
 	)
 	TRUE
-)
-
-(deffunction combinate-possible-dishes (?main-courses ?second-courses ?desserts ?drinks ?price-min ?price-max) "Generates menus from given parameters"
-	(bind ?menus (create$))
-	(loop-for-count (?i 1 (length$ ?main-courses)) do ; Main course
-		(loop-for-count (?j 1 (length$ ?second-courses)) do ; Second course
-			(if (are-different-and-combine (nth$ ?i ?main-courses) (nth$ ?j ?second-courses)) then
-				(loop-for-count (?k 1 (length$ ?desserts)) do ; Desert
-					(if (are-different-and-combine (nth$ ?j ?second-courses) (nth$ ?k ?desserts)) then
-						(bind ?drink-index (+ (mod (random) (length$ ?drinks)) 1))
-						(bind ?ins
-							(make-instance (gensym) of Menu
-								(main-course (nth$ ?i ?main-courses))
-								(second-course (nth$ ?j ?second-courses))
-								(dessert (nth$ ?k ?desserts))
-								(menu-drink (nth$ ?drink-index ?drinks))
-								(menu-price (+ (send (nth$ ?drink-index ?drinks) get-drink-price)
-									(calculate-price-dishes (nth$ ?i ?main-courses) (nth$ ?j ?second-courses) (nth$ ?k ?desserts))
-								))
-							)
-						)
-						(if (and (<= ?price-min (send ?ins get-menu-price)) (>= ?price-max (send ?ins get-menu-price))) then
-							(bind ?menus (insert$ ?menus (+ (length$ ?menus) 1) ?ins))
-						)
-					)
-				)
-			)
-		)
-	)
-	?menus
 )
 
 (deffunction print-dishes (?dishes)
@@ -434,89 +412,88 @@
 	(assert (drinks ready ?drinks))
 )
 
-; TODO: Remove
-(defrule generate-menu-combinations "Generates different menu combinations"
-	(event price_min ?price-min)
-	(event price_max ?price-max)
-	(main-courses ready $?main-courses)
-	(second-courses ready $?second-courses)
-	(desserts ready $?desserts)
-  (drinks ready $?drinks)
-	=>
-	(bind ?menus (combinate-possible-dishes ?main-courses ?second-courses ?desserts ?drinks ?price-min ?price-max))
-	(assert (generated-menus ready ?menus))
-)
-
 (defrule generate-menu-with-main ""
 	(main-courses ready $?main-courses)
-	(not (generated-menu main ?main))
+	(not (generated-menu ?))
 	=>
-	; [...]
-	(assert generated-menu main ?)
-)
-
-(defrule generate-menu-main-drink ""
-	(event drink-per-dish ?)
-	(drinks ready $?drinks)
-	(generated-menu main ?main)
-	=>
-	; [...]
-	(assert generated-menu main-drink ?)
+	(loop-for-count (?i 1 (length$ ?main-courses)) do
+		(assert (generated-menu (nth$ ?i ?main-courses)))
+	)
 )
 
 (defrule add-second-to-menu ""
 	(second-courses ready $?second-courses)
-	(not (generated-menu second ?second))
-	(generated-menu main ?main)
+	(generated-menu ?main)
 	=>
-	; [...]
-	(assert generated-menu second ?)
-)
-
-(defrule generate-menu-second-drink ""
-	(event drink-per-dish ?)
-	(drinks ready $?drinks)
-	(generated-menu second ?second)
-	=>
-	; [...]
-	(assert generated-menu second-drink ?)
+	(loop-for-count (?i 1 (length$ ?second-courses)) do
+		(if (are-different-and-combine ?main (nth$ ?i ?second-courses)) then
+			(assert (generated-menu ?main (nth$ ?i ?second-courses)))
+		)
+	)
 )
 
 (defrule add-dessert-to-menu ""
 	(desserts ready $?desserts)
-	(not (generated-menu desserts ?dessert))
-	(generated-menu second ?second)
+	(generated-menu ?main ?second)
 	=>
-	; [...]
-	(assert generated-menu dessert ?)
-)
-
-(defrule generate-menu-dessert-drink ""
-	(event drink-per-dish ?)
-	(drinks ready $?drinks)
-	(generated-menu dessert ?dessert)
-	=>
-	; [...]
-	(assert generated-menu dessert-drink ?)
+	(loop-for-count (?i 1 (length$ ?desserts)) do
+		(if
+			(and
+				(are-different-and-combine ?main (nth$ ?i ?desserts))
+				(are-different-and-combine ?second (nth$ ?i ?desserts))
+			) then
+			(assert (generated-menu ?main ?second (nth$ ?i ?desserts)))
+		)
+	)
 )
 
 (defrule generate-menu-drink ""
 	(not (event drink-per-dish ?))
 	(drinks ready $?drinks)
+	(generated-menu ?main ?second ?dessert)
 	=>
-	; [...]
-	(assert generated-menu drink ?)
+	(loop-for-count (?i 1 (length$ ?drinks)) do
+		(assert (generated-menu ?main ?second ?dessert (nth$ ?i ?drinks)))
+	)
+)
+
+(defrule generate-menu-main-drink ""
+	(event drink-per-dish ?)
+	(drinks ready $?drinks)
+	(generated-menu ?main ?second ?dessert)
+	=>
+	(loop-for-count (?i 1 (length$ ?drinks)) do
+		(assert (generated-menu ?main ?second ?dessert (nth$ ?i ?drinks)))
+	)
+)
+
+(defrule generate-menu-second-drink ""
+	(event drink-per-dish ?)
+	(drinks ready $?drinks)
+	(generated-menu ?main ?second ?dessert ?main-drink)
+	=>
+	(loop-for-count (?i 1 (length$ ?drinks)) do
+		(assert (generated-menu ?main ?second ?dessert ?main-drink (nth$ ?i ?drinks)))
+	)
+)
+
+(defrule generate-menu-dessert-drink ""
+	(event drink-per-dish ?)
+	(event drink-per-dish ?)
+	(drinks ready $?drinks)
+	(generated-menu ?main ?second ?dessert ?main-drink ?second-drink)
+	=>
+	(loop-for-count (?i 1 (length$ ?drinks)) do
+		(assert (generated-menu ?main ?second ?dessert ?main-drink ?second-drink (nth$ ?i ?drinks)))
+	)
 )
 
 (defrule validate-general-menu ""
+	(not (event drink-per-dish ?))
 	(event price_min ?price-min)
 	(event price_max ?price-max)
-	(generated-menu main ?main)
-	(generated-menu second ?second)
-	(generated-menu dessert ?dessert)
-	(generated-menu drink ?drink)
+	(generated-menu ?main ?second ?dessert ?drink)
 	=>
-	(+ (send (nth$ ?drink-index ?drinks) get-drink-price)
 	(bind ?total-price (+ (calculate-price-drinks ?drink) (calculate-price-dishes ?main ?second ?dessert)))
 	(if (and (>= ?total-price ?price-min) (<= ?total-price ?price-max)) then
 		(bind ?ins
@@ -528,21 +505,15 @@
 				(menu-price ?total-price)
 			)
 		)
+		(print-menu ?ins "Guapamente tio")
 	)
-	(retract generated-menu dessert)
-	(retract generated-menu second)
-	(retract generated-menu main)
 )
 
 (defrule validate-drink-per-dish-menu ""
+	(event drink-per-dish ?)
 	(event price_min ?price-min)
 	(event price_max ?price-max)
-	(generated-menu main ?main)
-	(generated-menu second ?second)
-	(generated-menu dessert ?dessert)
-	(generated-menu main-drink ?main-drink)
-	(generated-menu second-drink ?second-drink)
-	(generated-menu dessert-drink ?dessert-drink)
+	(generated-menu ?main ?second ?dessert ?main-drink ?second-drink ?dessert-drink)
 	=>
 	(bind ?total-price (+
 		(calculate-price-drinks ?main-drink ?second-drink ?dessert-drink)
@@ -560,13 +531,8 @@
 				(menu-price ?total-price)
 			)
 		)
+		;(print-menu ?ins "Guapamente tio")
 	)
-	(retract generated-menu dessert)
-	(retract generated-menu dessert-drink)
-	(retract generated-menu second)
-	(retract generated-menu second-drink)
-	(retract generated-menu main)
-	(retract generated-menu main-drink)
 )
 
 (defrule check-generated-menus "Checks if enough menus generated"
