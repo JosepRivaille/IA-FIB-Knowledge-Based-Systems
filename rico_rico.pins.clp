@@ -1,4 +1,301 @@
-(definstances ingredient
+(definstances dessert.txt
+	([tiramisu] of Dessert
+		(dish-name "Tiramisu")
+		(dish-classification Italian Gourmet Kosher Islamic Gluten-free Vegetarian Gourmet Cold Classical)
+		(dish-ingredients [eggs] [sugar] [chocolate] [cream_cheese] [cocoa_powder]     [coffee])
+		(dish-combination Italian Gluten-free Vegetarian French Kosher Islamic Gourmet)
+		(dish-price 4.00)
+		(dish-difficulty 6)
+	)
+
+	([cheese_cake] of Dessert
+		(dish-name "Cheese cake")
+		(dish-classification Vegetarian American Italian French Spanish Islamic Kosher Cold Classical)
+		(dish-ingredients [cream_cheese] [sugar] [wheat_flour] [salt] [eggs] [butter] [cookies] [vanilla_extract] [sour_cream] [berry])
+		(dish-combination Vegetarian American Italian French Spanish Islamic Kosher)
+		(dish-price 5.50)
+		(dish-difficulty 4)
+	)
+
+	([catalan_cream] of Dessert
+		(dish-name "Catalan cream")
+		(dish-classification Spanish Vegetarian Islamic Kosher French Classical Hot)
+		(dish-ingredients [milk] [sugar] [eggs] [cinamon] [lemon] [maizena])
+		(dish-combination Spanish Vegetarian Islamic Kosher French)
+		(dish-price 3.50)
+		(dish-difficulty 6)
+	)
+
+	([orange_cake] of Dessert
+		(dish-name "Orange cake")
+		(dish-classification Vegan Lactose-free Vegetarian Mediterranean Moroccan Modern Cold Kosher Islamic)
+		(dish-ingredients [orange] [wheat_flour] [sugar] [vegetable_oil] [salt] [baking_powder])
+		(dish-combination Vegan Lactose-free Vegetarian Moroccan Kosher Islamic Mediterranean)
+		(dish-price 3.90)
+		(dish-difficulty 4)
+	)
+
+	([doklova] of Dessert
+		(dish-name "Doklova")
+		(dish-classification Turkish Vegetarian Cold Classical Islamic Kosher)
+		(dish-ingredients [filo] [walnut] [butter] [cinamon] [sugar] [vanilla_extract] [honey])
+		(dish-combination Turkish Vegetarian Islamic Kosher)
+		(dish-price 4.30)
+		(dish-difficulty 6)
+	)
+
+	([egg_tart] of Dessert
+		(dish-name "Egg tart")
+		(dish-classification Chinese Cold Classical Vegetarian Islamic Kosher)
+		(dish-ingredients [wheat_flour] [eggs] [butter] [salt] [milk] [sugar])
+		(dish-combination Chinese Vegetarian Islamic Kosher)
+		(dish-price 3.10)
+		(dish-difficulty 6)
+	)
+
+	([matcha_pudding] of Dessert
+		(dish-name "Matcha pudding")
+		(dish-classification Japanese Cold Modern Islamic Kosher Vegetarian)
+		(dish-ingredients [milk] [sugar] [salt] [eggs] [butter] [whip_cream] [maizena] [matcha_powder])
+		(dish-combination Japanese Vegetarian Islamic Kosher)
+		(dish-price 3.40)
+		(dish-difficulty 6)
+	)
+
+	([stuffed_dates] of Dessert
+		(dish-name "Stuffed dates")
+		(dish-classification Moroccan Vegetarian Cold Classical Islamic Kosher)
+		(dish-ingredients [date] [honey] [cinamon] [sugar] [walnut] [cream_cheese] [almonds])
+		(dish-combination Moroccan Vegetarian Islamic Kosher)
+		(dish-price 2.50)
+		(dish-difficulty 7)
+	)
+
+	([paal_payasam] of Dessert
+		(dish-name "Paal payasam")
+		(dish-classification Indian Vegetarian Cold Classical Islamic Kosher)
+		(dish-ingredients [rice] [milk] [cardamon_powder] [sugar] [butter] [walnut] [raisin])
+		(dish-combination Indian Vegetarian Cold Islamic Kosher Turkish)
+		(dish-price 3.80)
+		(dish-difficulty 7)
+	)
+
+	([lemon_parfait] of Dessert
+		(dish-name "Lemon parfait")
+		(dish-classification Gourmet Modern French American Vegetarian Cold)
+		(dish-ingredients [eggs] [sugar] [lemon] [butter] [wheat_flour] [vanilla_extract] [chocolate] [honey] [orange_juice] [plum] [double_cream])
+		(dish-combination Gourmet Spanish Japanese Italian French American Vegetarian )
+		(dish-price 6.50)
+		(dish-difficulty 4)
+	)
+
+	([apple_enchiladas] of Dessert
+		(dish-name "Apple enchiladas")
+		(dish-classification Mexican Vegetarian Islamic Kosher Gluten-free Hot Classical)
+		(dish-ingredients [cinamon] [butter] [sugar] [apple] [tortilla])
+		(dish-combination Mexican Vegetarian Islamic Kosher Gluten-free)
+		(dish-price 3.50)
+		(dish-difficulty 2)
+	)
+
+	([fruit] of Dessert
+		(dish-name "Fruit")
+		(dish-classification Vegetarian Kosher Islamic Spanish Italian French Gluten-free Vegan Lactose-free Mediterranean Cold Classical)
+		(dish-ingredients )
+		(dish-combination All)
+		(dish-price 2.00)
+		(dish-difficulty 1)
+	)
+
+	([banana_muffins] of Dessert
+		(dish-name "Banana muffins")
+		(dish-classification Vegan Vegetarian Kosher Islamic American Modern Cold)
+		(dish-ingredients [vanilla_extract] [banana] [sugar] [vegetable_oil] [baking_powder] [soy_milk_yogurt])
+		(dish-combination Vegan Vegetarian Kosher Islamic American French Italian Spanish Japanese)
+		(dish-price 3.50)
+		(dish-difficulty 5)
+	)
+
+	([chocolate_pots] of Dessert
+		(dish-name "Chocolate pots")
+		(dish-classification Gluten-free Vegetarian Kosher Islamic American French Italian Spanish Japanese Cold Modern Gourmet)
+		(dish-ingredients [sugar] [corn_starch] [milk] [eggs] [vanilla_extract] [chocolate] [cocoa_powder])
+		(dish-combination Gluten-free Vegetarian Kosher Islamic American French Italian Spanish Japanese Gourmet)
+		(dish-price 4.00)
+		(dish-difficulty 4)
+	)
+
+	([strawberry_coconut_milk_ice_cream] of Dessert
+		(dish-name "Strawberry coconut milk ice cream")
+		(dish-classification Vegan Vegetarian Lactose-free Gluten-free Cold Classical Italian Kosher Islamic)
+		(dish-ingredients [strawberry] [banana] [honey] [coconut_milk])
+		(dish-combination All)
+		(dish-price 3.00)
+		(dish-difficulty 2)
+	)
+
+	([yogurt_cake] of Dessert
+		(dish-name "Yogurt cake")
+		(dish-classification Moroccan Kosher Islamic Vegetarian Italian Spanish Classical Cold)
+		(dish-ingredients [eggs] [yogurt] [vegetable_oil] [sugar] [wheat_flour] [baking_powder] [salt] [vanilla_extract])
+		(dish-combination Moroccan Kosher Islamic Vegetarian Italian Spanish French)
+		(dish-price 2.70)
+		(dish-difficulty 1)
+	)
+
+	([chocolate_ice_cream_taco] of Dessert
+		(dish-name "Chocolate ice cream taco")
+		(dish-classification Mexican Islamic Kosher Vegetarian)
+		(dish-ingredients [tortilla] [chocolate_chips] [vanilla_ice_cream] [coconut_oil])
+		(dish-combination Mexican Islamic Kosher American)
+		(dish-price 4.20)
+		(dish-difficulty 4)
+	)
+
+)
+(definstances drink.txt
+	([water] of Drink
+		(drink-name "Water")
+		(drink-price 1.20)
+		(drink-classification Other)
+		(drink-combination All)
+	)
+
+	([beer] of Drink
+		(drink-name "Beer")
+		(drink-price 2.50)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([la_rioja_alta_gran_reserva_1995] of Drink
+		(drink-name "La Rioja Alta Gran Reserva 1995")
+		(drink-price 195.00)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([glorioso_crianza_magnum_2013] of Drink
+		(drink-name "Glorioso Crianza Magnum 2013")
+		(drink-price 11.65)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([la_vicalanda_gran_reserva_2010] of Drink
+		(drink-name "La Vicalanda Gran Reserva 2010")
+		(drink-price 45.95)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([white_wine] of Drink
+		(drink-name "White Wine")
+		(drink-price 10.50)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([tequila] of Drink
+		(drink-name "Tequila")
+		(drink-price 14.59)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([sangria] of Drink
+		(drink-name "Sangria")
+		(drink-price 10.99)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([whisky_glengarry_12_years] of Drink
+		(drink-name "Whisky Glengarry 12 Years")
+		(drink-price 40.45)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([ron_barcelo_imperial] of Drink
+		(drink-name "Ron Barcelo Imperial")
+		(drink-price 30.25)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+	([juice] of Drink
+		(drink-name "Juice")
+		(drink-price 1.30)
+		(drink-classification Juice)
+		(drink-combination All)
+	)
+
+	([black_coffee] of Drink
+		(drink-name "Black coffee")
+		(drink-price 2.10)
+		(drink-classification Caffeine)
+		(drink-combination All)
+	)
+
+	([coffee_milk] of Drink
+		(drink-name "Coffee milk")
+		(drink-price 2.20)
+		(drink-classification Caffeine)
+		(drink-combination All)
+	)
+
+	([iced_coffee] of Drink
+		(drink-name "Iced coffee")
+		(drink-price 2.10)
+		(drink-classification Caffeine)
+		(drink-combination All)
+	)
+
+	([hot_chocolate] of Drink
+		(drink-name "Hot chocolate")
+		(drink-price 2.00)
+		(drink-classification Other)
+		(drink-combination All)
+	)
+
+	([tea] of Drink
+		(drink-name "Tea")
+		(drink-price 1.70)
+		(drink-classification Other)
+		(drink-combination All)
+	)
+
+	([iced_tea] of Drink
+		(drink-name "Iced Tea")
+		(drink-price 1.70)
+		(drink-classification Other)
+		(drink-combination All)
+	)
+
+	([infusion] of Drink
+		(drink-name "Infusion")
+		(drink-price 1.70)
+		(drink-classification Other)
+		(drink-combination All)
+	)
+
+	([soft_drink] of Drink
+		(drink-name "Soft drink")
+		(drink-price 1.50)
+		(drink-classification Other)
+		(drink-combination All)
+	)
+
+	([cocktail] of Drink
+		(drink-name "Cocktail")
+		(drink-price 3.50)
+		(drink-classification Alcohol)
+		(drink-combination All)
+	)
+
+)
+(definstances ingredient.txt
 	([artichoke] of Ingredient
 		(ing-name "Artichoke")
 		(ing-availability 1 2 3 4 5 10 11 12)
@@ -1400,149 +1697,7 @@
 	)
 
 )
-(definstances drink
-	([water] of Drink
-		(drink-name "Water")
-		(drink-price 1.20)
-		(drink-classification Other)
-		(drink-combination All)
-	)
-
-	([beer] of Drink
-		(drink-name "Beer")
-		(drink-price 2.50)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([la_rioja_alta_gran_reserva_1995] of Drink
-		(drink-name "La Rioja Alta Gran Reserva 1995")
-		(drink-price 195.00)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([glorioso_crianza_magnum_2013] of Drink
-		(drink-name "Glorioso Crianza Magnum 2013")
-		(drink-price 11.65)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([la_vicalanda_gran_reserva_2010] of Drink
-		(drink-name "La Vicalanda Gran Reserva 2010")
-		(drink-price 45.95)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([white_wine] of Drink
-		(drink-name "White Wine")
-		(drink-price 10.50)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([tequila] of Drink
-		(drink-name "Tequila")
-		(drink-price 14.59)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([sangria] of Drink
-		(drink-name "Sangria")
-		(drink-price 10.99)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([whisky_glengarry_12_years] of Drink
-		(drink-name "Whisky Glengarry 12 Years")
-		(drink-price 40.45)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([ron_barcelo_imperial] of Drink
-		(drink-name "Ron Barcelo Imperial")
-		(drink-price 30.25)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-	([juice] of Drink
-		(drink-name "Juice")
-		(drink-price 1.30)
-		(drink-classification Juice)
-		(drink-combination All)
-	)
-
-	([black_coffee] of Drink
-		(drink-name "Black coffee")
-		(drink-price 2.10)
-		(drink-classification Caffeine)
-		(drink-combination All)
-	)
-
-	([coffee_milk] of Drink
-		(drink-name "Coffee milk")
-		(drink-price 2.20)
-		(drink-classification Caffeine)
-		(drink-combination All)
-	)
-
-	([iced_coffee] of Drink
-		(drink-name "Iced coffee")
-		(drink-price 2.10)
-		(drink-classification Caffeine)
-		(drink-combination All)
-	)
-
-	([hot_chocolate] of Drink
-		(drink-name "Hot chocolate")
-		(drink-price 2.00)
-		(drink-classification Other)
-		(drink-combination All)
-	)
-
-	([tea] of Drink
-		(drink-name "Tea")
-		(drink-price 1.70)
-		(drink-classification Other)
-		(drink-combination All)
-	)
-
-	([iced_tea] of Drink
-		(drink-name "Iced Tea")
-		(drink-price 1.70)
-		(drink-classification Other)
-		(drink-combination All)
-	)
-
-	([infusion] of Drink
-		(drink-name "Infusion")
-		(drink-price 1.70)
-		(drink-classification Other)
-		(drink-combination All)
-	)
-
-	([soft_drink] of Drink
-		(drink-name "Soft drink")
-		(drink-price 1.50)
-		(drink-classification Other)
-		(drink-combination All)
-	)
-
-	([cocktail] of Drink
-		(drink-name "Cocktail")
-		(drink-price 3.50)
-		(drink-classification Alcohol)
-		(drink-combination All)
-	)
-
-)
-(definstances maincourse
+(definstances main_course.txt
 	([spaghetti_bolognese] of MainCourse
 		(dish-name "Spaghetti Bolognese")
 		(dish-classification Italian Mediterranean Hot Pasta Classical)
@@ -1670,7 +1825,7 @@
 	)
 
 )
-(definstances secondcourse
+(definstances second_course.txt
 	([roast_pork_with_prunes] of SecondCourse
 		(dish-name "Roast pork with prunes")
 		(dish-classification Italian Meat Hot Classical Gluten-free Lactose-free)
@@ -1772,7 +1927,7 @@
 
 	([dumplings_filled_with_brocolli_and_zucchini_in_garlic_sauce] of SecondCourse
 		(dish-name "Dumplings filled with brocolli and zucchini in garlic sauce")
-		(dish-classification [Chinese Vegan Vegetarian Hot Classical Lactose-free Gluten-free Vegetables Kosher Islamic)
+		(dish-classification Chinese Vegan Vegetarian Hot Classical Lactose-free Gluten-free Vegetables Kosher Islamic)
 		(dish-ingredients [wheat_flour] [salt] [oil] [corn_starch] [broccoli] [zucchini] [garlic] [sugar] [sesame_oil] [hoisin_sauce])
 		(dish-combination Vegan Vegetarian Lactose-free Gluten-free Chinese Japanese Indian)
 		(dish-price 5.00)
@@ -1795,161 +1950,6 @@
 		(dish-combination Spanish Italian Mediterranean Turkish Moroccan)
 		(dish-price 14.90)
 		(dish-difficulty 6)
-	)
-
-)
-(definstances dessert
-	([tiramisu] of Dessert
-		(dish-name "Tiramisu")
-		(dish-classification Italian Gourmet Kosher Islamic Gluten-free Vegetarian Gourmet Cold Classical)
-		(dish-ingredients [eggs] [sugar] [chocolate] [cream_cheese] [cocoa_powder]     [coffee])
-		(dish-combination Italian Gluten-free Vegetarian French Kosher Islamic Gourmet)
-		(dish-price 4.00)
-		(dish-difficulty 6)
-	)
-
-	([cheese_cake] of Dessert
-		(dish-name "Cheese cake")
-		(dish-classification Vegetarian American Italian French Spanish Islamic Kosher Cold Classical)
-		(dish-ingredients [cream_cheese] [sugar] [wheat_flour] [salt] [eggs] [butter] [cookies] [vanilla_extract] [sour_cream] [berry])
-		(dish-combination Vegetarian American Italian French Spanish Islamic Kosher)
-		(dish-price 5.50)
-		(dish-difficulty 4)
-	)
-
-	([catalan_cream] of Dessert
-		(dish-name "Catalan cream")
-		(dish-classification Spanish Vegetarian Islamic Kosher French Classical Hot)
-		(dish-ingredients [milk] [sugar] [eggs] [cinamon] [lemon] [maizena])
-		(dish-combination Spanish Vegetarian Islamic Kosher French)
-		(dish-price 3.50)
-		(dish-difficulty 6)
-	)
-
-	([orange_cake] of Dessert
-		(dish-name "Orange cake")
-		(dish-classification Vegan Lactose-free Vegetarian Mediterranean Moroccan Modern Cold Kosher Islamic)
-		(dish-ingredients [orange] [wheat_flour] [sugar] [vegetable_oil] [salt] [baking_powder])
-		(dish-combination Vegan Lactose-free Vegetarian Moroccan Kosher Islamic Mediterranean)
-		(dish-price 3.90)
-		(dish-difficulty 4)
-	)
-
-	([doklova] of Dessert
-		(dish-name "Doklova")
-		(dish-classification Turkish Vegetarian Cold Classical Islamic Kosher)
-		(dish-ingredients [filo] [walnut] [butter] [cinamon] [sugar] [vanilla_extract] [honey])
-		(dish-combination Turkish Vegetarian Islamic Kosher)
-		(dish-price 4.30)
-		(dish-difficulty 6)
-	)
-
-	([egg_tart] of Dessert
-		(dish-name "Egg tart")
-		(dish-classification Chinese Cold Classical Vegetarian Islamic Kosher)
-		(dish-ingredients [wheat_flour] [eggs] [butter] [salt] [milk] [sugar])
-		(dish-combination Chinese Vegetarian Islamic Kosher)
-		(dish-price 3.10)
-		(dish-difficulty 6)
-	)
-
-	([matcha_pudding] of Dessert
-		(dish-name "Matcha pudding")
-		(dish-classification Japanese Cold Modern Islamic Kosher Vegetarian)
-		(dish-ingredients [milk] [sugar] [salt] [eggs] [butter] [whip_cream] [maizena] [matcha_powder])
-		(dish-combination Japanese Vegetarian Islamic Kosher)
-		(dish-price 3.40)
-		(dish-difficulty 6)
-	)
-
-	([stuffed_dates] of Dessert
-		(dish-name "Stuffed dates")
-		(dish-classification Moroccan Vegetarian Cold Classical Islamic Kosher)
-		(dish-ingredients [date] [honey] [cinamon] [sugar] [walnut] [cream_cheese] [almond])
-		(dish-combination  [Moroccan Vegetarian Islamic Kosher])
-		(dish-price 2.50)
-		(dish-difficulty 7)
-	)
-
-	([paal_payasam] of Dessert
-		(dish-name "Paal payasam")
-		(dish-classification Indian Vegetarian Cold Classical Islamic Kosher)
-		(dish-ingredients [rice] [milk] [cardamon_powder] [sugar] [butter] [walnuts] [raisin])
-		(dish-combination Indian Vegetarian Cold Islamic Kosher Turkish)
-		(dish-price 3.80)
-		(dish-difficulty 7)
-	)
-
-	([lemon_parfait] of Dessert
-		(dish-name "Lemon parfait")
-		(dish-classification Gourmet Modern French American Vegetarian Cold)
-		(dish-ingredients [eggs] [sugar] [lemon] [butter] [wheat_flour] [vanilla_extract] [chocolate] [honey] [orange_juice] [plum] [double_cream])
-		(dish-combination Gourmet Spanish Japanese Italian French American Vegetarian )
-		(dish-price 6.50)
-		(dish-difficulty 4)
-	)
-
-	([apple_enchiladas] of Dessert
-		(dish-name "Apple enchiladas")
-		(dish-classification Mexican Vegetarian Islamic Kosher Gluten-free Hot Classical)
-		(dish-ingredients [cinamon] [butter] [sugar] [apple] [tortilla])
-		(dish-combination Mexican Vegetarian Islamic Kosher Gluten-free)
-		(dish-price 3.50)
-		(dish-difficulty 2)
-	)
-
-	([fruit] of Dessert
-		(dish-name "Fruit")
-		(dish-classification Vegetarian Kosher Islamic Spanish Italian French Gluten-free Vegan Lactose-free Mediterranean Cold Classical)
-		(dish-ingredients )
-		(dish-combination All)
-		(dish-price 2.00)
-		(dish-difficulty 1)
-	)
-
-	([banana_muffins] of Dessert
-		(dish-name "Banana muffins")
-		(dish-classification Vegan Vegetarian Kosher Islamic American Modern Cold)
-		(dish-ingredients [vanilla_extract] [banana] [sugar] [vegetable_oil] [baking_powder] [soy_milk_yogurt])
-		(dish-combination Vegan Vegetarian Kosher Islamic American French Italian Spanish Japanese)
-		(dish-price 3.50)
-		(dish-difficulty 5)
-	)
-
-	([chocolate_pots] of Dessert
-		(dish-name "Chocolate pots")
-		(dish-classification Gluten-free Vegetarian Kosher Islamic American French Italian Spanish Japanese Cold Modern Gourmet)
-		(dish-ingredients [sugar] [corn_starch] [milk] [eggs] [vanilla_extract] [chocolate] [cocoa_powder])
-		(dish-combination Gluten-free Vegetarian Kosher Islamic American French Italian Spanish Japanese Gourmet)
-		(dish-price 4.00)
-		(dish-difficulty 4)
-	)
-
-	([strawberry_coconut_milk_ice_cream] of Dessert
-		(dish-name "Strawberry coconut milk ice cream")
-		(dish-classification Vegan Vegetarian Lactose-free Gluten-free Cold Classical Italian Kosher Islamic)
-		(dish-ingredients [strawberry] [banana] [honey] [coconut_milk])
-		(dish-combination All)
-		(dish-price 3.00)
-		(dish-difficulty 2)
-	)
-
-	([yogurt_cake] of Dessert
-		(dish-name "Yogurt cake")
-		(dish-classification Moroccan Kosher Islamic Vegetarian Italian Spanish Classical Cold)
-		(dish-ingredients [eggs] [yogurt] [vegetable_oil] [sugar] [wheat_flour] [baking_powder] [salt] [vanilla_extract])
-		(dish-combination Moroccan Kosher Islamic Vegetarian Italian Spanish French)
-		(dish-price 2.70)
-		(dish-difficulty 1)
-	)
-
-	([chocolate_ice_cream_taco] of Dessert
-		(dish-name "Chocolate ice cream taco")
-		(dish-classification Mexican Islamic Kosher Vegetarian)
-		(dish-ingredients [tortilla] [chocolate_chips] [vanilla_ice_cream] [coconut_oil])
-		(dish-combination Mexican Islamic Kosher American)
-		(dish-price 4.20)
-		(dish-difficulty 4)
 	)
 
 )

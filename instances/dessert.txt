@@ -7,8 +7,8 @@ Orange_cake	[Vegan Lactose-free Vegetarian Mediterranean Moroccan Modern Cold Ko
 Doklova	[Turkish Vegetarian Cold Classical Islamic Kosher]	[[filo] [walnut] [butter] [cinamon] [sugar] [vanilla_extract] [honey]]	[Turkish Vegetarian Islamic Kosher]	4.30	6
 Egg_tart	[Chinese Cold Classical Vegetarian Islamic Kosher]	[[wheat_flour] [eggs] [butter] [salt] [milk] [sugar]]	[Chinese Vegetarian Islamic Kosher]	3.10	6
 Matcha_pudding	[Japanese Cold Modern Islamic Kosher Vegetarian]	[[milk] [sugar] [salt] [eggs] [butter] [whip_cream] [maizena] [matcha_powder]]	[Japanese Vegetarian Islamic Kosher]	3.40	6
-Stuffed_dates	[Moroccan Vegetarian Cold Classical Islamic Kosher]	[[date] [honey] [cinamon] [sugar] [walnut] [cream_cheese] [almond]]	 [Moroccan Vegetarian Islamic Kosher]	2.50	7
-Paal_payasam	[Indian Vegetarian Cold Classical Islamic Kosher]	[[rice] [milk] [cardamon_powder] [sugar] [butter] [walnuts] [raisin]]	[Indian Vegetarian Cold Islamic Kosher Turkish]	3.80	7
+Stuffed_dates	[Moroccan Vegetarian Cold Classical Islamic Kosher]	[[date] [honey] [cinamon] [sugar] [walnut] [cream_cheese] [almonds]]	[Moroccan Vegetarian Islamic Kosher]	2.50	7
+Paal_payasam	[Indian Vegetarian Cold Classical Islamic Kosher]	[[rice] [milk] [cardamon_powder] [sugar] [butter] [walnut] [raisin]]	[Indian Vegetarian Cold Islamic Kosher Turkish]	3.80	7
 Lemon_parfait	[Gourmet Modern French American Vegetarian Cold]	[[eggs] [sugar] [lemon] [butter] [wheat_flour] [vanilla_extract] [chocolate] [honey] [orange_juice] [plum] [double_cream]]	[Gourmet Spanish Japanese Italian French American Vegetarian ]	6.50	4
 Apple_enchiladas	[Mexican Vegetarian Islamic Kosher Gluten-free Hot Classical]	[[cinamon] [butter] [sugar] [apple] [tortilla]]	[Mexican Vegetarian Islamic Kosher Gluten-free]	3.50	2
 Fruit	[Vegetarian Kosher Islamic Spanish Italian French Gluten-free Vegan Lactose-free Mediterranean Cold Classical]	[]	[All]	2.00	1

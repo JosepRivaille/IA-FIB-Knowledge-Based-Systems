@@ -1,4 +1,6 @@
 from sys import stdin, argv
+from os import listdir
+from os.path import isfile, join
 
 def write_attribute_type(attribute, data_type):
 	if data_type == 'STRING':
@@ -14,12 +16,12 @@ def write_attribute_type(attribute, data_type):
 		else:
 			return attribute
 
-def generate_instance(class_name):
+def generate_instance(instances_file):
 	counter = 0
 
-	instances_file = class_name.lower()
+	class_name = build_instance_name(instances_file)
 
-	with open ('instances/' + instances_file + '.txt', 'r') as input_file:
+	with open ('instances/' + instances_file, 'r') as input_file:
 		lines = input_file.readlines()
 		headers = lines[0].rstrip().split('\t')
 		types = lines[1].rstrip().split('\t')
@@ -35,7 +37,6 @@ def generate_instance(class_name):
 				line_list = line.split('\t')
 				line_list[-1] = line_list[-1].rstrip()
 
-				print(line_list[0])
 				assert len(line_list) == len(headers)
 
 				f.write('([' + line_list[0].lower() + '] of ' + class_name)
@@ -54,10 +55,20 @@ def generate_instance(class_name):
 
 	print('Successfully created ' + str(counter) + ' instances of ' + class_name)
 
+
+def build_instance_name(instance):
+	parts = instance.split('.')[0].split('_')
+	instance_name = ''
+	for part in parts:
+		instance_name += part.capitalize()
+	return instance_name
+	
 if __name__ == '__main__':
 	open('rico_rico.pins', 'w').close()
 	open('rico_rico.pins.clp', 'w').close()
 	args = argv[1:]
-	for arg in args:
-		print(arg)
-		generate_instance(arg)
+	
+	instance_files = [f for f in listdir('instances') if isfile(join('instances', f))]
+	for instance_file in instance_files:
+		print(instance_file)
+		generate_instance(instance_file)
