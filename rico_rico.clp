@@ -493,7 +493,7 @@
 	(loop-for-count (?i 1 (length$ ?drinks)) do
 		(assert (generated-menu ?main ?second ?dessert (nth$ ?i ?drinks)))
 	)
-        (retract ?gm)
+  (retract ?gm)
 )
 
 (defrule generate-menu-second-drink ""
@@ -505,7 +505,7 @@
 	(loop-for-count (?i 1 (length$ ?drinks)) do
 		(assert (generated-menu ?main ?second ?dessert ?main-drink (nth$ ?i ?drinks)))
 	)
-        (retract ?gm)
+	(retract ?gm)
 )
 
 (defrule generate-menu-dessert-drink ""
@@ -518,7 +518,7 @@
 	(loop-for-count (?i 1 (length$ ?drinks)) do
 		(assert (generated-menu ?main ?second ?dessert ?main-drink ?second-drink (nth$ ?i ?drinks)))
 	)
-        (retract ?gm)
+  (retract ?gm)
 )
 
 (defrule validate-general-menu ""
@@ -567,7 +567,7 @@
 			)
 		)
 	)
-        (retract ?gm)
+	(retract ?gm)
 )
 
 (defrule check-generated-menus "Checks if enough menus generated"
