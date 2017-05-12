@@ -225,15 +225,30 @@
 )
 
 (deffunction print-menu (?menu ?header)
-	(printout t "*-------------------------------------------------------------------------------------" crlf)
-	(printout t "| " ?header crlf)
-  (printout t "|-------------------------------------------------------------------------------------" crlf)
-  (printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
-  (printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
-  (printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
-  (printout t "| Drink - " (send (send ?menu get-menu-drink) get-drink-name) "." crlf)
-	(printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
-  (printout t "*-------------------------------------------------------------------------------------" crlf)
+        (bind ?single-drink (eq (send ?menu get-menu-drink) nil))
+        (if ?single-drink then
+                (printout t "*-------------------------------------------------------------------------------------" crlf)
+                (printout t "| " ?header crlf)
+                (printout t "|-------------------------------------------------------------------------------------" crlf)
+                (printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
+                (printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
+                (printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
+                (printout t "| Drink - " (send (send ?menu get-menu-drink) get-drink-name) "." crlf)
+                (printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
+                (printout t "*-------------------------------------------------------------------------------------" crlf)
+        else
+                (printout t "*-------------------------------------------------------------------------------------" crlf)
+                (printout t "| " ?header crlf)
+                (printout t "|-------------------------------------------------------------------------------------" crlf)
+                (printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
+                (printout t "| - Drink - " (send (send ?menu get-main-course-drink) get-drink-name) "." crlf)
+                (printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
+                (printout t "| - Drink - " (send (send ?menu get-second-course-drink) get-drink-name) "." crlf)
+                (printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
+                (printout t "| - Drink - " (send (send ?menu get-dessert-drink) get-drink-name) "." crlf)
+                (printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
+                (printout t "*-------------------------------------------------------------------------------------" crlf)
+        )
 )
 
 ;%%%%%
@@ -334,7 +349,7 @@
 
 ;%%%%%
 ;%
-;% RECOMENDATION RULES
+;% FILTER RULES
 ;%
 ;%%%%%
 
@@ -412,7 +427,14 @@
 	(assert (drinks ready ?drinks))
 )
 
-(defrule generate-menu-with-main ""
+;%%%%%
+;%
+;% RECOMENDATION RULES
+;%
+;%%%%%
+
+(defrule generate-menu-with-main "Creates menu fact with first course"
+        (declare (salience -11))
 	(main-courses ready $?main-courses)
 	=>
 	(loop-for-count (?i 1 (length$ ?main-courses)) do
@@ -420,7 +442,8 @@
 	)
 )
 
-(defrule add-second-to-menu ""
+(defrule add-second-to-menu "Adds fact with first and second courses"
+        (declare (salience -11))
 	(second-courses ready $?second-courses)
 	?gm <- (generated-menu ?main)
 	=>
@@ -432,7 +455,8 @@
 	(retract ?gm)
 )
 
-(defrule add-dessert-to-menu ""
+(defrule add-dessert-to-menu "Adds fact with first course, second course and dessert"
+        (declare (salience -11))
 	(desserts ready $?desserts)
 	?gm <- (generated-menu ?main ?second)
 	=>
@@ -448,7 +472,8 @@
 	(retract ?gm)
 )
 
-(defrule generate-menu-drink ""
+(defrule generate-menu-drink "Adds drink to previous menu facts"
+        (declare (salience -11))
 	(not (event drink-per-dish ?))
 	(drinks ready $?drinks)
 	?gm <- (generated-menu ?main ?second ?dessert)
@@ -460,37 +485,44 @@
 )
 
 (defrule generate-menu-main-drink ""
+        (declare (salience -11))
 	(event drink-per-dish ?)
 	(drinks ready $?drinks)
-	(generated-menu ?main ?second ?dessert)
+	?gm <- (generated-menu ?main ?second ?dessert)
 	=>
 	(loop-for-count (?i 1 (length$ ?drinks)) do
 		(assert (generated-menu ?main ?second ?dessert (nth$ ?i ?drinks)))
 	)
+        (retract ?gm)
 )
 
 (defrule generate-menu-second-drink ""
+        (declare (salience -11))
 	(event drink-per-dish ?)
 	(drinks ready $?drinks)
-	(generated-menu ?main ?second ?dessert ?main-drink)
+	?gm <- (generated-menu ?main ?second ?dessert ?main-drink)
 	=>
 	(loop-for-count (?i 1 (length$ ?drinks)) do
 		(assert (generated-menu ?main ?second ?dessert ?main-drink (nth$ ?i ?drinks)))
 	)
+        (retract ?gm)
 )
 
 (defrule generate-menu-dessert-drink ""
+        (declare (salience -11))
 	(event drink-per-dish ?)
 	(event drink-per-dish ?)
 	(drinks ready $?drinks)
-	(generated-menu ?main ?second ?dessert ?main-drink ?second-drink)
+	?gm <- (generated-menu ?main ?second ?dessert ?main-drink ?second-drink)
 	=>
 	(loop-for-count (?i 1 (length$ ?drinks)) do
 		(assert (generated-menu ?main ?second ?dessert ?main-drink ?second-drink (nth$ ?i ?drinks)))
 	)
+        (retract ?gm)
 )
 
 (defrule validate-general-menu ""
+        (declare (salience -11))
 	(not (event drink-per-dish ?))
 	(event price_min ?price-min)
 	(event price_max ?price-max)
@@ -507,16 +539,16 @@
 				(menu-price ?total-price)
 			)
 		)
-		(assert (generated-menus ready ?ins))
 	)
 	(retract ?gm)
 )
 
 (defrule validate-drink-per-dish-menu ""
-	(event drink-per-dish ?)
+	(declare (salience -11))
+        (event drink-per-dish ?)
 	(event price_min ?price-min)
 	(event price_max ?price-max)
-	(generated-menu ?main ?second ?dessert ?main-drink ?second-drink ?dessert-drink)
+	?gm <- (generated-menu ?main ?second ?dessert ?main-drink ?second-drink ?dessert-drink)
 	=>
 	(bind ?total-price (+
 		(calculate-price-drinks ?main-drink ?second-drink ?dessert-drink)
@@ -534,18 +566,20 @@
 				(menu-price ?total-price)
 			)
 		)
-		;(print-menu ?ins "Guapamente tio")
 	)
+        (retract ?gm)
 )
 
 (defrule check-generated-menus "Checks if enough menus generated"
+        (declare (salience -12))
 	(not (generated-menu ? ? ? ?))
-	(generated-menus ready $?menus)
-	=>
+        (not (generated-menu ? ? ? ? ? ?))
+        =>
+        (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
 	(if (>= (length$ ?menus) 3) then
-		(assert (generated-menus low-menu TRUE))
-		(assert (generated-menus medium-menu TRUE))
-		(assert (generated-menus high-menu TRUE))
+		(assert (generated-menus low-menu ?menus))
+		(assert (generated-menus medium-menu ?menus))
+		(assert (generated-menus high-menu ?menus))
 	else
 		(printout t "| Not enough matching dishes to generate 3 different menus." crlf)
 		(if (= (length$ ?menus) 0) then
@@ -559,22 +593,19 @@
 )
 
 (defrule generate-low-price-menu "Generate low price menu"
-	(generated-menus ready $?menus)
-	(generated-menus low-menu ?)
+	(generated-menus low-menu $?menus)
 	=>
 	(assert (low-menu ready (get-minimum-menu-price ?menus)))
 )
 
 (defrule generate-medium-price-menu "Generate medium price menu"
-	(generated-menus ready $?menus)
-	(generated-menus medium-menu ?)
+	(generated-menus medium-menu $?menus)
 	=>
 	(assert (medium-menu ready (nth (+ (mod (random) (length$ ?menus)) 1) ?menus)))
 )
 
 (defrule generate-high-price-menu "Generates higher price menu"
-	(generated-menus ready $?menus)
-	(generated-menus high-menu ?)
+	(generated-menus high-menu $?menus)
 	=>
 	(assert (high-menu ready (get-maximum-menu-price ?menus)))
 )
@@ -585,7 +616,7 @@
 	=>
 	(loop-for-count (?i 1 (length$ ?menus)) do
 		(print-menu (nth$ ?i ?menus) "Menu")
-	)
+        )
 )
 
 (defrule print-recomendations "Prints three recommended menus"
@@ -615,5 +646,5 @@
 	(printout t "|  / '==| :: |=='  <  /" crlf)
 	(printout t "| /  \\  <    >  /____/" crlf)
 	(printout t "|/  _/\\ | :: | /" crlf)
-	(printout t "*-------------------------------------------------------------------------------------")
+	(printout t "*-------------------------------------------------------------------------------------" crlf)
 )
