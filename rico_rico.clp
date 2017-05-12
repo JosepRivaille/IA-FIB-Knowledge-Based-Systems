@@ -414,7 +414,6 @@
 
 (defrule generate-menu-with-main ""
 	(main-courses ready $?main-courses)
-	(not (generated-menu ?))
 	=>
 	(loop-for-count (?i 1 (length$ ?main-courses)) do
 		(assert (generated-menu (nth$ ?i ?main-courses)))
@@ -423,18 +422,19 @@
 
 (defrule add-second-to-menu ""
 	(second-courses ready $?second-courses)
-	(generated-menu ?main)
+	?gm <- (generated-menu ?main)
 	=>
 	(loop-for-count (?i 1 (length$ ?second-courses)) do
 		(if (are-different-and-combine ?main (nth$ ?i ?second-courses)) then
 			(assert (generated-menu ?main (nth$ ?i ?second-courses)))
 		)
 	)
+	(retract ?gm)
 )
 
 (defrule add-dessert-to-menu ""
 	(desserts ready $?desserts)
-	(generated-menu ?main ?second)
+	?gm <- (generated-menu ?main ?second)
 	=>
 	(loop-for-count (?i 1 (length$ ?desserts)) do
 		(if
@@ -445,16 +445,18 @@
 			(assert (generated-menu ?main ?second (nth$ ?i ?desserts)))
 		)
 	)
+	(retract ?gm)
 )
 
 (defrule generate-menu-drink ""
 	(not (event drink-per-dish ?))
 	(drinks ready $?drinks)
-	(generated-menu ?main ?second ?dessert)
+	?gm <- (generated-menu ?main ?second ?dessert)
 	=>
 	(loop-for-count (?i 1 (length$ ?drinks)) do
 		(assert (generated-menu ?main ?second ?dessert (nth$ ?i ?drinks)))
 	)
+	(retract ?gm)
 )
 
 (defrule generate-menu-main-drink ""
@@ -492,7 +494,7 @@
 	(not (event drink-per-dish ?))
 	(event price_min ?price-min)
 	(event price_max ?price-max)
-	(generated-menu ?main ?second ?dessert ?drink)
+	?gm <- (generated-menu ?main ?second ?dessert ?drink)
 	=>
 	(bind ?total-price (+ (calculate-price-drinks ?drink) (calculate-price-dishes ?main ?second ?dessert)))
 	(if (and (>= ?total-price ?price-min) (<= ?total-price ?price-max)) then
@@ -505,8 +507,9 @@
 				(menu-price ?total-price)
 			)
 		)
-		(print-menu ?ins "Guapamente tio")
+		(assert (generated-menus ready ?ins))
 	)
+	(retract ?gm)
 )
 
 (defrule validate-drink-per-dish-menu ""
@@ -536,6 +539,7 @@
 )
 
 (defrule check-generated-menus "Checks if enough menus generated"
+	(not (generated-menu ? ? ? ?))
 	(generated-menus ready $?menus)
 	=>
 	(if (>= (length$ ?menus) 3) then
