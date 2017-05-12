@@ -8,4 +8,3 @@
 (load rico_rico.clp)
 
 (run)
-(exit)

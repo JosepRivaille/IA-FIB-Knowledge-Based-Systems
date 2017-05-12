@@ -159,6 +159,7 @@
 		(drink-price 1.20)
 		(drink-classification Other)
 		(drink-combination All)
+		(drink-type M S G)
 	)
 
 	([beer] of Drink
@@ -166,6 +167,7 @@
 		(drink-price 2.50)
 		(drink-classification Alcohol)
 		(drink-combination All)
+		(drink-type M S G)
 	)
 
 	([la_rioja_alta_gran_reserva_1995] of Drink
@@ -173,6 +175,7 @@
 		(drink-price 195.00)
 		(drink-classification Alcohol)
 		(drink-combination All)
+		(drink-type M S G)
 	)
 
 	([glorioso_crianza_magnum_2013] of Drink
@@ -180,6 +183,7 @@
 		(drink-price 11.65)
 		(drink-classification Alcohol)
 		(drink-combination All)
+		(drink-type M S G)
 	)
 
 	([la_vicalanda_gran_reserva_2010] of Drink
@@ -187,6 +191,7 @@
 		(drink-price 45.95)
 		(drink-classification Alcohol)
 		(drink-combination All)
+		(drink-type M S G)
 	)
 
 	([white_wine] of Drink
@@ -194,6 +199,7 @@
 		(drink-price 10.50)
 		(drink-classification Alcohol)
 		(drink-combination All)
+		(drink-type M S G)
 	)
 
 	([tequila] of Drink
@@ -201,6 +207,7 @@
 		(drink-price 14.59)
 		(drink-classification Alcohol)
 		(drink-combination All)
+		(drink-type D)
 	)
 
 	([sangria] of Drink
@@ -208,6 +215,7 @@
 		(drink-price 10.99)
 		(drink-classification Alcohol)
 		(drink-combination All)
+		(drink-type M S G)
 	)
 
 	([whisky_glengarry_12_years] of Drink
@@ -215,6 +223,7 @@
 		(drink-price 40.45)
 		(drink-classification Alcohol)
 		(drink-combination All)
+		(drink-type D)
 	)
 
 	([ron_barcelo_imperial] of Drink
@@ -222,6 +231,7 @@
 		(drink-price 30.25)
 		(drink-classification Alcohol)
 		(drink-combination All)
+		(drink-type D)
 	)
 
 	([juice] of Drink
@@ -229,6 +239,7 @@
 		(drink-price 1.30)
 		(drink-classification Juice)
 		(drink-combination All)
+		(drink-type M S)
 	)
 
 	([black_coffee] of Drink
@@ -236,6 +247,7 @@
 		(drink-price 2.10)
 		(drink-classification Caffeine)
 		(drink-combination All)
+		(drink-type D)
 	)
 
 	([coffee_milk] of Drink
@@ -243,6 +255,7 @@
 		(drink-price 2.20)
 		(drink-classification Caffeine)
 		(drink-combination All)
+		(drink-type D)
 	)
 
 	([iced_coffee] of Drink
@@ -250,6 +263,7 @@
 		(drink-price 2.10)
 		(drink-classification Caffeine)
 		(drink-combination All)
+		(drink-type D)
 	)
 
 	([hot_chocolate] of Drink
@@ -257,6 +271,7 @@
 		(drink-price 2.00)
 		(drink-classification Other)
 		(drink-combination All)
+		(drink-type D)
 	)
 
 	([tea] of Drink
@@ -264,6 +279,7 @@
 		(drink-price 1.70)
 		(drink-classification Other)
 		(drink-combination All)
+		(drink-type D)
 	)
 
 	([iced_tea] of Drink
@@ -271,6 +287,7 @@
 		(drink-price 1.70)
 		(drink-classification Other)
 		(drink-combination All)
+		(drink-type D)
 	)
 
 	([infusion] of Drink
@@ -278,6 +295,7 @@
 		(drink-price 1.70)
 		(drink-classification Other)
 		(drink-combination All)
+		(drink-type D)
 	)
 
 	([soft_drink] of Drink
@@ -285,6 +303,7 @@
 		(drink-price 1.50)
 		(drink-classification Other)
 		(drink-combination All)
+		(drink-type D)
 	)
 
 	([cocktail] of Drink
@@ -292,6 +311,7 @@
 		(drink-price 3.50)
 		(drink-classification Alcohol)
 		(drink-combination All)
+		(drink-type D)
 	)
 
 )

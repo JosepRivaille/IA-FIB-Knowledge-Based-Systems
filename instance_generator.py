@@ -62,13 +62,15 @@ def build_instance_name(instance):
 	for part in parts:
 		instance_name += part.capitalize()
 	return instance_name
-	
+
 if __name__ == '__main__':
 	open('rico_rico.pins', 'w').close()
 	open('rico_rico.pins.clp', 'w').close()
 	args = argv[1:]
-	
+
 	instance_files = [f for f in listdir('instances') if isfile(join('instances', f))]
 	for instance_file in instance_files:
+		if instance_file[0] is '.':
+			continue
 		print(instance_file)
 		generate_instance(instance_file)

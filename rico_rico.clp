@@ -224,31 +224,30 @@
   )
 )
 
-(deffunction print-menu (?menu ?header)
-        (bind ?single-drink (eq (send ?menu get-menu-drink) nil))
-        (if ?single-drink then
-                (printout t "*-------------------------------------------------------------------------------------" crlf)
-                (printout t "| " ?header crlf)
-                (printout t "|-------------------------------------------------------------------------------------" crlf)
-                (printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
-                (printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
-                (printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
-                (printout t "| Drink - " (send (send ?menu get-menu-drink) get-drink-name) "." crlf)
-                (printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
-                (printout t "*-------------------------------------------------------------------------------------" crlf)
-        else
-                (printout t "*-------------------------------------------------------------------------------------" crlf)
-                (printout t "| " ?header crlf)
-                (printout t "|-------------------------------------------------------------------------------------" crlf)
-                (printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
-                (printout t "| - Drink - " (send (send ?menu get-main-course-drink) get-drink-name) "." crlf)
-                (printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
-                (printout t "| - Drink - " (send (send ?menu get-second-course-drink) get-drink-name) "." crlf)
-                (printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
-                (printout t "| - Drink - " (send (send ?menu get-dessert-drink) get-drink-name) "." crlf)
-                (printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
-                (printout t "*-------------------------------------------------------------------------------------" crlf)
-        )
+(deffunction print-menu (?menu ?header ?drink-per-dish)
+  (if ?drink-per-dish then
+		(printout t "*-------------------------------------------------------------------------------------" crlf)
+		(printout t "| " ?header crlf)
+		(printout t "|-------------------------------------------------------------------------------------" crlf)
+		(printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
+		(printout t "| - Drink - " (send (send ?menu get-main-course-drink) get-drink-name) "." crlf)
+		(printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
+		(printout t "| - Drink - " (send (send ?menu get-second-course-drink) get-drink-name) "." crlf)
+		(printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
+		(printout t "| - Drink - " (send (send ?menu get-dessert-drink) get-drink-name) "." crlf)
+		(printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
+		(printout t "*-------------------------------------------------------------------------------------" crlf)
+	else
+		(printout t "*-------------------------------------------------------------------------------------" crlf)
+		(printout t "| " ?header crlf)
+		(printout t "|-------------------------------------------------------------------------------------" crlf)
+		(printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
+		(printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
+		(printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
+		(printout t "| Drink - " (send (send ?menu get-menu-drink) get-drink-name) "." crlf)
+		(printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
+		(printout t "*-------------------------------------------------------------------------------------" crlf)
+  )
 )
 
 ;%%%%%
@@ -371,7 +370,7 @@
 		; Filter difficulty
 		(is-easy-enough ?guests ?ins:dish-difficulty)
   )))
-	(assert (main-courses ready ?main-courses))
+	(assert (main-courses ?main-courses))
 )
 
 (defrule get-possible-second-courses "Filters forbbiden second courses"
@@ -392,7 +391,7 @@
 		; Filter difficulty
 		(is-easy-enough ?guests ?ins:dish-difficulty)
   )))
-	(assert (second-courses ready ?second-courses))
+	(assert (second-courses ?second-courses))
 )
 
 (defrule get-possible-desserts "Filters forbbiden desserts"
@@ -413,7 +412,7 @@
 			; Filter difficulty
 			(is-easy-enough ?guests ?ins:dish-difficulty)
 	)))
-	(assert (desserts ready ?desserts))
+	(assert (desserts ?desserts))
 )
 
 (defrule get-possible-drink "Filters forbbiden drinks"
@@ -424,7 +423,24 @@
   	; Filter non-desired drink types
 		(or (eq ?drink-types (create$ none)) (not (collection-contains-alo-element ?drink-types ?ins:drink-classification)))
 	))
-	(assert (drinks ready ?drinks))
+	(bind ?main-drinks (create$))
+	(bind ?second-drinks (create$))
+	(bind ?dessert-drinks (create$))
+	(bind ?general-drinks (create$))
+	(loop-for-count (?i 1 (length$ ?drinks)) do
+		(progn$ (?type (send (nth$ ?i ?drinks) get-drink-type))
+			(switch ?type
+				(case M then (bind ?main-drinks (insert$ ?main-drinks (+ (length$ ?main-drinks) 1) (nth$ ?i ?drinks))))
+				(case S then (bind ?second-drinks (insert$ ?second-drinks (+ (length$ ?second-drinks) 1) (nth$ ?i ?drinks))))
+				(case D then (bind ?dessert-drinks (insert$ ?dessert-drinks (+ (length$ ?dessert-drinks) 1) (nth$ ?i ?drinks))))
+				(case G then (bind ?general-drinks (insert$ ?general-drinks (+ (length$ ?general-drinks) 1) (nth$ ?i ?drinks))))
+			)
+		)
+	)
+	(assert (main-drinks ?main-drinks))
+	(assert (second-drinks ?second-drinks))
+	(assert (dessert-drinks ?dessert-drinks))
+	(assert (general-drinks ?general-drinks))
 )
 
 ;%%%%%
@@ -434,8 +450,8 @@
 ;%%%%%
 
 (defrule generate-menu-with-main "Creates menu fact with first course"
-        (declare (salience -11))
-	(main-courses ready $?main-courses)
+  (declare (salience -11))
+	(main-courses $?main-courses)
 	=>
 	(loop-for-count (?i 1 (length$ ?main-courses)) do
 		(assert (generated-menu (nth$ ?i ?main-courses)))
@@ -443,8 +459,8 @@
 )
 
 (defrule add-second-to-menu "Adds fact with first and second courses"
-        (declare (salience -11))
-	(second-courses ready $?second-courses)
+  (declare (salience -11))
+	(second-courses $?second-courses)
 	?gm <- (generated-menu ?main)
 	=>
 	(loop-for-count (?i 1 (length$ ?second-courses)) do
@@ -456,8 +472,8 @@
 )
 
 (defrule add-dessert-to-menu "Adds fact with first course, second course and dessert"
-        (declare (salience -11))
-	(desserts ready $?desserts)
+  (declare (salience -11))
+	(desserts $?desserts)
 	?gm <- (generated-menu ?main ?second)
 	=>
 	(loop-for-count (?i 1 (length$ ?desserts)) do
@@ -473,9 +489,9 @@
 )
 
 (defrule generate-menu-drink "Adds drink to previous menu facts"
-        (declare (salience -11))
+  (declare (salience -11))
 	(not (event drink-per-dish ?))
-	(drinks ready $?drinks)
+	(general-drinks $?drinks)
 	?gm <- (generated-menu ?main ?second ?dessert)
 	=>
 	(loop-for-count (?i 1 (length$ ?drinks)) do
@@ -485,9 +501,9 @@
 )
 
 (defrule generate-menu-main-drink ""
-        (declare (salience -11))
+  (declare (salience -11))
 	(event drink-per-dish ?)
-	(drinks ready $?drinks)
+	(main-drinks $?drinks)
 	?gm <- (generated-menu ?main ?second ?dessert)
 	=>
 	(loop-for-count (?i 1 (length$ ?drinks)) do
@@ -497,9 +513,9 @@
 )
 
 (defrule generate-menu-second-drink ""
-        (declare (salience -11))
+  (declare (salience -11))
 	(event drink-per-dish ?)
-	(drinks ready $?drinks)
+	(second-drinks $?drinks)
 	?gm <- (generated-menu ?main ?second ?dessert ?main-drink)
 	=>
 	(loop-for-count (?i 1 (length$ ?drinks)) do
@@ -509,10 +525,10 @@
 )
 
 (defrule generate-menu-dessert-drink ""
-        (declare (salience -11))
+  (declare (salience -11))
 	(event drink-per-dish ?)
 	(event drink-per-dish ?)
-	(drinks ready $?drinks)
+	(dessert-drinks $?drinks)
 	?gm <- (generated-menu ?main ?second ?dessert ?main-drink ?second-drink)
 	=>
 	(loop-for-count (?i 1 (length$ ?drinks)) do
@@ -522,7 +538,7 @@
 )
 
 (defrule validate-general-menu ""
-        (declare (salience -11))
+  (declare (salience -11))
 	(not (event drink-per-dish ?))
 	(event price_min ?price-min)
 	(event price_max ?price-max)
@@ -615,8 +631,8 @@
 	(generated-menus all-menus ?)
 	=>
 	(loop-for-count (?i 1 (length$ ?menus)) do
-		(print-menu (nth$ ?i ?menus) "Menu")
-        )
+		(assert (printable-menu (nth$ ?i ?menus) "Menu"))
+  )
 )
 
 (defrule print-recomendations "Prints three recommended menus"
@@ -624,10 +640,23 @@
 	(medium-menu ready ?medium-menu)
 	(high-menu ready ?high-menu)
 	=>
-	(print-menu ?low-menu "Cheap menu")
-	(print-menu ?medium-menu "Normal menu")
-	(print-menu ?high-menu "Expensive menu")
-	(assert (menus printed TRUE))
+	(assert (printable-menu ?high-menu "Expensive menu"))
+	(assert (printable-menu ?medium-menu "Medium menu"))
+	(assert (printable-menu ?low-menu "Cheap menu"))
+)
+
+(defrule print-menu-single-drink ""
+	(not (event drink-per-dish ?))
+	(printable-menu ?menu ?header)
+	=>
+	(print-menu ?menu ?header FALSE)
+)
+
+(defrule print-menu-drink-per-dish ""
+	(event drink-per-dish ?)
+	(printable-menu ?menu ?header)
+	=>
+	(print-menu ?menu ?header TRUE)
 )
 
 (defrule print-bon-appetit "Elegant ASCII draw"
