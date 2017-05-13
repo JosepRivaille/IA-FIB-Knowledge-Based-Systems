@@ -602,8 +602,7 @@
 			(printout t "*-------------------------------------------------------------------------------------" crlf)
 		else
 			(printout t "| Generated menus will be listed below." crlf)
-			(assert (generated-menus all-menus TRUE))
-			(assert (menus printed TRUE))
+			(assert (generated-menus all-menus ?menus))
 		)
 	)
 )
@@ -611,56 +610,61 @@
 (defrule generate-low-price-menu "Generate low price menu"
 	(generated-menus low-menu $?menus)
 	=>
-	(assert (low-menu ready (get-minimum-menu-price ?menus)))
+	(assert (cheap-menu (get-minimum-menu-price ?menus)))
 )
 
 (defrule generate-medium-price-menu "Generate medium price menu"
 	(generated-menus medium-menu $?menus)
 	=>
-	(assert (medium-menu ready (nth (+ (mod (random) (length$ ?menus)) 1) ?menus)))
+	(assert (medium-menu (nth (+ (mod (random) (length$ ?menus)) 1) ?menus)))
 )
 
 (defrule generate-high-price-menu "Generates higher price menu"
 	(generated-menus high-menu $?menus)
 	=>
-	(assert (high-menu ready (get-maximum-menu-price ?menus)))
+	(assert (expensive-menu (get-maximum-menu-price ?menus)))
 )
 
 (defrule print-all-menu "Prints all menus"
-	(generated-menus ready $?menus)
-	(generated-menus all-menus ?)
+	(generated-menus all-menus $?menus)
 	=>
 	(loop-for-count (?i 1 (length$ ?menus)) do
 		(assert (printable-menu (nth$ ?i ?menus) "Menu"))
   )
+	(declare (salience -13))
 )
 
 (defrule print-recomendations "Prints three recommended menus"
-	(low-menu ready ?low-menu)
-	(medium-menu ready ?medium-menu)
-	(high-menu ready ?high-menu)
+	(cheap-menu ?cheap-menu)
+	(medium-menu ?medium-menu)
+	(expensive-menu ?expensive-menu)
 	=>
-	(assert (printable-menu ?high-menu "Expensive menu"))
+	(assert (printable-menu ?expensive-menu "Expensive menu"))
 	(assert (printable-menu ?medium-menu "Medium menu"))
-	(assert (printable-menu ?low-menu "Cheap menu"))
+	(assert (printable-menu ?cheap-menu "Cheap menu"))
 )
 
 (defrule print-menu-single-drink ""
+	(declare (salience -13))
 	(not (event drink-per-dish ?))
 	(printable-menu ?menu ?header)
 	=>
 	(print-menu ?menu ?header FALSE)
+	(assert (printed TRUE))
 )
 
 (defrule print-menu-drink-per-dish ""
+	(declare (salience -13))
 	(event drink-per-dish ?)
 	(printable-menu ?menu ?header)
 	=>
 	(print-menu ?menu ?header TRUE)
+	(assert (printed TRUE))
 )
 
 (defrule print-bon-appetit "Elegant ASCII draw"
-	(menus printed ?)
+	(declare (salience -14))
+	(printed ?)
 	=>
 	(printout t "|                  ___/___/" crlf)
   (printout t "|                  \\,/ \\,/" crlf)
