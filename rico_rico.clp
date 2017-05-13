@@ -26,7 +26,7 @@
 	(printout t "| > " ?question crlf "| ")
 	(bind ?answer (read))
 	(bind ?allowed-values (create$ Yes No yes no Y N y n))
-	(while (not (member ?answer ?allowed-values)) do
+	(while (not (member$ ?answer ?allowed-values)) do
 		(printout t "| > " ?question crlf "| ")
 		(bind ?answer (read))
 	)
@@ -40,7 +40,7 @@
 (deffunction ask-question-opt (?question ?allowed-values)
   (printout t "| > " ?question ?allowed-values crlf "| ")
   (bind ?answer (read))
-  (while (not (member ?answer ?allowed-values)) do
+  (while (not (member$ ?answer ?allowed-values)) do
     (printout t "| > " ?question crlf "| ")
     (bind ?answer (read))
 	)
@@ -138,17 +138,6 @@
 	TRUE
 )
 
-(deffunction collection-contains-any-element (?elements ?collection)
-	(loop-for-count (?i 1 (length$ ?elements)) do
-		(loop-for-count (?j 1 (length$ ?collection)) do
-			(if (eq (nth$ ?i ?elements) (nth$ ?j ?collection)) then
-				(return TRUE)
-			)
-		)
-	)
-	FALSE
-)
-
 (deffunction calculate-price-drinks ($?elements)
 	(bind ?price 0.0)
 	(loop-for-count (?i 1 (length$ ?elements))
@@ -165,31 +154,11 @@
 	?price
 )
 
-(deffunction get-minimum-menu-price (?menus)
-	(bind ?min-index 1)
-	(loop-for-count (?i 2 (length$ ?menus)) do
-		(if (< (send (nth$ ?i ?menus) get-menu-price) (send (nth$ ?min-index ?menus) get-menu-price)) then
-			(bind ?min-index ?i)
-		)
-	)
-	(nth$ ?min-index ?menus)
-)
-
-(deffunction get-maximum-menu-price (?menus)
-	(bind ?max-index 1)
-	(loop-for-count (?i 2 (length$ ?menus)) do
-		(if (> (send (nth$ ?i ?menus) get-menu-price) (send (nth$ ?max-index ?menus) get-menu-price)) then
-			(bind ?max-index ?i)
-		)
-	)
-	(nth$ ?max-index ?menus)
-)
-
 (deffunction are-different-and-combine (?first-dish ?second-dish)
 	(if (not (eq (send ?first-dish get-dish-name) (send ?second-dish get-dish-name))) then
 		(if (and
-			(collection-contains-any-element (send ?first-dish get-dish-combination) (send ?second-dish get-dish-classification))
-			(collection-contains-any-element (send ?second-dish get-dish-combination) (send ?first-dish get-dish-classification))
+			(collection-contains-alo-element (send ?first-dish get-dish-combination) (send ?second-dish get-dish-classification))
+			(collection-contains-alo-element (send ?second-dish get-dish-combination) (send ?first-dish get-dish-classification))
 		) then
 			(return TRUE)
 		)
@@ -216,12 +185,56 @@
 	TRUE
 )
 
-(deffunction print-dishes (?dishes)
-  (loop-for-count (?i 1 (length$ ?dishes)) do
-    (printout t "| - Name: " (send (nth$ ?i ?dishes) get-dish-name) "." crlf)
-    (printout t "| - Ingredients: " (send (nth$ ?i ?dishes) get-dish-ingredients) "." crlf)
-    (printout t "| - Price: " (send (nth$ ?i ?dishes) get-dish-price) "." crlf)
-  )
+(deffunction heuristic-variety-main-second (?main-classification ?second-classification)
+	(bind ?score 50)
+	(loop-for-count (?i 1 (length$ ?main-classification))
+		(if (member$ (nth$ ?i ?main-classification) ?second-classification) then
+			(bind ?score (- ?score 3))
+		)
+	)
+	(max ?score 0)
+)
+
+(deffunction heuristic-healthy (?menu)
+	30
+)
+
+(deffunction heuristic-variety-nutrition (?menu)
+	20
+)
+
+(deffunction calculate-menu-score (?menu)
+	(bind ?main-classification (send (send ?menu get-main-course) get-dish-classification))
+	(bind ?second-classification (send (send ?menu get-second-course) get-dish-classification))
+	(+
+		(heuristic-variety-main-second ?main-classification ?second-classification)
+		(heuristic-healthy ?menu)
+		(heuristic-variety-nutrition ?menu)
+	)
+)
+
+(deffunction calculate-dpd-menu-score (?menu)
+	(calculate-menu-score ?menu)
+)
+
+(deffunction calculate-menu-valoration (?menu ?price-factor ?score-factor)
+	(-
+		(* (send ?menu get-menu-score) ?score-factor)
+		(* (send ?menu get-menu-price) ?price-factor)
+	)
+)
+
+(deffunction get-menu-valoration (?menus ?price-factor ?score-factor)
+	(bind ?best-index 1)
+	(bind ?best-value (calculate-menu-valoration (nth$ 1 ?menus) ?price-factor ?score-factor))
+	(loop-for-count (?i 2 (length$ ?menus)) do
+		(bind ?value (calculate-menu-valoration (nth$ ?i ?menus) ?price-factor ?score-factor))
+		(if (< ?value ?best-value) then
+			(bind ?best-index ?i)
+			(bind ?best-value ?value)
+		)
+	)
+	(nth$ ?best-index ?menus)
 )
 
 (deffunction print-menu (?menu ?header ?drink-per-dish)
@@ -555,6 +568,7 @@
 				(menu-price ?total-price)
 			)
 		)
+		(send ?ins put-menu-score (calculate-menu-score ?ins))
 	)
 	(retract ?gm)
 )
@@ -582,6 +596,7 @@
 				(menu-price ?total-price)
 			)
 		)
+		(send ?ins put-menu-score (calculate-dpd-menu-score ?ins))
 	)
 	(retract ?gm)
 )
@@ -610,28 +625,28 @@
 (defrule generate-low-price-menu "Generate low price menu"
 	(generated-menus low-menu $?menus)
 	=>
-	(assert (cheap-menu (get-minimum-menu-price ?menus)))
+	(assert (cheap-menu (get-menu-valoration ?menus 0.9 0.1)))
 )
 
 (defrule generate-medium-price-menu "Generate medium price menu"
 	(generated-menus medium-menu $?menus)
 	=>
-	(assert (medium-menu (nth (+ (mod (random) (length$ ?menus)) 1) ?menus)))
+	(assert (medium-menu (get-menu-valoration ?menus 0.7 0.3)))
 )
 
 (defrule generate-high-price-menu "Generates higher price menu"
 	(generated-menus high-menu $?menus)
 	=>
-	(assert (expensive-menu (get-maximum-menu-price ?menus)))
+	(assert (expensive-menu (get-menu-valoration ?menus 0.5 0.5)))
 )
 
 (defrule print-all-menu "Prints all menus"
+	(declare (salience -13))
 	(generated-menus all-menus $?menus)
 	=>
 	(loop-for-count (?i 1 (length$ ?menus)) do
 		(assert (printable-menu (nth$ ?i ?menus) "Menu"))
   )
-	(declare (salience -13))
 )
 
 (defrule print-recomendations "Prints three recommended menus"

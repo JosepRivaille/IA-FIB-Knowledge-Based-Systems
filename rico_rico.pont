@@ -189,6 +189,11 @@
 ;+		(allowed-classes Dessert)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(single-slot menu-score
+		(type FLOAT)
+		(range 0.0 100.0)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot second-course
 		(type INSTANCE)
 ;+		(allowed-classes SecondCourse)
