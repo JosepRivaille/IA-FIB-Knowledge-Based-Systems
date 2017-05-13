@@ -20,5 +20,3 @@ Iced_Tea	1.70	[Other]	[All]	[D]
 Infusion	1.70	[Other]	[All]	[D]
 Soft_drink	1.50	[Other]	[American]	[D]
 Cocktail	3.50	[Alcohol]	[All]	[D]
-
-

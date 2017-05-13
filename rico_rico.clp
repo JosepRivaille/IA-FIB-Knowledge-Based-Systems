@@ -561,7 +561,7 @@
 
 (defrule validate-drink-per-dish-menu ""
 	(declare (salience -11))
-        (event drink-per-dish ?)
+  (event drink-per-dish ?)
 	(event price_min ?price-min)
 	(event price_max ?price-max)
 	?gm <- (generated-menu ?main ?second ?dessert ?main-drink ?second-drink ?dessert-drink)
@@ -587,11 +587,11 @@
 )
 
 (defrule check-generated-menus "Checks if enough menus generated"
-        (declare (salience -12))
+  (declare (salience -12))
 	(not (generated-menu ? ? ? ?))
-        (not (generated-menu ? ? ? ? ? ?))
-        =>
-        (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
+  (not (generated-menu ? ? ? ? ? ?))
+  =>
+  (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
 	(if (>= (length$ ?menus) 3) then
 		(assert (generated-menus low-menu ?menus))
 		(assert (generated-menus medium-menu ?menus))
