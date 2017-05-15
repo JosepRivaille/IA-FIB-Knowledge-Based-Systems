@@ -195,8 +195,13 @@
 	(max ?score 0)
 )
 
-(deffunction heuristic-healthy (?menu)
-	30
+(deffunction heuristic-healthy (?menu) "Decrese the heuristic if the food contains more calories and fats"
+	(bind ?ingredients (send (send ?menu get-main-course) get-dish-ingredients))
+        (bind ?healty-range 0)
+        (loop-for-count (?i 1) (length$ ?ingredients) do
+                (bind ?healty-range (- ?healty-range (send (nth$ ?i ?ingredients) get-calories) (send (nth$ ?i ?ingredients) get-fat)))
+        )
+        (min ?healty-range 0)
 )
 
 (deffunction heuristic-variety-nutrition (?menu)
