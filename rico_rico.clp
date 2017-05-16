@@ -199,14 +199,28 @@
 	(bind ?ingredients (send (send ?menu get-main-course) get-dish-ingredients))
         (bind ?healty-range 0)
         (loop-for-count (?i 1) (length$ ?ingredients) do
-                (bind ?healty-range (- ?healty-range (send (nth$ ?i ?ingredients) get-calories) (send (nth$ ?i ?ingredients) get-fat)))
+                (bind ?healty-range (- ?healty-range (send (nth$ ?i ?ingredients) get-calories) (send (nth$ ?i ?ingredients) get-fat) (send (nth$ ?i ?ingredients) get-cholesterol)))
         )
         (min ?healty-range 0)
 )
 
 (deffunction heuristic-variety-nutrition (?menu)
-	20
+	(bind ?ingredients (send (send ?menu get-main-course) get-dish-ingredients))
+        (bind ?protein 0)
+        (bind ?fat 0)
+        (bind ?carbohydrates 0)
+        (loop-for-count (?i 1) (length$ ?ingredients) do
+                (bind ?protein (+ ?protein (send (nth$ ?i ?ingredients) get-protein)))
+                (bind ?fat (+ ?fat (send (nth$ ?i ?ingredients) get-fat)))
+                (bind ?carbohydrates (+ ?carbohydrates (send (nth$ ?i ?ingredients) get-carbohydrates)))
+                (bind ?total (+ ?protein ?fat ?carbohydrates))
+        )
+        (bind ?protein (abs(- 35 (* 100 (div ?protein ?total)))))
+        (bind ?fat (abs(- 25 (* 100 (div ?fat ?total)))))
+        (bind ?carbohydrates (abs(- 45 (* 100 (div ?carbohydrates ?total)))))
+        (- ?protein ?fat ?carbohydrates)
 )
+        
 
 (deffunction calculate-menu-score (?menu)
 	(bind ?main-classification (send (send ?menu get-main-course) get-dish-classification))
