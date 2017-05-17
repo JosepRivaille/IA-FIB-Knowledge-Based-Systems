@@ -677,19 +677,19 @@
 (defrule generate-low-price-menu "Generate low price menu"
 	(generated-menus low-menu $?menus)
 	=>
-	(assert (cheap-menu (get-menu-valoration ?menus 0.2 1.5)))
+	(assert (cheap-menu (get-menu-valoration ?menus 0.2 2.5)))
 )
 
 (defrule generate-medium-price-menu "Generate medium price menu"
 	(generated-menus medium-menu $?menus)
 	=>
-	(assert (medium-menu (get-menu-valoration ?menus 0.5 0.5)))
+	(assert (medium-menu (get-menu-valoration ?menus 0.5 2.5)))
 )
 
 (defrule generate-high-price-menu "Generates higher price menu"
 	(generated-menus high-menu $?menus)
 	=>
-	(assert (expensive-menu (get-menu-valoration ?menus 0.8 0.6)))
+	(assert (expensive-menu (get-menu-valoration ?menus 0.8 2.5)))
 )
 
 (defrule print-all-menu "Prints all menus"
