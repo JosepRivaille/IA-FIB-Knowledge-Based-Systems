@@ -175,7 +175,6 @@
 
 (deffunction all-ingredients-available (?month ?ingredients)
 	(loop-for-count (?i 1 (length$ ?ingredients)) do
-		(printout t (nth$ ?i ?ingredients) crlf)
 		(bind ?availability (send (nth$ ?i ?ingredients) get-ing-availability))
 		(if (and
 			(not (member$ 0 ?availability))
@@ -204,7 +203,6 @@
 	(bind ?fat (abs (- 25 (* 100 (/ ?fat ?total)))))
 	(bind ?carbohydrates (abs (- 45 (* 100 (/ ?carbohydrates ?total)))))
 
-	(printout t (+ ?protein ?fat ?carbohydrates) crlf)
 	(/ (+ ?protein ?fat ?carbohydrates) 100)
 )
 

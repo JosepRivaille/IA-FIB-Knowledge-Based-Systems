@@ -1364,10 +1364,10 @@
 		(ing-name "Vinegar")
 		(ing-availability 0)
 		(calories 18)
-		(fat 0)
-		(protein 0)
-		(carbohydrates 0)
-		(cholesterol 0)
+		(fat 1)
+		(protein 1)
+		(carbohydrates 1)
+		(cholesterol 1)
 	)
 
 	([sesame] of Ingredient
@@ -1393,11 +1393,11 @@
 	([salt] of Ingredient
 		(ing-name "Salt")
 		(ing-availability 0)
-		(calories 0)
-		(fat 0)
-		(protein 0)
-		(carbohydrates 0)
-		(cholesterol 0)
+		(calories 1)
+		(fat 1)
+		(protein 1)
+		(carbohydrates 1)
+		(cholesterol 1)
 	)
 
 	([cumin] of Ingredient
@@ -1723,11 +1723,11 @@
 	([coffee] of Ingredient
 		(ing-name "Coffee")
 		(ing-availability 0)
-		(calories 0)
-		(fat 0)
-		(protein 0)
-		(carbohydrates 0)
-		(cholesterol 0)
+		(calories 1)
+		(fat 1)
+		(protein 1)
+		(carbohydrates 1)
+		(cholesterol 1)
 	)
 
 	([orange_juice] of Ingredient
