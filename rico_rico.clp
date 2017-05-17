@@ -185,8 +185,30 @@
 	TRUE
 )
 
+(deffunction calculate-non-helathy (?ingredient)
+	(+
+		(/ (send ?ingredient get-calories) 500)
+		(/ (send ?ingredient get-fat) 200)
+		(/ (send ?ingredient get-cholesterol) 100)
+	)
+)
+
+(deffunction variety-nutrition (?ingredient)
+	(bind ?protein (send ?ingredient get-protein))
+	(bind ?fat (send ?ingredient get-fat))
+	(bind ?carbohydrates (send ?ingredient get-carbohydrates))
+	(bind ?total (+ ?protein ?fat ?carbohydrates))
+
+	(bind ?protein (abs (- 35 (* 100 (/ ?protein ?total)))))
+	(bind ?fat (abs (- 25 (* 100 (/ ?fat ?total)))))
+	(bind ?carbohydrates (abs (- 45 (* 100 (/ ?carbohydrates ?total)))))
+
+	(printout t (+ ?protein ?fat ?carbohydrates) crlf)
+	(/ (+ ?protein ?fat ?carbohydrates) 100)
+)
+
 (deffunction heuristic-variety-main-second (?main-classification ?second-classification)
-	(bind ?score 50)
+	(bind ?score 40)
 	(loop-for-count (?i 1 (length$ ?main-classification))
 		(if (member$ (nth$ ?i ?main-classification) ?second-classification) then
 			(bind ?score (- ?score 3))
@@ -195,32 +217,39 @@
 	(max ?score 0)
 )
 
-(deffunction heuristic-healthy (?menu) "Decrese the heuristic if the food contains more calories and fats"
+(deffunction heuristic-healthy (?menu) "Decrese the heuristic if the food contains more calories, fats or cholesterol"
+	(bind ?score 30)
 	(bind ?ingredients (send (send ?menu get-main-course) get-dish-ingredients))
-        (bind ?healty-range 0)
-        (loop-for-count (?i 1) (length$ ?ingredients) do
-                (bind ?healty-range (- ?healty-range (send (nth$ ?i ?ingredients) get-calories) (send (nth$ ?i ?ingredients) get-fat) (send (nth$ ?i ?ingredients) get-cholesterol)))
-        )
-        (min ?healty-range 0)
+	(loop-for-count (?i 1 (length$ ?ingredients)) do
+		(bind ?score (- ?score (calculate-non-helathy (nth$ ?i ?ingredients))))
+	)
+	(bind ?ingredients (send (send ?menu get-second-course) get-dish-ingredients))
+	(loop-for-count (?i 1 (length$ ?ingredients)) do
+		(bind ?score (- ?score (calculate-non-helathy (nth$ ?i ?ingredients))))
+	)
+	(bind ?ingredients (send (send ?menu get-dessert) get-dish-ingredients))
+	(loop-for-count (?i 1 (length$ ?ingredients)) do
+		(bind ?score (- ?score (calculate-non-helathy (nth$ ?i ?ingredients))))
+	)
+	(max ?score 0)
 )
 
 (deffunction heuristic-variety-nutrition (?menu)
+	(bind ?score 30)
 	(bind ?ingredients (send (send ?menu get-main-course) get-dish-ingredients))
-        (bind ?protein 0)
-        (bind ?fat 0)
-        (bind ?carbohydrates 0)
-        (loop-for-count (?i 1) (length$ ?ingredients) do
-                (bind ?protein (+ ?protein (send (nth$ ?i ?ingredients) get-protein)))
-                (bind ?fat (+ ?fat (send (nth$ ?i ?ingredients) get-fat)))
-                (bind ?carbohydrates (+ ?carbohydrates (send (nth$ ?i ?ingredients) get-carbohydrates)))
-                (bind ?total (+ ?protein ?fat ?carbohydrates))
-        )
-        (bind ?protein (abs(- 35 (* 100 (div ?protein ?total)))))
-        (bind ?fat (abs(- 25 (* 100 (div ?fat ?total)))))
-        (bind ?carbohydrates (abs(- 45 (* 100 (div ?carbohydrates ?total)))))
-        (- ?protein ?fat ?carbohydrates)
+	(loop-for-count (?i 1 (length$ ?ingredients)) do
+		(bind ?score (- ?score (variety-nutrition (nth$ ?i ?ingredients))))
+	)
+	(bind ?ingredients (send (send ?menu get-second-course) get-dish-ingredients))
+	(loop-for-count (?i 1 (length$ ?ingredients)) do
+		(bind ?score (- ?score (variety-nutrition (nth$ ?i ?ingredients))))
+	)
+	(bind ?ingredients (send (send ?menu get-dessert) get-dish-ingredients))
+	(loop-for-count (?i 1 (length$ ?ingredients)) do
+		(bind ?score (- ?score (variety-nutrition (nth$ ?i ?ingredients))))
+	)
+	(max ?score 0)
 )
-        
 
 (deffunction calculate-menu-score (?menu)
 	(bind ?main-classification (send (send ?menu get-main-course) get-dish-classification))
@@ -237,10 +266,15 @@
 )
 
 (deffunction calculate-menu-valoration (?menu ?price-factor ?score-factor)
-	(-
+	(bind ?valoration (-
 		(* (send ?menu get-menu-score) ?score-factor)
 		(* (send ?menu get-menu-price) ?price-factor)
-	)
+	))
+
+	(printout t ?score-factor " - " (send ?menu get-menu-score) " - " (* (send ?menu get-menu-score) ?score-factor)
+		" | " ?price-factor  " - " (send ?menu get-menu-price) " - " (* (send ?menu get-menu-price) ?price-factor) crlf)
+
+	(return ?valoration)
 )
 
 (deffunction get-menu-valoration (?menus ?price-factor ?score-factor)
@@ -644,19 +678,19 @@
 (defrule generate-low-price-menu "Generate low price menu"
 	(generated-menus low-menu $?menus)
 	=>
-	(assert (cheap-menu (get-menu-valoration ?menus 0.9 0.1)))
+	(assert (cheap-menu (get-menu-valoration ?menus 0.2 1.5)))
 )
 
 (defrule generate-medium-price-menu "Generate medium price menu"
 	(generated-menus medium-menu $?menus)
 	=>
-	(assert (medium-menu (get-menu-valoration ?menus 0.7 0.3)))
+	(assert (medium-menu (get-menu-valoration ?menus 0.5 0.5)))
 )
 
 (defrule generate-high-price-menu "Generates higher price menu"
 	(generated-menus high-menu $?menus)
 	=>
-	(assert (expensive-menu (get-menu-valoration ?menus 0.5 0.5)))
+	(assert (expensive-menu (get-menu-valoration ?menus 0.8 0.6)))
 )
 
 (defrule print-all-menu "Prints all menus"
