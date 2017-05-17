@@ -23,4 +23,3 @@ Gulab_jamun	[Indian Lactose-free Vegan Vegetarian Kosher Islamic Classical Gourm
 Sandesh	[Indian Lactose-free Vegan Vegetarian Kosher Islamic Classical Cold Classical Gluten-free]	[[cheese] [khoya] [cardamon_powder] [saffron] [sugar] [almond]]	[Indian Lactose-free Vegan Vegetarian Kosher Islamic Gluten-free]	4.10	5
 Tulumba	[Turkish Kosher Islamic Vegetarian Hot Classical]	[[sugar] [butter] [semolina] [corn_starch] [lemon_juice] [water] [eggs] [oil] [semolina]]	[Turkish Kosher Islamic Vegetarian]	3.20	5
 Candied_pumpkin	[Turkish Kosher Islamic Vegetarian Cold Classical Vegan Gluten-free]	[[sugar] [pumpkin] [double_cream] [cinamon] [walnut] [salt]]	[Turkish Kosher Islamic Vegetarian Vegan Gluten-free]	4.60	3
-
