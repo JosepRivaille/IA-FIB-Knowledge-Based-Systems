@@ -175,6 +175,7 @@
 
 (deffunction all-ingredients-available (?month ?ingredients)
 	(loop-for-count (?i 1 (length$ ?ingredients)) do
+		(printout t (nth$ ?i ?ingredients) crlf)
 		(bind ?availability (send (nth$ ?i ?ingredients) get-ing-availability))
 		(if (and
 			(not (member$ 0 ?availability))

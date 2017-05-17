@@ -17,9 +17,9 @@ Chocolate_pots	[Gluten-free Vegetarian Kosher Islamic American French Italian Sp
 Strawberry_coconut_milk_ice_cream	[Vegan Vegetarian Lactose-free Gluten-free Cold Classical Italian Kosher Islamic]	[[strawberry] [banana] [honey] [coconut_milk]]	[All]	3.00	2
 Yogurt_cake	[Moroccan Kosher Islamic Vegetarian Italian Spanish Classical Cold]	[[eggs] [yogurt] [vegetable_oil] [sugar] [wheat_flour] [baking_powder] [salt] [vanilla_extract]]	[Moroccan Cold Italian Spanish French]	2.70	1
 Chocolate_ice_cream_taco	[Mexican Islamic Kosher Vegetarian Cold Modern]	[[tortilla] [chocolate_chips] [vanilla_ice_cream] [coconut_oil]]	[Mexican American Cold]	4.20	4
-Red_bean_bun	[Chinese Japanese Cold Classical Kosher Islamic Lactose-free Vegan Vegetarian]	[[anko] [wheat-flour] [sugar] [baking_powder] [water]]	[Chinese Japanese Islamic Kosher Lactose-free Vegetarian Vegan]	3.30	4
-Banana_spring_roll	[Chinese Islamic Kosher Vegetarian Cold Classical]	[[oil] [banana] [butter] [sugar] [cinamon] [wheat_flour] [corn_starch] [salt] [water]]	[Chinese Islamic Kosher Vegetarian]	4.00	5
-Gulab_jamun	[Indian Lactose-free Vegan Vegetarian Kosher Islamic Classical Gourmet Hot]	[[khoya] [wheat_flour] [water] [sugar] [oil] [saffron]]	[Indian Lactose-free Vegan Vegetarian Kosher Islamic]	3.60	2
-Sandesh	[Indian Lactose-free Vegan Vegetarian Kosher Islamic Classical Cold Classical Gluten-free]	[[cheese] [khoya] [cardamon_powder] [saffron] [sugar] [almond]]	[Indian Lactose-free Vegan Vegetarian Kosher Islamic Gluten-free]	4.10	5
-Tulumba	[Turkish Kosher Islamic Vegetarian Hot Classical]	[[sugar] [butter] [semolina] [corn_starch] [lemon_juice] [water] [eggs] [oil] [semolina]]	[Turkish Kosher Islamic Vegetarian]	3.20	5
+Red_bean_bun	[Chinese Japanese Cold Classical Kosher Islamic Lactose-free Vegan Vegetarian]	[[anko] [wheat_flour] [sugar] [baking_powder]]	[Chinese Japanese Islamic Kosher Lactose-free Vegetarian Vegan]	3.30	4
+Banana_spring_roll	[Chinese Islamic Kosher Vegetarian Cold Classical]	[[oil] [banana] [butter] [sugar] [cinamon] [wheat_flour] [corn_starch] [salt]]	[Chinese Islamic Kosher Vegetarian]	4.00	5
+Gulab_jamun	[Indian Lactose-free Vegan Vegetarian Kosher Islamic Classical Gourmet Hot]	[[khoya] [wheat_flour] [sugar] [oil] [saffron]]	[Indian Lactose-free Vegan Vegetarian Kosher Islamic]	3.60	2
+Sandesh	[Indian Lactose-free Vegan Vegetarian Kosher Islamic Classical Cold Classical Gluten-free]	[[cheese] [khoya] [cardamon_powder] [saffron] [sugar] [almonds]]	[Indian Lactose-free Vegan Vegetarian Kosher Islamic Gluten-free]	4.10	5
+Tulumba	[Turkish Kosher Islamic Vegetarian Hot Classical]	[[sugar] [butter] [semolina] [corn_starch] [lemon_juice] [eggs] [oil] [semolina]]	[Turkish Kosher Islamic Vegetarian]	3.20	5
 Candied_pumpkin	[Turkish Kosher Islamic Vegetarian Cold Classical Vegan Gluten-free]	[[sugar] [pumpkin] [double_cream] [cinamon] [walnut] [salt]]	[Turkish Kosher Islamic Vegetarian Vegan Gluten-free]	4.60	3

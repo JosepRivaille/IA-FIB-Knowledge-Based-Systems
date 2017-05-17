@@ -155,7 +155,7 @@
 	([red_bean_bun] of Dessert
 		(dish-name "Red bean bun")
 		(dish-classification Chinese Japanese Cold Classical Kosher Islamic Lactose-free Vegan Vegetarian)
-		(dish-ingredients [anko] [wheat-flour] [sugar] [baking_powder] [water])
+		(dish-ingredients [anko] [wheat_flour] [sugar] [baking_powder])
 		(dish-combination Chinese Japanese Islamic Kosher Lactose-free Vegetarian Vegan)
 		(dish-price 3.30)
 		(dish-difficulty 4)
@@ -164,7 +164,7 @@
 	([banana_spring_roll] of Dessert
 		(dish-name "Banana spring roll")
 		(dish-classification Chinese Islamic Kosher Vegetarian Cold Classical)
-		(dish-ingredients [oil] [banana] [butter] [sugar] [cinamon] [wheat_flour] [corn_starch] [salt] [water])
+		(dish-ingredients [oil] [banana] [butter] [sugar] [cinamon] [wheat_flour] [corn_starch] [salt])
 		(dish-combination Chinese Islamic Kosher Vegetarian)
 		(dish-price 4.00)
 		(dish-difficulty 5)
@@ -173,7 +173,7 @@
 	([gulab_jamun] of Dessert
 		(dish-name "Gulab jamun")
 		(dish-classification Indian Lactose-free Vegan Vegetarian Kosher Islamic Classical Gourmet Hot)
-		(dish-ingredients [khoya] [wheat_flour] [water] [sugar] [oil] [saffron])
+		(dish-ingredients [khoya] [wheat_flour] [sugar] [oil] [saffron])
 		(dish-combination Indian Lactose-free Vegan Vegetarian Kosher Islamic)
 		(dish-price 3.60)
 		(dish-difficulty 2)
@@ -182,7 +182,7 @@
 	([sandesh] of Dessert
 		(dish-name "Sandesh")
 		(dish-classification Indian Lactose-free Vegan Vegetarian Kosher Islamic Classical Cold Classical Gluten-free)
-		(dish-ingredients [cheese] [khoya] [cardamon_powder] [saffron] [sugar] [almond])
+		(dish-ingredients [cheese] [khoya] [cardamon_powder] [saffron] [sugar] [almonds])
 		(dish-combination Indian Lactose-free Vegan Vegetarian Kosher Islamic Gluten-free)
 		(dish-price 4.10)
 		(dish-difficulty 5)
@@ -191,7 +191,7 @@
 	([tulumba] of Dessert
 		(dish-name "Tulumba")
 		(dish-classification Turkish Kosher Islamic Vegetarian Hot Classical)
-		(dish-ingredients [sugar] [butter] [semolina] [corn_starch] [lemon_juice] [water] [eggs] [oil] [semolina])
+		(dish-ingredients [sugar] [butter] [semolina] [corn_starch] [lemon_juice] [eggs] [oil] [semolina])
 		(dish-combination Turkish Kosher Islamic Vegetarian)
 		(dish-price 3.20)
 		(dish-difficulty 5)
@@ -1670,8 +1670,8 @@
 		(cholesterol 0)
 	)
 
-	([maiyonnaise] of Ingredient
-		(ing-name "Maiyonnaise")
+	([mayonnaise] of Ingredient
+		(ing-name "Mayonnaise")
 		(ing-availability 0)
 		(calories 679)
 		(fat 75)
@@ -1770,8 +1770,8 @@
 		(cholesterol 0)
 	)
 
-	([white_wine] of Ingredient
-		(ing-name "White wine")
+	([white_wine_cook] of Ingredient
+		(ing-name "White wine cook")
 		(ing-availability 0)
 		(calories 83)
 		(fat 0)
@@ -2050,7 +2050,7 @@
 	([mushroom_risotto] of MainCourse
 		(dish-name "Mushroom risotto")
 		(dish-classification Italian Classical Hot Gourmet Vegetarian Gluten-free Islamic Kosher)
-		(dish-ingredients [rice] [cheese] [onion] [garlic] [white_wine] [mushroom] [salt] [black_pepper] [butter] [celery] [chicken_broth])
+		(dish-ingredients [rice] [cheese] [onion] [garlic] [white_wine_cook] [mushroom] [salt] [black_pepper] [butter] [celery] [chicken_broth])
 		(dish-combination Italian Gourmet French Spanish Mediterranean Hot)
 		(dish-price 7.00)
 		(dish-difficulty 6)
@@ -2241,7 +2241,7 @@
 	([marinate_mussels] of SecondCourse
 		(dish-name "Marinate mussels")
 		(dish-classification French Fish Cold Vegetarian Gluten-free Vegan Gourmet Classical Mediterranean)
-		(dish-ingredients [white_wine] [onion] [thyme] [parsley] [pepper] [butter] [mussel])
+		(dish-ingredients [white_wine_cook] [onion] [thyme] [parsley] [pepper] [butter] [mussel])
 		(dish-combination French Mediterranean Spanish Cold Fish Gourmet)
 		(dish-price 8.50)
 		(dish-difficulty 5)
@@ -2250,7 +2250,7 @@
 	([braised_chuck_roast_in_red_wine] of SecondCourse
 		(dish-name "Braised chuck roast in red wine")
 		(dish-classification Italian Kosher Islamic Lactose-free Gluten-free Meat Hot Classical)
-		(dish-ingredients [beef] [onion] [carrot] [black_pepper] [garlic] [cinamon] [red_wine] [oil] [salt] [cardamon] [parsley])
+		(dish-ingredients [beef] [onion] [carrot] [black_pepper] [garlic] [cinamon] [red_wine] [oil] [salt] [cardamon_powder] [parsley])
 		(dish-combination Italian French Turkish Spanish Hot Meat)
 		(dish-price 7.70)
 		(dish-difficulty 4)
@@ -2295,7 +2295,7 @@
 	([lamb_tagine] of SecondCourse
 		(dish-name "Lamb tagine")
 		(dish-classification Moroccan Meat Islamic Kosher Gluten-free Lactose-free Hot Classical)
-		(dish-ingredients [lamb] [onion] [garlic] [paprika] [cumin] [turmeric] [cinamon] [ginger] [cardamon] [tomato] [tomato_paste] [black_pepper] [couscous])
+		(dish-ingredients [lamb] [onion] [garlic] [paprika] [cumin] [turmeric] [cinamon] [ginger] [cardamon_powder] [tomato] [tomato_paste] [black_pepper] [couscous])
 		(dish-combination Moroccan Meat Hot)
 		(dish-price 6.80)
 		(dish-difficulty 4)
@@ -2304,7 +2304,7 @@
 	([mapo_tofu] of SecondCourse
 		(dish-name "Mapo tofu")
 		(dish-classification Chinese Lactose-free Gluten-free Hot Classical Meat)
-		(dish-ingredients [sesame_oil] [tofu] [soy_sauce] [onion] [garlic] [ginger] [corn_starch] [pork] [vegetable_oil] [sugar] [chili_bean_sauce]])
+		(dish-ingredients [sesame_oil] [tofu] [soy_sauce] [onion] [garlic] [ginger] [corn_starch] [pork] [vegetable_oil] [sugar] [chili_bean_sauce])
 		(dish-combination Chinese Hot Meat Japanese)
 		(dish-price 5.30)
 		(dish-difficulty 4)

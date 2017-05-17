@@ -137,7 +137,7 @@ Marinara_sauce	[0]	51	1	1	8	2
 Curry_paste	[0]	129	0	14	14	0
 Taco_sauce	[0]	36	0	1	7	0
 Ginger	[0]	79	1	2	18	0
-Maiyonnaise	[0]	679	75	1	0	42
+Mayonnaise	[0]	679	75	1	0	42
 Turmeric	[0]	354	10	8	65	0
 Dijon_mustard	[0]	66	3	4	8	0
 ;Others
@@ -148,7 +148,7 @@ Orange_juice	[0]	45	0	0	10	0
 Lemon_juice	[0]	28	0	1	9	0
 Whisky	[0]	250	0	0	0	0
 Red_wine	[0]	83	0	0	3	0
-White_wine	[0]	83	0	0	3	0
+White_wine_cook	[0]	83	0	0	3	0
 Chicken_broth	[0]	267	14	17	18	13
 Vegetable_stock	[0]	12	0	2	1	0
 Couscous	[0]	112	4	0	23	0
