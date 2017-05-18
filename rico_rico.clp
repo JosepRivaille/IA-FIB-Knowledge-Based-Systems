@@ -267,13 +267,16 @@
 (deffunction calculate-menu-valoration (?menu ?price-factor ?score-factor)
 	(bind ?valoration (-
 		(* (send ?menu get-menu-score) ?score-factor)
-		(* (send ?menu get-menu-price) ?price-factor)
+		(+ (* (* (div (send ?menu get-food-price) 25) 50) ?price-factor) (* (* (div (send ?menu get-drinks-price) 195.00) 50) ?price-factor))
 	))
 
 	(printout t ?score-factor " - " (send ?menu get-menu-score) " - " (* (send ?menu get-menu-score) ?score-factor)
-		" | " ?price-factor  " - " (send ?menu get-menu-price) " - " (* (send ?menu get-menu-price) ?price-factor) crlf)
+		" | " ?price-factor  " - " (send ?menu get-food-price) " - " (* (send ?menu get-menu-price) ?price-factor) 
+        )
+        (printout t " - " ?valoration crlf)
 
-	(return ?valoration)
+	
+        (return ?valoration)
 )
 
 (deffunction get-menu-valoration (?menus ?price-factor ?score-factor)
@@ -609,7 +612,11 @@
 	(event price_max ?price-max)
 	?gm <- (generated-menu ?main ?second ?dessert ?drink)
 	=>
-	(bind ?total-price (+ (calculate-price-drinks ?drink) (calculate-price-dishes ?main ?second ?dessert)))
+	(bind ?food-price 0)
+        (bind ?food-price (+ ?food-price (calculate-price-dishes ?main ?second ?dessert)))
+        (bind ?drink-price 0)
+        (bind ?drink-price (+ ?drink-price (calculate-price-drinks ?drink)))
+        (bind ?total-price (+ ?drink-price ?food-price))
 	(if (and (>= ?total-price ?price-min) (<= ?total-price ?price-max)) then
 		(bind ?ins
 			(make-instance (gensym) of Menu
@@ -618,6 +625,8 @@
 				(dessert ?dessert)
 				(menu-drink ?drink)
 				(menu-price ?total-price)
+                                (drinks-price ?drink-price)
+                                (food-price ?food-price)
 			)
 		)
 		(send ?ins put-menu-score (calculate-menu-score ?ins))
@@ -632,10 +641,11 @@
 	(event price_max ?price-max)
 	?gm <- (generated-menu ?main ?second ?dessert ?main-drink ?second-drink ?dessert-drink)
 	=>
-	(bind ?total-price (+
-		(calculate-price-drinks ?main-drink ?second-drink ?dessert-drink)
-		(calculate-price-dishes ?main ?second ?dessert)
-	))
+        (bind ?food-price 0)
+	(bind ?food-price (+ ?food-price (calculate-price-dishes ?main ?second ?dessert)))
+        (bind ?drinks-price 0)
+        (bind ?drinks-price (+ ?drinks-price (calculate-price-drinks ?main-drink ?second-drink ?dessert-drink)))
+        (bind ?total-price (+ ?drinks-price ?food-price))
 	(if (and (>= ?total-price ?price-min) (<= ?total-price ?price-max)) then
 		(bind ?ins
 			(make-instance (gensym) of Menu
@@ -646,6 +656,8 @@
 				(dessert ?dessert)
 				(dessert-drink ?dessert-drink)
 				(menu-price ?total-price)
+                                (drinks-price ?drinks-price)
+                                (food-price ?food-price)
 			)
 		)
 		(send ?ins put-menu-score (calculate-dpd-menu-score ?ins))
@@ -677,19 +689,19 @@
 (defrule generate-low-price-menu "Generate low price menu"
 	(generated-menus low-menu $?menus)
 	=>
-	(assert (cheap-menu (get-menu-valoration ?menus 0.2 2.5)))
+	(assert (cheap-menu (get-menu-valoration ?menus 0.1 0.9)))
 )
 
 (defrule generate-medium-price-menu "Generate medium price menu"
 	(generated-menus medium-menu $?menus)
 	=>
-	(assert (medium-menu (get-menu-valoration ?menus 0.5 2.5)))
+	(assert (medium-menu (get-menu-valoration ?menus 0.5 0.5)))
 )
 
 (defrule generate-high-price-menu "Generates higher price menu"
 	(generated-menus high-menu $?menus)
 	=>
-	(assert (expensive-menu (get-menu-valoration ?menus 0.8 2.5)))
+	(assert (expensive-menu (get-menu-valoration ?menus 0.9 0.9)))
 )
 
 (defrule print-all-menu "Prints all menus"

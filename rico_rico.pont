@@ -159,6 +159,16 @@
 		(default 0.0)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
+	(single-slot drinks-price
+		(type FLOAT)
+		(default 0.0)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot food-price
+		(type FLOAT)
+		(default 0.0)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
 	(single-slot menu-drink
 		(type INSTANCE)
 ;+		(allowed-classes Drink)
