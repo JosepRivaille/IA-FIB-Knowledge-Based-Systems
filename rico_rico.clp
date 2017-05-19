@@ -98,7 +98,8 @@
 )
 
 (deffunction is-num (?num)
-  (bind ?ret (or (eq (type ?num) INTEGER) (eq (type ?num) FLOAT))) ?ret
+  (bind ?ret (or (eq (type ?num) INTEGER) (eq (type ?num) FLOAT)))
+  ?ret
 )
 
 (deffunction ask-question-num (?question ?min ?max)
@@ -266,8 +267,8 @@
 
 (deffunction calculate-menu-valoration (?menu ?price-factor ?score-factor)
 	(bind ?valoration (-
-		(* (send ?menu get-menu-score) ?score-factor)
-		(+ (* (send ?menu get-food-price) 2 ?price-factor) (* (send ?menu get-drinks-price) 0.25 ?price-factor))
+		(/ (* (send ?menu get-menu-price) ?price-factor) 0.25)
+    (* (send ?menu get-menu-score) ?score-factor)
 	))
 	(return ?valoration)
 )
@@ -283,7 +284,7 @@
 		)
 	)
 	(bind ?menu (nth$ ?best-index ?menus))
-	(printout t (* (send ?menu get-menu-score) ?score-factor) " - " (* (send ?menu get-food-price) 2 ?price-factor) " - " (* (send ?menu get-drinks-price) 0.25 ?price-factor) crlf)
+	(printout t (* (send ?menu get-menu-score) ?score-factor) " - " (* (send ?menu get-menu-price) ?price-factor) crlf)
 	(nth$ ?best-index ?menus)
 )
 
@@ -607,9 +608,7 @@
 	(event price_max ?price-max)
 	?gm <- (generated-menu ?main ?second ?dessert ?drink)
 	=>
-	(bind ?food-price (calculate-price-dishes ?main ?second ?dessert))
-	(bind ?drink-price (calculate-price-drinks ?drink))
-	(bind ?total-price (+ ?drink-price ?food-price))
+	(bind ?total-price (+ (calculate-price-dishes ?main ?second ?dessert) (calculate-price-drinks ?drink)))
 	(if (and (>= ?total-price ?price-min) (<= ?total-price ?price-max)) then
 		(bind ?ins
 			(make-instance (gensym) of Menu
@@ -647,8 +646,6 @@
 				(dessert ?dessert)
 				(dessert-drink ?dessert-drink)
 				(menu-price ?total-price)
-				(drinks-price ?drinks-price)
-				(food-price ?food-price)
 			)
 		)
 		(send ?ins put-menu-score (calculate-dpd-menu-score ?ins))
@@ -680,19 +677,19 @@
 (defrule generate-low-price-menu "Generate low price menu /w price - score factor"
 	(generated-menus low-menu $?menus)
 	=>
-	(assert (cheap-menu (get-menu-valoration ?menus 5 0.2)))
+	(assert (cheap-menu (get-menu-valoration ?menus 2 1)))
 )
 
 (defrule generate-medium-price-menu "Generate medium price menu /w price - score factor"
 	(generated-menus medium-menu $?menus)
 	=>
-	(assert (medium-menu (get-menu-valoration ?menus 0.5 0.5)))
+	(assert (medium-menu (get-menu-valoration ?menus 0.1 2)))
 )
 
 (defrule generate-high-price-menu "Generates higher price menu /w price - score factor"
 	(generated-menus high-menu $?menus)
 	=>
-	(assert (expensive-menu (get-menu-valoration ?menus 0.2 5)))
+	(assert (expensive-menu (get-menu-valoration ?menus -0.2 2)))
 )
 
 (defrule print-all-menu "Prints all menus"
