@@ -258,10 +258,20 @@
   (calculate-menu-score ?menu)
 )
 
+(deffunction calculate-menu-priority (?menu)
+  (+
+    (send (send ?menu get-main-course) get-dish-priority)
+    (send (send ?menu get-second-course) get-dish-priority)
+    (send (send ?menu get-dessert) get-dish-priority)
+    (send (send ?menu get-menu-drink) get-drink-priority)
+  )
+)
+
 (deffunction calculate-menu-valoration (?menu ?price-value)
   (bind ?valoration (-
     (abs (- (send ?menu get-menu-price) ?price-value))
     (send ?menu get-menu-score)
+    (* -50 (calculate-menu-priority ?menu))
   ))
   (return ?valoration)
 )
@@ -277,6 +287,17 @@
     )
   )
   (nth$ ?best-index ?menus)
+)
+
+(deffunction punish-menu-repetitions (?menu)
+  (bind ?priority (send (send ?menu get-main-course) get-dish-priority))
+  (send (send ?menu get-main-course) put-dish-priority (+ ?priority 1))
+  (bind ?priority (send (send ?menu get-second-course) get-dish-priority))
+  (send (send ?menu get-second-course) put-dish-priority (+ ?priority 1))
+  (bind ?priority (send (send ?menu get-dessert) get-dish-priority))
+  (send (send ?menu get-dessert) put-dish-priority (+ ?priority 1))
+  (bind ?priority (send (send ?menu get-menu-drink) get-drink-priority))
+  (send (send ?menu get-menu-drink) put-drink-priority (+ ?priority 1))
 )
 
 (deffunction print-menu (?menu ?header ?drink-per-dish)

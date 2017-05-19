@@ -362,16 +362,18 @@
 )
 
 (defrule generate-low-price-menu "Generate low price menu"
+  (declare (salience -13))
   (event price-min ?price-min)
 	(generated-menus low-menu ?)
 	=>
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
   (bind ?menu (get-menu-valoration ?menus ?price-min))
   (print-menu ?menu "Cheap menu" FALSE)
-  (send ?menu delete)
+  (punish-menu-repetitions ?menu)
 )
 
 (defrule generate-medium-price-menu "Generate medium price menu"
+  (declare (salience -13))
   (event price-min ?price-min)
   (menus price-max ?price-max)
 	(generated-menus medium-menu ?)
@@ -380,31 +382,22 @@
   (bind ?price-mean (/ (+ ?price-min ?price-max) 2))
   (bind ?menu (get-menu-valoration ?menus ?price-mean))
   (print-menu ?menu "Medium menu" FALSE)
-  (send ?menu delete)
+  (punish-menu-repetitions ?menu)
 )
 
 (defrule generate-high-price-menu "Generates higher price menu"
+  (declare (salience -13))
   (menus price-max ?price-max)
 	(generated-menus high-menu ?)
 	=>
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
   (bind ?menu (get-menu-valoration ?menus ?price-max))
   (print-menu ?menu "Expensive menu" FALSE)
-  (send ?menu delete)
-)
-
-(defrule print-all-menu "Prints all menus"
-	(declare (salience -13))
-	(generated-menus all-menus $?menus)
-	=>
-	(loop-for-count (?i 1 (length$ ?menus)) do
-		(assert (printable-menu (nth$ ?i ?menus) "Menu"))
-  )
+  (punish-menu-repetitions ?menu)
 )
 
 (defrule print-bon-appetit "Elegant ASCII draw"
 	(declare (salience -14))
-	(printed ?)
 	=>
 	(printout t "|                  ___/___/" crlf)
   (printout t "|                  \\,/ \\,/" crlf)

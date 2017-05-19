@@ -52,6 +52,11 @@
 	(role abstract)
 	(single-slot dish-difficulty
 		(type INTEGER)
+		(default 0)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot dish-priority
+		(type INTEGER)
 		(range 1 10)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
@@ -96,6 +101,11 @@
 	(role concrete)
 	(single-slot drink-name
 		(type STRING)
+;+		(cardinality 1 1)
+		(create-accessor read-write))
+	(single-slot drink-priority
+		(type INTEGER)
+		(default 0)
 ;+		(cardinality 1 1)
 		(create-accessor read-write))
 	(multislot drink-combination
