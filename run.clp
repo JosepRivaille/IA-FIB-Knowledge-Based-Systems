@@ -5,7 +5,8 @@
 
 (reset)
 
-(load rico_rico.clp)
+(load rico_rico_functions.clp)
+(load rico_rico_rules.clp)
 
 (run)
 (exit)
