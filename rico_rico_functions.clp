@@ -29,7 +29,7 @@
     TRUE
   else
     FALSE
-        )
+  )
 )
 
 (deffunction ask-question-opt (?question ?allowed-values)
@@ -151,15 +151,13 @@
 )
 
 (deffunction are-different-and-combine (?first-dish ?second-dish)
-        (if (not (eq (send ?first-dish get-dish-name) (send ?second-dish get-dish-name))) then
-                (if (and
-                        (collection-contains-alo-element (send ?first-dish get-dish-combination) (send ?second-dish get-dish-classification))
-                        (collection-contains-alo-element (send ?second-dish get-dish-combination) (send ?first-dish get-dish-classification))
-                ) then
-                        (return TRUE)
-                )
-        )
-        FALSE
+  (if (not (eq (send ?first-dish get-dish-name) (send ?second-dish get-dish-name))) then
+    (if (and
+      (collection-contains-alo-element (send ?first-dish get-dish-combination) (send ?second-dish get-dish-classification))
+      (collection-contains-alo-element (send ?second-dish get-dish-combination) (send ?first-dish get-dish-classification))
+    ) then (return TRUE))
+  )
+  FALSE
 )
 
 (deffunction is-easy-enough (?guests ?dish-difficulty)
@@ -190,121 +188,119 @@
 )
 
 (deffunction variety-nutrition (?ingredient)
-        (bind ?protein (send ?ingredient get-protein))
-        (bind ?fat (send ?ingredient get-fat))
-        (bind ?carbohydrates (send ?ingredient get-carbohydrates))
-        (bind ?total (+ ?protein ?fat ?carbohydrates))
+  (bind ?protein (send ?ingredient get-protein))
+  (bind ?fat (send ?ingredient get-fat))
+  (bind ?carbohydrates (send ?ingredient get-carbohydrates))
+  (bind ?total (+ ?protein ?fat ?carbohydrates))
 
-        (bind ?protein (abs (- 35 (* 100 (/ ?protein ?total)))))
-        (bind ?fat (abs (- 25 (* 100 (/ ?fat ?total)))))
-        (bind ?carbohydrates (abs (- 45 (* 100 (/ ?carbohydrates ?total)))))
+  (bind ?protein (abs (- 35 (* 100 (/ ?protein ?total)))))
+  (bind ?fat (abs (- 25 (* 100 (/ ?fat ?total)))))
+  (bind ?carbohydrates (abs (- 45 (* 100 (/ ?carbohydrates ?total)))))
 
-        (/ (+ ?protein ?fat ?carbohydrates) 100)
+  (/ (+ ?protein ?fat ?carbohydrates) 100)
 )
 
 (deffunction heuristic-variety-main-second (?main-classification ?second-classification)
-        (bind ?score 40)
-        (loop-for-count (?i 1 (length$ ?main-classification))
-                (if (member$ (nth$ ?i ?main-classification) ?second-classification) then
-                        (bind ?score (- ?score 3))
-                )
-        )
-        (max ?score 0)
+  (bind ?score 40)
+  (loop-for-count (?i 1 (length$ ?main-classification))
+    (if (member$ (nth$ ?i ?main-classification) ?second-classification) then
+      (bind ?score (- ?score 3))
+    )
+  )
+  (max ?score 0)
 )
 
 (deffunction heuristic-healthy (?menu) "Decrese the heuristic if the food contains more calories, fats or cholesterol"
-        (bind ?score 30)
-        (bind ?ingredients (send (send ?menu get-main-course) get-dish-ingredients))
-        (loop-for-count (?i 1 (length$ ?ingredients)) do
-                (bind ?score (- ?score (calculate-non-helathy (nth$ ?i ?ingredients))))
-        )
-        (bind ?ingredients (send (send ?menu get-second-course) get-dish-ingredients))
-        (loop-for-count (?i 1 (length$ ?ingredients)) do
-                (bind ?score (- ?score (calculate-non-helathy (nth$ ?i ?ingredients))))
-        )
-        (bind ?ingredients (send (send ?menu get-dessert) get-dish-ingredients))
-        (loop-for-count (?i 1 (length$ ?ingredients)) do
-                (bind ?score (- ?score (calculate-non-helathy (nth$ ?i ?ingredients))))
-        )
-        (max ?score 0)
+  (bind ?score 30)
+  (bind ?ingredients (send (send ?menu get-main-course) get-dish-ingredients))
+  (loop-for-count (?i 1 (length$ ?ingredients)) do
+    (bind ?score (- ?score (calculate-non-helathy (nth$ ?i ?ingredients))))
+  )
+  (bind ?ingredients (send (send ?menu get-second-course) get-dish-ingredients))
+  (loop-for-count (?i 1 (length$ ?ingredients)) do
+    (bind ?score (- ?score (calculate-non-helathy (nth$ ?i ?ingredients))))
+  )
+  (bind ?ingredients (send (send ?menu get-dessert) get-dish-ingredients))
+    (loop-for-count (?i 1 (length$ ?ingredients)) do
+    (bind ?score (- ?score (calculate-non-helathy (nth$ ?i ?ingredients))))
+  )
+  (max ?score 0)
 )
 
 (deffunction heuristic-variety-nutrition (?menu)
-        (bind ?score 30)
-        (bind ?ingredients (send (send ?menu get-main-course) get-dish-ingredients))
-        (loop-for-count (?i 1 (length$ ?ingredients)) do
-                (bind ?score (- ?score (variety-nutrition (nth$ ?i ?ingredients))))
-        )
-        (bind ?ingredients (send (send ?menu get-second-course) get-dish-ingredients))
-        (loop-for-count (?i 1 (length$ ?ingredients)) do
-                (bind ?score (- ?score (variety-nutrition (nth$ ?i ?ingredients))))
-        )
-        (bind ?ingredients (send (send ?menu get-dessert) get-dish-ingredients))
-        (loop-for-count (?i 1 (length$ ?ingredients)) do
-                (bind ?score (- ?score (variety-nutrition (nth$ ?i ?ingredients))))
-        )
-        (max ?score 0)
+  (bind ?score 30)
+  (bind ?ingredients (send (send ?menu get-main-course) get-dish-ingredients))
+  (loop-for-count (?i 1 (length$ ?ingredients)) do
+    (bind ?score (- ?score (variety-nutrition (nth$ ?i ?ingredients))))
+  )
+  (bind ?ingredients (send (send ?menu get-second-course) get-dish-ingredients))
+  (loop-for-count (?i 1 (length$ ?ingredients)) do
+    (bind ?score (- ?score (variety-nutrition (nth$ ?i ?ingredients))))
+  )
+  (bind ?ingredients (send (send ?menu get-dessert) get-dish-ingredients))
+  (loop-for-count (?i 1 (length$ ?ingredients)) do
+    (bind ?score (- ?score (variety-nutrition (nth$ ?i ?ingredients))))
+  )
+  (max ?score 0)
 )
 
 (deffunction calculate-menu-score (?menu)
-        (bind ?main-classification (send (send ?menu get-main-course) get-dish-classification))
-        (bind ?second-classification (send (send ?menu get-second-course) get-dish-classification))
-        (+
-                (heuristic-variety-main-second ?main-classification ?second-classification)
-                (heuristic-healthy ?menu)
-                (heuristic-variety-nutrition ?menu)
-        )
+  (bind ?main-classification (send (send ?menu get-main-course) get-dish-classification))
+  (bind ?second-classification (send (send ?menu get-second-course) get-dish-classification))
+  (+
+    (heuristic-variety-main-second ?main-classification ?second-classification)
+    (heuristic-healthy ?menu)
+    (heuristic-variety-nutrition ?menu)
+  )
 )
 
 (deffunction calculate-dpd-menu-score (?menu)
-        (calculate-menu-score ?menu)
+  (calculate-menu-score ?menu)
 )
 
-(deffunction calculate-menu-valoration (?menu ?price-factor ?score-factor)
-        (bind ?valoration (-
-                (/ (* (send ?menu get-menu-price) ?price-factor) 0.25)
-    (* (send ?menu get-menu-score) ?score-factor)
-        ))
-        (return ?valoration)
+(deffunction calculate-menu-valoration (?menu ?price-value)
+  (bind ?valoration (-
+    (abs (- (send ?menu get-menu-price) ?price-value))
+    (send ?menu get-menu-score)
+  ))
+  (return ?valoration)
 )
 
-(deffunction get-menu-valoration (?menus ?price-factor ?score-factor)
-        (bind ?best-index 1)
-        (bind ?best-value (calculate-menu-valoration (nth$ 1 ?menus) ?price-factor ?score-factor))
-        (loop-for-count (?i 2 (length$ ?menus)) do
-                (bind ?value (calculate-menu-valoration (nth$ ?i ?menus) ?price-factor ?score-factor))
-                (if (< ?value ?best-value) then
-                        (bind ?best-index ?i)
-                        (bind ?best-value ?value)
-                )
-        )
-        (bind ?menu (nth$ ?best-index ?menus))
-        (printout t (* (send ?menu get-menu-score) ?score-factor) " - " (* (send ?menu get-menu-price) ?price-factor) crlf)
-        (nth$ ?best-index ?menus)
+(deffunction get-menu-valoration (?menus ?price-value)
+  (bind ?best-index 1)
+  (bind ?best-value (calculate-menu-valoration (nth$ 1 ?menus) ?price-value))
+  (loop-for-count (?i 2 (length$ ?menus)) do
+    (bind ?value (calculate-menu-valoration (nth$ ?i ?menus) ?price-value))
+    (if (< ?value ?best-value) then
+      (bind ?best-index ?i)
+      (bind ?best-value ?value)
+    )
+  )
+  (nth$ ?best-index ?menus)
 )
 
 (deffunction print-menu (?menu ?header ?drink-per-dish)
   (if ?drink-per-dish then
-                (printout t "*-------------------------------------------------------------------------------------" crlf)
-                (printout t "| " ?header crlf)
-                (printout t "|-------------------------------------------------------------------------------------" crlf)
-                (printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
-                (printout t "| - Drink - " (send (send ?menu get-main-course-drink) get-drink-name) "." crlf)
-                (printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
-                (printout t "| - Drink - " (send (send ?menu get-second-course-drink) get-drink-name) "." crlf)
-                (printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
-                (printout t "| - Drink - " (send (send ?menu get-dessert-drink) get-drink-name) "." crlf)
-                (printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
-                (printout t "*-------------------------------------------------------------------------------------" crlf)
-        else
-                (printout t "*-------------------------------------------------------------------------------------" crlf)
-                (printout t "| " ?header crlf)
-                (printout t "|-------------------------------------------------------------------------------------" crlf)
-                (printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
-                (printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
-                (printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
-                (printout t "| Drink - " (send (send ?menu get-menu-drink) get-drink-name) "." crlf)
-                (printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
-                (printout t "*-------------------------------------------------------------------------------------" crlf)
+    (printout t "*-------------------------------------------------------------------------------------" crlf)
+    (printout t "| " ?header crlf)
+    (printout t "|-------------------------------------------------------------------------------------" crlf)
+    (printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
+    (printout t "| - Drink - " (send (send ?menu get-main-course-drink) get-drink-name) "." crlf)
+    (printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
+    (printout t "| - Drink - " (send (send ?menu get-second-course-drink) get-drink-name) "." crlf)
+    (printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
+    (printout t "| - Drink - " (send (send ?menu get-dessert-drink) get-drink-name) "." crlf)
+    (printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
+    (printout t "*-------------------------------------------------------------------------------------" crlf)
+  else
+    (printout t "*-------------------------------------------------------------------------------------" crlf)
+    (printout t "| " ?header crlf)
+    (printout t "|-------------------------------------------------------------------------------------" crlf)
+    (printout t "| Main course - " (send (send ?menu get-main-course) get-dish-name) "." crlf)
+    (printout t "| Second course - " (send (send ?menu get-second-course) get-dish-name) "." crlf)
+    (printout t "| Dessert - " (send (send ?menu get-dessert) get-dish-name) "." crlf)
+    (printout t "| Drink - " (send (send ?menu get-menu-drink) get-drink-name) "." crlf)
+    (printout t "| Price - " (send ?menu get-menu-price) "€" crlf)
+    (printout t "*-------------------------------------------------------------------------------------" crlf)
   )
 )

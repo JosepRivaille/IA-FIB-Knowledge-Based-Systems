@@ -81,16 +81,17 @@
 
 (defrule determine-price-range "Asks for event menu price range"
 	(declare (salience -7))
-	(not (and (event price_min ?) (event price_max ?)))
+	(not (and (event price-min ?) (event price-max ?)))
   =>
   (while TRUE do
-		(bind ?price_min (ask-question-num "Minimum price to pay? " 0 10000))
-    (bind ?price_max (ask-question-num "Maximum price to pay? " 0 10000))
-    (if (>= ?price_max ?price_min) then (break))
+		(bind ?price-min (ask-question-num "Minimum price to pay? " 0 10000))
+    (bind ?price-max (ask-question-num "Maximum price to pay? " 0 10000))
+    (if (>= ?price-max ?price-min) then (break))
     (printout t "| Maximum price must be greater than minimum price" crlf)
   )
-  (assert (event price_min ?price_min))
-  (assert (event price_max ?price_max))
+  (assert (event price-min ?price-min))
+  (assert (event price-max ?price-max))
+  (assert (menus price-max 0))
   (assert (event ready TRUE))
 )
 
@@ -288,48 +289,52 @@
 (defrule validate-general-menu ""
   (declare (salience -11))
 	(not (event drink-per-dish ?))
-	(event price_min ?price-min)
-	(event price_max ?price-max)
+  ?pm <- (menus price-max ?menu-max)
 	?gm <- (generated-menu ?main ?second ?dessert ?drink)
 	=>
 	(bind ?total-price (+ (calculate-price-dishes ?main ?second ?dessert) (calculate-price-drinks ?drink)))
-	(if (and (>= ?total-price ?price-min) (<= ?total-price ?price-max)) then
-		(bind ?ins
-			(make-instance (gensym) of Menu
-				(main-course ?main)
-				(second-course ?second)
-				(dessert ?dessert)
-				(menu-drink ?drink)
-				(menu-price ?total-price)
-			)
+	(bind ?ins
+		(make-instance (gensym) of Menu
+			(main-course ?main)
+			(second-course ?second)
+			(dessert ?dessert)
+			(menu-drink ?drink)
+			(menu-price ?total-price)
 		)
-		(send ?ins put-menu-score (calculate-menu-score ?ins))
 	)
+  (if (> ?total-price ?menu-max) then
+    (retract ?pm)
+    (assert (menus price-max ?total-price))
+  )
+	(send ?ins put-menu-score (calculate-menu-score ?ins))
 	(retract ?gm)
 )
 
 (defrule validate-drink-per-dish-menu ""
 	(declare (salience -11))
   (event drink-per-dish ?)
-	(event price_min ?price-min)
-	(event price_max ?price-max)
+	(event price-min ?price-min)
+	(event price-max ?price-max)
+  ?pm <- (menus price-max ?menu-max)
 	?gm <- (generated-menu ?main ?second ?dessert ?main-drink ?second-drink ?dessert-drink)
 	=>
 	(bind ?food-price (calculate-price-dishes ?main ?second ?dessert))
 	(bind ?drinks-price (calculate-price-drinks ?main-drink ?second-drink ?dessert-drink))
 	(bind ?total-price (+ ?drinks-price ?food-price))
-	(if (and (>= ?total-price ?price-min) (<= ?total-price ?price-max)) then
-		(bind ?ins
-			(make-instance (gensym) of Menu
-				(main-course ?main)
-				(main-course-drink ?main-drink)
-				(second-course ?second)
-				(second-course-drink ?second-drink)
-				(dessert ?dessert)
-				(dessert-drink ?dessert-drink)
-				(menu-price ?total-price)
-			)
+	(bind ?ins
+		(make-instance (gensym) of Menu
+			(main-course ?main)
+			(main-course-drink ?main-drink)
+			(second-course ?second)
+			(second-course-drink ?second-drink)
+			(dessert ?dessert)
+			(dessert-drink ?dessert-drink)
+			(menu-price ?total-price)
 		)
+	)
+  (if (> ?total-price ?menu-max) then
+    (retract ?pm)
+    (assert (menus price-max ?total-price))
 		(send ?ins put-menu-score (calculate-dpd-menu-score ?ins))
 	)
 	(retract ?gm)
@@ -342,9 +347,9 @@
   =>
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
 	(if (>= (length$ ?menus) 3) then
-		(assert (generated-menus low-menu ?menus))
-		(assert (generated-menus medium-menu ?menus))
-		(assert (generated-menus high-menu ?menus))
+		(assert (generated-menus low-menu TRUE))
+		(assert (generated-menus medium-menu TRUE))
+		(assert (generated-menus high-menu TRUE))
 	else
 		(printout t "| Not enough matching dishes to generate 3 different menus." crlf)
 		(if (= (length$ ?menus) 0) then
@@ -356,22 +361,36 @@
 	)
 )
 
-(defrule generate-low-price-menu "Generate low price menu /w price - score factor"
-	(generated-menus low-menu $?menus)
+(defrule generate-low-price-menu "Generate low price menu"
+  (event price-min ?price-min)
+	(generated-menus low-menu ?)
 	=>
-	(assert (cheap-menu (get-menu-valoration ?menus 2 1)))
+  (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
+  (bind ?menu (get-menu-valoration ?menus ?price-min))
+  (print-menu ?menu "Cheap menu" FALSE)
+  (send ?menu delete)
 )
 
-(defrule generate-medium-price-menu "Generate medium price menu /w price - score factor"
-	(generated-menus medium-menu $?menus)
+(defrule generate-medium-price-menu "Generate medium price menu"
+  (event price-min ?price-min)
+  (menus price-max ?price-max)
+	(generated-menus medium-menu ?)
 	=>
-	(assert (medium-menu (get-menu-valoration ?menus 0.1 2)))
+  (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
+  (bind ?price-mean (/ (+ ?price-min ?price-max) 2))
+  (bind ?menu (get-menu-valoration ?menus ?price-mean))
+  (print-menu ?menu "Medium menu" FALSE)
+  (send ?menu delete)
 )
 
-(defrule generate-high-price-menu "Generates higher price menu /w price - score factor"
-	(generated-menus high-menu $?menus)
+(defrule generate-high-price-menu "Generates higher price menu"
+  (menus price-max ?price-max)
+	(generated-menus high-menu ?)
 	=>
-	(assert (expensive-menu (get-menu-valoration ?menus -0.2 2)))
+  (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
+  (bind ?menu (get-menu-valoration ?menus ?price-max))
+  (print-menu ?menu "Expensive menu" FALSE)
+  (send ?menu delete)
 )
 
 (defrule print-all-menu "Prints all menus"
@@ -381,34 +400,6 @@
 	(loop-for-count (?i 1 (length$ ?menus)) do
 		(assert (printable-menu (nth$ ?i ?menus) "Menu"))
   )
-)
-
-(defrule print-recomendations "Prints three recommended menus"
-	(cheap-menu ?cheap-menu)
-	(medium-menu ?medium-menu)
-	(expensive-menu ?expensive-menu)
-	=>
-	(assert (printable-menu ?expensive-menu "Expensive menu"))
-	(assert (printable-menu ?medium-menu "Medium menu"))
-	(assert (printable-menu ?cheap-menu "Cheap menu"))
-)
-
-(defrule print-menu-single-drink ""
-	(declare (salience -13))
-	(not (event drink-per-dish ?))
-	(printable-menu ?menu ?header)
-	=>
-	(print-menu ?menu ?header FALSE)
-	(assert (printed TRUE))
-)
-
-(defrule print-menu-drink-per-dish ""
-	(declare (salience -13))
-	(event drink-per-dish ?)
-	(printable-menu ?menu ?header)
-	=>
-	(print-menu ?menu ?header TRUE)
-	(assert (printed TRUE))
 )
 
 (defrule print-bon-appetit "Elegant ASCII draw"
