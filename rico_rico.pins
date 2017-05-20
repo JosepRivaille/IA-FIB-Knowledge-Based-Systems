@@ -325,6 +325,222 @@
 	(dish-difficulty 3)
 )
 
+([spaghetti_bolognese] of MainCourse
+	(dish-name "Spaghetti Bolognese")
+	(dish-classification Italian Mediterranean Hot Pasta Classical)
+	(dish-ingredients [pasta] [veal] [pork] [onion] [garlic] [carrot] [tomato] [cheese] [oregano] [oil] [salt])
+	(dish-combination Spanish Italian Pasta Hot French American Gourmet Mediterranean)
+	(dish-price 5.50)
+	(dish-difficulty 3)
+)
+
+([mediterranean_salad] of MainCourse
+	(dish-name "Mediterranean Salad")
+	(dish-classification Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean Cold Vegetables Classical Islamic)
+	(dish-ingredients [onion] [tomato] [carrot] [oregano] [oil] [lettuce] [garlic] [cheese] [vinegar] [olive]  [salt])
+	(dish-combination Spanish Italian French Gourmet Mediterranean Vegetables Cold)
+	(dish-price 2.2)
+	(dish-difficulty 2)
+)
+
+([kirmizi_mercimek_corbasi] of MainCourse
+	(dish-name "Kirmizi Mercimek Corbasi")
+	(dish-classification Vegetarian Turkish Gourmet Mediterranean Soup Hot Islamic)
+	(dish-ingredients [oil] [garlic] [onion] [cumin] [coriander] [tomato] [rice] [salt] [pepper] [lemon] [lentils])
+	(dish-combination Turkish Hot Soup Gourmet Mediterranean)
+	(dish-price 4.2)
+	(dish-difficulty 6)
+)
+
+([chipotle_spaguetti] of MainCourse
+	(dish-name "Chipotle Spaguetti")
+	(dish-classification American Mexican Hot Pasta Islamic)
+	(dish-ingredients [pasta] [salt] [garlic] [butter] [milk] [pepper] [mushroom])
+	(dish-combination American Mexican Hot Pasta)
+	(dish-price 3.5)
+	(dish-difficulty 5)
+)
+
+([scallop_of_foie_gras_marinated_in_elderberry_oil] of MainCourse
+	(dish-name "Scallop of foie gras marinated in elderberry oil")
+	(dish-classification Spanish Italian Islamic French Gourmet Mediterranean Cold Modern)
+	(dish-ingredients [foie] [artichoke] [tomato] [potato] [oil] [garlic] [onion] [coriander] [sesame] [butter] [eggs] [salt])
+	(dish-combination Spanish Italian French Gourmet Mediterranean Cold)
+	(dish-price 25)
+	(dish-difficulty 9)
+)
+
+([vegan_sandwich] of MainCourse
+	(dish-name "Vegan Sandwich")
+	(dish-classification Kosher Vegetarian American Vegan Islamic Mediterranean Cold Vegetables Lactose-free Modern)
+	(dish-ingredients [bread] [tomato] [oil] [ruccula] [avocado] [onion])
+	(dish-combination Mediterranean Cold Vegetables)
+	(dish-price 8.5)
+	(dish-difficulty 3)
+)
+
+([chinese_noodles_with_vegetables] of MainCourse
+	(dish-name "Chinese Noodles With Vegetables")
+	(dish-classification Vegetarian Kosher Islamic Chinese Hot Pasta Vegetables)
+	(dish-ingredients [pasta] [oil] [carrot] [onion] [pepper] [mushroom] [soy] [salt])
+	(dish-combination Chinese Pasta Vegetables Hot)
+	(dish-price 4.2)
+	(dish-difficulty 7)
+)
+
+([kareraisu] of MainCourse
+	(dish-name "Kareraisu")
+	(dish-classification Vegetarian Kosher Indian Japanese Islamic Hot Vegetables)
+	(dish-ingredients [rice] [carrot] [tofu] [onion] [potato] [oil] [curry] [salt])
+	(dish-combination Indian Japanese Hot Vegetables)
+	(dish-price 6)
+	(dish-difficulty 7)
+)
+
+([american_burguer] of MainCourse
+	(dish-name "American Burguer")
+	(dish-classification American Hot Meat Lactose-free)
+	(dish-ingredients [pork] [onion] [garlic] [eggs] [salt] [pepper] [bread])
+	(dish-combination American Hot Meat)
+	(dish-price 4)
+	(dish-difficulty 2)
+)
+
+([harira] of MainCourse
+	(dish-name "Harira")
+	(dish-classification Islamic Moroccan Lactose-Free Mediterranean Hot Soup Classical)
+	(dish-ingredients [veal] [tomato] [pepper] [coriander] [lentils] [pasta])
+	(dish-combination Moroccan Mediterranean Hot Soup)
+	(dish-price 5)
+	(dish-difficulty 3)
+)
+
+([braised_lentils_sausage_and_black_pudding] of MainCourse
+	(dish-name "Braised Lentils Sausage And Black Pudding")
+	(dish-classification Spanish Gluten-free Lactose-free Mediterranean Hot Soup Classical)
+	(dish-ingredients [lentils] [onion] [garlic] [salt] [oil] [pork])
+	(dish-combination Spanish Mediterranean Hot Soup)
+	(dish-price 4)
+	(dish-difficulty 6)
+)
+
+([sushi] of MainCourse
+	(dish-name "Sushi")
+	(dish-classification Japanese Kosher Islamic Lactose-free Cold Fish)
+	(dish-ingredients [salmon] [carrot] [rice] [avocado] [cucumber] [nori])
+	(dish-combination Japanese Cold Fish)
+	(dish-price 5.2)
+	(dish-difficulty 7)
+)
+
+([tajin] of MainCourse
+	(dish-name "Tajin")
+	(dish-classification Kosher Islamic Turkish Moroccan Gluten-free Lactose-free Mediterranean Hot Soup Classical)
+	(dish-ingredients [chicken] [carrot] [onion] [tomato] [pepper] [oil] [salt])
+	(dish-combination Turkish Moroccan Hot Soup)
+	(dish-price 4.5)
+	(dish-difficulty 7)
+)
+
+([cream_of_mushrooms_and_chestnuts_with_duck_confit] of MainCourse
+	(dish-name "Cream Of Mushrooms And Chestnuts With Duck Confit")
+	(dish-classification Kosher Islamic Spanish French Gourmet Gluten-free Mediterranean Hot Meat Modern)
+	(dish-ingredients [onion] [mushroom] [duck] [milk] [oil])
+	(dish-combination Spanish French Gourmet Mediterranean Hot Meat)
+	(dish-price 10.2)
+	(dish-difficulty 7)
+)
+
+([broccoli_quiche] of MainCourse
+	(dish-name "Broccoli quiche")
+	(dish-classification American Vegetarian Mediterranean French Islamic Kosher Hot Vegetables Classical)
+	(dish-ingredients [butter] [onion] [garlic] [butter] [milk] [broccoli] [cheese] [eggs] [salt] [pepper] [wheat_flour])
+	(dish-combination American Mediterranean French Vegetables Hot)
+	(dish-price 5.50)
+	(dish-difficulty 5)
+)
+
+([mushroom_risotto] of MainCourse
+	(dish-name "Mushroom risotto")
+	(dish-classification Italian Classical Hot Gourmet Vegetarian Gluten-free Islamic Kosher)
+	(dish-ingredients [rice] [cheese] [onion] [garlic] [white_wine_cook] [mushroom] [salt] [black_pepper] [butter] [celery] [chicken_broth])
+	(dish-combination Italian Gourmet French Spanish Mediterranean Hot)
+	(dish-price 7.00)
+	(dish-difficulty 6)
+)
+
+([chana_masala] of MainCourse
+	(dish-name "Chana masala")
+	(dish-classification Indian Vegetarian Gluten-free Lactose-free Vegan Islamic Kosher Hot Classical Soup)
+	(dish-ingredients [oil] [onion] [cumin] [salt] [turmeric] [garlic] [ginger] [cilantro] [chili_powder] [turmeric] [tomato] [lemon_juice] [masala] [chickpea])
+	(dish-combination Indian Hot Soup)
+	(dish-price 6.50)
+	(dish-difficulty 6)
+)
+
+([vegan_samosas] of MainCourse
+	(dish-name "Vegan samosas")
+	(dish-classification Indian Vegetarian Gluten-free Lactose-free Vegan Islamic Kosher Hot Modern)
+	(dish-ingredients [vegetable_oil] [onion] [chickpea] [curry_paste] [apple] [filo] [wheat_flour])
+	(dish-combination Indian Hot Turkish)
+	(dish-price 4.50)
+	(dish-difficulty 3)
+)
+
+([tarhana_soup] of MainCourse
+	(dish-name "Tarhana soup")
+	(dish-classification Turkish Soup Classical Hot Vegetarian)
+	(dish-ingredients [tomato] [chicken_broth] [butter] [pepper] [onion] [yogurt] [oregano] [salt] [wheat_flour])
+	(dish-combination Turkish Soup Hot Vegetables)
+	(dish-price 6.00)
+	(dish-difficulty 4)
+)
+
+([shumai] of MainCourse
+	(dish-name "Shumai")
+	(dish-classification Chinese Japanese Gourmet Modern Hot Vegetables Meat Lactose-free)
+	(dish-ingredients [eggs] [wheat_flour] [salt] [pork] [onion] [ginger] [mushroom] [chickpea] [sesame_oil] [soy_sauce] [black_pepper])
+	(dish-combination Japanese Gourmet Chinese Hot Vegetables)
+	(dish-price 6.00)
+	(dish-difficulty 5)
+)
+
+([chinese_tiger_salad] of MainCourse
+	(dish-name "Chinese tiger salad")
+	(dish-classification Chinese Vegetarian Vegan Gluten-free Lactose-free Kosher Vegetables Classical Cold Islamic)
+	(dish-ingredients [cucumber] [salt] [onion] [vinegar] [sesame_oil] [coriander] [chili_pepper])
+	(dish-combination Chinese Vegetables Cold)
+	(dish-price 4.10)
+	(dish-difficulty 3)
+)
+
+([moroccan_chickpea_soup] of MainCourse
+	(dish-name "Moroccan chickpea soup")
+	(dish-classification Moroccan Soup Vegetarian Hot Vegan Lactose-free Gluten-free)
+	(dish-ingredients [oil] [onion] [celery] [cumin] [vegetable_stock] [tomato] [garlic] [chickpea] [lemon] [coriander] [parsley] [broad_bean])
+	(dish-combination Moroccan Soup Hot Mediterranean Indian)
+	(dish-price 3.50)
+	(dish-difficulty 3)
+)
+
+([guacamole_with_tomatoes] of MainCourse
+	(dish-name "Guacamole with tomatoes")
+	(dish-classification Mexican Cold Vegetables Islamic Kosher Gluten-free Lactose-free Vegan Vegetarian)
+	(dish-ingredients [avocado] [lime] [salt] [onion] [tomato] [garlic] [black_pepper])
+	(dish-combination Mexican Cold American Vegetables)
+	(dish-price 5.50)
+	(dish-difficulty 6)
+)
+
+([mexican_salad] of MainCourse
+	(dish-name "Mexican salad")
+	(dish-classification Mexican Vegan Vegetarian Kosher Gluten-free Islamic Cold Vegetables)
+	(dish-ingredients [cumin] [coriander] [walnut] [chili_powder] [oil] [black_pepper] [salt] [olive] [tomato] [cheese])
+	(dish-combination Mexican Cold Vegetables Mediterranean)
+	(dish-price 5.00)
+	(dish-difficulty 4)
+)
+
 ([artichoke] of Ingredient
 	(ing-name "Artichoke")
 	(ing-availability 1 2 3 4 5 10 11 12)
@@ -1863,204 +2079,6 @@
 	(protein 0)
 	(carbohydrates 6)
 	(cholesterol 0)
-)
-
-([spaghetti_bolognese] of MainCourse
-	(dish-name "Spaghetti Bolognese")
-	(dish-classification Italian Mediterranean Hot Pasta Classical)
-	(dish-ingredients [pasta] [veal] [pork] [onion] [garlic] [carrot] [tomato] [cheese] [oregano] [oil] [salt])
-	(dish-combination Spanish Italian Pasta Hot French American Gourmet Mediterranean)
-	(dish-price 5.50)
-	(dish-difficulty 3)
-)
-
-([mediterranean_salad] of MainCourse
-	(dish-name "Mediterranean Salad")
-	(dish-classification Vegetarian Kosher Spanish Gluten-free Vegan Mediterranean Cold Vegetables Classical Islamic)
-	(dish-ingredients [onion] [tomato] [carrot] [oregano] [oil] [lettuce] [garlic] [cheese] [vinegar] [olive]  [salt])
-	(dish-combination Spanish Italian French Gourmet Mediterranean Vegetables Cold)
-	(dish-price 2.2)
-	(dish-difficulty 2)
-)
-
-([kirmizi_mercimek_corbasi] of MainCourse
-	(dish-name "Kirmizi Mercimek Corbasi")
-	(dish-classification Vegetarian Turkish Gourmet Mediterranean Soup Hot Islamic)
-	(dish-ingredients [oil] [garlic] [onion] [cumin] [coriander] [tomato] [rice] [salt] [pepper] [lemon] [lentils])
-	(dish-combination Turkish Hot Soup Gourmet Mediterranean)
-	(dish-price 4.2)
-	(dish-difficulty 6)
-)
-
-([chipotle_spaguetti] of MainCourse
-	(dish-name "Chipotle Spaguetti")
-	(dish-classification American Mexican Hot Pasta Islamic)
-	(dish-ingredients [pasta] [salt] [garlic] [butter] [milk] [pepper] [mushroom])
-	(dish-combination American Mexican Hot Pasta)
-	(dish-price 3.5)
-	(dish-difficulty 5)
-)
-
-([scallop_of_foie_gras_marinated_in_elderberry_oil] of MainCourse
-	(dish-name "Scallop of foie gras marinated in elderberry oil")
-	(dish-classification Spanish Italian Islamic French Gourmet Mediterranean Cold Modern)
-	(dish-ingredients [foie] [artichoke] [tomato] [potato] [oil] [garlic] [onion] [coriander] [sesame] [butter] [eggs] [salt])
-	(dish-combination Spanish Italian French Gourmet Mediterranean Cold)
-	(dish-price 25)
-	(dish-difficulty 9)
-)
-
-([vegan_sandwich] of MainCourse
-	(dish-name "Vegan Sandwich")
-	(dish-classification Kosher Vegetarian American Vegan Islamic Mediterranean Cold Vegetables Lactose-free Modern)
-	(dish-ingredients [bread] [tomato] [oil] [ruccula] [avocado] [onion])
-	(dish-combination Mediterranean Cold Vegetables)
-	(dish-price 8.5)
-	(dish-difficulty 3)
-)
-
-([chinese_noodles_with_vegetables] of MainCourse
-	(dish-name "Chinese Noodles With Vegetables")
-	(dish-classification Vegetarian Kosher Islamic Chinese Hot Pasta Vegetables)
-	(dish-ingredients [pasta] [oil] [carrot] [onion] [pepper] [mushroom] [soy] [salt])
-	(dish-combination Chinese Pasta Vegetables Hot)
-	(dish-price 4.2)
-	(dish-difficulty 7)
-)
-
-([kareraisu] of MainCourse
-	(dish-name "Kareraisu")
-	(dish-classification Vegetarian Kosher Indian Japanese Islamic Hot Vegetables)
-	(dish-ingredients [rice] [carrot] [tofu] [onion] [potato] [oil] [curry] [salt])
-	(dish-combination Indian Japanese Hot Vegetables)
-	(dish-price 6)
-	(dish-difficulty 7)
-)
-
-([american_burguer] of MainCourse
-	(dish-name "American Burguer")
-	(dish-classification American Hot Meat Lactose-free)
-	(dish-ingredients [pork] [onion] [garlic] [eggs] [salt] [pepper] [bread])
-	(dish-combination American Hot Meat)
-	(dish-price 4)
-	(dish-difficulty 2)
-)
-
-([harira] of MainCourse
-	(dish-name "Harira")
-	(dish-classification Islamic Moroccan Lactose-Free Mediterranean Hot Soup Classical)
-	(dish-ingredients [veal] [tomato] [pepper] [coriander] [lentils] [pasta])
-	(dish-combination Moroccan Mediterranean Hot Soup)
-	(dish-price 5)
-	(dish-difficulty 3)
-)
-
-([braised_lentils_sausage_and_black_pudding] of MainCourse
-	(dish-name "Braised Lentils Sausage And Black Pudding")
-	(dish-classification Spanish Gluten-free Lactose-free Mediterranean Hot Soup Classical)
-	(dish-ingredients [lentils] [onion] [garlic] [salt] [oil] [pork])
-	(dish-combination Spanish Mediterranean Hot Soup)
-	(dish-price 4)
-	(dish-difficulty 6)
-)
-
-([sushi] of MainCourse
-	(dish-name "Sushi")
-	(dish-classification Japanese Kosher Islamic Lactose-free Cold Fish)
-	(dish-ingredients [salmon] [carrot] [rice] [avocado] [cucumber] [nori])
-	(dish-combination Japanese Cold Fish)
-	(dish-price 5.2)
-	(dish-difficulty 7)
-)
-
-([tajin] of MainCourse
-	(dish-name "Tajin")
-	(dish-classification Kosher Islamic Turkish Moroccan Gluten-free Lactose-free Mediterranean Hot Soup Classical)
-	(dish-ingredients [chicken] [carrot] [onion] [tomato] [pepper] [oil] [salt])
-	(dish-combination Turkish Moroccan Hot Soup)
-	(dish-price 4.5)
-	(dish-difficulty 7)
-)
-
-([cream_of_mushrooms_and_chestnuts_with_duck_confit] of MainCourse
-	(dish-name "Cream Of Mushrooms And Chestnuts With Duck Confit")
-	(dish-classification Kosher Islamic Spanish French Gourmet Gluten-free Mediterranean Hot Meat Modern)
-	(dish-ingredients [onion] [mushroom] [duck] [milk] [oil])
-	(dish-combination Spanish French Gourmet Mediterranean Hot Meat)
-	(dish-price 10.2)
-	(dish-difficulty 7)
-)
-
-([broccoli_quiche] of MainCourse
-	(dish-name "Broccoli quiche")
-	(dish-classification American Vegetarian Mediterranean French Islamic Kosher Hot Vegetables Classical)
-	(dish-ingredients [butter] [onion] [garlic] [butter] [milk] [broccoli] [cheese] [eggs] [salt] [pepper] [wheat_flour])
-	(dish-combination American Mediterranean French Vegetables Hot)
-	(dish-price 5.50)
-	(dish-difficulty 5)
-)
-
-([mushroom_risotto] of MainCourse
-	(dish-name "Mushroom risotto")
-	(dish-classification Italian Classical Hot Gourmet Vegetarian Gluten-free Islamic Kosher)
-	(dish-ingredients [rice] [cheese] [onion] [garlic] [white_wine_cook] [mushroom] [salt] [black_pepper] [butter] [celery] [chicken_broth])
-	(dish-combination Italian Gourmet French Spanish Mediterranean Hot)
-	(dish-price 7.00)
-	(dish-difficulty 6)
-)
-
-([chana_masala] of MainCourse
-	(dish-name "Chana masala")
-	(dish-classification Indian Vegetarian Gluten-free Lactose-free Vegan Islamic Kosher Hot Classical Soup)
-	(dish-ingredients [oil] [onion] [cumin] [salt] [turmeric] [garlic] [ginger] [cilantro] [chili_powder] [turmeric] [tomato] [lemon_juice] [masala] [chickpea])
-	(dish-combination Indian Hot Soup)
-	(dish-price 6.50)
-	(dish-difficulty 6)
-)
-
-([vegan_samosas] of MainCourse
-	(dish-name "Vegan samosas")
-	(dish-classification Indian Vegetarian Gluten-free Lactose-free Vegan Islamic Kosher Hot Modern)
-	(dish-ingredients [vegetable_oil] [onion] [chickpea] [curry_paste] [apple] [filo] [wheat_flour])
-	(dish-combination Indian Hot Turkish)
-	(dish-price 4.50)
-	(dish-difficulty 3)
-)
-
-([tarhana_soup] of MainCourse
-	(dish-name "Tarhana soup")
-	(dish-classification Turkish Soup Classical Hot Vegetarian)
-	(dish-ingredients [tomato] [chicken_broth] [butter] [pepper] [onion] [yogurt] [oregano] [salt] [wheat_flour])
-	(dish-combination Turkish Soup Hot Vegetables)
-	(dish-price 6.00)
-	(dish-difficulty 4)
-)
-
-([shumai] of MainCourse
-	(dish-name "Shumai")
-	(dish-classification Chinese Japanese Gourmet Modern Hot Vegetables Meat Lactose-free)
-	(dish-ingredients [eggs] [wheat_flour] [salt] [pork] [onion] [ginger] [mushroom] [chickpea] [sesame_oil] [soy_sauce] [black_pepper])
-	(dish-combination Japanese Gourmet Chinese Hot Vegetables)
-	(dish-price 6.00)
-	(dish-difficulty 5)
-)
-
-([chinese_tiger_salad] of MainCourse
-	(dish-name "Chinese tiger salad")
-	(dish-classification Chinese Vegetarian Vegan Gluten-free Lactose-free Kosher Vegetables Classical Cold Islamic)
-	(dish-ingredients [cucumber] [salt] [onion] [vinegar] [sesame_oil] [coriander] [chili_pepper])
-	(dish-combination Chinese Vegetables Cold)
-	(dish-price 4.10)
-	(dish-difficulty 3)
-)
-
-([moroccan_chickpea_soup] of MainCourse
-	(dish-name "Moroccan chickpea soup")
-	(dish-classification Moroccan Soup Vegetarian Hot Vegan Lactose-free Gluten-free)
-	(dish-ingredients [oil] [onion] [celery] [cumin] [vegetable_stock] [tomato] [garlic] [chickpea] [lemon] [coriander] [parsley] [broad_bean])
-	(dish-combination Moroccan Soup Hot Mediterranean Indian)
-	(dish-price 3.50)
-	(dish-difficulty 3)
 )
 
 ([roast_pork_with_prunes] of SecondCourse
