@@ -332,10 +332,15 @@
 			(menu-price ?total-price)
 		)
 	)
-  (if (> ?total-price ?menu-max) then
-    (retract ?pm)
-    (assert (menus price-max ?total-price))
-		(send ?ins put-menu-score (calculate-menu-score ?ins))
+        (bind ?score (calculate-menu-score ?ins))
+        (if (< ?score 55)
+                then (send ?ins delete)  
+        else
+                (if (> ?total-price ?menu-max) then
+                        (retract ?pm)
+                        (assert (menus price-max ?total-price))
+                        (send ?ins put-menu-score ?score)
+                )
 	)
 	(retract ?gm)
 )
@@ -345,6 +350,7 @@
 	(not (generated-menu ? ? ? ?))
   (not (generated-menu ? ? ? ? ? ?))
   =>
+
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
 	(if (>= (length$ ?menus) 3) then
 		(assert (generated-menus low-menu TRUE))
@@ -404,7 +410,7 @@
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
   (bind ?menu (get-menu-valoration ?menus ?price-min TRUE))
   (assert (printable-menu ?menu "Cheap menu"))
-  (punish-menu-repetitions ?menu)
+  (punish-menu-repetitions-dpd ?menu)
 )
 
 (defrule generate-medium-price-menu-dpd "Generate medium price menu"
@@ -417,7 +423,7 @@
   (bind ?price-mean (/ (+ ?price-min ?price-max) 2))
   (bind ?menu (get-menu-valoration ?menus ?price-mean TRUE))
   (assert (printable-menu ?menu "Cheap menu"))
-  (punish-menu-repetitions ?menu)
+  (punish-menu-repetitions-dpd ?menu)
 )
 
 (defrule generate-high-price-menu-dpd "Generates higher price menu"
@@ -428,7 +434,7 @@
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
   (bind ?menu (get-menu-valoration ?menus ?price-max TRUE))
   (assert (printable-menu ?menu "Cheap menu"))
-  (punish-menu-repetitions ?menu)
+  (punish-menu-repetitions-dpd ?menu)
 )
 
 (defrule print-menus-std "Prints normal menus in desired format"
