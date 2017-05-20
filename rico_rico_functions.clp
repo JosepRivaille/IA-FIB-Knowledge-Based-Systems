@@ -254,33 +254,39 @@
   )
 )
 
-(deffunction calculate-dpd-menu-score (?menu)
-  (calculate-menu-score ?menu)
-)
-
-(deffunction calculate-menu-priority (?menu)
-  (+
+(deffunction calculate-menu-priority (?menu ?drink-per-dish)
+  (bind ?dishes-priority (+
     (send (send ?menu get-main-course) get-dish-priority)
     (send (send ?menu get-second-course) get-dish-priority)
     (send (send ?menu get-dessert) get-dish-priority)
-    (send (send ?menu get-menu-drink) get-drink-priority)
+  ))
+  (if (not ?drink-per-dish) then
+    (return (+ ?dishes-priority
+      (send (send ?menu get-menu-drink) get-drink-priority)
+    ))
+  else
+    (return (+ ?dishes-priority
+      (send (send ?menu get-main-course-drink) get-drink-priority)
+      (send (send ?menu get-second-course-drink) get-drink-priority)
+      (send (send ?menu get-dessert-drink) get-drink-priority)
+    ))
   )
 )
 
-(deffunction calculate-menu-valoration (?menu ?price-value)
+(deffunction calculate-menu-valoration (?menu ?price-value ?drink-per-dish)
   (bind ?valoration (-
     (abs (- (send ?menu get-menu-price) ?price-value))
     (send ?menu get-menu-score)
-    (* -50 (calculate-menu-priority ?menu))
+    (* -50 (calculate-menu-priority ?menu ?drink-per-dish))
   ))
   (return ?valoration)
 )
 
-(deffunction get-menu-valoration (?menus ?price-value)
+(deffunction get-menu-valoration (?menus ?price-value ?drink-per-dish)
   (bind ?best-index 1)
-  (bind ?best-value (calculate-menu-valoration (nth$ 1 ?menus) ?price-value))
+  (bind ?best-value (calculate-menu-valoration (nth$ 1 ?menus) ?price-value ?drink-per-dish))
   (loop-for-count (?i 2 (length$ ?menus)) do
-    (bind ?value (calculate-menu-valoration (nth$ ?i ?menus) ?price-value))
+    (bind ?value (calculate-menu-valoration (nth$ ?i ?menus) ?price-value ?drink-per-dish))
     (if (< ?value ?best-value) then
       (bind ?best-index ?i)
       (bind ?best-value ?value)

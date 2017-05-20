@@ -335,7 +335,7 @@
   (if (> ?total-price ?menu-max) then
     (retract ?pm)
     (assert (menus price-max ?total-price))
-		(send ?ins put-menu-score (calculate-dpd-menu-score ?ins))
+		(send ?ins put-menu-score (calculate-menu-score ?ins))
 	)
 	(retract ?gm)
 )
@@ -362,38 +362,89 @@
 )
 
 (defrule generate-low-price-menu "Generate low price menu"
-  (declare (salience -13))
   (event price-min ?price-min)
+  (not (event drink-per-dish ?))
 	(generated-menus low-menu ?)
 	=>
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
-  (bind ?menu (get-menu-valoration ?menus ?price-min))
-  (print-menu ?menu "Cheap menu" FALSE)
+  (bind ?menu (get-menu-valoration ?menus ?price-min FALSE))
+  (assert (printable-menu ?menu "Cheap menu"))
   (punish-menu-repetitions ?menu)
 )
 
 (defrule generate-medium-price-menu "Generate medium price menu"
-  (declare (salience -13))
   (event price-min ?price-min)
   (menus price-max ?price-max)
+  (not (event drink-per-dish ?))
 	(generated-menus medium-menu ?)
 	=>
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
   (bind ?price-mean (/ (+ ?price-min ?price-max) 2))
-  (bind ?menu (get-menu-valoration ?menus ?price-mean))
-  (print-menu ?menu "Medium menu" FALSE)
+  (bind ?menu (get-menu-valoration ?menus ?price-mean FALSE))
+  (assert (printable-menu ?menu "Cheap menu"))
   (punish-menu-repetitions ?menu)
 )
 
 (defrule generate-high-price-menu "Generates higher price menu"
-  (declare (salience -13))
   (menus price-max ?price-max)
+  (not (event drink-per-dish ?))
 	(generated-menus high-menu ?)
 	=>
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
-  (bind ?menu (get-menu-valoration ?menus ?price-max))
-  (print-menu ?menu "Expensive menu" FALSE)
+  (bind ?menu (get-menu-valoration ?menus ?price-max FALSE))
+  (assert (printable-menu ?menu "Cheap menu"))
   (punish-menu-repetitions ?menu)
+)
+
+(defrule generate-low-price-menu-dpd "Generate low price menu"
+  (event price-min ?price-min)
+  (event drink-per-dish ?)
+	(generated-menus low-menu ?)
+	=>
+  (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
+  (bind ?menu (get-menu-valoration ?menus ?price-min TRUE))
+  (assert (printable-menu ?menu "Cheap menu"))
+  (punish-menu-repetitions ?menu)
+)
+
+(defrule generate-medium-price-menu-dpd "Generate medium price menu"
+  (event price-min ?price-min)
+  (menus price-max ?price-max)
+  (event drink-per-dish ?)
+	(generated-menus medium-menu ?)
+	=>
+  (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
+  (bind ?price-mean (/ (+ ?price-min ?price-max) 2))
+  (bind ?menu (get-menu-valoration ?menus ?price-mean TRUE))
+  (assert (printable-menu ?menu "Cheap menu"))
+  (punish-menu-repetitions ?menu)
+)
+
+(defrule generate-high-price-menu-dpd "Generates higher price menu"
+  (menus price-max ?price-max)
+  (event drink-per-dish ?)
+	(generated-menus high-menu ?)
+	=>
+  (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
+  (bind ?menu (get-menu-valoration ?menus ?price-max TRUE))
+  (assert (printable-menu ?menu "Cheap menu"))
+  (punish-menu-repetitions ?menu)
+)
+
+(defrule print-menus-std "Prints normal menus in desired format"
+  (declare (salience -13))
+  (not (event drink-per-dish ?))
+  (printable-menu ?menu ?header)
+  =>
+  (print-menu ?menu ?header FALSE)
+)
+
+(defrule print-menus-dpd "Prints menus with a drink for each dish"
+  (declare (salience -13))
+  (event drink-per-dish ?)
+  (printable-menu ?menu ?header)
+  =>
+  (print-menu ?menu ?header TRUE)
 )
 
 (defrule print-bon-appetit "Elegant ASCII draw"
