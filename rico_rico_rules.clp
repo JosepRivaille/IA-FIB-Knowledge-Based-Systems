@@ -246,7 +246,9 @@
 	?gm <- (generated-menu ?main ?second ?dessert)
 	=>
 	(loop-for-count (?i 1 (length$ ?drinks)) do
-		(assert (generated-menu ?main ?second ?dessert (nth$ ?i ?drinks)))
+		(if (drink-combine (nth$ ?i ?drinks) ?main) then
+      (assert (generated-menu ?main ?second ?dessert (nth$ ?i ?drinks)))
+    )
 	)
 	(retract ?gm)
 )
@@ -258,7 +260,9 @@
 	?gm <- (generated-menu ?main ?second ?dessert)
 	=>
 	(loop-for-count (?i 1 (length$ ?drinks)) do
-		(assert (generated-menu ?main ?second ?dessert (nth$ ?i ?drinks)))
+    (if (drink-combine (nth$ ?i ?drinks) ?main) then
+		  (assert (generated-menu ?main ?second ?dessert (nth$ ?i ?drinks)))
+    )
 	)
   (retract ?gm)
 )
@@ -270,7 +274,9 @@
 	?gm <- (generated-menu ?main ?second ?dessert ?main-drink)
 	=>
 	(loop-for-count (?i 1 (length$ ?drinks)) do
-		(assert (generated-menu ?main ?second ?dessert ?main-drink (nth$ ?i ?drinks)))
+    (if (drink-combine (nth$ ?i ?drinks) ?second) then
+		  (assert (generated-menu ?main ?second ?dessert ?main-drink (nth$ ?i ?drinks)))
+    )
 	)
 	(retract ?gm)
 )
@@ -283,7 +289,9 @@
 	?gm <- (generated-menu ?main ?second ?dessert ?main-drink ?second-drink)
 	=>
 	(loop-for-count (?i 1 (length$ ?drinks)) do
-		(assert (generated-menu ?main ?second ?dessert ?main-drink ?second-drink (nth$ ?i ?drinks)))
+    (if (drink-combine (nth$ ?i ?drinks) ?dessert) then
+		  (assert (generated-menu ?main ?second ?dessert ?main-drink ?second-drink (nth$ ?i ?drinks)))
+    )
 	)
   (retract ?gm)
 )

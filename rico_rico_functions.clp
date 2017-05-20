@@ -156,7 +156,26 @@
   FALSE
 )
 
+(deffunction drink-combine (?drink ?dish)
+  (if (and
+    (collection-contains-alo-element (send ?dish get-dish-combination) (send ?drink get-drink-combination))
+    (collection-contains-alo-element (send ?drink get-drink-combination) (send ?dish get-dish-combination))
+  ) then (return TRUE))
+  FALSE
+)
+
 (deffunction acceptable-for-kids (?menu)
+  (bind ?difficulty
+    (+
+      (send (send ?menu get-main-course) get-dish-difficulty)
+      (send (send ?menu get-second-course) get-dish-difficulty)
+      (send (send ?menu get-dessert) get-dish-difficulty)
+    )
+  )
+  (if (> ?difficulty 10) then (return FALSE))
+  (bind ?drink-categories (send (send ?menu get-menu-drink) get-drink-classification))
+  (if (collection-contains-alo-element (create$ Alcohol Caffeine) ?drink-categories)
+    then (return FALSE))
   TRUE
 )
 
