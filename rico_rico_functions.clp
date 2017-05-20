@@ -365,3 +365,40 @@
     (printout t "*-------------------------------------------------------------------------------------" crlf)
   )
 )
+
+(deffunction print-sorted-menus (?menu1 ?menu2 ?menu3)
+  (bind ?price1 (send ?menu1 get-menu-price))
+  (bind ?price2 (send ?menu2 get-menu-price))
+  (bind ?price3 (send ?menu3 get-menu-price))
+
+  (if (and (< ?price1 ?price2) (< ?price1 ?price3)) then
+    (print-menu ?menu1 "Cheap menu" FALSE)
+    (if (< ?price2 ?price3) then
+      (print-menu ?menu2 "Medium price menu" FALSE)
+      (print-menu ?menu3 "Expensive menu" FALSE)
+    else
+      (print-menu ?menu3 "Medium price menu" FALSE)
+      (print-menu ?menu2 "Expensive menu" FALSE)    
+    )
+  )
+  (if (and (< ?price2 ?price1) (< ?price2 ?price3)) then
+    (print-menu ?menu2 "Cheap menu" FALSE)
+    (if (< ?price1 ?price3) then
+      (print-menu ?menu1 "Medium price menu" FALSE)
+      (print-menu ?menu3 "Expensive menu" FALSE)
+    else
+      (print-menu ?menu3 "Medium price menu" FALSE)
+      (print-menu ?menu1 "Expensive menu" FALSE)    
+    )
+  )
+  (if (and (< ?price3 ?price1) (< ?price3 ?price2)) then
+    (print-menu ?menu3 "Cheap menu" FALSE)
+    (if (< ?price1 ?price2) then
+      (print-menu ?menu1 "Medium price menu" FALSE)
+      (print-menu ?menu2 "Expensive menu" FALSE)
+    else
+      (print-menu ?menu2 "Medium price menu" FALSE)
+      (print-menu ?menu1 "Expensive menu" FALSE)    
+    )
+  )
+)
