@@ -27,7 +27,9 @@
 	(not (event event-type ?))
 	=>
 	(bind ?type (ask-question-opt "Which type of event will it be? " ?*EVENT_TYPES*))
-	(assert (event event-type ?type))
+  (if (eq ?type Familiar) then
+    (assert (event familiar TRUE))
+  )
 )
 
 (defrule determine-event-date "Asks for dates"
@@ -212,7 +214,7 @@
 	(second-courses $?second-courses)
 	?gm <- (generated-menu ?main)
 	=>
-	(loop-for-count (?i 1 (length$ ?second-courses)) do
+  (loop-for-count (?i 1 (length$ ?second-courses)) do
 		(if (are-different-and-combine ?main (nth$ ?i ?second-courses)) then
 			(assert (generated-menu ?main (nth$ ?i ?second-courses)))
 		)
@@ -225,7 +227,7 @@
 	(desserts $?desserts)
 	?gm <- (generated-menu ?main ?second)
 	=>
-	(loop-for-count (?i 1 (length$ ?desserts)) do
+  (loop-for-count (?i 1 (length$ ?desserts)) do
 		(if
 			(and
 				(are-different-and-combine ?main (nth$ ?i ?desserts))
@@ -286,6 +288,27 @@
   (retract ?gm)
 )
 
+(defrule validate-general-menu-familiar ""
+  (declare (salience -11))
+  ?ef <- (event familiar ?child-menu)
+  ?gm <- (generated-menu ?main ?second ?dessert ?drink)
+  =>
+  (bind ?total-price (+ (calculate-price-dishes ?main ?second ?dessert) (calculate-price-drinks ?drink)))
+  (bind ?ins
+    (make-instance (gensym) of Menu
+      (main-course ?main)
+      (second-course ?second)
+      (dessert ?dessert)
+      (menu-drink ?drink)
+      (menu-price ?total-price)
+    )
+  )
+  (if (and ?child-menu (acceptable-for-kids ?ins)) then
+    (retract ?ef)
+    (assert (event child-menu ?ins))
+  )
+)
+
 (defrule validate-general-menu ""
   (declare (salience -11))
 	(not (event drink-per-dish ?))
@@ -334,19 +357,23 @@
 			(menu-price ?total-price)
 		)
 	)
-        (bind ?factor-res (length$ ?restrictions))
-        (bind ?factor-pre (length$ ?preferences))
-        (if (eq (nth$ 1 ?restrictions) none) then (bind ?factor-res 0))
-        (if (eq (nth$ 1 ?preferences) any) then (bind ?factor-pre 1))
-        (bind ?score (calculate-menu-score ?ins))
-        (if (< ?score (max (- 55 (* 30 ?factor-res) (- 30 (/ 30 ?factor-pre))) 0))
-                then (send ?ins delete)  
-        else
-                (if (> ?total-price ?menu-max) then
-                        (retract ?pm)
-                        (assert (menus price-max ?total-price))
-                        (send ?ins put-menu-score ?score)
-                )
+  (bind ?factor-res (length$ ?restrictions))
+  (bind ?factor-pre (length$ ?preferences))
+  (if (eq (nth$ 1 ?restrictions) none)
+    then (bind ?factor-res 0)
+    else (bind ?factor-res (* 30 ?factor-res)))
+  (if (eq (nth$ 1 ?preferences) any)
+    then (bind ?factor-pre 0)
+    else (bind ?factor-pre (* 2 (- 12 ?factor-pre))))
+  (bind ?score (calculate-menu-score ?ins))
+  (if (< ?score (max (- 55 ?factor-res ?factor-pre) 0))
+    then (send ?ins delete)  
+    else
+      (if (> ?total-price ?menu-max) then
+        (retract ?pm)
+        (assert (menus price-max ?total-price))
+        (send ?ins put-menu-score ?score)
+      )
 	)
 	(retract ?gm)
 )
@@ -393,7 +420,7 @@
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
   (bind ?price-mean (/ (+ ?price-min ?price-max) 2))
   (bind ?menu (get-menu-valoration ?menus ?price-mean FALSE))
-  (assert (printable-menu ?menu "Cheap menu"))
+  (assert (printable-menu ?menu "Medium price menu"))
   (punish-menu-repetitions ?menu)
 )
 
@@ -404,7 +431,7 @@
 	=>
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
   (bind ?menu (get-menu-valoration ?menus ?price-max FALSE))
-  (assert (printable-menu ?menu "Cheap menu"))
+  (assert (printable-menu ?menu "Expensive menu"))
   (punish-menu-repetitions ?menu)
 )
 
@@ -428,7 +455,7 @@
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
   (bind ?price-mean (/ (+ ?price-min ?price-max) 2))
   (bind ?menu (get-menu-valoration ?menus ?price-mean TRUE))
-  (assert (printable-menu ?menu "Cheap menu"))
+  (assert (printable-menu ?menu "Medium price menu"))
   (punish-menu-repetitions-dpd ?menu)
 )
 
@@ -439,8 +466,14 @@
 	=>
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
   (bind ?menu (get-menu-valoration ?menus ?price-max TRUE))
-  (assert (printable-menu ?menu "Cheap menu"))
+  (assert (printable-menu ?menu "Expensive menu"))
   (punish-menu-repetitions-dpd ?menu)
+)
+
+(defrule generate-child-menu ""
+  (event child-menu ?menu)
+  =>
+  (assert (printable-menu ?menu "Child menu"))
 )
 
 (defrule print-menus-std "Prints normal menus in desired format"

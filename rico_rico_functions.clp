@@ -156,6 +156,10 @@
   FALSE
 )
 
+(deffunction acceptable-for-kids (?menu)
+  TRUE
+)
+
 (deffunction is-easy-enough (?guests ?dish-difficulty)
   (if (< ?dish-difficulty 4) then
     (return TRUE)
