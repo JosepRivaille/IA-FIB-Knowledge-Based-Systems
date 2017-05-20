@@ -5,10 +5,10 @@
 ;%%%%%
 
 (defglobal
-        ?*EVENT_TYPES* = (create$ Familiar Congress)
-        ?*DRINK_TYPES* = (create$ Alcohol Soft-drinks Caffeine Juice none)
-        ?*CUISINE_STYLES* = (create$ Mediterranean Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet any)
-        ?*DIETARY_RESTRICTIONS* = (create$ Gluten-free Vegan Vegetarian Lactose-free Kosher Islamic none)
+  ?*EVENT_TYPES* = (create$ Familiar Congress)
+  ?*DRINK_TYPES* = (create$ Alcohol Soft-drinks Caffeine Juice none)
+  ?*CUISINE_STYLES* = (create$ Mediterranean Spanish Italian French Chinese Japanese Turkish American Mexican Indian Moroccan Gourmet any)
+  ?*DIETARY_RESTRICTIONS* = (create$ Gluten-free Vegan Vegetarian Lactose-free Kosher Islamic none)
 )
 
 ;%%%%%
@@ -18,17 +18,16 @@
 ;%%%%%
 
 (deffunction ask-question-yes-no (?question)
-        (printout t "| > " ?question crlf "| ")
-        (bind ?answer (read))
-        (bind ?allowed-values (create$ Yes No yes no Y N y n))
-        (while (not (member$ ?answer ?allowed-values)) do
-                (printout t "| > " ?question crlf "| ")
-                (bind ?answer (read))
-        )
-  (if (or (eq ?answer Yes) (eq ?answer yes) (eq ?answer Y) (eq ?answer y)) then
-    TRUE
-  else
-    FALSE
+  (printout t "| > " ?question crlf "| ")
+  (bind ?answer (read))
+  (bind ?allowed-values (create$ Yes No yes no Y N y n))
+  (while (not (member$ ?answer ?allowed-values)) do
+    (printout t "| > " ?question crlf "| ")
+    (bind ?answer (read))
+  )
+  (if (or (eq ?answer Yes) (eq ?answer yes) (eq ?answer Y) (eq ?answer y))
+  then TRUE
+  else FALSE
   )
 )
 
@@ -38,14 +37,14 @@
   (while (not (member$ ?answer ?allowed-values)) do
     (printout t "| > " ?question crlf "| ")
     (bind ?answer (read))
-        )
+  )
   ?answer
 )
 
 (deffunction ask-question-multi-opt (?question ?allowed-values)
-        (printout t "| > " ?question ?allowed-values crlf "| ")
-        (bind ?line (readline))
-        (bind $?answer (explode$ ?line))
+  (printout t "| > " ?question ?allowed-values crlf "| ")
+  (bind ?line (readline))
+  (bind $?answer (explode$ ?line))
   (bind ?valid FALSE)
   (while (not ?valid) do
     (loop-for-count (?i 1 (length$ $?answer)) do
@@ -53,7 +52,7 @@
       (bind ?value-belongs FALSE)
       (loop-for-count (?j 1 (length$ $?allowed-values)) do
         (if (eq (nth$ ?i $?answer) (nth$ ?j $?allowed-values)) then
-                (bind ?value-belongs TRUE)
+          (bind ?value-belongs TRUE)
           (break)
         )
       )
@@ -73,23 +72,23 @@
 )
 
 (deffunction ask-question-date-format (?question)
-        (printout t "| > " ?question crlf "| ")
-        (while TRUE do
-                (bind ?date (readline))
-                (bind $?answer (explode$ ?date))
-                (if (not (eq (length$ ?answer) 3)) then
-                        (printout t "| > Incorrect format, date should have the format HH DD MM" crlf "| ")
-                else (if (and
-                        (and (>= (nth$ 1 ?answer) 0) (<= (nth$ 1 ?answer) 24))
-                        (and (>= (nth$ 2 ?answer) 1) (<= (nth$ 2 ?answer) 31))
-                        (and (>= (nth$ 3 ?answer) 1) (<= (nth$ 3 ?answer) 12))
-                ) then
-                        (break)
-                else
-                        (printout t "| > Check that date is valid" crlf "| ")
-                ))
-        )
-        ?answer
+  (printout t "| > " ?question crlf "| ")
+  (while TRUE do
+    (bind ?date (readline))
+    (bind $?answer (explode$ ?date))
+    (if (not (eq (length$ ?answer) 3)) then
+      (printout t "| > Incorrect format, date should have the format HH DD MM" crlf "| ")
+    else (if (and
+      (and (>= (nth$ 1 ?answer) 0) (<= (nth$ 1 ?answer) 24))
+      (and (>= (nth$ 2 ?answer) 1) (<= (nth$ 2 ?answer) 31))
+      (and (>= (nth$ 3 ?answer) 1) (<= (nth$ 3 ?answer) 12))
+    ) then
+      (break)
+    else
+      (printout t "| > Check that date is valid" crlf "| ")
+    ))
+  )
+  ?answer
 )
 
 (deffunction is-num (?num)
@@ -107,47 +106,44 @@
 )
 
 (deffunction collection-contains-alo-element (?elements ?collection)
-        (loop-for-count (?i 1 (length$ ?elements)) do
-                (loop-for-count (?j 1 (length$ ?collection)) do
-                        (if (eq (nth$ ?i ?elements) (nth$ ?j ?collection)) then
-                                (return TRUE)
-                        )
-                )
-        )
-        FALSE
+  (loop-for-count (?i 1 (length$ ?elements)) do
+    (loop-for-count (?j 1 (length$ ?collection)) do
+      (if (eq (nth$ ?i ?elements) (nth$ ?j ?collection))
+      then (return TRUE))
+    )
+  )
+  FALSE
 )
 
 
 (deffunction collection-contains-all-elements (?elements ?collection)
-        (loop-for-count (?i 1 (length$ ?elements)) do
-                (bind ?found FALSE)
-                (loop-for-count (?j 1 (length$ ?collection)) do
-                        (if (eq (nth$ ?i ?elements) (nth$ ?j ?collection)) then
-                                (bind ?found TRUE)
-                                (break)
-                        )
-                )
-                (if (not ?found) then
-                        (return FALSE)
-                )
-        )
-        TRUE
+  (loop-for-count (?i 1 (length$ ?elements)) do
+    (bind ?found FALSE)
+    (loop-for-count (?j 1 (length$ ?collection)) do
+      (if (eq (nth$ ?i ?elements) (nth$ ?j ?collection)) then
+        (bind ?found TRUE)
+        (break)
+      )
+    )
+    (if (not ?found) then (return FALSE))
+  )
+  TRUE
 )
 
 (deffunction calculate-price-drinks ($?elements)
-        (bind ?price 0.0)
-        (loop-for-count (?i 1 (length$ ?elements))
-                (bind ?price (+ ?price (send (nth$ ?i ?elements) get-drink-price)))
-        )
-        ?price
+  (bind ?price 0.0)
+  (loop-for-count (?i 1 (length$ ?elements))
+    (bind ?price (+ ?price (send (nth$ ?i ?elements) get-drink-price)))
+  )
+  ?price
 )
 
 (deffunction calculate-price-dishes ($?elements)
-        (bind ?price 0.0)
-        (loop-for-count (?i 1 (length$ ?elements))
-                (bind ?price (+ ?price (send (nth$ ?i ?elements) get-dish-price)))
-        )
-        ?price
+  (bind ?price 0.0)
+  (loop-for-count (?i 1 (length$ ?elements))
+    (bind ?price (+ ?price (send (nth$ ?i ?elements) get-dish-price)))
+  )
+  ?price
 )
 
 (deffunction are-different-and-combine (?first-dish ?second-dish)
@@ -161,30 +157,29 @@
 )
 
 (deffunction is-easy-enough (?guests ?dish-difficulty)
-        (if (< ?dish-difficulty 4) then
-                (return TRUE)
-        )
-        (<= ?dish-difficulty (- 10 (div ?guests 100)))
+  (if (< ?dish-difficulty 4) then
+    (return TRUE)
+  )
+  (<= ?dish-difficulty (- 10 (div ?guests 100)))
 )
 
 (deffunction all-ingredients-available (?month ?ingredients)
-        (loop-for-count (?i 1 (length$ ?ingredients)) do
-                (bind ?availability (send (nth$ ?i ?ingredients) get-ing-availability))
-                (if (and
-                        (not (member$ 0 ?availability))
-                        (not (member$ ?month ?availability))) then
-                                (return FALSE)
-                )
-        )
-        TRUE
+  (loop-for-count (?i 1 (length$ ?ingredients)) do
+    (bind ?availability (send (nth$ ?i ?ingredients) get-ing-availability))
+    (if (and
+      (not (member$ 0 ?availability))
+      (not (member$ ?month ?availability)))
+    then (return FALSE))
+  )
+  TRUE
 )
 
 (deffunction calculate-non-helathy (?ingredient)
-        (+
-                (/ (send ?ingredient get-calories) 500)
-                (/ (send ?ingredient get-fat) 200)
-                (/ (send ?ingredient get-cholesterol) 100)
-        )
+  (+
+    (/ (send ?ingredient get-calories) 500)
+    (/ (send ?ingredient get-fat) 200)
+    (/ (send ?ingredient get-cholesterol) 100)
+  )
 )
 
 (deffunction variety-nutrition (?ingredient)
