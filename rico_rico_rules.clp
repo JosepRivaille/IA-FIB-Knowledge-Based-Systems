@@ -315,6 +315,8 @@
   (event drink-per-dish ?)
 	(event price-min ?price-min)
 	(event price-max ?price-max)
+  (event dietary-restrictions $?restrictions)
+  (event preferred-cuisine-styles $?preferences)
   ?pm <- (menus price-max ?menu-max)
 	?gm <- (generated-menu ?main ?second ?dessert ?main-drink ?second-drink ?dessert-drink)
 	=>
@@ -332,8 +334,12 @@
 			(menu-price ?total-price)
 		)
 	)
+        (bind ?factor-res (length$ ?restrictions))
+        (bind ?factor-pre (length$ ?preferences))
+        (if (eq (nth$ 1 ?restrictions) none) then (bind ?factor-res 0))
+        (if (eq (nth$ 1 ?preferences) any) then (bind ?factor-pre 1))
         (bind ?score (calculate-menu-score ?ins))
-        (if (< ?score 55)
+        (if (< ?score (max (- 55 (* 30 ?factor-res) (- 30 (/ 30 ?factor-pre))) 0))
                 then (send ?ins delete)  
         else
                 (if (> ?total-price ?menu-max) then
