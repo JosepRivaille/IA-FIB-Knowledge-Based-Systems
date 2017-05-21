@@ -226,11 +226,7 @@
 	?gm <- (generated-menu ?main ?second)
 	=>
   (loop-for-count (?i 1 (length$ ?desserts)) do
-		(if
-			(and
-				(are-different-and-combine ?main (nth$ ?i ?desserts))
-				(are-different-and-combine ?second (nth$ ?i ?desserts))
-			) then
+		(if (are-different-and-combine ?main (nth$ ?i ?desserts)) then
 			(assert (generated-menu ?main ?second (nth$ ?i ?desserts)))
 		)
 	)
@@ -243,9 +239,9 @@
 	(general-drinks $?drinks)
 	?gm <- (generated-menu ?main ?second ?dessert)
 	=>
-	(loop-for-count (?i 1 (length$ ?drinks)) do
+  (loop-for-count (?i 1 (length$ ?drinks)) do
 		(if
-      (and 
+      (and
         (drink-combine (nth$ ?i ?drinks) ?main)
         (drink-combine (nth$ ?i ?drinks) ?second)
         (drink-combine (nth$ ?i ?drinks) ?dessert)
@@ -419,7 +415,7 @@
     else (bind ?factor-pre (* 2 (- 12 ?factor-pre))))
   (bind ?score (calculate-menu-score ?ins))
   (if (< ?score (max (- 55 ?factor-res ?factor-pre) 0))
-    then (send ?ins delete)  
+    then (send ?ins delete)
     else
       (if (> ?total-price ?menu-max) then
         (retract ?pm)
