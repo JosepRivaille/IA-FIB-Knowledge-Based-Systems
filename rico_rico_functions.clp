@@ -156,9 +156,12 @@
 )
 
 (deffunction drink-combine (?drink ?dish)
-  (if (and
-    (collection-contains-alo-element (send ?dish get-dish-combination) (send ?drink get-drink-combination))
-    (collection-contains-alo-element (send ?drink get-drink-combination) (send ?dish get-dish-combination))
+  (if (or
+    (eq (send ?drink get-drink-combination) (create$ All))
+    (and
+      (collection-contains-alo-element (send ?dish get-dish-combination) (send ?drink get-drink-combination))
+      (collection-contains-alo-element (send ?drink get-drink-combination) (send ?dish get-dish-combination))
+    )
   ) then (return TRUE))
   FALSE
 )
