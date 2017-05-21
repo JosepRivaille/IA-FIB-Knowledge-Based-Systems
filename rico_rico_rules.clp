@@ -36,7 +36,7 @@
   (declare (salience -2))
   (not (and (event month ?) (event hour ?)))
   =>
-  (bind $?answer (ask-question-date-format "Tell me the event data [DD MM]"))
+  (bind $?answer (ask-question-date-format "Tell me the event date [DD MM]"))
 	(bind ?day (nth$ 2 ?answer))
 	(bind ?month (nth$ 3 ?answer))
   (assert (event day ?day))
@@ -570,6 +570,26 @@
     )
   )
   (print-menu ?menu "Child menu" FALSE)
+)
+
+(defrule print-all-menus ""
+  (declare (salience -14))
+  (not (event drink-per-dish ?))
+  (generated-menus all-menus $?menus)
+  =>
+  (loop-for-count (?i 1 (length$ ?menus)) do
+    (print-menu (nth$ ?i ?menus) "Menu" FALSE)
+  )
+)
+
+(defrule print-all-menus-dpd ""
+  (declare (salience -14))
+  (event drink-per-dish ?)
+  (generated-menus all-menus $?menus)
+  =>
+  (loop-for-count (?i 1 (length$ ?menus)) do
+    (print-menu (nth$ ?i ?menus) "Menu" TRUE)
+  )
 )
 
 (defrule print-bon-appetit "Elegant ASCII draw"
