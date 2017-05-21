@@ -522,7 +522,7 @@
 (defrule generate-child-menu ""
   (event child-menu ?menu)
   =>
-  (assert (printable-menu child ?menu "Child menu"))
+  (assert (printable-menu child ?menu "Kids menu"))
 )
 
 (defrule print-menus-std "Prints normal menus in desired format"
@@ -565,7 +565,7 @@
       (menu-price ?price)
     )
   )
-  (print-menu ?menu "Child menu" FALSE)
+  (print-menu ?menu "Kids menu" FALSE)
 )
 
 (defrule print-all-menus ""
