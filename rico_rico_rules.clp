@@ -303,7 +303,9 @@
 
 (defrule validate-general-menu-familiar ""
   (declare (salience -11))
-  ?ef <- (event familiar ?child-menu)
+  (not (event drink-per-dish ?))
+  ?ef <- (event familiar ?)
+  ?pm <- (menus price-max ?menu-max)
   ?gm <- (generated-menu ?main ?second ?dessert ?drink)
   =>
   (bind ?total-price (+ (calculate-price-dishes ?main ?second ?dessert) (calculate-price-drinks ?drink)))
@@ -316,15 +318,22 @@
       (menu-price ?total-price)
     )
   )
-  (if (and ?child-menu (acceptable-for-kids ?ins)) then
+  (if (acceptable-for-kids ?ins) then
     (retract ?ef)
     (assert (event child-menu ?ins))
   )
+  (if (> ?total-price ?menu-max) then
+    (retract ?pm)
+    (assert (menus price-max ?total-price))
+  )
+  (send ?ins put-menu-score (calculate-menu-score ?ins))
+  (retract ?gm)
 )
 
 (defrule validate-general-menu ""
   (declare (salience -11))
 	(not (event drink-per-dish ?))
+  (not (event familiar ?))
   ?pm <- (menus price-max ?menu-max)
 	?gm <- (generated-menu ?main ?second ?dessert ?drink)
 	=>
@@ -508,8 +517,15 @@
   (print-menu ?menu ?header TRUE)
 )
 
+(defrule print-child-menu ""
+  (declare (salience -14))
+  (printable-menu child ?menu ?header)
+  =>
+  (print-menu ?menu ?header FALSE)
+)
+
 (defrule print-bon-appetit "Elegant ASCII draw"
-	(declare (salience -14))
+	(declare (salience -15))
 	=>
 	(printout t "|                  ___/___/" crlf)
   (printout t "|                  \\,/ \\,/" crlf)
