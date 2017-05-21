@@ -34,13 +34,11 @@
 
 (defrule determine-event-date "Asks for dates"
   (declare (salience -2))
-  (not (and (event day ?) (event month ?) (event hour ?)))
+  (not (and (event month ?) (event hour ?)))
   =>
-  (bind $?answer (ask-question-date-format "Tell me the event data [HH DD MM]"))
-	(bind ?hour (nth$ 1 ?answer))
+  (bind $?answer (ask-question-date-format "Tell me the event data [DD MM]"))
 	(bind ?day (nth$ 2 ?answer))
 	(bind ?month (nth$ 3 ?answer))
-	(assert (event hour ?hour))
   (assert (event day ?day))
   (assert (event month ?month))
 )
@@ -321,12 +319,14 @@
   (if (acceptable-for-kids ?ins) then
     (retract ?ef)
     (assert (event child-menu ?ins))
+    (send ?ins put-menu-score 0)
+  else
+    (send ?ins put-menu-score (calculate-menu-score ?ins))
   )
   (if (> ?total-price ?menu-max) then
     (retract ?pm)
     (assert (menus price-max ?total-price))
   )
-  (send ?ins put-menu-score (calculate-menu-score ?ins))
   (retract ?gm)
 )
 
@@ -353,6 +353,36 @@
   )
 	(send ?ins put-menu-score (calculate-menu-score ?ins))
 	(retract ?gm)
+)
+
+(defrule validate-drink-per-dish-menu-familiar ""
+  (declare (salience -11))
+  (event drink-per-dish ?)
+  ?ef <- (event familiar ?)
+  ?gm <- (generated-menu ?main ?second ?dessert ?main-drink ?second-drink ?dessert-drink)
+  =>
+  (bind ?drink (nth$ (+ (mod (random) 3) 1) (create$ ?main-drink ?second-drink ?dessert-drink)))
+  (bind ?total-price (+ (calculate-price-dishes ?main ?second ?dessert) (calculate-price-drinks ?drink)))
+  (bind ?ins
+    (make-instance (gensym) of Menu
+      (main-course ?main)
+      (second-course ?second)
+      (dessert ?dessert)
+      (menu-drink ?drink)
+      (menu-price ?total-price)
+    )
+  )
+  (if (acceptable-for-kids ?ins) then
+    (retract ?ef)
+    (assert (printable-menu child-data
+      (send ?ins get-main-course)
+      (send ?ins get-second-course)
+      (send ?ins get-dessert)
+      (send ?ins get-menu-drink)
+      (send ?ins get-menu-price)
+    ))
+  )
+  (send ?ins delete)
 )
 
 (defrule validate-drink-per-dish-menu ""
@@ -489,7 +519,7 @@
 	=>
   (bind ?menus (find-all-instances ((?ins Menu)) TRUE))
   (bind ?menu (get-menu-valoration ?menus ?price-max TRUE))
-  (assert (printable-menu expensive ?menu))
+  (assert (printable-menu high ?menu))
   (punish-menu-repetitions-dpd ?menu)
 )
 
@@ -506,15 +536,17 @@
   (printable-menu medium ?menu2)
   (printable-menu high ?menu3)
   =>
-  (print-sorted-menus ?menu1 ?menu2 ?menu3)
+  (print-sorted-menus ?menu1 ?menu2 ?menu3 FALSE)
 )
 
 (defrule print-menus-dpd "Prints menus with a drink for each dish"
   (declare (salience -13))
   (event drink-per-dish ?)
-  (printable-menu ?menu ?header)
+  (printable-menu cheap ?menu1)
+  (printable-menu medium ?menu2)
+  (printable-menu high ?menu3)
   =>
-  (print-menu ?menu ?header TRUE)
+  (print-sorted-menus ?menu1 ?menu2 ?menu3 TRUE)
 )
 
 (defrule print-child-menu ""
@@ -522,6 +554,22 @@
   (printable-menu child ?menu ?header)
   =>
   (print-menu ?menu ?header FALSE)
+)
+
+(defrule print-child-menu-dpd ""
+  (declare (salience -14))
+  (printable-menu child-data ?main ?second ?dessert ?drink ?price)
+  =>
+  (bind ?menu
+    (make-instance (gensym) of Menu
+      (main-course ?main)
+      (second-course ?second)
+      (dessert ?dessert)
+      (menu-drink ?drink)
+      (menu-price ?price)
+    )
+  )
+  (print-menu ?menu "Child menu" FALSE)
 )
 
 (defrule print-bon-appetit "Elegant ASCII draw"
