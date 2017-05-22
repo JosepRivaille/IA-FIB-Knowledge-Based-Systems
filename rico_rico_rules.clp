@@ -1,3 +1,8 @@
+; Thu May 11 16:35:07 CEST 2017
+;
+;+ (version "3.5")
+;+ (build "Build 663")
+
 ;%%%%%
 ;%
 ;% DETERMINE USER RULES

@@ -1,0 +1,13 @@
+digraph "rico_rico" {
+
+"MainCourse" [shape=box, label="MainCourse", color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+"Dish"->"MainCourse" [dir=back, label=isa, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+"Drink" [shape=record, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", label="{Drink|{drink-name|String}|{drink-priority|Integer}|{drink-combination|Symbol*|{Vegetarian|Kosher|Islamic|...}}|{drink-price|Float}|{drink-type|Symbol*|{M|S|D|...}}|{...}}"]
+"Dish" [shape=record, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", label="{Dish|{dish-difficulty|Integer}|{dish-priority|Integer}|{dish-classification|Symbol*|{Vegetarian|Kosher|Islamic|...}}|{dish-name|String}|{dish-price|Float}|{...}}"]
+"SecondCourse" [shape=box, label="SecondCourse", color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+"Dish"->"SecondCourse" [dir=back, label=isa, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+"Ingredient" [shape=record, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", label="{Ingredient|{carbohydrates|Integer}|{cholesterol|Integer}|{fat|Integer}|{ing-name|String}|{protein|Integer}|{...}}"]
+"Menu" [shape=record, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", label="{Menu|{menu-price|Float}|{menu-drink|Instance|{Drink}}|{main-course-drink|Instance|{Drink}}|{main-course|Instance|{MainCourse}}|{second-course-drink|Instance|{Drink}}|{...}}"]
+"Dessert" [shape=box, label="Dessert", color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+"Dish"->"Dessert" [dir=back, label=isa, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+}
