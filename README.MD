@@ -14,12 +14,14 @@ Having a set of Ingredient, Dish and Drink instances it generates menus from tho
 #### Content
 This practice contains the following:
 
- * rico_rico.clp | Main clips file with rules and functions.
+ * rico_rico_rules.clp | Main clips file with rules.
+ * rico_rico_functions.clp | Main clips file with functions and globals.
  * rico_rico.pont | Protégé generated ontology.
  * rico_rico.pins | Protégé generated instances.
- * rico_rico.pins.clp | Protégé generated instances with clips format.
+ * rico_rico.pins.clp | Protégé generated instances with clips-readable format.
  * rico_rico.pprj | Protégé project.
  * run.clp | Automatizes program execution.
+ * doc.tex | Documentation file in LaTeX.
  * instance_generator.py | To automatize instances generation from instance files.
  * Instance files for each class (Ingredient Drink MainCourse SecondCourse Dessert).
 
@@ -35,8 +37,5 @@ If you are unable to install CLIPS via CLI, load each module manually in the sam
 To re-generate instances via Python script just follow next commands:
 
 ```bash
-python instance_generator.py Ingredient Drink MainCourse SecondCourse Dessert
+python instance_generator.py
 ```
-
-### Latex
-https://www.sharelatex.com/project/5903304e643b9b920b8ba506
