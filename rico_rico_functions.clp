@@ -269,9 +269,9 @@
   (bind ?second-classification (send (send ?menu get-second-course) get-dish-classification))
 
   (bind ?heuristic1 (heuristic-variety-main-second ?main-classification ?second-classification))
-  (if (< ?heuristic1 20) then (return 0))
+  (if (< ?heuristic1 10) then (return 0))
   (bind ?heuristic2 (heuristic-healthy ?menu))
-  (if (< ?heuristic2 15) then (return 0))
+  (if (< ?heuristic2 10) then (return 0))
   (return (+ ?heuristic1 ?heuristic2 (heuristic-variety-nutrition ?menu)))
 )
 
